@@ -10,4 +10,5 @@ alsa-utils-1.0.29/
 *.lot
 *.loT
 *.log
+*.pyc
 lib*.so
