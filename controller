@@ -1,0 +1,27 @@
+#!/bin/tcsh
+
+#  In case the server process fails to start before this script, loop round
+#  waiting one second on each loop.
+set found = 0
+while( $found == 0 )
+
+#  Get the port on which the fluidsynth server is listening. The server
+#  process should have been started before running this script.
+   set a = `/usr/bin/aplaymidi -l | grep FLUID`
+
+#  If the server was found, start aplaymidi in real-time server mode. It
+#  loop continuously, waiting for commands to be sent to it by a FIFO pipe
+#  at "/tmp/churchplayerfifo".
+   if( $status == 0 ) then
+      set found = 1
+      /usr/bin/aplaymidi -p $a[1] -r $1
+
+#  If no server was found, echo a message to standard error and exit the
+#  script with an error status.
+   else
+      echo "controller script could find no running server process" > /dev/stderr
+      sleep 1
+   endif
+
+end
+

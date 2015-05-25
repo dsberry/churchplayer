@@ -1,0 +1,4 @@
+killall -s KILL fluid
+killall -s KILL aplaymidi
+killall -s KILL listen
+

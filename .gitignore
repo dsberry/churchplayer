@@ -1,0 +1,13 @@
+listen
+sendcommand
+alsa-utils-1.0.29/
+*~
+*.o
+*.a
+*.la
+*.lo
+*.lof
+*.lot
+*.loT
+*.log
+lib*.so

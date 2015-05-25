@@ -1,0 +1,13 @@
+#!/bin/tcsh
+
+#  Kill any processes that are using the audio device (hw:0)
+
+set pid = `fuser -v /dev/snd/pcmC0D0p`
+while( $status == 0 )
+   kill $pid
+   set pid = `fuser -v /dev/snd/pcmC0D0p`
+end
+
+#  Start up the server process that creates the sound from the ALSA sequencer
+#  data.
+/usr/bin/fluidsynth --server --audio-driver=alsa -o audio.alsa.device=hw:0 /usr/share/sounds/sf2/FluidR3_GM.sf2
