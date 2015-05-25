@@ -1,0 +1,8 @@
+#!/bin/tcsh
+gcc -o sendcommand sendcommand.c
+gcc -o listen listen.c
+cp aplaymidi.c alsa-utils-1.0.29/seq/aplaymidi/
+cd alsa-utils-1.0.29
+sudo make install > log
+
+

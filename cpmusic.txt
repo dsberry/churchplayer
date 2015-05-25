@@ -1,0 +1,57 @@
+# Path to root directory for MIDI files
+# -------------------------------------
+r:/home/dsb/churchplayer/music
+
+# Column names and titles:
+# ------------------------
+c:TITLE Title
+c:PATH Path to MIDI file relative to root
+c:TAGS Classification tags
+c:BOOK Book
+c:NUMBER Number
+c:INSTR Instrumentation
+c:TRANS Semitones to transpose up or down
+c:NVERSE Number of verses
+c:COMP Composers
+c:COMM Comments
+c:ORIGIN Origin of the MIDI file
+
+# Known books:
+# ------------
+b:STF Singing the Faith
+b:HAP Hymns and Psalms
+b:MP Mission Praise
+
+# Known instrumentations:
+# -----------------------
+i:PIANO Piano solo
+i:ORGAN Organ solo
+i:BAND Worship band
+i:ORCH Orchestra
+i:JAZZ Small jazz ensemble
+i:BIG Big band
+
+# Known origins:
+# --------------
+o:DSB David Berry
+o:STF Singing the Faith disks
+
+# Classification tags (all single characters) and descriptions:
+# -------------------------------------------------------------
+t:H Hymn with regular repeated verses
+t:S Song with irregular verse/chorus pattern
+t:J Jolly - suitable for playing at end of service
+t:Q Quiet - suitable for playing at start of service
+t:M Modern (by Euxton's standard of what is "modern")
+t:Z Jazzy
+t:N Secular music
+t:V Harvest
+t:C Christmas
+t:E Easter
+
+
+
+# Data
+# ----
+Come you thankful people come@stf/123-Come-you-thankful-people.mid@HV@STF@123@PIANO@0@@@@STF
+
