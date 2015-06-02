@@ -80,6 +80,7 @@ struct track {
 
 #define RT__PLAYING 'p' /* A song is being played */
 #define RT__STOPPED 's' /* No song is being played */
+#define RT__ENDING  'e' /* Player is about to terminate */
 
 #define RT__FIFO_RD "/tmp/churchplayerfifo_rd"
 #define RT__FIFO_WR "/tmp/churchplayerfifo_wr"
@@ -759,6 +760,7 @@ static void play_midi(void)
         int ifade = -1;
         int first_event = 1;
         int max_fade;
+        int delay = 1;
 
 	/* calculate length of the entire file, and reset track info */
 	max_tick = -1;
@@ -816,11 +818,11 @@ static void play_midi(void)
                 if( ( rt_code == RT__STOP || rt_code == RT__FADE )
                      && ifade >= max_fade ) {
                    rt_code = RT__ABORT;
+                   delay = 0;
 
                 /* Stop now, by ending "all notes off" to all channels of
                    each track. */
                 } else if( rt_code == RT__ABORT ) {
-
                    ev.time.tick += 1;
                    ev.type = SND_SEQ_EVENT_CONTROLLER;
 
@@ -846,7 +848,8 @@ static void play_midi(void)
                    rt_create_fadeout_profile( RT__NFADE, fade_gains );
                    next_fade_tick = event->tick - 1;
                    ifade = 0;
-                   max_fade = (rt_code == RT__FADE) ? RT__NFADE : RT__NFADE/3;
+                   max_fade = (rt_code == RT__FADE) ? RT__NFADE : RT__NFADE/5;
+
                 } else if( rt_code != RT__FADE && rt_code != RT__STOP &&
                            rt_code != RT__ABORT ) {
                    rt_code =RT__NULL;
@@ -966,7 +969,7 @@ static void play_midi(void)
         }
 
 	/* give the last notes time to die away */
-	if (end_delay > 0)
+	if (delay && end_delay > 0)
 		sleep(end_delay);
 }
 
@@ -1006,7 +1009,6 @@ static void play_file(void)
 	}
 
         rt_send_reply( RT__PLAYING, file_name );
-
 
 	file_offset = 0;
 	ok = 0;
@@ -1163,7 +1165,6 @@ int main(int argc, char *argv[])
 		connect_ports();
 
                 if( rt_listen ) {
-
    	           if (optind >= argc) {
                       char cmd;
                       while( !rt_terminate ) {
@@ -1176,6 +1177,7 @@ int main(int argc, char *argv[])
                             if( cmd == RT__NULL ) sleep( 1 );
                          }
                       }
+                      rt_send_reply( RT__ENDING, NULL );
 
                    } else {
                       create_queue();
@@ -1220,11 +1222,15 @@ static int rt_create_fifo_rd( void ){
 
 static int rt_create_fifo_wr( void ){
     int istat = 1;
-    mkfifo( RT__FIFO_WR, 0666 );
-    rt_fdw = open( RT__FIFO_WR, O_WRONLY );
-    if( rt_fdw == -1 ) {
+    if( mkfifo( RT__FIFO_WR, 0666 ) ) {
        perror( "Failed to create churchplayer writer FIFO" );
        istat = 0;
+    } else {
+       rt_fdw = open( RT__FIFO_WR, O_WRONLY );
+       if( rt_fdw == -1 ) {
+          perror( "Failed to open churchplayer writer FIFO" );
+          istat = 0;
+       }
     }
     return istat;
 }
@@ -1408,7 +1414,11 @@ static void rt_send_reply( char code, const char *text ) {
          size_t len = strlen( text ) + 1;
          if( write( rt_fdw, text, len ) != len ) {
             rt_error( RT__BAD_FIFO_WR );
+         } else {
+            printf("aplaymidi: sent reply code %c (%s)\n", code,text );
          }
+      } else {
+         printf("aplaymidi: sent reply code %c\n", code );
       }
    }
 }

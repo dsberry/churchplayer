@@ -3,6 +3,8 @@
 import cpmodel
 import sys
 import time
+import stat
+import os
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -19,10 +21,126 @@ def add( layout, widget ):
    else:
       layout.addWidget( widget )
 
+# ----------------------------------------------------------------------
+class PlayerListener(QThread):
+   stopped = pyqtSignal()
+   started = pyqtSignal('QString')
+
+   def __init__(self):
+      QThread.__init__(self)
+
+   def run(self):
+      waited = 0
+      while waited < 20 and not stat.S_ISFIFO(os.stat(cpmodel.WFIFO).st_mode):
+         time.sleep(1)
+         waited += 1
+
+      if waited >= 20:
+         raise ChurchPlayerError("\n\nTimeout whilst waiting to "
+                                 "connect to the player process")
+      else:
+         fd = os.open(cpmodel.WFIFO, os.O_RDONLY)
+         code = ' '
+         while code != cpmodel.ENDING_CODE:
+            try:
+               code = os.read(fd,1)
+               print( "PlayerListener received '{0}'".format(code))
+               if code == cpmodel.PLAYING_CODE:
+                  path = os.read(fd,1000)
+                  self.started.emit( path )
+
+               elif code == cpmodel.STOPPED_CODE:
+                  self.stopped.emit()
+
+            except OSError:
+               pass
+
+
+         os.close(fd)
+
+
+# ----------------------------------------------------------------------
+class PlayerButton(QLabel):
+   size = 20
+   def __init__(self,parent,enabled,enabledFile,disabledFile,id):
+      QLabel.__init__(self,parent)
+      self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
+      self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
+      self.id = id
+      self.setAlignment(Qt.AlignHCenter)
+      self.setFixedSize( PlayerButton.size*1.1, PlayerButton.size*1.1 )
+      if enabled:
+         self.enable()
+      else:
+         self.disable()
+
+   def enable(self):
+      self.enabled = True
+      self.setPixmap(self.enabledPixmap)
+
+   def disable(self):
+      self.enabled = False
+      self.setPixmap(self.disabledPixmap)
+
+   def enterEvent(self,event):
+      QApplication.setOverrideCursor(QCursor(Qt.PointingHandCursor))
+
+   def leaveEvent(self,event):
+      QApplication.restoreOverrideCursor()
 
 
 
+# ----------------------------------------------------------------------
+class PlayerWidget(QWidget):
+   def __init__(self,parent,player,playable,end=cpmodel.STOP):
+      QWidget.__init__(self,parent)
+      self.player = player
+      self.playable = playable
+      self.end = end
 
+      self.layout = QHBoxLayout()
+      self.layout.setSpacing(0)
+      self.layout.addStretch()
+
+      self.playButton = PlayerButton( self, True, 'icons/Play.png',
+                                      'icons/Play-disabled.png', 'Play' )
+      self.playButton.mouseReleaseEvent = self.play
+      self.playButton.setToolTip("Click to play {0}".format(playable.desc()))
+      self.layout.addWidget(self.playButton)
+
+      self.stopButton = PlayerButton( self, False, 'icons/Stop.png',
+                                'icons/Stop-disabled.png', 'Stop' )
+      self.stopButton.mouseReleaseEvent = self.stop
+      self.stopButton.setToolTip("Click to stop {0}".format(playable.desc()))
+      self.layout.addWidget(self.stopButton)
+
+      self.layout.addStretch()
+      self.setLayout( self.layout )
+      self.setFixedSize( self.width(), self.height() )
+
+   def play(self, event ):
+      if self.playButton.enabled:
+         self.playButton.disable()
+         self.stopButton.enable()
+         self.player.listener.stopped.connect(self.ended)
+         self.player.play( self.playable, cpmodel.STOP )
+
+   def stop(self, event):
+      if self.stopButton.enabled:
+         self.playButton.enable()
+         self.stopButton.disable()
+         self.player.stop( self.end )
+
+   @pyqtSlot()
+   def ended(self):
+      if self.stopButton.enabled:
+         self.playButton.enable()
+         self.stopButton.disable()
+
+
+# ------------------------------------------------------------------------
+# ------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 
 class CatItem(object):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
@@ -311,8 +429,13 @@ class CatTable(QTableWidget):
          for con in controls:
             for irow in range(cat.nrow):
                if cat.midifiles[ irow ]:
-                  control = PlayerControl( self, con, cat.getRecord(irow),
-                                           self.player, irow  )
+
+                  if con == "p":
+                     control = PlayerWidget(self, self.player, cat.getRecord(irow))
+                  elif con == "c":
+                     control = PlayerControl( self, con, cat.getRecord(irow),
+                                              self.player, irow  )
+
                   self.setCellWidget( irow, icol, control )
 
             icol += 1
@@ -609,6 +732,15 @@ class ChurchPlayer(QMainWindow):
       toolbar.addAction(exitAction)
       toolbar.addAction(openAction)
 
+#  The central widget
+#      centralWidget = QWidget(self)
+#      layout = QVBoxLayout()
+#      centralWidget.setLayout( layout )
+#      self.setCentralWidget( centralWidget )
+#      add( layout, PlayerWidget( self, player,cat.getRecord(0) ) )
+      pw = PlayerWidget( self, player, cat.getRecord(0) )
+      self.setCentralWidget( pw )
+
 #  Set up the main window.
       self.setWindowTitle('Church Player')
       qr = app.desktop().availableGeometry()
@@ -619,8 +751,10 @@ class ChurchPlayer(QMainWindow):
       self.setGeometry( ax, ay, wid, hgt )
       self.show()
 
-#  Verify the catalogue and display any warnings.
-      cat.verify()
+
+
+
+#  Display any warnings about the catalogue.
       if len( cat.warnings ) > 0:
          mb = QMessageBox()
          mb.setText("Warnings were issued whilst reading the music "
@@ -699,7 +833,10 @@ class ChurchPlayer(QMainWindow):
 def main():
 
     cat = cpmodel.Catalogue()
+    cat.verify()
     player = cpmodel.Player()
+    player.listener = PlayerListener()
+    player.listener.start()
     app = QApplication(sys.argv)
     ex = ChurchPlayer( app, cat, player )
     sys.exit(app.exec_())

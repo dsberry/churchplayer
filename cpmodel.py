@@ -7,6 +7,12 @@ STOP_CMD = "s"
 PLAY_CMD = "p"
 EMPTY_CMD = "e"
 
+PLAYING_CODE = "p"
+STOPPED_CODE = "s"
+ENDING_CODE = "e"
+
+WFIFO = "/tmp/churchplayerfifo_wr"
+
 import signal
 import os.path
 import subprocess
@@ -55,6 +61,7 @@ class Catalogue(dict):
       self.warnings = []
       self._readCatalogue()
       self.modified = False
+      self.midifiles = []
 
 
 
@@ -238,7 +245,6 @@ class Catalogue(dict):
 
 
 #  Check all the midi files exist.
-      self.midifiles = []
       for path in self['PATH']:
          if path:
             midifile = os.path.join(self.rootdir,path)
@@ -448,8 +454,8 @@ class Catalogue(dict):
 #  does not exist.
    def _isMidi(self,path):
       if os.path.isfile( path ):
-         text = commands.getstatusoutput( "file {0}".format(path) )
-         if "Standard MIDI data" in text[1]:
+         text = commands.getstatusoutput( "file '{0}'".format(path) )
+         if "Standard MIDI" in text[1]:
             return 0
          else:
             return 1
@@ -563,7 +569,8 @@ class Record(object):
       return "Path:{0}  Tran:{1} Instr:{2}  Title:{3}".format(self._getPath(),self._getTranspose(),self._getInstrument(),self._getTitle())
 
 
-
+   def desc(self):
+      return self._title
 
 
 # ----------------------------------------------------------------------
@@ -630,17 +637,16 @@ class Player(object):
       self._serverPopen = subprocess.Popen(["./server"])
       time.sleep(2)
 
-   def _killProcess(self, pid ):
-      parent = psutil.Process( pid )
-      for child in parent.children( recursive=True ):
-         child.kill()
-      parent.kill()
+   def _killProcess(self, name ):
+      os.system("killall -9 {0}".format(name));
 
    def _killServerProcess(self):
-      self._killProcess( self._serverPopen.pid )
+      self._killProcess( "fluidsynth" )
+      self._killProcess( "server" )
 
    def _killControllerProcess(self):
-      self._killProcess( self._controllerPopen.pid )
+      self._killProcess( "aplaymidi" )
+      self._killProcess( "controller" )
 
    def _startControllerProcess(self):
       self._controllerPopen = subprocess.Popen(["./controller","-v"])
@@ -650,7 +656,7 @@ class Player(object):
       os.system( "./sendcommand {0}".format(command))
 
    def _playRecord( self, record ):
-      self._sendCommand( "{0} {1} {2} {3}".format( PLAY_CMD,
+      self._sendCommand( "{0} '{1}' {2} {3}".format( PLAY_CMD,
                          record.path, record.transpose,
                          record.instrument ))
 
