@@ -31,7 +31,12 @@ class PlayerListener(QThread):
 
    def run(self):
       waited = 0
-      while waited < 20 and not stat.S_ISFIFO(os.stat(cpmodel.WFIFO).st_mode):
+      while waited < 20:
+         try:
+            if stat.S_ISFIFO(os.stat(cpmodel.WFIFO).st_mode):
+               break
+         except OSError:
+            pass
          time.sleep(1)
          waited += 1
 
@@ -44,7 +49,6 @@ class PlayerListener(QThread):
          while code != cpmodel.ENDING_CODE:
             try:
                code = os.read(fd,1)
-               print( "PlayerListener received '{0}'".format(code))
                if code == cpmodel.PLAYING_CODE:
                   path = os.read(fd,1000)
                   self.started.emit( path )
