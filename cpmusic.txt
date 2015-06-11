@@ -9,6 +9,7 @@ c:PATH Path to MIDI file relative to root
 c:TAGS Classification tags
 c:BOOK Book
 c:NUMBER Number
+c:TUNE Tune
 c:INSTR Instrumentation
 c:TRANS Semitones to transpose up or down
 c:NVERSE Number of verses
@@ -51,7 +52,8 @@ t:E Easter
 
 
 
-# Data
+# Data:
 # ----
-Come you thankful people come@stf/123-Come-you-thankful-people.mid@HV@STF@123@PIANO@0@@@@STF
-
+Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JMH@STF@40@@BAND@0@3@@@DSB
+Beyond these walls of worship@stf/547-Beyond-these-walls.mid@MQ@STF@547@@PIANO@0@@Worsfold & Wood@@STF
+Our Father in heaven@stf/763-Our-Father-Worsfold.mid@MS@STF@763@@PIANO@0@@@The Lord's Payer@STF

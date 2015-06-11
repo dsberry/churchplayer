@@ -453,6 +453,13 @@ static int read_track(struct track *track, int track_end, int itrack )
 			event->data.d[0] = cmd & 0x0f;
 			event->data.d[1] = read_byte() & 0x7f;
 
+
+if( event->type == SND_SEQ_EVENT_PGMCHANGE ) {
+   printf( "aplaymidi: PgmChg: T:%d C:%d D:%d \n", itrack,
+           event->data.d[0], event->data.d[1] );
+}
+
+
                         if( event->type == SND_SEQ_EVENT_PGMCHANGE &&
                             rt_inst > -1 ) {
                            event->data.d[1] = rt_inst & 0x7f;
@@ -901,6 +908,9 @@ static void play_midi(void)
                         /* Record any changes to channel volume. */
                         if( event->data.d[1]  == 7 ) {
                            event_track->volume[ event->data.d[0] ] = event->data.d[2];
+
+printf("Setting col of channel %d to %d\n", ev.data.control.channel,ev.data.control.value);
+
                         }
 
 			break;

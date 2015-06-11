@@ -328,6 +328,7 @@ class Catalogue(dict):
             basename = os.path.splitext( os.path.basename( file ) )[0]
             match = num.search( basename )
             if match:
+               print( match.group(1) )
                newcat['NUMBER'].append( match.group(1).strip() )
                title = match.group(2)
             else:

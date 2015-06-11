@@ -15,11 +15,169 @@ def showMessage( text ):
    mb.setText( text )
    mb.exec_();
 
-def add( layout, widget ):
-   if isinstance( widget, QLayout ):
-      layout.addLayout( widget )
-   else:
-      layout.addWidget( widget )
+#  Create a horizontal line widget.
+def HLine( ):
+    toto = QFrame()
+    toto.setFrameShape(QFrame.HLine)
+    toto.setFrameShadow(QFrame.Sunken)
+    return toto
+
+#  Add an item into a layout - either a widget or another layout.
+def add( layout, widget, align=None ):
+   if layout != None and widget != None:
+      if isinstance( widget, QLayout ):
+         layout.addLayout( widget )
+      elif align:
+         layout.addWidget( widget, alignment=align )
+      else:
+         layout.addWidget( widget )
+
+# ----------------------------------------------------------------------
+class RecordForm(QWidget):
+   def __init__(self,parent,dialog,player,cat,irow,editable=False,header=None):
+      QWidget.__init__(self,parent)
+      self.player = player
+      self.cat = cat
+      self.header = header
+      self.editable = editable
+      self.dialog = dialog
+      self.setIrow( irow )
+
+      vbox = QVBoxLayout()
+      add( vbox, self.makeHead() )
+      add( vbox, HLine() )
+      add( vbox, self.makeBody() )
+      add( vbox, self.makeControls() )
+      add( vbox, HLine() )
+      add( vbox, self.makeFoot() )
+      self.setLayout( vbox )
+      self.setSizePolicy( QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding )
+
+   def setIrow( self, irow ):
+      self.irow = irow
+      self.record = self.cat.getRecord( irow )
+
+   def makeHead(self):
+      if self.header:
+         return QLabel( self.header )
+      else:
+         return None
+
+   def makeBody(self):
+     self.form = QFormLayout()
+     self.fillForm()
+     return self.form
+
+   def makeControls(self):
+      hbox = QHBoxLayout()
+      self.playWidget = PlayerWidget(self,self.player,self.record)
+      add( hbox, self.playWidget, align=Qt.AlignLeft )
+      return hbox
+
+   def makeFoot(self):
+      buttonbox = QHBoxLayout()
+
+      closeButton = QPushButton('Close', self)
+      closeButton.setToolTip("Close this window")
+      closeButton.clicked.connect(self.closer)
+      buttonbox.addWidget( closeButton, alignment=Qt.AlignRight )
+
+      return buttonbox
+
+   def closer(self):
+      self.playWidget.stop(None)
+      self.dialog.close()
+
+   def emptyForm(self):
+      while self.form.count():
+         child = self.form.takeAt(0)
+         child.widget().deleteLater()
+
+   def fillForm(self):
+     icol = -1
+     for colname in self.cat.colnames:
+        icol += 1
+        collabel = QLabel( colname[:1].upper() + colname[1:].lower() + ":" )
+        collabel.setToolTip( self.cat.coldescs[icol] )
+        colitem = CatItem.create(self, self.cat, self.irow, icol,
+                                 editable=self.editable )
+        self.form.addRow( collabel, colitem )
+
+   def updateBody(self):
+     self.emptyForm()
+     self.fillForm()
+
+
+# ----------------------------------------------------------------------
+class ImportForm(RecordForm):
+   def __init__(self,parent,dialog,player,fromcat,tocat):
+      self.tocat = tocat
+      self.fromcat = fromcat
+      RecordForm.__init__(self,parent,dialog,player,fromcat,0,editable=True)
+
+   def makeHead(self):
+      self.headLabel = QLabel( " " )
+      self.setHeadText()
+      return self.headLabel
+
+   def setHeadText(self):
+      self.headLabel.setText( "Uncatalogued MIDI files found in {0}.\n"
+                              "Assign suitable values to the fields shown "
+                              "below and then press\n'Import', or press "
+                              "'Skip' to ignore the MIDI file.\n\n"
+                              "Displaying item {1} of {2}...".
+                              format( self.tocat.rootdir, self.irow+1,
+                                      self.fromcat.nrow ) )
+
+   def makeFoot(self):
+      buttonbox = QHBoxLayout()
+
+      self.importButton = QPushButton('Import', self)
+      self.importButton.clicked.connect(self.importer)
+      buttonbox.addWidget( self.importButton, alignment=Qt.AlignLeft )
+
+      self.skipButton = QPushButton('Skip', self)
+      self.skipButton.clicked.connect(self.skiper)
+      buttonbox.addWidget( self.skipButton, alignment=Qt.AlignLeft )
+
+      self.closeButton = QPushButton('Close', self)
+      self.closeButton.clicked.connect(self.closer)
+      buttonbox.addWidget( self.closeButton, alignment=Qt.AlignRight )
+
+      self.setMyTitle()
+      return buttonbox
+
+   def setMyTitle(self):
+      if self.record:
+         self.importButton.setToolTip("Import {0} into the music catalogue".format(self.record.title))
+         self.skipButton.setToolTip("Skip {0} and move onto the next item to import".format(self.record.title))
+         self.closeButton.setToolTip("Ignore {0} and close this window".format(self.record.title))
+      else:
+         self.importButton.setToolTip("")
+         self.skipButton.setToolTip("")
+         self.closeButton.setToolTip("")
+
+   def importer(self):
+      newrow = []
+      for colname in self.fromcat.colnames:
+         newrow.append( self.fromcat[colname][self.irow] )
+      self.tocat.addrow( newrow )
+      self.next()
+
+   def skiper(self):
+      self.next()
+
+   def next(self):
+      if self.irow == self.fromcat.nrow - 1:
+         self.closer()
+      else:
+         self.setIrow( self.irow + 1 )
+         self.setHeadText()
+         self.updateBody()
+         if self.irow == self.fromcat.nrow - 1:
+            self.skipButton.setEnabled(False)
+         self.playWidget.setPlayable(self.record)
+         self.setMyTitle()
 
 # ----------------------------------------------------------------------
 class PlayerListener(QThread):
@@ -65,7 +223,7 @@ class PlayerListener(QThread):
 
 # ----------------------------------------------------------------------
 class PlayerButton(QLabel):
-   size = 20
+   size = 30
    def __init__(self,parent,enabled,enabledFile,disabledFile,id):
       QLabel.__init__(self,parent)
       self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
@@ -96,36 +254,60 @@ class PlayerButton(QLabel):
 
 # ----------------------------------------------------------------------
 class PlayerWidget(QWidget):
-   def __init__(self,parent,player,playable,end=cpmodel.STOP):
+   def __init__(self,parent,player,playable=None,fade=False):
       QWidget.__init__(self,parent)
       self.player = player
-      self.playable = playable
-      self.end = end
-
+      self.playable = None
       self.layout = QHBoxLayout()
       self.layout.setSpacing(0)
       self.layout.addStretch()
 
-      self.playButton = PlayerButton( self, True, 'icons/Play.png',
+      self.playButton = PlayerButton( self, False, 'icons/Play.png',
                                       'icons/Play-disabled.png', 'Play' )
       self.playButton.mouseReleaseEvent = self.play
-      self.playButton.setToolTip("Click to play {0}".format(playable.desc()))
       self.layout.addWidget(self.playButton)
 
       self.stopButton = PlayerButton( self, False, 'icons/Stop.png',
-                                'icons/Stop-disabled.png', 'Stop' )
+                                      'icons/Stop-disabled.png', 'Stop' )
       self.stopButton.mouseReleaseEvent = self.stop
-      self.stopButton.setToolTip("Click to stop {0}".format(playable.desc()))
       self.layout.addWidget(self.stopButton)
 
+      if fade:
+         self.fadeButton = PlayerButton( self, False, 'icons/Fade.png',
+                                         'icons/Fade-disabled.png', 'Fade' )
+         self.fadeButton.mouseReleaseEvent = self.fade
+         self.layout.addWidget(self.fadeButton)
+      else:
+         self.fadeButton = None
+
+      self.setPlayable( playable )
       self.layout.addStretch()
       self.setLayout( self.layout )
-      self.setFixedSize( self.width(), self.height() )
+
+   def setPlayable(self,playable):
+      if not self.playable and playable:
+         self.playButton.enable()
+      elif self.playable and not playable:
+         self.playButton.disable()
+
+      self.playable = playable
+      if playable:
+         self.playButton.setToolTip("Click to play {0}".format(playable.desc()))
+         self.stopButton.setToolTip("Click to stop {0}".format(playable.desc()))
+         if self.fadeButton:
+            self.fadeButton.setToolTip("Click to fade {0} gradually".format(playable.desc()))
+      else:
+         self.playButton.setToolTip("")
+         self.stopButton.setToolTip("")
+         if self.fadeButton:
+            self.fadeButton.setToolTip("")
 
    def play(self, event ):
       if self.playButton.enabled:
          self.playButton.disable()
          self.stopButton.enable()
+         if self.fadeButton:
+            self.fadeButton.enable()
          self.player.listener.stopped.connect(self.ended)
          self.player.play( self.playable, cpmodel.STOP )
 
@@ -133,13 +315,25 @@ class PlayerWidget(QWidget):
       if self.stopButton.enabled:
          self.playButton.enable()
          self.stopButton.disable()
-         self.player.stop( self.end )
+         if self.fadeButton:
+            self.fadeButton.disable()
+         self.player.stop( cpmodel.STOP )
+
+   def fade(self, event):
+      if self.stopButton.enabled:
+         self.playButton.enable()
+         self.stopButton.disable()
+         if self.fadeButton:
+            self.fadeButton.disable()
+         self.player.stop( cpmodel.FADE )
 
    @pyqtSlot()
    def ended(self):
       if self.stopButton.enabled:
          self.playButton.enable()
          self.stopButton.disable()
+         if self.fadeButton:
+            self.fadeButton.disable()
 
 
 # ------------------------------------------------------------------------
@@ -156,11 +350,15 @@ class CatItem(object):
       self.descs = descs
       self.type = t
       self.col = cat[ cat.colnames[icol] ]
+      self.setToolTip(cat.coldescs[icol] )
 
    @staticmethod
-   def create(parent,cat,irow,icol):
+   def create(parent,cat,irow,icol,editable=False):
       (t,opts,descs) = cat.getOptions(icol)
-      if t == 't':
+      if not editable:
+         return CatLabel(parent,cat,irow,icol,opts,descs,t)
+
+      elif t == 't':
          return CatLineEdit(parent,cat,irow,icol,opts,descs,t)
 
       elif t == 'i':
@@ -180,13 +378,16 @@ class CatItem(object):
 
    def catStore(self, text ):
       self.col[ self.irow ] = text
-      self.parent.catItemChanged( self )
 
 class CatSpinBox(QSpinBox,CatItem):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
       QSpinBox.__init__(self,parent)
+      self.setMaximum( 5000 )
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
       self.valueChanged.connect(self.valueHasChanged)
+      text = cat[ cat.colnames[icol] ][irow]
+      if text:
+         self.setValue( int(text) )
 
    def valueHasChanged(self, value ):
       self.catStore( str(value) )
@@ -678,8 +879,9 @@ class ImportDialog(QDialog):
       super(ImportDialog, self).__init__(parent)
       self.setWindowTitle('Music importer')
       layout = QVBoxLayout()
-      add( layout, ImportWidget( parent, self, fromcat, tocat ) )
+      add( layout, ImportForm( self, self, parent.player, fromcat, tocat ) )
       self.setLayout( layout )
+
 
 
 
@@ -737,12 +939,7 @@ class ChurchPlayer(QMainWindow):
       toolbar.addAction(openAction)
 
 #  The central widget
-#      centralWidget = QWidget(self)
-#      layout = QVBoxLayout()
-#      centralWidget.setLayout( layout )
-#      self.setCentralWidget( centralWidget )
-#      add( layout, PlayerWidget( self, player,cat.getRecord(0) ) )
-      pw = PlayerWidget( self, player, cat.getRecord(0) )
+      pw = PlayerWidget( self, player, cat.getRecord(0), fade=True )
       self.setCentralWidget( pw )
 
 #  Set up the main window.
@@ -825,6 +1022,7 @@ class ChurchPlayer(QMainWindow):
       newmidis = self.cat.searchForNew()
       QApplication.restoreOverrideCursor()
       self.statusBar().showMessage("")
+
       if newmidis:
          ed = ImportDialog(self,newmidis,self.cat)
          ed.exec_()

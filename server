@@ -1,5 +1,9 @@
 #!/bin/tcsh
 
+set soundfont = "$HOME/churchplayer/Papelmedia.SF2"
+# set soundfont = "$HOME/churchplayer/FluidR3_GM.sf2"
+
+
 #  Kill any processes that are using the audio device (hw:0)
 killall -r -s KILL fluidsynth
 
@@ -11,4 +15,4 @@ end
 
 #  Start up the server process that creates the sound from the ALSA sequencer
 #  data.
-/usr/bin/fluidsynth --server --audio-driver=alsa -o audio.alsa.device=hw:0 /usr/share/sounds/sf2/FluidR3_GM.sf2
+/usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa -o audio.alsa.device=hw:0 $soundfont
