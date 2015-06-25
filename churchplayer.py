@@ -70,7 +70,7 @@ class RecordForm(QWidget):
 
    def makeControls(self):
       hbox = QHBoxLayout()
-      self.playWidget = PlayerWidget(self,self.player,self.record)
+      self.playWidget = PlayerWidget(self,self.player,self.record,inst=True)
       add( hbox, self.playWidget, align=Qt.AlignLeft )
       return hbox
 
@@ -254,7 +254,7 @@ class PlayerButton(QLabel):
 
 # ----------------------------------------------------------------------
 class PlayerWidget(QWidget):
-   def __init__(self,parent,player,playable=None,fade=False):
+   def __init__(self,parent,player,playable=None,fade=False,inst=False):
       QWidget.__init__(self,parent)
       self.player = player
       self.playable = None
@@ -279,6 +279,12 @@ class PlayerWidget(QWidget):
          self.layout.addWidget(self.fadeButton)
       else:
          self.fadeButton = None
+
+      if inst:
+         self.spin = QSpinBox( self )
+         self.spin.setMinimum( 0 )
+         self.spin.setMaximum( 127 )
+         self.layout.addWidget(self.spin)
 
       self.setPlayable( playable )
       self.layout.addStretch()
@@ -308,6 +314,9 @@ class PlayerWidget(QWidget):
          self.stopButton.enable()
          if self.fadeButton:
             self.fadeButton.enable()
+         if self.spin:
+            self.playable.instrument = self.spin.value()
+
          self.player.listener.stopped.connect(self.ended)
          self.player.play( self.playable, cpmodel.STOP )
 
