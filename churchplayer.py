@@ -315,7 +315,11 @@ class PlayerWidget(QWidget):
          if self.fadeButton:
             self.fadeButton.enable()
          if self.spin:
-            self.playable.instrument = self.spin.value()
+            inst = self.spin.value()
+            if inst:
+               self.playable.instrument = inst
+            else:
+               self.playable.instrument = cpmodel.DEFAULT_INSTRUMENT
 
          self.player.listener.stopped.connect(self.ended)
          self.player.play( self.playable, cpmodel.STOP )

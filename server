@@ -16,4 +16,4 @@ end
 
 #  Start up the server process that creates the sound from the ALSA sequencer
 #  data.
-/usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa -o audio.alsa.device=hw:0 $soundfont
+/usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa -o audio.alsa.device=hw:0 $soundfont $1
