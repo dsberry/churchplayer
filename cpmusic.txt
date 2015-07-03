@@ -11,11 +11,13 @@ c:BOOK Book
 c:NUMBER Number
 c:TUNE Tune
 c:INSTR Instrumentation
-c:TRANS Semitones to transpose up or down
 c:NVERSE Number of verses
-c:COMP Composers
-c:COMM Comments
 c:ORIGIN Origin of the MIDI file
+c:METRE Metre for tradiditional hymns
+c:TRANS playback key change
+c:SPEED Playback speed change
+c:VOLUME Playback volume change
+c:PROG0 Playback instrument number for MIDI channel 0
 
 # Known books:
 # ------------
@@ -25,8 +27,7 @@ b:MP Mission Praise
 
 # Known instrumentations:
 # -----------------------
-i:PIANO Piano solo
-i:ORGAN Organ solo
+i:KEYBD Keyboard solo
 i:BAND Worship band
 i:ORCH Orchestra
 i:JAZZ Small jazz ensemble
@@ -54,6 +55,6 @@ t:E Easter
 
 # Data:
 # ----
-Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JMH@STF@40@@BAND@0@3@@@DSB
-Beyond these walls of worship@stf/547-Beyond-these-walls.mid@MQ@STF@547@@PIANO@0@@Worsfold & Wood@@STF
-Our Father in heaven@stf/763-Our-Father-Worsfold.mid@MS@STF@763@@PIANO@0@@@The Lord's Payer@STF
+Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JMH@STF@40@@BAND@3@DSB@@0@0@0@-1
+Beyond these walls of worship@stf/547-Beyond-these-walls.mid@MQ@STF@547@@KEYBD@3@STF@@0@0@0@-1
+Come you thankful people come@stf/123-Come-you-thankful-people.mid@HJV@STF@123@St George's Windsor@KEYBD@4@STF@77 77 D@0@0@0@-1

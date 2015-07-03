@@ -233,16 +233,19 @@ class Catalogue(dict):
                   self.warnings.append("Unknown instrumentation ('{0}') "
                        "associated with '{1}'.".format(instr, self['TITLE'][irow] ) )
 
-      irow = -1
-      for trans in self['TRANS']:
-         irow += 1
-         if trans:
-            if not trans.isdigit():
-               self.warnings.append("Illegal transposition ('{0}') "
-                       "associated with '{1}'.".format(trans, self['TITLE'][irow] ) )
-         else:
-            self['TRANS'][ irow ] = "0"
-
+      for colname in ('NUMBER','NVERSE','TRANS','SPEED','VOLUME','PROG0'):
+         irow = -1
+         for value in self[colname]:
+            irow += 1
+            if value:
+               try:
+                  ival = int( value )
+               except Exception:
+                  self.warnings.append("Illegal value ('{0}') for column "
+                          "{2} associated with '{1}'.".
+                          format(value, self['TITLE'][irow],colname ) )
+            else:
+               self[colname][ irow ] = "0"
 
 #  Check all the midi files exist.
       for path in self['PATH']:
@@ -304,6 +307,9 @@ class Catalogue(dict):
          newcat['TITLE'] = []
          newcat['ORIGIN'] = []
          newcat['TRANS'] =['0'] * ( ngood + nbad )
+         newcat['SPEED'] =['0'] * ( ngood + nbad )
+         newcat['VOLUME'] =['0'] * ( ngood + nbad )
+         newcat['PROG0'] =[]
 
          for file in newMidis:
             newcat.midifiles.append( os.path.join( self.rootdir, file ) )
@@ -313,12 +319,15 @@ class Catalogue(dict):
             if dir.upper() in self.booknames:
                newcat['BOOK'].append( dir.upper() )
                if dir.upper() == 'STF':
-                  newcat['INSTR'].append( 'PIANO' )
+                  newcat['INSTR'].append( 'KEYBD' )
+                  newcat['PROG0'].append( '0' )
                else:
                   newcat['INSTR'].append( '' )
+                  newcat['PROG0'].append( '-1' )
             else:
                newcat['BOOK'].append( '' )
                newcat['INSTR'].append( '' )
+               newcat['PROG0'].append( '-1' )
 
             if dir.upper() in self.orignames:
                newcat['ORIGIN'].append( dir.upper() )

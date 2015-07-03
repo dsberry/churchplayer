@@ -1,7 +1,7 @@
 #!/bin/tcsh
 
 #  kill any existing aplaymidi processes
-killall -s KILL aplaymidi
+killall -s KILL aplaymidi >& /dev/null
 
 # Delete any FIFO files
 rm -f /tmp/churchplayer* >& /dev/null
@@ -23,10 +23,10 @@ while( $found == 0 )
       set found = 1
       /usr/bin/aplaymidi -p $a[1] -r -v -y $1
 
-#  If no server was found, echo a message to standard error and exit the
-#  script with an error status.
+#  If no server was found, echo a message to standard error and then sleep
+#  for one second before trying again.
    else
-      echo "controller script could find no running server process" > /dev/stderr
+      echo "controller is waiting for the server process to start..." > /dev/stderr
       sleep 1
    endif
 

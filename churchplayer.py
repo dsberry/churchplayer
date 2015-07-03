@@ -1047,13 +1047,25 @@ class ChurchPlayer(QMainWindow):
 #  ---------------------------------------------------------------
 def main():
 
+    app = QApplication(sys.argv)
+
+# Create and display the splash screen
+    splash_pix = QPixmap('icons/splash-loading.png')
+    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
+    splash.setMask(splash_pix.mask())
+    splash.show()
+    app.processEvents()
+
+#  Set up the catalogue etc
     cat = cpmodel.Catalogue()
     cat.verify()
     player = cpmodel.Player()
     player.listener = PlayerListener()
     player.listener.start()
-    app = QApplication(sys.argv)
     ex = ChurchPlayer( app, cat, player )
+
+#  Ready to run...
+    splash.finish(ex)
     sys.exit(app.exec_())
 
 
