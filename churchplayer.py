@@ -32,6 +32,203 @@ def add( layout, widget, align=None ):
       else:
          layout.addWidget( widget )
 
+
+
+
+# ----------------------------------------------------------------------
+class Service(QFrame):
+   def __init__(self,parent,player):
+      QFrame.__init__(self,parent)
+      self.setFrameStyle( QFrame.Box )
+      self.player = player
+
+      grid = QGridLayout()
+      grid.setContentsMargins( 5, 5, 5, 0 )
+      grid.setSpacing( 5 )
+
+      j = 0
+      for i in range(10):
+         if i > 0:
+            grid.addWidget( HLine(), j, 0, 1, 3 )
+            j += 1
+
+         item = ServiceItem( self, player )
+         grid.addWidget( item.playButton, j, 0 )
+         grid.addWidget( item.desc, j, 1 )
+         grid.addWidget( item.kbdChooser, j, 2 )
+         j += 1
+
+      self.setLayout( grid )
+      self.setStyleSheet("background-color:#eeeeee;")
+
+# ----------------------------------------------------------------------
+class PanicButton(QPushButton):
+   def __init__(self,parent,player):
+      QPushButton.__init__( self, "Don't PANIC !!", parent )
+
+      self.setToolTip("Click to kill and restart the music player")
+      self.clicked.connect( self.panic )
+
+   def panic(self):
+      print( "PANIC !!!")
+
+
+# ----------------------------------------------------------------------
+class VolumeSlider(QSlider):
+   def __init__(self,parent,player):
+      QSlider.__init__(self,Qt.Vertical,parent)
+
+      self.setToolTip("Drag and release to change the playback volume")
+      self.sliderReleased.connect( self.changer )
+
+   def changer(self):
+      print( "Volume changed!!!")
+
+
+# ----------------------------------------------------------------------
+class PitchSlider(QSlider):
+   def __init__(self,parent,player):
+      QSlider.__init__(self,Qt.Vertical,parent)
+
+      self.setToolTip("Drag and release to change the playback pitch")
+      self.sliderReleased.connect( self.changer )
+
+   def changer(self):
+      print( "Pitch changed!!!")
+
+
+# ----------------------------------------------------------------------
+class TempoSlider(QSlider):
+   def __init__(self,parent,player):
+      QSlider.__init__(self,Qt.Vertical,parent)
+
+      self.setToolTip("Drag and release to change the playback tempo")
+      self.sliderReleased.connect( self.changer )
+
+   def changer(self):
+      print( "Tempo changed!!!")
+
+
+# ----------------------------------------------------------------------
+class ServiceItem(QWidget):
+   def __init__(self,parent,player):
+      QWidget.__init__(self,parent)
+      self.player = player
+
+      self.playButton = PlayerButton( self, False, 'icons/Play.png',
+                                      'icons/Play-disabled.png' )
+      self.playButton.mouseReleaseEvent = self.playit
+      self.playButton.setToolTip("Click to play this item of music")
+
+      self.desc = QLabel("Click here to choose music", self )
+      self.desc.setToolTip("The music played when the play-button is clicked")
+      self.desc.mouseReleaseEvent = self.musicChooser
+
+      self.kbdChooser = QComboBox( self )
+      self.kbdChooser.setToolTip("Choose the type of organ or piano to use")
+      self.kbdChooser.currentIndexChanged.connect( self.kybdChooser )
+
+   def playit(self, event):
+      print( "PLAY clicked!!!")
+
+   def musicChooser(self, event):
+      print( "Desc clicked!!!")
+
+   def kybdChooser(self):
+      print( "Keyboard changed!!!")
+
+
+
+# ----------------------------------------------------------------------
+class PlayController(QWidget):
+   def __init__(self,parent,player,cat):
+      QWidget.__init__(self,parent)
+      self.player = player
+      self.cat = cat
+
+      layout = QHBoxLayout()
+
+      stop = PlayerButton( self, False, 'icons/Stop.png',
+                           'icons/Stop-disabled.png' )
+      stop.setToolTip("Stop any currently playing music abruptly")
+      stop.mouseReleaseEvent = self.stopper
+      layout.addWidget( stop )
+
+      fade = PlayerButton( self, False, 'icons/Fade.png',
+                           'icons/Fade-disabled.png' )
+      fade.mouseReleaseEvent = self.fader
+      fade.setToolTip("Fade out any currently playing music slowly")
+      layout.addWidget( fade )
+
+      self.setLayout( layout )
+
+   def stopper(self, event ):
+      print( "STOP clicked!!!")
+
+
+   def fader(self, event ):
+      print( "FADE clicked!!!")
+
+
+# ----------------------------------------------------------------------
+class MainWidget(QWidget):
+   def __init__( self, parent, player, cat ):
+      QWidget.__init__( self, parent )
+      self.player = PlayController( self, player, cat )
+
+      layout = QHBoxLayout()
+
+      leftpanel = QVBoxLayout()
+      leftpanel.setContentsMargins( 30, 10, 30, 10 )
+      self.service = Service( self, self.player )
+      leftpanel.addWidget( self.service )
+
+      stopetc = QHBoxLayout()
+      stopetc.addWidget( self.player )
+      stopetc.addStretch()
+      stopetc.addWidget( PanicButton( self, self.player ) )
+      leftpanel.addLayout( stopetc )
+      leftpanel.addStretch()
+
+      layout.addLayout( leftpanel )
+
+      rightpanel = QVBoxLayout()
+
+      sliders =  QHBoxLayout()
+      sliders.addStretch()
+
+      sl1 = QVBoxLayout()
+      self.volumeslider = VolumeSlider( self, self.player )
+      sl1.addWidget( self.volumeslider )
+      sl1.addWidget( QLabel("Volume" ) )
+      sliders.addLayout( sl1 )
+
+      sliders.addStretch()
+
+      sl2 = QVBoxLayout()
+      self.temposlider = TempoSlider( self, self.player )
+      sl2.addWidget( self.temposlider )
+      sl2.addWidget( QLabel("Tempo" ) )
+      sliders.addLayout( sl2 )
+
+      sliders.addStretch()
+
+      sl3 = QVBoxLayout()
+      self.pitchslider = PitchSlider( self, self.player )
+      sl3.addWidget( self.pitchslider )
+      sl3.addWidget( QLabel("Pitch" ) )
+      sliders.addLayout( sl3 )
+
+      sliders.addStretch()
+      rightpanel.addLayout( sliders )
+
+      layout.addLayout( rightpanel )
+
+      self.setLayout( layout )
+
+
+
+
 # ----------------------------------------------------------------------
 class RecordForm(QWidget):
    def __init__(self,parent,dialog,player,cat,irow,editable=False,header=None):
@@ -223,12 +420,11 @@ class PlayerListener(QThread):
 
 # ----------------------------------------------------------------------
 class PlayerButton(QLabel):
-   size = 30
-   def __init__(self,parent,enabled,enabledFile,disabledFile,id):
+   size = 40
+   def __init__(self,parent,enabled,enabledFile,disabledFile):
       QLabel.__init__(self,parent)
       self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
       self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
-      self.id = id
       self.setAlignment(Qt.AlignHCenter)
       self.setFixedSize( PlayerButton.size*1.1, PlayerButton.size*1.1 )
       if enabled:
@@ -920,18 +1116,18 @@ class ChurchPlayer(QMainWindow):
       exitAction.setStatusTip('Exit application')
       exitAction.triggered.connect(self.exit)
 
-      openAction = QAction(QIcon('icons/Open.png'), '&Open', self)
-      openAction.setStatusTip('Open an existing service or playlist')
-      openAction.triggered.connect(self.open)
+#      openAction = QAction(QIcon('icons/Open.png'), '&Open', self)
+#      openAction.setStatusTip('Open an existing service or playlist')
+#      openAction.triggered.connect(self.open)
 
-      saveCatAction = QAction(QIcon('icons/SaveCat.png'), '&Save Catalogue', self)
-      saveCatAction.setStatusTip('Save the music catalogue to disk')
-      saveCatAction.triggered.connect(self.saveCatalogue)
+#      saveCatAction = QAction(QIcon('icons/SaveCat.png'), '&Save Catalogue', self)
+#      saveCatAction.setStatusTip('Save the music catalogue to disk')
+#      saveCatAction.triggered.connect(self.saveCatalogue)
 
-      scanAction = QAction( '&Scan', self)
-      scanAction.setShortcut('Ctrl+I')
-      scanAction.setStatusTip('Scan the music directory for uncatalogued MIDI files')
-      scanAction.triggered.connect(self.scan)
+#      scanAction = QAction( '&Scan', self)
+#      scanAction.setShortcut('Ctrl+I')
+#      scanAction.setStatusTip('Scan the music directory for uncatalogued MIDI files')
+#      scanAction.triggered.connect(self.scan)
 
 #  Set up status bar
       self.statusBar()
@@ -939,20 +1135,20 @@ class ChurchPlayer(QMainWindow):
 #  Set up menu bar
       menubar = self.menuBar()
       fileMenu = menubar.addMenu('&File')
-      fileMenu.addAction(openAction)
+#      fileMenu.addAction(openAction)
       fileMenu.addAction(exitAction)
 
-      catMenu = menubar.addMenu('&Catalogue')
-      catMenu.addAction(scanAction)
-      catMenu.addAction(saveCatAction)
+#      catMenu = menubar.addMenu('&Catalogue')
+#      catMenu.addAction(scanAction)
+#      catMenu.addAction(saveCatAction)
 
 #  Set up the toolbar.
       toolbar = self.addToolBar('tools')
       toolbar.addAction(exitAction)
-      toolbar.addAction(openAction)
+#      toolbar.addAction(openAction)
 
 #  The central widget
-      pw = PlayerWidget( self, player, cat.getRecord(0), fade=True )
+      pw = MainWidget( self, player, cat )
       self.setCentralWidget( pw )
 
 #  Set up the main window.
@@ -964,9 +1160,6 @@ class ChurchPlayer(QMainWindow):
       ay = qr.center().y() - hgt/2
       self.setGeometry( ax, ay, wid, hgt )
       self.show()
-
-
-
 
 #  Display any warnings about the catalogue.
       if len( cat.warnings ) > 0:
@@ -1058,10 +1251,15 @@ def main():
 
 #  Set up the catalogue etc
     cat = cpmodel.Catalogue()
+    app.processEvents()
     cat.verify()
+    app.processEvents()
     player = cpmodel.Player()
+    app.processEvents()
     player.listener = PlayerListener()
+    app.processEvents()
     player.listener.start()
+    app.processEvents()
     ex = ChurchPlayer( app, cat, player )
 
 #  Ready to run...
