@@ -24,18 +24,64 @@ import re
 import commands
 import copy
 
-def midiInstrument( value ):
-   if value == DEFAULT_INSTRUMENT:
-      return value
+instrumentNames = [
+   'Band',
+   'Piano 1',
+   'Piano 2',
+   'Electric Piano',
+   'Organ 1',
+   'Organ 2',
+   'Organ 3',
+   'Organ 4',
+   'Organ 5',
+   'Organ 6',
+   'Organ 7',
+   'Organ 8',
+   'Organ 7',
+   'Electric Grand Piano',
+   'Honky-tonk Piano',
+   'Electric Piano 2',
+   'Harpsichord',
+   'Vibraphone',
+   'Xylophone',
+   'Strings'
+]
 
-   elif isinstance( value, int ):
+#  These are most GM numbers, but with some extra organs.
+instruments = {
+   'Band': DEFAULT_INSTRUMENT,
+   'Piano 1': 0,
+   'Piano 2': 1,
+   'Electric Piano': 4,
+   'Organ 1': 19,
+   'Organ 2': 120,
+   'Organ 3': 121,
+   'Organ 4': 122,
+   'Organ 5': 123,
+   'Organ 6': 124,
+   'Organ 7': 125,
+   'Organ 8': 126,
+   'Organ 7': 126,
+   'Electric Grand Piano': 2,
+   'Honky-tonk Piano': 3,
+   'Electric Piano 2': 5,
+   'Harpsichord': 6,
+   'Vibraphone': 11,
+   'Xylophone': 13,
+   'Strings': 48
+}
+
+def midiInstrument( value ):
+   if ininstance( value, int ):
       return value
 
    elif isinstance( value, str ):
       if value.isdigit():
          return int( value )
-      elif value == "ORGAN":
-         return 20
+
+      elif value in cp_instruments:
+         return cp_instruments[value]
+
       else:
          return DEFAULT_INSTRUMENT
 
@@ -56,13 +102,13 @@ class ChurchPlayerError(Exception):
 # ----------------------------------------------------------------------
 class Catalogue(dict):
 
-   def __init__(self):
+   def __init__(self,readcat=True):
       super(Catalogue, self).__init__()
       self.warnings = []
-      self._readCatalogue()
+      if readcat:
+         self._readCatalogue()
       self.modified = False
       self.midifiles = []
-
 
 
 
@@ -83,7 +129,7 @@ class Catalogue(dict):
 #  Create regexps to match each sort of line in the catalogue file.
       white = re.compile( "^\s*$" )
       comment = re.compile( "^#" )
-      column = re.compile( "^c:(\S+) +(.+)$" )
+      column = re.compile( "^c:(\S+) +([01]) +(.+)$" )
       root = re.compile( "^r:(\S+)$" )
       book = re.compile( "^b:(\S+) +(.+)$" )
       instrumentation = re.compile( "^i:(\S+) +(.+)$" )
@@ -96,6 +142,7 @@ class Catalogue(dict):
       self.rootdir = os.path.join(os.path.dirname(sys.argv[0]), "music")
       self.colnames = []
       self.coldescs = []
+      self.colsearchable = []
       self.booknames = []
       self.bookdescs = []
       self.instrnames = []
@@ -132,7 +179,11 @@ class Catalogue(dict):
          match = column.search( line )
          if match:
             self.colnames.append( match.group(1) )
-            self.coldescs.append( match.group(2) )
+            if match.group(2) == "1":
+               self.colsearchable.append( True )
+            else:
+               self.colsearchable.append( False )
+            self.coldescs.append( match.group(3) )
 
 #  For each column name, create a new empty array and store it as a new
 #  entry in the parent dict using the column name as the key name.
@@ -233,7 +284,7 @@ class Catalogue(dict):
                   self.warnings.append("Unknown instrumentation ('{0}') "
                        "associated with '{1}'.".format(instr, self['TITLE'][irow] ) )
 
-      for colname in ('NUMBER','NVERSE','TRANS','SPEED','VOLUME','PROG0'):
+      for colname in ('NUMBER','TRANS','SPEED','VOLUME','PROG0'):
          irow = -1
          for value in self[colname]:
             irow += 1
@@ -430,19 +481,6 @@ class Catalogue(dict):
             else:
                descs.append("Transpose up by {0} semitones".format(i))
 
-      elif self.colnames[icol] == "NVERSE":
-         type = 's'
-         names = []
-         descs = []
-         for i in range(10):
-            names.append(str(i))
-            if i == 0:
-               descs.append("Does not have regular repeated verses")
-            elif i == 1:
-               descs.append("Has only 1 verse" )
-            else:
-               descs.append("Has {0} verses".format(i))
-
       elif self.colnames[icol] == "ORIGIN":
          type = 's'
          names = self.orignames
@@ -513,6 +551,53 @@ class Catalogue(dict):
          cat.write(text)
 
       cat.close()
+
+   def search( self, searchVals, searchCols ):
+      matchingRows = range( self.nrow )
+      nmatch = self.nrow
+
+      for (icol,val) in zip(searchCols,searchVals):
+         if val:
+            newmatches = []
+            col = self.colnames[icol]
+
+            if col == "TAGS":
+               tags = list( val.lower() )
+
+               for irow in matchingRows:
+                  lctext = self[col][irow].lower()
+                  ok = True
+                  for tag in tags:
+                     if not tag in lctext:
+                        ok = False
+                        break
+                  if ok:
+                     newmatches.append( irow )
+
+            elif col == "TITLE":
+               words = val.lower().split()
+
+               for irow in matchingRows:
+                  lctext = self[col][irow].lower()
+                  ok = True
+                  for word in words:
+                     if not word in lctext:
+                        ok = False
+                        break
+                  if ok:
+                     newmatches.append( irow )
+
+            else:
+               for irow in matchingRows:
+                  if self[col][irow] == val:
+                     newmatches.append( irow )
+
+            matchingRows = newmatches
+
+         if len( matchingRows ) == 0:
+            break;
+
+      return matchingRows
 
 # ----------------------------------------------------------------------
 class Record(object):
