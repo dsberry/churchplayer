@@ -72,24 +72,36 @@ class SearchDialog(QDialog):
 
    def makeRight(self):
       self.results = QGridLayout()
+      self.results.addWidget(QLabel(" "), 0, 0 )
+      self.results.setColumnMinimumWidth( 0, 400 )
+      self.results.setRowMinimumHeight( 0, 400 )
       return self.results
 
    def makeLower(self):
       layout = QHBoxLayout()
 
+      clear = QPushButton('Clear', self)
+      clear.setToolTip("Reset the search parameters")
+      clear.clicked.connect(self.clearer)
+      clear.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      layout.addWidget( clear, Qt.AlignLeft )
+
       search = QPushButton('Search', self)
       search.setToolTip("Search for music matching the properties selected above")
       search.clicked.connect(self.searcher)
+      search.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
       layout.addWidget( search, Qt.AlignLeft )
 
       cancel = QPushButton('Cancel', self)
       cancel.setToolTip("Close this window without selecting any music")
       cancel.clicked.connect(self.closer)
+      cancel.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
       layout.addWidget( cancel, Qt.AlignRight )
 
       ok = QPushButton('OK', self)
       ok.setToolTip("Close this window accepting the currently selected music")
       ok.clicked.connect(self.oker)
+      ok.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
       layout.addWidget( ok, Qt.AlignRight )
 
       return layout
@@ -100,6 +112,11 @@ class SearchDialog(QDialog):
 
    def oker(self):
       self.closer()
+
+   def clearer(self):
+      self.clearResults()
+      for item in self.searchItems:
+         item.clear()
 
    def searcher(self):
       searchVals = []
@@ -117,6 +134,7 @@ class SearchDialog(QDialog):
          j = 0
          for irow in matchingRows:
             self.results.addWidget(QLabel(self.player.cat['TITLE'][irow]), j, 0 )
+            j += 1
 
    def clearResults(self):
       while self.results.count():
@@ -485,7 +503,7 @@ class PlayerListener(QThread):
 
    def run(self):
       waited = 0
-      while waited < 20:
+      while waited < 60:
          try:
             if stat.S_ISFIFO(os.stat(cpmodel.WFIFO).st_mode):
                break
@@ -686,7 +704,13 @@ class CatItem(object):
       return self.sizeHint().width()
 
    def catStore(self, text ):
-      self.value = text
+      if text:
+         self.value = text.strip()
+         if self.value == "":
+            self.value = None
+      else:
+         self.value = None
+
       if self.irow:
          self.col[ self.irow ] = text
 
@@ -695,7 +719,7 @@ class CatSpinBox(QSpinBox,CatItem):
       QSpinBox.__init__(self,parent)
       self.setMaximum( 5000 )
       self.setMinimum( 0 )
-      self.setSpecialValueText( "Any" )
+      self.setSpecialValueText( " " )
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
       self.valueChanged.connect(self.valueHasChanged)
       if irow:
@@ -706,13 +730,18 @@ class CatSpinBox(QSpinBox,CatItem):
          self.setValue( 0 )
 
    def valueHasChanged(self, value ):
-      self.catStore( str(value) )
+      if value == 0:
+         self.catStore( None )
+      else:
+         self.catStore( str(value) )
+
+   def clear(self):
+      self.setValue( 0 )
 
 class CatComboBoxS(QComboBox,CatItem):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
       QComboBox.__init__(self,parent)
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
-
 
       if irow:
          curval = cat[ cat.colnames[icol] ][irow]
@@ -720,7 +749,7 @@ class CatComboBoxS(QComboBox,CatItem):
          curval = "xxx"
 
 
-      self.addItem("Any")
+      self.addItem(" ")
 
       icurr = -1
       i = 0
@@ -745,6 +774,9 @@ class CatComboBoxS(QComboBox,CatItem):
    def indexHasChanged(self, item ):
       self.catStore( str(self.itemText(item)) )
 
+   def clear(self):
+      self.setCurrentIndex( 0 )
+
 class CatComboBoxM(QComboBox,CatItem):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
       QComboBox.__init__(self,parent)
@@ -752,8 +784,10 @@ class CatComboBoxM(QComboBox,CatItem):
 
       if irow:
          self.curval = cat[ cat.colnames[icol] ][irow]
+      else:
+         self.curval = ""
+
       self.addItem(" ")
-      self.addItem("<clear>")
       i = 0
       for opt in opts:
          self.addItem(opt)
@@ -764,17 +798,21 @@ class CatComboBoxM(QComboBox,CatItem):
       self.setCurrentIndex( 0 )
       self.setEditable( True )
       self.lineEdit().setReadOnly(True)
-      self.setFixedWidth(self.minimumSizeHint().width())
+#      self.setFixedWidth(self.minimumSizeHint().width())
       self.currentIndexChanged.connect(self.indexHasChanged)
 
    def indexHasChanged(self, item ):
       text = self.itemText(item)
-      if text == "Clear":
+      if text == " ":
          self.curval = ""
       elif item != "":
          self.curval = self.curval + text
       self.catStore( str(self.curval) )
       self.setEditText(self.curval)
+
+   def clear(self):
+      self.curval = ""
+      self.setCurrentIndex( 0 )
 
 
 class CatLineEdit(QLineEdit,CatItem):
@@ -798,6 +836,9 @@ class CatLineEdit(QLineEdit,CatItem):
    def widthHint(self):
       return self.minimumWidth()
 
+   def clear(self):
+      self.setText("")
+
 
 class CatLabel(QLabel,CatItem):
 
@@ -814,6 +855,9 @@ class CatLabel(QLabel,CatItem):
 
    def widthHint(self):
       return self.minimumWidth()
+
+   def clear(self):
+      pass
 
 
 
@@ -1369,17 +1413,29 @@ def main():
 
 # Create and display the splash screen
     splash_pix = QPixmap('icons/splash2-loading.png')
-    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
-    splash.setMask(splash_pix.mask())
+    splash = QSplashScreen(splash_pix)
+
+    font = splash.font()
+    font.setPixelSize(30)
+    splash.setFont(font)
+
     splash.show()
     app.processEvents()
 
 #  Set up the catalogue etc
+    splash.showMessage( " Reading music catalogue...", Qt.AlignBottom, Qt.white )
+    app.processEvents()
     cat = cpmodel.Catalogue()
+
+    splash.showMessage( " Verifying music catalogue...", Qt.AlignBottom, Qt.white )
     app.processEvents()
     cat.verify()
+
+    splash.showMessage( " Creating music player processes...", Qt.AlignBottom, Qt.white )
     app.processEvents()
     player = cpmodel.Player()
+
+    splash.showMessage( " Creating music listener process...", Qt.AlignBottom, Qt.white )
     app.processEvents()
     player.listener = PlayerListener()
     app.processEvents()

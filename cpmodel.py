@@ -88,6 +88,35 @@ def midiInstrument( value ):
    else:
       return DEFAULT_INSTRUMENT
 
+def waitForProcess( name ):
+   ntry = 0
+   while ntry >= 0:
+      try:
+         subprocess.check_output(["pidof",name])
+         ntry = -1
+      except subprocess.CalledProcessError:
+         ntry += 1
+         if ntry < 60:
+            time.sleep(1)
+         else:
+            ntry = -1
+            raise ChurchPlayerError("\n\nWaited {0} seconds for the {1} "
+                                    "process to start, but no luck. "
+                                    "Something is wrong :-( ".format(ntry,name) )
+
+#  Test if a path refers to an existing usable midi file. Returns 0 if it
+#  is, 1 if the file exists but is not a usable midi file, and 2 if the file
+#  does not exist.
+   def isMidi(path):
+      if os.path.isfile( path ):
+         text = commands.getstatusoutput( "file '{0}'".format(path) )
+         if "Standard MIDI" in text[1]:
+            return 0
+         else:
+            return 1
+      else:
+         return 2
+
 # ----------------------------------------------------------------------
 class ChurchPlayerError(Exception):
    """
@@ -109,7 +138,6 @@ class Catalogue(dict):
          self._readCatalogue()
       self.modified = False
       self.midifiles = []
-
 
 
 #  Open the catalogue disk file and read its contents into the properties
@@ -300,24 +328,20 @@ class Catalogue(dict):
 
 #  Check all the midi files exist.
       for path in self['PATH']:
+
          if path:
             midifile = os.path.join(self.rootdir,path)
-            ismidi = self._isMidi( midifile )
-            if ismidi == 2:
+            if os.path.isfile( midifile ):
+               self.midifiles.append( midifile )
+            else:
                self.midifiles.append( None )
                self.warnings.append("Midi file {0} cannot be found within "
                                     "directory {1}.".format( path, self.rootdir ) )
-            elif ismidi == 1:
-               self.midifiles.append( None )
-               self.warnings.append("Music file {0} is not a usable MIDI "
-                                    "file .".format( midifile ) )
-            else:
-               self.midifiles.append( midifile )
-
          else:
             self.midifiles.append( None )
             self.warnings.append("No midi file given for '{1}'.".
                                  format(instr, self['TITLE'][irow] ) )
+
 
 
 #  Search for any uncatalogued midi files in the root directory. Return a
@@ -334,7 +358,7 @@ class Catalogue(dict):
                midifile = os.path.join( root, file )
                newpath = midifile[rlen:]
                if newpath not in self["PATH"]:
-                  if self._isMidi( midifile ) == 0:
+                  if isMidi( midifile ) == 0:
                      newMidis.append( newpath )
                   else:
                      badMidis.append( newpath )
@@ -497,19 +521,6 @@ class Catalogue(dict):
       return (type,names,descs)
 
 
-#  Test if a path refers to an existing usable midi file. Returns 0 if it
-#  is, 1 if the file exists but is not a usable midi file, and 2 if the file
-#  does not exist.
-   def _isMidi(self,path):
-      if os.path.isfile( path ):
-         text = commands.getstatusoutput( "file '{0}'".format(path) )
-         if "Standard MIDI" in text[1]:
-            return 0
-         else:
-            return 1
-      else:
-         return 2
-
    def save(self):
       self.modified = False
       for version in range(10000000):
@@ -556,6 +567,7 @@ class Catalogue(dict):
       matchingRows = range( self.nrow )
       nmatch = self.nrow
 
+
       for (icol,val) in zip(searchCols,searchVals):
          if val:
             newmatches = []
@@ -565,14 +577,16 @@ class Catalogue(dict):
                tags = list( val.lower() )
 
                for irow in matchingRows:
-                  lctext = self[col][irow].lower()
-                  ok = True
-                  for tag in tags:
-                     if not tag in lctext:
-                        ok = False
-                        break
-                  if ok:
-                     newmatches.append( irow )
+                  lctext = self[col][irow]
+                  if lctext:
+                     lctext = lctext.lower()
+                     ok = True
+                     for tag in tags:
+                        if not tag in lctext:
+                           ok = False
+                           break
+                     if ok:
+                        newmatches.append( irow )
 
             elif col == "TITLE":
                words = val.lower().split()
@@ -611,11 +625,16 @@ class Record(object):
    def _getPath(self):
          return self._path
    def _setPath(self,path):
-         if os.path.isfile( path ):
-            self._path = path
-         else:
+         ismidi = isMidi(path)
+         if ismidi == 1:
+            raise  ChurchPlayerError("\n\nFailed to create a new Record: Not "
+                                     "a usable MIDI file '{0}'.".format(path))
+         elif ismidi == 2:
             raise  ChurchPlayerError("\n\nFailed to create a new Record: No "
                                      "such file '{0}'.".format(path))
+         else:
+            self._path = path
+
    path = property(_getPath, None, None, "The path to the music file")
 
    def _getTranspose(self):
@@ -745,7 +764,7 @@ class Player(object):
 
    def _startControllerProcess(self):
       self._controllerPopen = subprocess.Popen(["./controller","-v"])
-      time.sleep(2)
+      waitForProcess( "aplaymidi" )
 
    def _sendCommand( self, command ):
       os.system( "./sendcommand {0}".format(command))
