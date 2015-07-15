@@ -2,21 +2,21 @@
 # -------------------------------------
 r:/home/dsb/churchplayer/music
 
-# Column names, "searchable" flags, and titles:
+# Column names, "searchable" flag, "user-interest" flag, and titles:
 # ---------------------------------------------
-c:TITLE 1 Title
-c:PATH 0 Path to MIDI file relative to root
-c:TAGS 1 Classification tags
-c:BOOK 1 Book
-c:NUMBER 1 Number
-c:TUNE 0 Tune
-c:INSTR 0 Instrumentation
-c:ORIGIN 0 Origin of the MIDI file
-c:METRE 0 Metre for tradiditional hymns
-c:TRANS 0 playback key change
-c:SPEED 0 Playback speed change
-c:VOLUME 0 Playback volume change
-c:PROG0 0 Playback instrument number for MIDI channel 0
+c:TITLE 1 3 Title
+c:PATH 0 0 Path to MIDI file relative to root
+c:TAGS 1 6 Classification tags
+c:BOOK 1 1 Book
+c:NUMBER 1 2 Number
+c:TUNE 0 4 Tune
+c:INSTR 0 5 Instrumentation
+c:ORIGIN 0 8 Origin of the MIDI file
+c:METRE 1 7 Metre for tradiditional hymns
+c:TRANS 0 0 playback key change
+c:SPEED 0 0 Playback speed change
+c:VOLUME 0 0 Playback volume change
+c:PROG0 0 0 Playback instrument number for MIDI channel 0
 
 # Known books:
 # ------------
@@ -43,7 +43,7 @@ t:H Hymn with regular repeated verses
 t:S Song with irregular verse/chorus pattern
 t:J Jolly - suitable for playing at end of service
 t:Q Quiet - suitable for playing at start of service
-t:M Modern (by Euxton's standard of what is "modern")
+t:M Modern (by a typical Methodist idea of modern)
 t:Z Jazzy
 t:N Secular music
 t:V Harvest

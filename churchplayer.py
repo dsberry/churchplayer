@@ -44,20 +44,20 @@ class SearchDialog(QDialog):
       self.player = player
       self.setWindowTitle('Search for music')
       layout = QVBoxLayout()
+      add( layout, QLabel("Enter values into one or more of the following "
+                          "boxes and then press 'Search' to find matching music.") )
       add( layout, self.makeUpper() )
+      add( layout, self.makeMiddle() )
       add( layout, self.makeLower() )
       self.setLayout( layout )
 
    def makeUpper(self):
       layout = QHBoxLayout()
-      add( layout, self.makeLeft() )
-      add( layout, self.makeRight() )
-      return layout
-
-   def makeLeft(self):
-      layout = QFormLayout()
       self.searchItems = []
       icol = -1
+      self.istf = -1
+      self.bookitem = None
+
       for colname in self.player.cat.colnames:
          icol += 1
          if self.player.cat.colsearchable[icol]:
@@ -65,32 +65,48 @@ class SearchDialog(QDialog):
             collabel.setToolTip( self.player.cat.coldescs[icol] )
             colitem = CatItem.create(self, self.player.cat, None, icol,
                                      editable=True )
+            if colname.lower() == "book":
+               self.bookitem = colitem
+               self.istf = colitem.findText("STF")
+               if self.istf >= 0:
+                  colitem.setCurrentIndex( self.istf )
+
             self.searchItems.append( colitem )
-            layout.addRow( collabel, colitem )
+            add( layout, collabel )
+            add( layout, colitem )
+            layout.addStretch( )
 
-      return layout
-
-   def makeRight(self):
-      self.results = QGridLayout()
-      self.results.addWidget(QLabel(" "), 0, 0 )
-      self.results.setColumnMinimumWidth( 0, 400 )
-      self.results.setRowMinimumHeight( 0, 400 )
-      return self.results
-
-   def makeLower(self):
-      layout = QHBoxLayout()
+      spacer = QWidget()
+      spacer.setFixedWidth(50)
+      layout.addWidget( spacer )
 
       clear = QPushButton('Clear', self)
       clear.setToolTip("Reset the search parameters")
       clear.clicked.connect(self.clearer)
       clear.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
-      layout.addWidget( clear, Qt.AlignLeft )
+      clear.setAutoDefault(False)
+      layout.addWidget( clear, Qt.AlignRight )
 
       search = QPushButton('Search', self)
       search.setToolTip("Search for music matching the properties selected above")
       search.clicked.connect(self.searcher)
       search.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
-      layout.addWidget( search, Qt.AlignLeft )
+      search.setAutoDefault(True)
+      layout.addWidget( search, Qt.AlignRight )
+
+#      for item in self.searchItems:
+#         if hasattr( item, 'returnPressed'):
+#            item.returnPressed.connect( search.click )
+
+      return layout
+
+   def makeMiddle(self):
+      self.scarea = QScrollArea()
+      self.scarea.setMinimumSize(800,400)
+      return self.scarea
+
+   def makeLower(self):
+      layout = QHBoxLayout()
 
       cancel = QPushButton('Cancel', self)
       cancel.setToolTip("Close this window without selecting any music")
@@ -117,29 +133,50 @@ class SearchDialog(QDialog):
       self.clearResults()
       for item in self.searchItems:
          item.clear()
+      if self.istf >= 0:
+         self.bookitem.setCurrentIndex( self.istf )
 
    def searcher(self):
+      right = QWidget()
+      results = QGridLayout()
+      results.setSpacing(15)
+      right.setLayout( results )
+
       searchVals = []
       searchCols = []
       for item in self.searchItems:
          searchVals.append( item.value )
          searchCols.append( item.icol )
 
-      matchingRows = self.player.cat.search( searchVals, searchCols )
+      self.matchingRows = self.player.cat.search( searchVals, searchCols )
 
-      self.clearResults()
-      if len( matchingRows ) == 0 :
-         showMessage( "No matching music found" )
+      if len( self.matchingRows ) == 0 :
+         lab = QLabel("No matching music found !")
+         results.addWidget(lab, 0, 0, Qt.AlignTop | Qt.AlignLeft )
       else:
+         self.checkbox = []
          j = 0
-         for irow in matchingRows:
-            self.results.addWidget(QLabel(self.player.cat['TITLE'][irow]), j, 0 )
+         for irow in self.matchingRows:
+            cb = QCheckBox()
+            cb.setToolTip("Click to include this row in the service slot")
+            self.checkbox.append( cb )
+            results.addWidget(cb, j, 0 )
+            i = 1
+            for (val,tip) in self.player.cat.getUserValues( irow ):
+               lab = QLabel(val)
+               if tip:
+                  lab.setToolTip(tip)
+               results.addWidget(lab, j, i )
+               i += 1
             j += 1
 
+      self.clearResults()
+      self.scarea.setWidget( right )
+
    def clearResults(self):
-      while self.results.count():
-         child = self.results.takeAt(0)
-         child.widget().deleteLater()
+      oldwidget = self.scarea.takeWidget()
+      if oldwidget:
+         oldwidget.deleteLater()
 
 
 
@@ -728,6 +765,7 @@ class CatSpinBox(QSpinBox,CatItem):
             self.setValue( int(text) )
       else:
          self.setValue( 0 )
+      self.setFixedWidth(1.5*self.minimumSizeHint().width())
 
    def valueHasChanged(self, value ):
       if value == 0:
@@ -747,7 +785,6 @@ class CatComboBoxS(QComboBox,CatItem):
          curval = cat[ cat.colnames[icol] ][irow]
       else:
          curval = "xxx"
-
 
       self.addItem(" ")
 
@@ -769,6 +806,7 @@ class CatComboBoxS(QComboBox,CatItem):
          icurr = 0
 
       self.setCurrentIndex( icurr )
+      self.setFixedWidth(1.5*self.minimumSizeHint().width())
       self.currentIndexChanged.connect(self.indexHasChanged)
 
    def indexHasChanged(self, item ):
@@ -788,17 +826,18 @@ class CatComboBoxM(QComboBox,CatItem):
          self.curval = ""
 
       self.addItem(" ")
+      self.setItemData( 0, "Clear the currrent selection of tags", Qt.ToolTipRole )
       i = 0
       for opt in opts:
          self.addItem(opt)
          if descs:
-            self.setItemData( i+2, descs[i], Qt.ToolTipRole )
+            self.setItemData( i+1, descs[i], Qt.ToolTipRole )
          i += 1
 
       self.setCurrentIndex( 0 )
       self.setEditable( True )
       self.lineEdit().setReadOnly(True)
-#      self.setFixedWidth(self.minimumSizeHint().width())
+      self.setFixedWidth(1.5*self.minimumSizeHint().width())
       self.currentIndexChanged.connect(self.indexHasChanged)
 
    def indexHasChanged(self, item ):
@@ -826,7 +865,7 @@ class CatLineEdit(QLineEdit,CatItem):
          width = self.fontMetrics().boundingRect(text).width()
          self.setMinimumWidth(width)
       else:
-         self.setMinimumWidth(100)
+         self.setMinimumWidth(300)
       self.setFrame(True)
       self.textChanged.connect(self.textHasChanged)
 

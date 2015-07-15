@@ -157,7 +157,7 @@ class Catalogue(dict):
 #  Create regexps to match each sort of line in the catalogue file.
       white = re.compile( "^\s*$" )
       comment = re.compile( "^#" )
-      column = re.compile( "^c:(\S+) +([01]) +(.+)$" )
+      column = re.compile( "^c:(\S+) +([01]) +([0-9]+) +(.+)$" )
       root = re.compile( "^r:(\S+)$" )
       book = re.compile( "^b:(\S+) +(.+)$" )
       instrumentation = re.compile( "^i:(\S+) +(.+)$" )
@@ -171,6 +171,7 @@ class Catalogue(dict):
       self.colnames = []
       self.coldescs = []
       self.colsearchable = []
+      self.coluser = []
       self.booknames = []
       self.bookdescs = []
       self.instrnames = []
@@ -181,6 +182,8 @@ class Catalogue(dict):
       self.tagdescs = []
       self.ncol = 0
       self.nrow = 0
+      self.usercols = [None]*20
+      self.metres = []
 
 #  Open the catalogue file and read each line in turn, removing any trailing
 #  or leading white space (e.g. the trailing newline character).
@@ -206,12 +209,18 @@ class Catalogue(dict):
 
          match = column.search( line )
          if match:
-            self.colnames.append( match.group(1) )
+            colname = match.group(1)
+            self.colnames.append( colname )
             if match.group(2) == "1":
                self.colsearchable.append( True )
             else:
                self.colsearchable.append( False )
-            self.coldescs.append( match.group(3) )
+            iuser = int( match.group(3) )
+            self.coluser.append(iuser)
+            if iuser > 0:
+               self.usercols[iuser-1] = colname
+
+            self.coldescs.append( match.group(4) )
 
 #  For each column name, create a new empty array and store it as a new
 #  entry in the parent dict using the column name as the key name.
@@ -277,8 +286,20 @@ class Catalogue(dict):
 #  Close the catalogue file.
       cat.close()
 
+#  Remove unused elements from the usercols list.
+      self.usercols = [x for x in self.usercols if x]
 
+#  Get a list of the different metres found in the catalogue.
+      for metre in self['METRE']:
+         if metre:
+            if metre not in self.metres:
+               self.metres.append( metre )
 
+#  Cannot search on metre if none were found in the catalogue.
+      if len(self.metres) == 0:
+         icol = self.colnames.index('METRE')
+         if icol >= 0:
+            self.colsearchable[icol] = False
 
 #  Verify the values read from the catalogue.
    def verify(self):
@@ -412,7 +433,6 @@ class Catalogue(dict):
             basename = os.path.splitext( os.path.basename( file ) )[0]
             match = num.search( basename )
             if match:
-               print( match.group(1) )
                newcat['NUMBER'].append( match.group(1).strip() )
                title = match.group(2)
             else:
@@ -488,6 +508,11 @@ class Catalogue(dict):
          names = self.instrnames
          descs = self.instrdescs
 
+      elif self.colnames[icol] == "METRE":
+         type = 's'
+         names = self.metres
+         descs = "The metrical pattern of the hymn"
+
       elif self.colnames[icol] == "TRANS":
          type = 's'
          names = []
@@ -532,9 +557,9 @@ class Catalogue(dict):
       cat = open( self.catname, "w" )
       cat.write("# Path to root directory for MIDI files\n# -------------------------------------\n")
       cat.write("r:{0}\n".format(self.rootdir))
-      cat.write("\n# Column names and titles:\n# ------------------------\n")
-      for (name,desc) in zip( self.colnames,self.coldescs):
-         cat.write("c:{0} {1}\n".format(name,desc))
+      cat.write("\n# Column names, 'searchable' flags, and titles:\n# ------------------------\n")
+      for (name,sea,user,desc) in zip(self.colnames,self.colsearchable,self.coluser,self.coldescs):
+         cat.write("c:{0} {1} {2} {3}\n".format(name,sea,user,desc))
       cat.write("\n# Known books:\n# ------------\n")
       for (name,desc) in zip( self.booknames,self.bookdescs):
          cat.write("b:{0} {1}\n".format(name,desc))
@@ -563,10 +588,61 @@ class Catalogue(dict):
 
       cat.close()
 
+   def getUserValues(self,irow):
+      vals = []
+      tips = []
+
+      for col in self.usercols:
+         val = self[col][irow]
+         if not val:
+            val = ""
+            tip = None
+
+         elif col == "TITLE":
+            val = '"{0}"'.format(val)
+            tip = "The title or first line"
+
+         elif col == "TUNE":
+            val = '({0})'.format(val)
+            tip = "The name of the tune"
+
+         elif col == "BOOK":
+            tip = self.bookdescs[self.booknames.index(val)]
+
+         elif col == "TAGS":
+            tip = None
+            if val != "":
+               for i in range(len(self.tagnames)):
+                  if self.tagnames[i] in val:
+                     if tip == None:
+                        tip = "Tags: {0}".format(self.tagdescs[i])
+                     else:
+                        tip = "{0}, {1}".format(tip,self.tagdescs[i])
+
+         elif col == "INSTR":
+            for i in range(len(self.instrnames)):
+               if self.instrnames[i] == val:
+                  tip = "Instrumentation: {0}".format(self.instrdescs[i])
+
+         elif col == "ORIGIN":
+            if val == "STF":
+               tip = "The midi file was made by Methodist Publishing House"
+            elif val == "DSB":
+               tip = "The midi file was made by David Berry"
+            else:
+               tip = "The origin of the midi file..."
+
+         else:
+            tip = None
+
+         vals.append( val )
+         tips.append( tip )
+
+      return zip(vals,tips)
+
    def search( self, searchVals, searchCols ):
       matchingRows = range( self.nrow )
       nmatch = self.nrow
-
 
       for (icol,val) in zip(searchCols,searchVals):
          if val:
@@ -592,10 +668,10 @@ class Catalogue(dict):
                words = val.lower().split()
 
                for irow in matchingRows:
-                  lctext = self[col][irow].lower()
+                  title_words = self[col][irow].lower().split()
                   ok = True
                   for word in words:
-                     if not word in lctext:
+                     if not word in title_words:
                         ok = False
                         break
                   if ok:
