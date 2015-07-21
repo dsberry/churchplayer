@@ -35,6 +35,202 @@ def add( layout, widget, align=None ):
          layout.addWidget( widget )
 
 
+# ----------------------------------------------------------------------
+class ClassifyDialog(QDialog):
+
+   def __init__( self, parent, player ):
+      super(ClassifyDialog, self).__init__(parent)
+      self.setWindowTitle('Music classifier')
+      self.setMinimumWidth(800)
+      self.setFocusPolicy( Qt.StrongFocus )
+      self.cat = player.cat
+      self.player = player
+      self.irow = 1
+      self.checks = {}
+      self.changes = {}
+      self.pw = PlayerWidget(self,player,self.irow-1)
+      hgt = 40
+
+      layout = QVBoxLayout()
+      layout.setSpacing(16)
+
+      add( layout, QLabel("\nEnter or change the classification tags for "
+           "each item of music in the catalogue.\n") )
+
+      bar = QHBoxLayout()
+      self.prev = QToolButton()
+      self.prev.setIcon( QIcon('icons/Left.png') )
+      self.prev.setToolTip("Move back to the previous item in the catalogue")
+      self.prev.clicked.connect(self.prever)
+      self.prev.setIconSize(QSize(hgt,hgt))
+      self.prev.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      self.prev.setEnabled( False )
+      bar.addWidget( self.prev )
+
+      self.spin = QSpinBox( self )
+      self.spin.setMinimum( 1 )
+      self.spin.setMaximum( self.cat.nrow )
+      self.spin.setToolTip("Type the item number to jump to")
+      self.spin.setFixedHeight( hgt )
+      self.spin.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      self.spin.setValue(self.irow)
+      self.spin.valueChanged.connect( self.changeRow )
+
+      bar.addWidget(self.spin)
+      bar.addStretch()
+
+      self.desc = QLabel( " " )
+      self.desc.setFixedHeight( hgt )
+      bar.addWidget( self.desc, Qt.AlignLeft )
+      bar.addStretch()
+
+      bar.addWidget( self.pw, Qt.AlignRight )
+
+      self.next = QToolButton()
+      self.next.setIcon( QIcon('icons/Right.png') )
+      self.next.setToolTip("Move on to the next item in the catalogue")
+      self.next.clicked.connect(self.nexter)
+      self.next.setIconSize(QSize(hgt,hgt))
+      self.next.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      bar.addWidget( self.next, Qt.AlignRight )
+
+      layout.addLayout( bar, Qt.AlignLeft )
+
+      mainlayout = QHBoxLayout()
+      mainlayout.addWidget(QLabel("  "))
+      cblayout = QVBoxLayout()
+      cblayout.setSpacing(0)
+      for (name,desc) in zip(self.cat.tagnames,self.cat.tagdescs):
+         cb = QCheckBox( desc, self )
+         cb.setTristate( False )
+         self.checks[name] = cb
+         cblayout.addWidget( cb, Qt.AlignLeft )
+      mainlayout.addLayout(cblayout)
+      mainlayout.addStretch()
+      layout.addLayout(mainlayout)
+
+      buttonbar = QHBoxLayout()
+      cancel = QPushButton('Cancel', self)
+      cancel.setToolTip("Close this window without saving any changes")
+      cancel.clicked.connect(self.canceler)
+      cancel.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      buttonbar.addWidget( cancel, Qt.AlignLeft )
+
+      ok = QPushButton('OK', self)
+      ok.setToolTip("Save changes and close this window")
+      ok.clicked.connect(self.oker)
+      ok.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      buttonbar.addWidget( ok, Qt.AlignRight )
+
+      layout.addLayout( buttonbar )
+      self.setLayout( layout )
+      self.setFocus()
+      self.setDesc()
+
+
+   def keyPressEvent(self, e):
+      if e.key() == Qt.Key_Space:
+         self.nexter()
+
+   def changeRow( self, newrow ):
+      if newrow != self.irow and newrow >= 1 and newrow <= self.cat.nrow:
+         self.storeTags()
+         self.irow = newrow
+         self.setDesc()
+         self.spin.setValue(self.irow)
+         if self.irow == 1:
+            self.prev.setEnabled( False )
+            self.next.setEnabled( True )
+         elif self.irow == self.cat.nrow:
+            self.prev.setEnabled( True )
+            self.next.setEnabled( False )
+         else:
+            self.prev.setEnabled( True )
+            self.next.setEnabled( True )
+
+
+   def prever(self):
+      self.changeRow( self.irow - 1 )
+
+   def nexter(self):
+      self.changeRow( self.irow + 1 )
+
+   def oker(self):
+      self.closer(True)
+
+   def canceler(self):
+      self.closer(False)
+
+   def closer(self,save):
+      self.pw.stop(None)
+      self.storeTags()
+      if self.saveChanges(save):
+         self.pw.finish()
+         self.close()
+
+   def saveChanges(self,save):
+      doexit = True
+      if save:
+         if len(self.changes) > 0:
+            ret = QMessageBox.warning(self, "Warning", '''Save changes?''',
+                                      QMessageBox.Save, QMessageBox.Discard,
+                                      QMessageBox.Cancel)
+            if ret == QMessageBox.Save:
+               for irow in self.changes:
+                  self.cat['TAGS'][irow] = self.changes[irow]
+               self.cat.modified = True
+            elif ret == QMessageBox.Cancel:
+               doexit = False
+      else:
+         if len(self.changes) > 0:
+            ret = QMessageBox.warning(self, "Warning", '''Discard changes?''',
+                                      QMessageBox.Discard, QMessageBox.Cancel)
+            if ret == QMessageBox.Cancel:
+               doexit = False
+      return doexit
+
+   def storeTags(self):
+      store = False
+
+      newtags = ""
+      for name in self.cat.tagnames:
+         cb =  self.checks[name]
+         if cb.isChecked():
+            newtags += name
+
+      newtags = ''.join(sorted(newtags))
+
+      oldtags = self.cat['TAGS'][self.irow-1]
+      if oldtags:
+         oldtags = ''.join(sorted(oldtags))
+         if newtags != oldtags:
+            store = True
+      elif newtags != "":
+         store = True
+
+      if store:
+         self.changes[self.irow-1] = newtags
+
+   def setDesc(self):
+      self.pw.stop(None)
+      self.pw.setPlayable(self.irow-1)
+
+      tags = self.cat['TAGS'][self.irow-1]
+      for name in self.cat.tagnames:
+         cb =  self.checks[name]
+         if tags and name in tags:
+            cb.setChecked( True )
+         else:
+            cb.setChecked( False )
+
+      book = self.cat['BOOK'][self.irow-1]
+      number = self.cat['NUMBER'][self.irow-1]
+      title = self.cat['TITLE'][self.irow-1]
+      tune = self.cat['TUNE'][self.irow-1]
+      if tune and tune.strip() != "":
+         self.desc.setText( "{0}  {1}  '{2}'  ({3})".format(book,number,title,tune) )
+      else:
+         self.desc.setText( "{0}  {1}  '{2}'".format(book,number,title) )
 
 # ----------------------------------------------------------------------
 class SearchDialog(QDialog):
@@ -44,8 +240,8 @@ class SearchDialog(QDialog):
       self.player = player
       self.setWindowTitle('Search for music')
       layout = QVBoxLayout()
-      add( layout, QLabel("Enter values into one or more of the following "
-                          "boxes and then press 'Search' to find matching music.") )
+      add( layout, QLabel("\nEnter values into one or more of the following "
+                          "boxes and then press 'Search' to find matching music.\n") )
       add( layout, self.makeUpper() )
       add( layout, self.makeMiddle() )
       add( layout, self.makeLower() )
@@ -189,14 +385,10 @@ class Service(QFrame):
 
       grid = QGridLayout()
       grid.setContentsMargins( 5,5,5,5 )
-      grid.setSpacing( 5 )
+      grid.setSpacing( 1 )
 
       j = 0
       for i in range(NSLOT):
-         if i > 0:
-            grid.addWidget( HLine(), j, 0, 1, 3 )
-            j += 1
-
          item = ServiceItem( self, player )
          grid.addWidget( item.playButton, j, 0, Qt.AlignLeft )
          grid.addWidget( item.desc, j, 1, Qt.AlignLeft )
@@ -262,10 +454,7 @@ class ServiceItem(QWidget):
       QWidget.__init__(self,parent)
       self.player = player
 
-      self.playButton = PlayerButton( self, False, 'icons/Play.png',
-                                      'icons/Play-disabled.png' )
-      self.playButton.mouseReleaseEvent = self.playit
-      self.playButton.setToolTip("Click to play this item of music")
+      self.playButton = PlayerWidget(self,player,stop=False)
 
       self.desc = QLabel("Click here to choose music", self )
       self.desc.setFixedWidth(600)
@@ -298,36 +487,104 @@ class PlayController(QWidget):
       QWidget.__init__(self,parent)
       self.player = player
       self.cat = cat
+      self.playing = False
+      player.listener.stopped.connect(self.ended)
+      self.playButtons = []
+      self.stopButtons = []
+      self.fadeButtons = []
 
       layout = QHBoxLayout()
 
-      stop = PlayerButton( self, False, 'icons/Stop.png',
-                           'icons/Stop-disabled.png' )
-      stop.setToolTip("Stop any currently playing music abruptly")
-      stop.mouseReleaseEvent = self.stopper
-      layout.addWidget( stop )
+      self.stop = PlayerButton( self, True, False, 'icons/Stop.png',
+                                'icons/Stop-disabled.png' )
+      self.stop.setToolTip("Stop the currently playing music abruptly")
+      self.stop.mouseReleaseEvent = self.stopper
+      layout.addWidget( self.stop )
 
-      fade = PlayerButton( self, False, 'icons/Fade.png',
-                           'icons/Fade-disabled.png' )
-      fade.mouseReleaseEvent = self.fader
-      fade.setToolTip("Fade out any currently playing music slowly")
-      layout.addWidget( fade )
+      self.fade = PlayerButton( self, True, False, 'icons/Fade.png',
+                                'icons/Fade-disabled.png' )
+      self.fade.mouseReleaseEvent = self.fader
+      self.fade.setToolTip("Fade out the currently playing music slowly")
+      layout.addWidget( self.fade )
 
       self.setLayout( layout )
 
-   def stopper(self, event ):
-      print( "STOP clicked!!!")
+   def addClient(self,client):
+      if isinstance(client,PlayerWidget):
+         self.playButtons.append( client.playButton )
+         if client.stopButton:
+            self.stopButtons.append( client.stopButton )
+         if client.fadeButton:
+            self.fadeButtons.append( client.fadeButton )
 
+   def removeClient(self,client):
+      if isinstance(client,PlayerWidget):
+         self.playButtons.remove( client.playButton )
+         if client.stopButton:
+            self.stopButtons.remove( client.stopButton )
+         if client.fadeButton:
+            self.fadeButtons.remove( client.fadeButton )
+
+   def playMusic(self, playwid ):
+      if not self.playing and playwid.playable:
+         for playbutton in self.playButtons:
+            playbutton.disable()
+
+         for stopbutton in self.stopButtons:
+            if stopbutton != playwid.stopButton:
+               stopbutton.disable()
+         if playwid.stopButton:
+            playwid.stopButton.enable()
+
+         for fadebutton in self.fadeButtons:
+            if fadebutton != playwid.fadeButton:
+               fadebutton.disable()
+         if playwid.fadeButton:
+            playwid.fadeButton.enable()
+
+         self.stop.enable()
+         self.fade.enable()
+
+         self.playing = True
+         self.player.play( playwid.playable, cpmodel.STOP )
+
+   def stopMusic(self):
+      if self.playing:
+         self.player.stop( cpmodel.STOP )
+
+   def fadeMusic(self):
+      if self.playing:
+         self.player.stop( cpmodel.FADE )
+
+   @pyqtSlot()
+   def ended(self):
+      if self.playing:
+         for playbutton in self.playButtons:
+            playbutton.enable()
+
+         for stopbutton in self.stopButtons:
+            stopbutton.disable()
+
+         for fadebutton in self.fadeButtons:
+            fadebutton.disable()
+
+         self.stop.disable()
+         self.fade.disable()
+
+         self.playing = False
+
+   def stopper(self, event ):
+      self.stopMusic()
 
    def fader(self, event ):
-      print( "FADE clicked!!!")
+      self.fadeMusic()
 
 
 # ----------------------------------------------------------------------
 class MainWidget(QWidget):
    def __init__( self, parent, player, cat ):
       QWidget.__init__( self, parent )
-      self.player = PlayController( self, player, cat )
+      self.player = player
 
       layout = QHBoxLayout()
 
@@ -574,21 +831,31 @@ class PlayerListener(QThread):
 
 # ----------------------------------------------------------------------
 class PlayerButton(QLabel):
-   size = 40
-   def __init__(self,parent,enabled,enabledFile,disabledFile):
+   size = 35
+   def __init__(self,parent,alive,enabled,enabledFile,disabledFile):
       QLabel.__init__(self,parent)
       self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
       self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
       self.setAlignment(Qt.AlignHCenter)
       self.setFixedSize( PlayerButton.size*1.1, PlayerButton.size*1.1 )
-      if enabled:
-         self.enable()
+      self.alive = alive
+      if alive:
+         if enabled:
+            self.enable()
+         else:
+            self.disable()
       else:
          self.disable()
 
+   def setAlive(self,alive):
+      self.alive = alive
+      if not alive:
+         self.disable()
+
    def enable(self):
-      self.enabled = True
-      self.setPixmap(self.enabledPixmap)
+      if self.alive:
+         self.enabled = True
+         self.setPixmap(self.enabledPixmap)
 
    def disable(self):
       self.enabled = False
@@ -604,7 +871,7 @@ class PlayerButton(QLabel):
 
 # ----------------------------------------------------------------------
 class PlayerWidget(QWidget):
-   def __init__(self,parent,player,playable=None,fade=False,inst=False):
+   def __init__(self,parent,player,playable=None,stop=True,fade=False):
       QWidget.__init__(self,parent)
       self.player = player
       self.playable = None
@@ -612,91 +879,87 @@ class PlayerWidget(QWidget):
       self.layout.setSpacing(0)
       self.layout.addStretch()
 
-      self.playButton = PlayerButton( self, False, 'icons/Play.png',
-                                      'icons/Play-disabled.png', 'Play' )
+      self.playButton = PlayerButton( self, False, False, 'icons/Play.png',
+                                      'icons/Play-disabled.png' )
       self.playButton.mouseReleaseEvent = self.play
       self.layout.addWidget(self.playButton)
 
-      self.stopButton = PlayerButton( self, False, 'icons/Stop.png',
-                                      'icons/Stop-disabled.png', 'Stop' )
-      self.stopButton.mouseReleaseEvent = self.stop
-      self.layout.addWidget(self.stopButton)
+      if stop:
+         self.stopButton = PlayerButton( self, False, False, 'icons/Stop.png',
+                                         'icons/Stop-disabled.png' )
+         self.stopButton.mouseReleaseEvent = self.stop
+         self.layout.addWidget(self.stopButton)
+      else:
+         self.stopButton = None
 
       if fade:
-         self.fadeButton = PlayerButton( self, False, 'icons/Fade.png',
-                                         'icons/Fade-disabled.png', 'Fade' )
+         self.fadeButton = PlayerButton( self, False, False, 'icons/Fade.png',
+                                         'icons/Fade-disabled.png' )
          self.fadeButton.mouseReleaseEvent = self.fade
          self.layout.addWidget(self.fadeButton)
       else:
          self.fadeButton = None
 
-      if inst:
-         self.spin = QSpinBox( self )
-         self.spin.setMinimum( 0 )
-         self.spin.setMaximum( 127 )
-         self.layout.addWidget(self.spin)
-
-      self.setPlayable( playable )
       self.layout.addStretch()
       self.setLayout( self.layout )
 
+      self.setPlayable( playable )
+      player.addClient( self )
+
+
+
    def setPlayable(self,playable):
+      if playable != None:
+         if not isinstance(playable,cpmodel.Record) and not isinstance(playable,cpmodel.Playlist):
+            playable = self.player.cat.getRecord(int(playable))
+
       if not self.playable and playable:
-         self.playButton.enable()
+         self.playButton.setAlive(True)
+         if self.stopButton:
+            self.stopButton.setAlive(True)
+         if self.fadeButton:
+            self.fadeButton.setAlive(True)
+         if not self.player.playing:
+            self.playButton.enable()
+
       elif self.playable and not playable:
+         self.playButton.setAlive(False)
+         if self.stopButton:
+            self.stopButton.setAlive(False)
+         if self.fadeButton:
+            self.fadeButton.setAlive(False)
          self.playButton.disable()
 
       self.playable = playable
+
       if playable:
          self.playButton.setToolTip("Click to play {0}".format(playable.desc()))
-         self.stopButton.setToolTip("Click to stop {0}".format(playable.desc()))
+         if self.stopButton:
+            self.stopButton.setToolTip("Click to stop {0}".format(playable.desc()))
          if self.fadeButton:
             self.fadeButton.setToolTip("Click to fade {0} gradually".format(playable.desc()))
       else:
          self.playButton.setToolTip("")
-         self.stopButton.setToolTip("")
+         if self.stopButton:
+            self.stopButton.setToolTip("")
          if self.fadeButton:
             self.fadeButton.setToolTip("")
 
    def play(self, event ):
       if self.playButton.enabled:
-         self.playButton.disable()
-         self.stopButton.enable()
-         if self.fadeButton:
-            self.fadeButton.enable()
-         if self.spin:
-            inst = self.spin.value()
-            if inst:
-               self.playable.instrument = inst
-            else:
-               self.playable.instrument = cpmodel.DEFAULT_INSTRUMENT
-
-         self.player.listener.stopped.connect(self.ended)
-         self.player.play( self.playable, cpmodel.STOP )
+         self.player.playMusic( self )
 
    def stop(self, event):
       if self.stopButton.enabled:
-         self.playButton.enable()
-         self.stopButton.disable()
-         if self.fadeButton:
-            self.fadeButton.disable()
-         self.player.stop( cpmodel.STOP )
+         self.player.stopMusic()
 
    def fade(self, event):
-      if self.stopButton.enabled:
-         self.playButton.enable()
-         self.stopButton.disable()
-         if self.fadeButton:
-            self.fadeButton.disable()
-         self.player.stop( cpmodel.FADE )
+      if self.fadeButton.enabled:
+         self.player.fadeMusic()
 
-   @pyqtSlot()
-   def ended(self):
-      if self.stopButton.enabled:
-         self.playButton.enable()
-         self.stopButton.disable()
-         if self.fadeButton:
-            self.fadeButton.disable()
+   def finish(self):
+      self.stop(None)
+      self.player.removeClient( self )
 
 
 # ------------------------------------------------------------------------
@@ -792,7 +1055,7 @@ class CatComboBoxS(QComboBox,CatItem):
       i = 0
       for opt in opts:
          self.addItem(opt)
-         if descs:
+         if descs and len(descs) > i:
             self.setItemData( i + 1, descs[i], Qt.ToolTipRole )
          if opt == curval:
             icurr = i + 1
@@ -1314,7 +1577,7 @@ class ChurchPlayer(QMainWindow):
    def initUI(self, app, cat, player ):
       self.cat = cat
       self.app = app
-      self.player = player
+      self.player = PlayController( self, player, cat )
 
 #  Set up tool tips
       QToolTip.setFont(QFont('SansSerif', 10))
@@ -1323,6 +1586,11 @@ class ChurchPlayer(QMainWindow):
       exitAction = QAction(QIcon('icons/Exit.png'), '&Exit', self)
       exitAction.setStatusTip('Exit application')
       exitAction.triggered.connect(self.exit)
+
+      classifyAction = QAction(QIcon('icons/Tick.png'), '&Classify', self)
+      classifyAction.setStatusTip('Classify music')
+      classifyAction.triggered.connect(self.classify)
+      classifyAction.setShortcut('Ctrl+L')
 
 #      openAction = QAction(QIcon('icons/Open.png'), '&Open', self)
 #      openAction.setStatusTip('Open an existing service or playlist')
@@ -1346,17 +1614,19 @@ class ChurchPlayer(QMainWindow):
 #      fileMenu.addAction(openAction)
       fileMenu.addAction(exitAction)
 
-#      catMenu = menubar.addMenu('&Catalogue')
+      catMenu = menubar.addMenu('&Catalogue')
+      catMenu.addAction(classifyAction)
 #      catMenu.addAction(scanAction)
 #      catMenu.addAction(saveCatAction)
 
 #  Set up the toolbar.
       toolbar = self.addToolBar('tools')
       toolbar.addAction(exitAction)
+      toolbar.addAction(classifyAction)
 #      toolbar.addAction(openAction)
 
 #  The central widget
-      pw = MainWidget( self, player, cat )
+      pw = MainWidget( self, self.player, cat )
       self.setCentralWidget( pw )
 
 #  Set up the main window.
@@ -1403,7 +1673,7 @@ class ChurchPlayer(QMainWindow):
             doexit = False
 
       if doexit:
-         del self.player
+         del self.player.player
          self.close()
 
 
@@ -1444,11 +1714,21 @@ class ChurchPlayer(QMainWindow):
          showMessage("No uncatalogued MIDI files were found." )
 
 #  ---------------------------------------------------------------
+#  Classify music
+#  ---------------------------------------------------------------
+   def classify(self, e ):
+      ed = ClassifyDialog(self,self.player)
+      ed.exec_()
+
+#  ---------------------------------------------------------------
 #  Main entry.
 #  ---------------------------------------------------------------
 def main():
 
     app = QApplication(sys.argv)
+    font = app.font()
+    font.setPointSize(15)
+    app.setFont( font )
 
 # Create and display the splash screen
     splash_pix = QPixmap('icons/splash2-loading.png')

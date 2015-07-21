@@ -56,49 +56,49 @@ t:L Lent
 # Data:
 # ----
 Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JMH@STF@40@@BAND@DSB@@0@0@0@-1
-All people that on earth@stf/1_All_people_that_on_earth.mid@@STF@1@Old 100th@KEYBD@STF@@0@0@0@-1
+All people that on earth@stf/1_All_people_that_on_earth.mid@@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@-1
 Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@@STF@2@@KEYBD@STF@@0@0@0@-1
 Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@@STF@2@Extra refrain@KEYBD@STF@@0@0@0@-1
 Eternal God, your love's tremendous glory@stf/3_Eternal_God_your_loves_tremendous_glory.mid@@STF@3@Highwood@KEYBD@STF@@0@0@0@-1
-Father in heaven@stf/4_Father_in_heaven.mid@@STF@4@Halad@KEYBD@STF@@0@0@0@-1
-Father, in whom we live@stf/5_Father_in_whom_we_live.mid@H@STF@5@St Mary@KEYBD@STF@@0@0@0@-1
+Father in heaven@stf/4_Father_in_heaven.mid@@STF@4@Halad@KEYBD@STF@55.55.55.54.@0@0@0@-1
+Father, in whom we live@stf/5_Father_in_whom_we_live.mid@H@STF@5@St Mary@KEYBD@STF@66.86.D.@0@0@0@-1
 Father, we love you@stf/6_Father_we_love_you.mid@@STF@6@@KEYBD@STF@@0@0@0@-1
-God who made the stars of heaven@stf/7_God_who_made_the_stars_of_heaven.mid@@STF@7@Thian Beng@KEYBD@STF@@0@0@0@-1
+God who made the stars of heaven@stf/7_God_who_made_the_stars_of_heaven.mid@@STF@7@Thian Beng@KEYBD@STF@85.85.85.75.@0@0@0@-1
 God with us@stf/8_God_with_us.mid@@STF@8@Ode to Joy@KEYBD@STF@@0@0@0@-1
-Hail! Holy, holy, holy Lord!@stf/9_Hail_Holy_holy_holy_Lord.mid@H@STF@9@Dunfermline@KEYBD@STF@@0@0@0@-1
+Hail! Holy, holy, holy Lord!@stf/9_Hail_Holy_holy_holy_Lord.mid@H@STF@9@Dunfermline@KEYBD@STF@86.86.@0@0@0@-1
 Holy, holy@stf/10_Holy_holy_Fellingham.mid@@STF@10@Fellingham@KEYBD@STF@@0@0@0@-1
-Holy, holy, holy@stf/11_Holy_holy_holy.mid@@STF@11@Nicaea@KEYBD@STF@@0@0@0@-1
-Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@@STF@12@Emma@KEYBD@STF@@0@0@0@-1
+Holy, holy, holy@stf/11_Holy_holy_holy.mid@@STF@11@Nicaea@KEYBD@STF@11.12.12.10.@0@0@0@-1
+Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
 Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
-Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@@STF@14@Regent Square@KEYBD@STF@@0@0@0@-1
+Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@0@0@-1
 The splendour of the King@stf/15_The_splendour_of_the_King.mid@M@STF@15@@KEYBD@STF@@0@0@0@-1
 We give immortal praise@stf/16_We_give_immortal_praise.mid@H@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
 With gladness we worship@stf/17_With_gladness_we_worship.mid@@STF@17@Datchet@KEYBD@STF@@0@0@0@-1
 Be still and know@stf/18_Be_still_and_know.mid@@STF@18@@KEYBD@STF@@0@0@0@-1
 Be still and know@stf/19_Be_still_and_know_Bell.mid@@STF@19@Bell@KEYBD@STF@@0@0@0@-1
 Be still@stf/20_Be_still.mid@@STF@20@Be Still@KEYBD@STF@@0@0@0@-1
-Born in song!@stf/21_Born_in_song.mid@@STF@21@Chatsworth@KEYBD@STF@@0@0@0@-1
+Born in song!@stf/21_Born_in_song.mid@@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@0@0@-1
 Come all you people@stf/22_Come_all_you_people.mid@@STF@22@@KEYBD@STF@@0@0@0@-1
 Come, Holy Spirt@stf/23_Come_Holy_Spirt.mid@M@STF@23@@KEYBD@STF@@0@0@0@-1
 Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@M@STF@24@@KEYBD@STF@@0@0@0@-1
 God is here!@stf/25_God_is_here.mid@H@STF@25@Bethany@KEYBD@STF@@0@0@0@-1
 I rejoiced when I heard them say@stf/26_I_rejoiced_when_I_heard_them_say.mid@@STF@26@I Rejoiced@KEYBD@STF@@0@0@0@-1
-Jesu, tawa pano@stf/27_Jesu_tawa_pano.mid@@STF@27@Jesu Tawa Pano@KEYBD@STF@@0@0@0@-1
+Jesu, tawa pano@stf/27_Jesu_tawa_pano.mid@@STF@27@Jesu Tawa Pano@KEYBD@STF@66.69.@0@0@0@-1
 Jesus calls us here to meet him@stf/28_Jesus_calls_us_here_to_meet_him.mid@M@STF@28@Jesus Calls Us@KEYBD@STF@@0@0@0@-1
 Jesus lead us to the Father@stf/29_Jesus_lead_us_to_the_Father.mid@@STF@29@@KEYBD@STF@@0@0@0@-1
 Jesus stand among us@stf/30_Jesus_stand_among_us.mid@M@STF@30@@KEYBD@STF@@0@0@0@-1
 May the glory of the Lord@stf/31_May_the_glory_of_the_Lord.mid@@STF@31@@KEYBD@STF@@0@0@0@-1
-Meet and right it is to sing@stf/32_Meet_and_right_it_is_to_sing.mid@H@STF@32@Amsterdam@KEYBD@STF@@0@0@0@-1
+Meet and right it is to sing@stf/32_Meet_and_right_it_is_to_sing.mid@H@STF@32@Amsterdam@KEYBD@STF@76.76.77.76.@0@0@0@-1
 O Lord we are always in your presence@stf/33_O_Lord_we_are_always_in_your_presence.mid@@STF@33@@KEYBD@STF@@0@0@0@-1
 O worship the Lord@stf/34_O_worship_the_Lord.mid@@STF@34@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
 The trumpets sound, the angels sing@stf/35_The_trumpets_sound_the_angels_sing.mid@M@STF@35@The Feast is Ready@KEYBD@STF@@0@0@0@-1
 There's a quiet understanding@stf/36_Theres_a_quiet_understanding.mid@@STF@36@@KEYBD@STF@@0@0@0@-1
 You're calling us@stf/37_Youre_calling_us.mid@M@STF@37@@KEYBD@STF@@0@0@0@-1
 Wa wa wa Emimimo@stf/38_Wa_wa_wa_Emimimo.mid@@STF@38@@KEYBD@STF@@0@0@0@-1
-Angel voices ever singing@stf/39_Angel_voices_ever_singing.mid@@STF@39@Angel Voices@KEYBD@STF@@0@0@0@-1
+Angel voices ever singing@stf/39_Angel_voices_ever_singing.mid@@STF@39@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
 Blessed be the name of the Lord@stf/40_Blessed_be_the_name_of_the_Lord.mid@M@STF@40@@KEYBD@STF@@0@0@0@-1
 Blessed be your name@stf/41_Blessed_be_your_name.mid@M@STF@41@@KEYBD@STF@@0@0@0@-1
-O sing to the Lord@stf/42_O_sing_to_the_Lord.mid@@STF@42@Cantad Al Senor@KEYBD@STF@@0@0@0@-1
+O sing to the Lord@stf/42_O_sing_to_the_Lord.mid@@STF@42@Cantad Al Senor@KEYBD@STF@11.11.11.10.@0@0@0@-1
 Come, let us praise the Lord@stf/43_Come_let_us_praise_the_Lord.mid@@STF@43@Chilean Venite@KEYBD@STF@@0@0@0@-1
 Come on and celebrate@stf/44_Come_on_and_celebrate.mid@@STF@44@@KEYBD@STF@@0@0@0@-1
 Earth's creator, everyday God@stf/45_Earths_creator_everyday_God.mid@@STF@45@Everyday God@KEYBD@STF@@0@0@0@-1
@@ -109,12 +109,12 @@ God beyond all names@stf/49_God_beyond_all_names.mid@M@STF@49@@KEYBD@STF@@0@0@0@
 Great is the Lord@stf/50_Great_is_the_Lord.mid@@STF@50@@KEYBD@STF@@0@0@0@-1
 Great is thy faithfulness@stf/51_Great_is_thy_faithfulness.mid@H@STF@51@Faithfulness@KEYBD@STF@@0@0@0@-1
 He is exalted@stf/52_He_is_exalted.mid@@STF@52@@KEYBD@STF@@0@0@0@-1
-How shall I sing that majesty@stf/53_How_shall_I_sing_that_majesty_Solls_Sein.mid@@STF@53@Soll's Sein@KEYBD@STF@@0@0@0@-1
-How shall I sing that majesty@stf/53_How_shall_I_sing_that_majesty_Coe_Fen.mid@@STF@53@Coe Fen@KEYBD@STF@@0@0@0@-1
+How shall I sing that majesty@stf/53_How_shall_I_sing_that_majesty_Solls_Sein.mid@@STF@53@Soll's Sein@KEYBD@STF@86.86.D.@0@0@0@-1
+How shall I sing that majesty@stf/53_How_shall_I_sing_that_majesty_Coe_Fen.mid@@STF@53@Coe Fen@KEYBD@STF@86.86.D.@0@0@0@-1
 I will worship@stf/54_I_will_worship.mid@@STF@54@@KEYBD@STF@@0@0@0@-1
 Immortal, invisible@stf/55_Immortal_invisible.mid@@STF@55@St Denio (Joanna)@KEYBD@STF@@0@0@0@-1
-King of Glory, King of Peace@stf/56_King_of_Glory_King_of_Peace.mid@@STF@56@Gwalchmai@KEYBD@STF@@0@0@0@-1
-Let all the world@stf/57_Let_all_the_world.mid@@STF@57@Luckington@KEYBD@STF@@0@0@0@-1
+King of Glory, King of Peace@stf/56_King_of_Glory_King_of_Peace.mid@@STF@56@Gwalchmai@KEYBD@STF@74.74.D.@0@0@0@-1
+Let all the world@stf/57_Let_all_the_world.mid@@STF@57@Luckington@KEYBD@STF@10.4.66.66.10.4.@0@0@0@-1
 Lord, I come before your throne@stf/58_Lord_I_come_before_your_throne.mid@@STF@58@@KEYBD@STF@@0@0@0@-1
 Lord, the light of your love@stf/59_Lord_the_light_of_your_love.mid@M@STF@59@@KEYBD@STF@@0@0@0@-1
 My soul rejoices in God, my Saviour@stf/60_My_soul_rejoices_in_God_my_Saviour.mid@@STF@60@@KEYBD@STF@@0@0@0@-1
@@ -124,72 +124,72 @@ Over all the earth@stf/63_Over_all_the_earth.mid@M@STF@63@@KEYBD@STF@@0@0@0@-1
 Praise is rising@stf/64_Praise_is_rising.mid@M@STF@64@@KEYBD@STF@@0@0@0@-1
 Sing of the Lord's goodness@stf/65_Sing_of_the_Lords_goodness.mid@@STF@65@@KEYBD@STF@@0@0@0@-1
 The steadfast love of the Lord@stf/66_The_steadfast_love_of_the_Lord.mid@@STF@66@@KEYBD@STF@@0@0@0@-1
-This, this is the God we adore@stf/67_This_this_is_the_God_we_adore.mid@@STF@67@Celeste@KEYBD@STF@@0@0@0@-1
+This, this is the God we adore@stf/67_This_this_is_the_God_we_adore.mid@@STF@67@Celeste@KEYBD@STF@88.88.@0@0@0@-1
 Worship God with the morning sunrise@stf/68_Worship_God_with_the_morning_sunrise.mid@@STF@68@@KEYBD@STF@@0@0@0@-1
 Ye holy angels bright@stf/69_Ye_holy_angels_bright.mid@@STF@69@Darwall's 148th@KEYBD@STF@@0@0@0@-1
 Always remember, never forget@stf/70_Always_remember_never_forget.mid@@STF@70@Always Remember, Never Forget @KEYBD@STF@@0@0@0@-1
 Even as the world began@stf/71_Even_as_the_world_began.mid@M@STF@71@@KEYBD@STF@@0@0@0@-1
 Father God, I wonder@stf/72_Father_God_I_wonder.mid@@STF@72@@KEYBD@STF@@0@0@0@-1
-Fill thou my life@stf/73_Fill_thou_my_life_Beatitudo.mid@H@STF@73@Beatitudo@KEYBD@STF@@0@0@0@-1
-Fill thou my life@stf/73_Fill_thou_my_life_St_Fulbert.mid@H@STF@73@St Fulbert@KEYBD@STF@@0@0@0@-1
+Fill thou my life@stf/73_Fill_thou_my_life_Beatitudo.mid@H@STF@73@Beatitudo@KEYBD@STF@86.86.@0@0@0@-1
+Fill thou my life@stf/73_Fill_thou_my_life_St_Fulbert.mid@H@STF@73@St Fulbert@KEYBD@STF@86.86.@0@0@0@-1
 For the music of creation@stf/74_For_the_music_of_creation.mid@@STF@74@Rustington@KEYBD@STF@@0@0@0@-1
 From all that dwell below the skies@stf/75_From_all_that_dwell_below_the_skies.mid@H@STF@75@Lasst Uns Erfreuen@KEYBD@STF@@0@0@0@-1
 Give me joy in my heart@stf/76_Give_me_joy_in_my_heart.mid@@STF@76@Sing Hosanna@KEYBD@STF@@0@0@0@-1
 Give thanks to the Lord@stf/77_Give_thanks_to_the_Lord.mid@M@STF@77@@KEYBD@STF@@0@0@0@-1
 Give thanks with a grateful heart@stf/78_Give_thanks_with_a_grateful_heart.mid@@STF@78@@KEYBD@STF@@0@0@0@-1
-I'll praise my maker@stf/79_Ill_praise_my_maker.mid@H@STF@79@Monmouth@KEYBD@STF@@0@0@0@-1
-My God, I am thine@stf/80_My_God_I_am_thine.mid@H@STF@80@Harwich@KEYBD@STF@@0@0@0@-1
-Now thank we all our God@stf/81_Now_thank_we_all_our_God_Gracias.mid@@STF@81@Gracias@KEYBD@STF@@0@0@0@-1
-Now thank we all our God@stf/81_Now_thank_we_all_our_God_Nun_danket.mid@@STF@81@Nun danket@KEYBD@STF@@0@0@0@-1
+I'll praise my maker@stf/79_Ill_praise_my_maker.mid@H@STF@79@Monmouth@KEYBD@STF@88.8.D.@0@0@0@-1
+My God, I am thine@stf/80_My_God_I_am_thine.mid@H@STF@80@Harwich@KEYBD@STF@5.5.11.D.@0@0@0@-1
+Now thank we all our God@stf/81_Now_thank_we_all_our_God_Gracias.mid@@STF@81@Gracias@KEYBD@STF@67.67.66.66.@0@0@0@-1
+Now thank we all our God@stf/81_Now_thank_we_all_our_God_Nun_danket.mid@@STF@81@Nun danket@KEYBD@STF@67.67.66.66.@0@0@0@-1
 O Lord, my God, when I in awesome wonder@stf/82_O_Lord_my_God_when_I_in_awesome_wonder.mid@@STF@82@@KEYBD@STF@@0@0@0@-1
-Praise, my soul, the King of heaven@stf/83_Praise_my_soul_the_King_of_heaven.mid@@STF@83@Praise, My Soul@KEYBD@STF@@0@0@0@-1
+Praise, my soul, the King of heaven@stf/83_Praise_my_soul_the_King_of_heaven.mid@@STF@83@Praise, My Soul@KEYBD@STF@87.87.44.7.@0@0@0@-1
 Praise the Lord, his glories show@stf/84_Praise_the_Lord_his_glories_show.mid@@STF@84@Llanfair@KEYBD@STF@@0@0@0@-1
-Praise the Lord who reigns above@stf/85_Praise_the_Lord_who_reigns_above.mid@H@STF@85@Flanders@KEYBD@STF@@0@0@0@-1
+Praise the Lord who reigns above@stf/85_Praise_the_Lord_who_reigns_above.mid@H@STF@85@Flanders@KEYBD@STF@76.76.77.76.@0@0@0@-1
 Praise the Lord! You heavens, adore him@stf/86_Praise_the_Lord_You_heavens_adore_him.mid@@STF@86@Austria@KEYBD@STF@@0@0@0@-1
-Praise to the living God!@stf/87_Praise_to_the_living_God.mid@@STF@87@Leoni@KEYBD@STF@@0@0@0@-1
-Praise to the Lord, the Almighty@stf/88_Praise_to_the_Lord_the_Almighty.mid@@STF@88@Lobe Den Herren@KEYBD@STF@@0@0@0@-1
+Praise to the living God!@stf/87_Praise_to_the_living_God.mid@@STF@87@Leoni@KEYBD@STF@66.84.D.@0@0@0@-1
+Praise to the Lord, the Almighty@stf/88_Praise_to_the_Lord_the_Almighty.mid@@STF@88@Lobe Den Herren@KEYBD@STF@14.14.4.7.8.@0@0@0@-1
 Strength will rise@stf/89_Strength_will_rise.mid@M@STF@89@@KEYBD@STF@@0@0@0@-1
-Sweet is the work, my God, my King@stf/90_Sweet_is_the_work_my_God_my_King.mid@H@STF@90@Deep Harmony@KEYBD@STF@@0@0@0@-1
-The God of Abraham praise@stf/91_The_God_of_Abraham_praise.mid@@STF@91@Leoni@KEYBD@STF@@0@0@0@-1
+Sweet is the work, my God, my King@stf/90_Sweet_is_the_work_my_God_my_King.mid@H@STF@90@Deep Harmony@KEYBD@STF@88.88.@0@0@0@-1
+The God of Abraham praise@stf/91_The_God_of_Abraham_praise.mid@@STF@91@Leoni@KEYBD@STF@66.84.D.@0@0@0@-1
 Think of a world without any flowers@stf/92_Think_of_a_world_without_any_flowers.mid@H@STF@92@@KEYBD@STF@@0@0@0@-1
 Though the fruit tree doesn't blossom@stf/93_Though_the_fruit_tree_doesnt_blossom.mid@H@STF@93@@KEYBD@STF@@0@0@0@-1
 To God be the glory@stf/94_To_God_be_the_glory.mid@@STF@94@To God Be The Glory@KEYBD@STF@@0@0@0@-1
 We praise you, O God@stf/95_We_praise_you_O_God.mid@@STF@95@@KEYBD@STF@@0@0@0@-1
 We sing of your glory@stf/96_We_sing_of_your_glory.mid@@STF@96@Rio De La Plata@KEYBD@STF@@0@0@0@-1
-When all your mercies, O my God@stf/97_When_all_your_mercies_O_my_God_Contemplation.mid@@STF@97@Contemplation@KEYBD@STF@@0@0@0@-1
-When all your mercies, O my God@stf/97_When_all_your_mercies_O_my_God_Harington_Retirement.mid@@STF@97@Harington Retirement@KEYBD@STF@@0@0@0@-1
+When all your mercies, O my God@stf/97_When_all_your_mercies_O_my_God_Contemplation.mid@@STF@97@Contemplation@KEYBD@STF@86.86.@0@0@0@-1
+When all your mercies, O my God@stf/97_When_all_your_mercies_O_my_God_Harington_Retirement.mid@@STF@97@Harington Retirement@KEYBD@STF@86.86.@0@0@0@-1
 Your love is amazing@stf/98_Your_love_is_amazing.mid@M@STF@98@@KEYBD@STF@@0@0@0@-1
 All creatures of our God and King@stf/99_All_creatures_of_our_God_and_King.mid@@STF@99@St Francis (Lasst Uns Erfreuen)@KEYBD@STF@@0@0@0@-1
 All things bright and beautiful@stf/100_All_things_bright_and_beautiful_All_things_bright_and_beautiful.mid@@STF@100@All things bright and beautiful@KEYBD@STF@@0@0@0@-1
 All things bright and beautiful@stf/100_All_things_bright_and_beautiful_Royal_Oak.mid@@STF@100@Royal Oak@KEYBD@STF@@0@0@0@-1
-Before the world began@stf/101_Before_the_world_began.mid@M@STF@101@Incarnation@KEYBD@STF@@0@0@0@-1
+Before the world began@stf/101_Before_the_world_began.mid@M@STF@101@Incarnation@KEYBD@STF@64.64.66.64.@0@0@0@-1
 For the beauty of the earth@stf/102_For_the_beauty_of_the_earth_Lucerna.mid@@STF@102@Lucerna@KEYBD@STF@@0@0@0@-1
 For the beauty of the earth@stf/102_For_the_beauty_of_the_earth_Noricum.mid@@STF@102@Noricum@KEYBD@STF@@0@0@0@-1
 God is Love@stf/103_God_is_Love_Hyfrydol.mid@@STF@103@Hyfrydol@KEYBD@STF@@0@0@0@-1
 God is Love@stf/103_God_is_Love_Rustington.mid@@STF@103@Rustington@KEYBD@STF@@0@0@0@-1
-God moves in a mysterious way@stf/104_God_moves_in_a_mysterious_way.mid@@STF@104@Irish@KEYBD@STF@@0@0@0@-1
+God moves in a mysterious way@stf/104_God_moves_in_a_mysterious_way.mid@@STF@104@Irish@KEYBD@STF@86.86.@0@0@0@-1
 God said@stf/105_God_said.mid@@STF@105@@KEYBD@STF@@0@0@0@-1
-God, whose almighty word@stf/106_God_whose_almighty_word.mid@@STF@106@Moscow@KEYBD@STF@@0@0@0@-1
-I sing the almighty power of God@stf/107_I_sing_the_almighty_power_of_God.mid@H@STF@107@St Saviour@KEYBD@STF@@0@0@0@-1
+God, whose almighty word@stf/106_God_whose_almighty_word.mid@@STF@106@Moscow@KEYBD@STF@66.4.666.4.@0@0@0@-1
+I sing the almighty power of God@stf/107_I_sing_the_almighty_power_of_God.mid@H@STF@107@St Saviour@KEYBD@STF@86.86.@0@0@0@-1
 In the beginning God played with the planets@stf/108_In_the_beginning_God_played_with_the_planets.mid@@STF@108@In The Beginning @KEYBD@STF@@0@0@0@-1
 In the darkness of the still night@stf/109_In_the_darkness_of_the_still_night.mid@@STF@109@@KEYBD@STF@@0@0@0@-1
 In the wonder of creation@stf/110_In_the_wonder_of_creation.mid@@STF@110@Bethany@KEYBD@STF@@0@0@0@-1
-Lord of the boundless curves of space@stf/111_Lord_of_the_boundless_curves_of_space.mid@H@STF@111@London New@KEYBD@STF@@0@0@0@-1
-O Lord, our Lord, throughout the earth@stf/112_O_Lord_our_Lord_throughout_the_earth.mid@M@STF@112@Tramps and Hawkers@KEYBD@STF@@0@0@0@-1
+Lord of the boundless curves of space@stf/111_Lord_of_the_boundless_curves_of_space.mid@H@STF@111@London New@KEYBD@STF@86.86.@0@0@0@-1
+O Lord, our Lord, throughout the earth@stf/112_O_Lord_our_Lord_throughout_the_earth.mid@M@STF@112@Tramps and Hawkers@KEYBD@STF@86.86.D.@0@0@0@-1
 O worship the King@stf/113_O_worship_the_King.mid@@STF@113@Hanover@KEYBD@STF@@0@0@0@-1
-Oh the life of the world@stf/114_Oh_the_life_of_the_world.mid@@STF@114@Life of the World@KEYBD@STF@@0@0@0@-1
+Oh the life of the world@stf/114_Oh_the_life_of_the_world.mid@@STF@114@Life of the World@KEYBD@STF@13.11.12.8.@0@0@0@-1
 Praise ye the Lord!@stf/115_Praise_ye_the_Lord.mid@H@STF@115@Justification@KEYBD@STF@@0@0@0@-1
-Sing for God's glory@stf/116_Sing_for_Gods_glory.mid@@STF@116@Lobe den Herren@KEYBD@STF@@0@0@0@-1
-Sing praise to God who reigns above@stf/117_Sing_praise_to_God_who_reigns_above.mid@@STF@117@Mit Freuden Zart@KEYBD@STF@@0@0@0@-1
+Sing for God's glory@stf/116_Sing_for_Gods_glory.mid@@STF@116@Lobe den Herren@KEYBD@STF@14.14.4.7.8.@0@0@0@-1
+Sing praise to God who reigns above@stf/117_Sing_praise_to_God_who_reigns_above.mid@@STF@117@Mit Freuden Zart@KEYBD@STF@87.87.88.7.@0@0@0@-1
 Tell me who made all of creation@stf/118_Tell_me_who_made_all_of_creation.mid@@STF@118@@KEYBD@STF@@0@0@0@-1
 God of Eve and God of Mary@stf/119_God_of_Eve_and_God_of_Mary.mid@@STF@119@Sussex@KEYBD@STF@@0@0@0@-1
-We gladly celebrate and praise@stf/120_We_gladly_celebrate_and_praise.mid@@STF@120@Stracathro@KEYBD@STF@@0@0@0@-1
+We gladly celebrate and praise@stf/120_We_gladly_celebrate_and_praise.mid@@STF@120@Stracathro@KEYBD@STF@86.86.@0@0@0@-1
 Autumn days when grass is jewelled@stf/121_Autumn_days_when_grass_is_jewelled.mid@@STF@121@I Mustn't Forget@KEYBD@STF@@0@0@0@-1
 God, whose farm is all creation@stf/122_God_whose_farm_is_all_creation.mid@@STF@122@Shipston@KEYBD@STF@@0@0@0@-1
-Come, you thankful people, come@stf/123_Come_you_thankful_people_come.mid@@STF@123@St George's Windsor@KEYBD@STF@@0@0@0@-1
-For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_East_Acklam.mid@@STF@124@East Acklam@KEYBD@STF@@0@0@0@-1
-For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_Ar_Hyd_Y_Nos.mid@@STF@124@Ar Hyd Y Nos@KEYBD@STF@@0@0@0@-1
-Praise and thanksgiving@stf/125_Praise_and_thanksgiving.mid@@STF@125@Bunessan@KEYBD@STF@@0@0@0@-1
+Come, you thankful people, come@stf/123_Come_you_thankful_people_come.mid@@STF@123@St George's Windsor@KEYBD@STF@77.77.D.@0@0@0@-1
+For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_East_Acklam.mid@@STF@124@East Acklam@KEYBD@STF@84.84.88.84.@0@0@0@-1
+For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_Ar_Hyd_Y_Nos.mid@@STF@124@Ar Hyd Y Nos@KEYBD@STF@84.84.88.84.@0@0@0@-1
+Praise and thanksgiving@stf/125_Praise_and_thanksgiving.mid@@STF@125@Bunessan@KEYBD@STF@55.54.D.@0@0@0@-1
 Praise God for the harvest@stf/126_Praise_God_for_the_harvest.mid@H@STF@126@Stowey@KEYBD@STF@@0@0@0@-1
 Sing to the great Jehovah's praise@stf/127_Sing_to_the_great_Jehovahs_praise.mid@H@STF@127@Northrop@KEYBD@STF@@0@0@0@-1
 The harvest is here@stf/128_The_harvest_is_here.mid@@STF@128@Laudate Dominum (Gauntlett)@KEYBD@STF@@0@0@0@-1
@@ -197,109 +197,109 @@ To thee, O Lord our hearts we raise@stf/129_To_thee_O_Lord_our_hearts_we_raise.m
 We plough the fields@stf/130_We_plough_the_fields.mid@@STF@130@Wir Pflugen@KEYBD@STF@@0@0@0@-1
 By a monument of marble@stf/131_By_a_monument_of_marble_Blaenwern.mid@@STF@131@Blaenwern@KEYBD@STF@@0@0@0@-1
 By a monument of marble@stf/131_By_a_monument_of_marble_Scarlet_Ribbons.mid@@STF@131@Scarlet Ribbons@KEYBD@STF@@0@0@0@-1
-O God, our help in ages past@stf/132_O_God_our_help_in_ages_past.mid@H@STF@132@St Anne@KEYBD@STF@@0@0@0@-1
+O God, our help in ages past@stf/132_O_God_our_help_in_ages_past.mid@H@STF@132@St Anne@KEYBD@STF@86.86.@0@0@0@-1
 To be a soldier@stf/133_To_be_a_soldier.mid@M@STF@133@Miles Christi@KEYBD@STF@@0@0@0@-1
 Christ, whose glory fills the skies@stf/134_Christ_whose_glory_fills_the_skies.mid@H@STF@134@Heathlands@KEYBD@STF@@0@0@0@-1
-I owe my Lord a morning song@stf/135_I_owe_my_Lord_a_morning_song.mid@M@STF@135@Dorking@KEYBD@STF@@0@0@0@-1
-Morning has broken@stf/136_Morning_has_broken.mid@@STF@136@Bunessan@KEYBD@STF@@0@0@0@-1
-New every morning is the love@stf/137_New_every_morning_is_the_love.mid@@STF@137@Melcombe@KEYBD@STF@@0@0@0@-1
-O God beyond all thought@stf/138_O_God_beyond_all_thought_St_Michael.mid@H@STF@138@St Michael@KEYBD@STF@@0@0@0@-1
-O God, beyond all thought@stf/138_O_God_beyond_all_thought_Old_Hall.mid@H@STF@138@Old Hall@KEYBD@STF@@0@0@0@-1
+I owe my Lord a morning song@stf/135_I_owe_my_Lord_a_morning_song.mid@M@STF@135@Dorking@KEYBD@STF@86.86.@0@0@0@-1
+Morning has broken@stf/136_Morning_has_broken.mid@@STF@136@Bunessan@KEYBD@STF@55.54.D.@0@0@0@-1
+New every morning is the love@stf/137_New_every_morning_is_the_love.mid@@STF@137@Melcombe@KEYBD@STF@88.88.@0@0@0@-1
+O God beyond all thought@stf/138_O_God_beyond_all_thought_St_Michael.mid@H@STF@138@St Michael@KEYBD@STF@66.86@0@0@0@-1
+O God, beyond all thought@stf/138_O_God_beyond_all_thought_Old_Hall.mid@H@STF@138@Old Hall@KEYBD@STF@66.86@0@0@0@-1
 Today I awake@stf/139_Today_I_awake.mid@M@STF@139@Slithers of Gold@KEYBD@STF@@0@0@0@-1
 We praise God@stf/140_We_praise_God_Swing_rhythm.mid@@STF@140@Swing rhythm@KEYBD@STF@@0@0@0@-1
 We praise God@stf/140_We_praise_God_Straight_rhythm.mid@@STF@140@Straight rhythm@KEYBD@STF@@0@0@0@-1
 Abide with me@stf/141_Abide_with_me.mid@@STF@141@Eventide@KEYBD@STF@@0@0@0@-1
-Glory to thee, my God, this night@stf/142_Glory_to_thee_my_God_this_night.mid@H@STF@142@Tallis's Canon@KEYBD@STF@@0@0@0@-1
+Glory to thee, my God, this night@stf/142_Glory_to_thee_my_God_this_night.mid@H@STF@142@Tallis's Canon@KEYBD@STF@88.88.@0@0@0@-1
 Hail gladdening Light@stf/143_Hail_gladdening_Light.mid@@STF@143@Sebaste@KEYBD@STF@@0@0@0@-1
 Here are my thoughts, Lord@stf/144_Here_are_my_thoughts_Lord.mid@H@STF@144@@KEYBD@STF@@0@0@0@-1
 Night has fallen@stf/145_Night_has_fallen.mid@@STF@145@Dzuwa Lapita (Night has fallen)@KEYBD@STF@@0@0@0@-1
-Now that evening falls@stf/146_Now_that_evening_falls.mid@M@STF@146@Taking Leave (Lincoln (Bell))@KEYBD@STF@@0@0@0@-1
-The day thou gavest@stf/147_The_day_thou_gavest.mid@H@STF@147@St Clement@KEYBD@STF@@0@0@0@-1
-Come, let us with our Lord arise@stf/148_Come_let_us_with_our_Lord_arise_Madrid.mid@H@STF@148@Madrid@KEYBD@STF@@0@0@0@-1
-Come, let us with our Lord arise@stf/148_Come_let_us_with_our_Lord_arise_Sussex_Carol.mid@H@STF@148@Sussex Carol@KEYBD@STF@@0@0@0@-1
-First of the week@stf/149_First_of_the_week.mid@@STF@149@Galilee@KEYBD@STF@@0@0@0@-1
-This is the day of rest@stf/150_This_is_the_day_of_rest.mid@M@STF@150@Old Dysart@KEYBD@STF@@0@0@0@-1
+Now that evening falls@stf/146_Now_that_evening_falls.mid@M@STF@146@Taking Leave (Lincoln (Bell))@KEYBD@STF@55.65.@0@0@0@-1
+The day thou gavest@stf/147_The_day_thou_gavest.mid@H@STF@147@St Clement@KEYBD@STF@98.98.@0@0@0@-1
+Come, let us with our Lord arise@stf/148_Come_let_us_with_our_Lord_arise_Madrid.mid@H@STF@148@Madrid@KEYBD@STF@88.88.@0@0@0@-1
+Come, let us with our Lord arise@stf/148_Come_let_us_with_our_Lord_arise_Sussex_Carol.mid@H@STF@148@Sussex Carol@KEYBD@STF@88.88.@0@0@0@-1
+First of the week@stf/149_First_of_the_week.mid@@STF@149@Galilee@KEYBD@STF@88.88.@0@0@0@-1
+This is the day of rest@stf/150_This_is_the_day_of_rest.mid@M@STF@150@Old Dysart@KEYBD@STF@67.67.D.@0@0@0@-1
 This is the day the Lord has made@stf/151_This_is_the_day_the_Lord_has_made.mid@H@STF@151@Broomsgrove@KEYBD@STF@@0@0@0@-1
 This is the day, this is the day@stf/152_This_is_the_day_this_is_the_day.mid@@STF@152@@KEYBD@STF@@0@0@0@-1
-Break thou the bread of life@stf/153_Break_thou_the_bread_of_life.mid@H@STF@153@Bethsaida@KEYBD@STF@@0@0@0@-1
+Break thou the bread of life@stf/153_Break_thou_the_bread_of_life.mid@H@STF@153@Bethsaida@KEYBD@STF@64.64.D.@0@0@0@-1
 Come, divine Interpretor@stf/154_Come_divine_Interpretor.mid@H@STF@154@Madrid (Spanish Chant)@KEYBD@STF@@0@0@0@-1
-Come, Holy Ghost@stf/155_Come_Holy_Ghost_St_Columba_Erin.mid@@STF@155@St Columba Erin@KEYBD@STF@@0@0@0@-1
-Come, Holy Ghost@stf/155_Come_Holy_Ghost_Richmond.mid@@STF@155@Richmond@KEYBD@STF@@0@0@0@-1
+Come, Holy Ghost@stf/155_Come_Holy_Ghost_St_Columba_Erin.mid@@STF@155@St Columba Erin@KEYBD@STF@86.86.@0@0@0@-1
+Come, Holy Ghost@stf/155_Come_Holy_Ghost_Richmond.mid@@STF@155@Richmond@KEYBD@STF@86.86.@0@0@0@-1
 From the breaking of the dawn@stf/156_From_the_breaking_of_the_dawn.mid@M@STF@156@@KEYBD@STF@@0@0@0@-1
 God has spoken by his prophets@stf/157_God_has_spoken_by_his_prophets.mid@@STF@157@Hyfrydol@KEYBD@STF@@0@0@0@-1
 Lord, you sometimes speak in wonders@stf/158_Lord_you_sometimes_speak_in_wonders_Cleveland.mid@@STF@158@Cleveland@KEYBD@STF@@0@0@0@-1
 Lord, you sometimes speak in wonders@stf/158_Lord_you_sometimes_speak_in_wonders_Stuttgart.mid@@STF@158@Stuttgart@KEYBD@STF@@0@0@0@-1
-Not far beyond the sea@stf/159_Not_far_beyond_the_sea.mid@@STF@159@Manna@KEYBD@STF@@0@0@0@-1
+Not far beyond the sea@stf/159_Not_far_beyond_the_sea.mid@@STF@159@Manna@KEYBD@STF@88.6.D.@0@0@0@-1
 Powerful in making us wise to salvation@stf/160_Powerful_in_making_us_wise_to_salvation_Conservation.mid@@STF@160@Conservation@KEYBD@STF@@0@0@0@-1
 Powerful in making us wise to salvation@stf/160_Powerful_in_making_us_wise_to_salvation_Stewardship.mid@@STF@160@Stewardship@KEYBD@STF@@0@0@0@-1
 Speak, O Lord as we come to you@stf/161_Speak_O_Lord_as_we_come_to_you.mid@M@STF@161@@KEYBD@STF@@0@0@0@-1
-The prophets' voice@stf/162_The_prophets_voice.mid@@STF@162@St Matthew@KEYBD@STF@@0@0@0@-1
-When listening prophets dare to speak@stf/163_When_listening_prophets_dare_to_speak.mid@@STF@163@Rockhurst@KEYBD@STF@@0@0@0@-1
-Your words to me are life and health@stf/164_Your_words_to_me_are_life_and_health.mid@@STF@164@Capel@KEYBD@STF@@0@0@0@-1
-Advent candles tell their story@stf/165_Advent_candles_tell_their_story.mid@A@STF@165@Angel Voices@KEYBD@STF@@0@0@0@-1
+The prophets' voice@stf/162_The_prophets_voice.mid@@STF@162@St Matthew@KEYBD@STF@86.86.D.@0@0@0@-1
+When listening prophets dare to speak@stf/163_When_listening_prophets_dare_to_speak.mid@@STF@163@Rockhurst@KEYBD@STF@88.88.@0@0@0@-1
+Your words to me are life and health@stf/164_Your_words_to_me_are_life_and_health.mid@@STF@164@Capel@KEYBD@STF@86.86.@0@0@0@-1
+Advent candles tell their story@stf/165_Advent_candles_tell_their_story.mid@A@STF@165@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
 Christmas is coming@stf/166_Christmas_is_coming.mid@MA@STF@166@Advent Ring@KEYBD@STF@@0@0@0@-1
 Colours of day@stf/167_Colours_of_day.mid@A@STF@167@Light up the Fire@KEYBD@STF@@0@0@0@-1
 Come, Lord Jesus, come@stf/168_Come_Lord_Jesus_come.mid@A@STF@168@@KEYBD@STF@@0@0@0@-1
 Come, thou long-expected Jesus@stf/169_Come_thou_longexpected_Jesus_Stuttgart.mid@HA@STF@169@Stuttgart@KEYBD@STF@@0@0@0@-1
 Come, thou long-expected Jesus@stf/169_Come_thou_longexpected_Jesus_Cross_of_Jesus.mid@HA@STF@169@Cross of Jesus@KEYBD@STF@@0@0@0@-1
 Darkness like a shroud@stf/170_Darkness_like_a_shroud.mid@MA@STF@170@@KEYBD@STF@@0@0@0@-1
-Hark the glad sound!@stf/171_Hark_the_glad_sound.mid@A@STF@171@Bristol@KEYBD@STF@@0@0@0@-1
+Hark the glad sound!@stf/171_Hark_the_glad_sound.mid@A@STF@171@Bristol@KEYBD@STF@86.86.@0@0@0@-1
 Hills of the north, rejoice@stf/172_Hills_of_the_north_rejoice.mid@A@STF@172@Little Cornard@KEYBD@STF@@0@0@0@-1
 Into the darkness of this world@stf/173_Into_the_darkness_of_this_world.mid@A@STF@173@@KEYBD@STF@@0@0@0@-1
-Light a candle in a darkened place@stf/174_Light_a_candle_in_a_darkened_place.mid@A@STF@174@The Advent Candle Song@KEYBD@STF@@0@0@0@-1
+Light a candle in a darkened place@stf/174_Light_a_candle_in_a_darkened_place.mid@A@STF@174@The Advent Candle Song@KEYBD@STF@99.77.4.@0@0@0@-1
 Light of the world@stf/175_Light_of_the_world.mid@MA@STF@175@@KEYBD@STF@@0@0@0@-1
 Like a candle flame@stf/176_Like_a_candle_flame.mid@MA@STF@176@@KEYBD@STF@@0@0@0@-1
 Lo,  he comes with clouds descending@stf/177_Lo__he_comes_with_clouds_descending.mid@HA@STF@177@Helmsley@KEYBD@STF@@0@0@0@-1
 Long ago, prophets knew@stf/178_Long_ago_prophets_knew.mid@HA@STF@178@Theodoric@KEYBD@STF@@0@0@0@-1
 My Lord! What a morning@stf/179_My_Lord_What_a_morning.mid@A@STF@179@@KEYBD@STF@@0@0@0@-1
-O come, O come, Immanuel@stf/180_O_come_O_come_Immanuel.mid@A@STF@180@Veni Emmanuel@KEYBD@STF@@0@0@0@-1
-Of the Father's love begotten@stf/181_Of_the_Fathers_love_begotten.mid@A@STF@181@Divinum Mysterium (Corde Natus)@KEYBD@STF@@0@0@0@-1
-On Jordon's bank the Baptist's cry@stf/182_On_Jordons_bank_the_Baptists_cry.mid@A@STF@182@Winchester New@KEYBD@STF@@0@0@0@-1
-Praise to the God who clears the way@stf/183_Praise_to_the_God_who_clears_the_way.mid@A@STF@183@Creator God@KEYBD@STF@@0@0@0@-1
-Round orange, round orange@stf/184_Round_orange_round_orange.mid@A@STF@184@Lourdes@KEYBD@STF@@0@0@0@-1
+O come, O come, Immanuel@stf/180_O_come_O_come_Immanuel.mid@A@STF@180@Veni Emmanuel@KEYBD@STF@88.88.@0@0@0@-1
+Of the Father's love begotten@stf/181_Of_the_Fathers_love_begotten.mid@A@STF@181@Divinum Mysterium (Corde Natus)@KEYBD@STF@87.87.87.7.@0@0@0@-1
+On Jordon's bank the Baptist's cry@stf/182_On_Jordons_bank_the_Baptists_cry.mid@A@STF@182@Winchester New@KEYBD@STF@88.88.@0@0@0@-1
+Praise to the God who clears the way@stf/183_Praise_to_the_God_who_clears_the_way.mid@A@STF@183@Creator God@KEYBD@STF@86.86.@0@0@0@-1
+Round orange, round orange@stf/184_Round_orange_round_orange.mid@A@STF@184@Lourdes@KEYBD@STF@11.11.9.9.@0@0@0@-1
 Sing we the King@stf/185_Sing_we_the_King.mid@A@STF@185@The Glory Song@KEYBD@STF@@0@0@0@-1
 Tell out, my soul@stf/186_Tell_out_my_soul.mid@A@STF@186@Woodlands@KEYBD@STF@@0@0@0@-1
-The Angel Gabriel from heaven came@stf/187_The_Angel_Gabriel_from_heaven_came.mid@A@STF@187@Gabriel's Message@KEYBD@STF@@0@0@0@-1
-There's a light upon the mountains@stf/188_Theres_a_light_upon_the_mountains.mid@A@STF@188@There's a Light upon the Mountains@KEYBD@STF@@0@0@0@-1
-Wild and alone the prophet's voice@stf/189_Wild_and_alone_the_prophets_voice_Aberystwyth.mid@A@STF@189@Aberystwyth@KEYBD@STF@@0@0@0@-1
-Wild and lone the prophet's voice@stf/189_Wild_and_lone_the_prophets_voice_La_Grange.mid@A@STF@189@La Grange@KEYBD@STF@@0@0@0@-1
+The Angel Gabriel from heaven came@stf/187_The_Angel_Gabriel_from_heaven_came.mid@A@STF@187@Gabriel's Message@KEYBD@STF@10.10.11.10.@0@0@0@-1
+There's a light upon the mountains@stf/188_Theres_a_light_upon_the_mountains.mid@A@STF@188@There's a Light upon the Mountains@KEYBD@STF@15.15.15.15.@0@0@0@-1
+Wild and alone the prophet's voice@stf/189_Wild_and_alone_the_prophets_voice_Aberystwyth.mid@A@STF@189@Aberystwyth@KEYBD@STF@77.77.D.@0@0@0@-1
+Wild and lone the prophet's voice@stf/189_Wild_and_lone_the_prophets_voice_La_Grange.mid@A@STF@189@La Grange@KEYBD@STF@77.77.D.@0@0@0@-1
 Angels, from the realms of glory@stf/190_Angels_from_the_realms_of_glory.mid@C@STF@190@Iris@KEYBD@STF@@0@0@0@-1
 Away in a manger@stf/191_Away_in_a_manger_Mueller.mid@C@STF@191@Mueller@KEYBD@STF@@0@0@0@-1
 Away in a manger@stf/191_Away_in_a_manger_Away_in_a_manger.mid@C@STF@191@Away in a manger@KEYBD@STF@@0@0@0@-1
 Beneath the paper wrappings@stf/192_Beneath_the_paper_wrappings.mid@C@STF@192@Look Inside@KEYBD@STF@@0@0@0@-1
-Born in the night@stf/193_Born_in_the_night.mid@C@STF@193@Mary's Child @KEYBD@STF@@0@0@0@-1
-Child of joy and peace@stf/194_Child_of_joy_and_peace.mid@C@STF@194@Child of Joy@KEYBD@STF@@0@0@0@-1
-Christians, awake@stf/195_Christians_awake.mid@C@STF@195@Yorkshire (Stockport)@KEYBD@STF@@0@0@0@-1
+Born in the night@stf/193_Born_in_the_night.mid@C@STF@193@Mary's Child @KEYBD@STF@4.3.6.D.@0@0@0@-1
+Child of joy and peace@stf/194_Child_of_joy_and_peace.mid@C@STF@194@Child of Joy@KEYBD@STF@55.88.55.@0@0@0@-1
+Christians, awake@stf/195_Christians_awake.mid@C@STF@195@Yorkshire (Stockport)@KEYBD@STF@10.10.10.10.10.10.@0@0@0@-1
 Come and join the celebration@stf/196_Come_and_join_the_celebration.mid@C@STF@196@Celebrations@KEYBD@STF@@0@0@0@-1
 Cradled in a manger@stf/197_Cradled_in_a_manger_Saltash.mid@C@STF@197@Saltash@KEYBD@STF@@0@0@0@-1
 Cradled in a manger@stf/197_Cradled_in_a_manger_St_Winifred.mid@C@STF@197@St Winifred@KEYBD@STF@@0@0@0@-1
 Emmanuel, Emmanuel@stf/198_Emmanuel_Emmanuel.mid@C@STF@198@@KEYBD@STF@@0@0@0@-1
-Glory be to God on high@stf/199_Glory_be_to_God_on_high.mid@HC@STF@199@Amsterdam@KEYBD@STF@@0@0@0@-1
+Glory be to God on high@stf/199_Glory_be_to_God_on_high.mid@HC@STF@199@Amsterdam@KEYBD@STF@76.76.77.76.@0@0@0@-1
 God is born among us@stf/200_God_is_born_among_us.mid@C@STF@200@Gdy Sie Chrystus Rodzi@KEYBD@STF@@0@0@0@-1
 Good news, good news to you we bring@stf/201_Good_news_good_news_to_you_we_bring.mid@MC@STF@201@@KEYBD@STF@@0@0@0@-1
-Hark! The herald-angels sing@stf/202_Hark_The_heraldangels_sing.mid@HC@STF@202@Mendelssohn (Bethlehem)@KEYBD@STF@@0@0@0@-1
+Hark! The herald-angels sing@stf/202_Hark_The_heraldangels_sing.mid@HC@STF@202@Mendelssohn (Bethlehem)@KEYBD@STF@77.77.D.@0@0@0@-1
 I had a dream@stf/203_I_had_a_dream.mid@C@STF@203@@KEYBD@STF@@0@0@0@-1
 In the bleak midwinter@stf/204_In_the_bleak_midwinter.mid@C@STF@204@Cranham@KEYBD@STF@@0@0@0@-1
-In came upon the midnight clear@stf/205_In_came_upon_the_midnight_clear.mid@C@STF@205@Noel@KEYBD@STF@@0@0@0@-1
+In came upon the midnight clear@stf/205_In_came_upon_the_midnight_clear.mid@C@STF@205@Noel@KEYBD@STF@86.86.D.@0@0@0@-1
 It was on a starry night@stf/206_It_was_on_a_starry_night.mid@C@STF@206@@KEYBD@STF@@0@0@0@-1
-Jesus is the heart of Christmas@stf/207_Jesus_is_the_heart_of_Christmas.mid@MC@STF@207@Westminster Abbey@KEYBD@STF@@0@0@0@-1
+Jesus is the heart of Christmas@stf/207_Jesus_is_the_heart_of_Christmas.mid@MC@STF@207@Westminster Abbey@KEYBD@STF@87.87.87.@0@0@0@-1
 Let earth and heaven combine@stf/208_Let_earth_and_heaven_combine.mid@HC@STF@208@St John (Havergal)@KEYBD@STF@@0@0@0@-1
 Let me tell you about a baby@stf/209_Let_me_tell_you_about_a_baby.mid@C@STF@209@@KEYBD@STF@@0@0@0@-1
-Love came down at Christmas@stf/210_Love_came_down_at_Christmas_Hermitage.mid@C@STF@210@Hermitage@KEYBD@STF@@0@0@0@-1
-Love came down at Christmas@stf/210_Love_came_down_at_Christmas_St_Hilda_Street.mid@C@STF@210@St Hilda Street@KEYBD@STF@@0@0@0@-1
-Night of peace@stf/211_Night_of_peace.mid@C@STF@211@Night of Peace@KEYBD@STF@@0@0@0@-1
+Love came down at Christmas@stf/210_Love_came_down_at_Christmas_Hermitage.mid@C@STF@210@Hermitage@KEYBD@STF@67.67.@0@0@0@-1
+Love came down at Christmas@stf/210_Love_came_down_at_Christmas_St_Hilda_Street.mid@C@STF@210@St Hilda Street@KEYBD@STF@67.67.@0@0@0@-1
+Night of peace@stf/211_Night_of_peace.mid@C@STF@211@Night of Peace@KEYBD@STF@3.55.D.@0@0@0@-1
 0 come, all ye faithful@stf/212_0_come_all_ye_faithful.mid@C@STF@212@Adeste Fideles@KEYBD@STF@@0@0@0@-1
-O little town of Bethlehem@stf/213_O_little_town_of_Bethlehem.mid@C@STF@213@Forest Green@KEYBD@STF@@0@0@0@-1
-Once in royal David's city@stf/214_Once_in_royal_Davids_city.mid@C@STF@214@Irby@KEYBD@STF@@0@0@0@-1
+O little town of Bethlehem@stf/213_O_little_town_of_Bethlehem.mid@C@STF@213@Forest Green@KEYBD@STF@86.86.D.@0@0@0@-1
+Once in royal David's city@stf/214_Once_in_royal_Davids_city.mid@C@STF@214@Irby@KEYBD@STF@87.87.77.@0@0@0@-1
 See, amid the winter's snow@stf/215_See_amid_the_winters_snow.mid@C@STF@215@Humility (Oxford)@KEYBD@STF@@0@0@0@-1
 See him lying on a bed of straw@stf/216_See_him_lying_on_a_bed_of_straw.mid@C@STF@216@Calypso Carol@KEYBD@STF@@0@0@0@-1
 Silent night, , holy night@stf/217_Silent_night__holy_night.mid@C@STF@217@Stille Nacht@KEYBD@STF@@0@0@0@-1
-Unto us a boy is born@stf/218_Unto_us_a_boy_is_born.mid@C@STF@218@Puer Nobis@KEYBD@STF@@0@0@0@-1
-We see the eyes of Mary shine@stf/219_We_see_the_eyes_of_Mary_shine_Truro.mid@C@STF@219@Truro@KEYBD@STF@@0@0@0@-1
-We see the eyes of Mary shine@stf/219_We_see_the_eyes_of_Mary_shine_France_Hill.mid@C@STF@219@France Hill@KEYBD@STF@@0@0@0@-1
-When a young unmarried couple@stf/220_When_a_young_unmarried_couple.mid@C@STF@220@Irby@KEYBD@STF@@0@0@0@-1
-While shepherds watched@stf/221_While_shepherds_watched_Winchester_Old.mid@C@STF@221@Winchester Old@KEYBD@STF@@0@0@0@-1
-While shepherds watched@stf/221_While_shepherds_watched_Lyngham.mid@C@STF@221@Lyngham@KEYBD@STF@@0@0@0@-1
+Unto us a boy is born@stf/218_Unto_us_a_boy_is_born.mid@C@STF@218@Puer Nobis@KEYBD@STF@76.77.@0@0@0@-1
+We see the eyes of Mary shine@stf/219_We_see_the_eyes_of_Mary_shine_Truro.mid@C@STF@219@Truro@KEYBD@STF@88.88.@0@0@0@-1
+We see the eyes of Mary shine@stf/219_We_see_the_eyes_of_Mary_shine_France_Hill.mid@C@STF@219@France Hill@KEYBD@STF@88.88.@0@0@0@-1
+When a young unmarried couple@stf/220_When_a_young_unmarried_couple.mid@C@STF@220@Irby@KEYBD@STF@87.87.77.@0@0@0@-1
+While shepherds watched@stf/221_While_shepherds_watched_Winchester_Old.mid@C@STF@221@Winchester Old@KEYBD@STF@86.86.@0@0@0@-1
+While shepherds watched@stf/221_While_shepherds_watched_Lyngham.mid@C@STF@221@Lyngham@KEYBD@STF@86.86.@0@0@0@-1
 Who would think that what was needed@stf/222_Who_would_think_that_what_was_needed.mid@MC@STF@222@Scarlet Ribbons@KEYBD@STF@@0@0@0@-1
 A special star@stf/223_A_special_star.mid@@STF@223@A Special Star@KEYBD@STF@@0@0@0@-1
 As with gladness@stf/224_As_with_gladness.mid@@STF@224@Dix@KEYBD@STF@@0@0@0@-1
@@ -307,174 +307,174 @@ Bethlehem, of noblest cities@stf/225_Bethlehem_of_noblest_cities.mid@@STF@225@St
 Birth brings a promise@stf/226_Birth_brings_a_promise.mid@@STF@226@Morning Star@KEYBD@STF@@0@0@0@-1
 Brightest and best@stf/227_Brightest_and_best_Epiphany.mid@@STF@227@Epiphany@KEYBD@STF@@0@0@0@-1
 Brightest and best@stf/227_Brightest_and_best_Spean.mid@@STF@227@Spean@KEYBD@STF@@0@0@0@-1
-Hail to the Lord's anointed@stf/228_Hail_to_the_Lords_anointed.mid@@STF@228@Cruger (Herrnhut)@KEYBD@STF@@0@0@0@-1
-Mary and Joseph came to the Temple@stf/229_Mary_and_Joseph_came_to_the_Temple.mid@@STF@229@Bensunas@KEYBD@STF@@0@0@0@-1
+Hail to the Lord's anointed@stf/228_Hail_to_the_Lords_anointed.mid@@STF@228@Cruger (Herrnhut)@KEYBD@STF@76.76.D.@0@0@0@-1
+Mary and Joseph came to the Temple@stf/229_Mary_and_Joseph_came_to_the_Temple.mid@@STF@229@Bensunas@KEYBD@STF@55.54.D.@0@0@0@-1
 Riding out across the desert@stf/230_Riding_out_across_the_desert.mid@@STF@230@The Camel shuffle@KEYBD@STF@@0@0@0@-1
-The silent stars shine down on us@stf/231_The_silent_stars_shine_down_on_us.mid@@STF@231@Kingsfold@KEYBD@STF@@0@0@0@-1
-Through long years of wtchful waiting@stf/232_Through_long_years_of_wtchful_waiting.mid@@STF@232@Rhuddlan@KEYBD@STF@@0@0@0@-1
-When Jesus came to Jordan@stf/233_When_Jesus_came_to_Jordan.mid@H@STF@233@Day of Rest@KEYBD@STF@@0@0@0@-1
+The silent stars shine down on us@stf/231_The_silent_stars_shine_down_on_us.mid@@STF@231@Kingsfold@KEYBD@STF@86.86.D.@0@0@0@-1
+Through long years of wtchful waiting@stf/232_Through_long_years_of_wtchful_waiting.mid@@STF@232@Rhuddlan@KEYBD@STF@87.87.87.@0@0@0@-1
+When Jesus came to Jordan@stf/233_When_Jesus_came_to_Jordan.mid@H@STF@233@Day of Rest@KEYBD@STF@76.76.D.@0@0@0@-1
 Behold the Lamb of God@stf/234_Behold_the_Lamb_of_God.mid@ML@STF@234@@KEYBD@STF@@0@0@0@-1
 Christ our Redeemer@stf/235_Christ_our_Redeemer.mid@L@STF@235@St Agnes (Langran)@KEYBD@STF@@0@0@0@-1
-Forty days and forty nights@stf/236_Forty_days_and_forty_nights.mid@L@STF@236@Aus der Tiefe (Heinlein)@KEYBD@STF@@0@0@0@-1
+Forty days and forty nights@stf/236_Forty_days_and_forty_nights.mid@L@STF@236@Aus der Tiefe (Heinlein)@KEYBD@STF@77.77.@0@0@0@-1
 Jesus, tempted in the desert@stf/237_Jesus_tempted_in_the_desert.mid@L@STF@237@Ebenezer (Ton-y-Botel)@KEYBD@STF@@0@0@0@-1
-Lead us, heavenly Father, lead us@stf/238_Lead_us_heavenly_Father_lead_us.mid@L@STF@238@Mannheim@KEYBD@STF@@0@0@0@-1
-Sent by the Lord am I@stf/239_Sent_by_the_Lord_am_I.mid@L@STF@239@Sent by the Lord@KEYBD@STF@@0@0@0@-1
+Lead us, heavenly Father, lead us@stf/238_Lead_us_heavenly_Father_lead_us.mid@L@STF@238@Mannheim@KEYBD@STF@87.87.87.@0@0@0@-1
+Sent by the Lord am I@stf/239_Sent_by_the_Lord_am_I.mid@L@STF@239@Sent by the Lord@KEYBD@STF@66.66.D.@0@0@0@-1
 When we are tested@stf/240_When_we_are_tested.mid@L@STF@240@Angels of Healing@KEYBD@STF@@0@0@0@-1
 When we were in the darkest night@stf/241_When_we_were_in_the_darkest_night.mid@ML@STF@241@@KEYBD@STF@@0@0@0@-1
 A new commandment@stf/242_A_new_commandment.mid@@STF@242@@KEYBD@STF@@0@0@0@-1
-A rich young man came seeking@stf/243_A_rich_young_man_came_seeking.mid@@STF@243@Redhills@KEYBD@STF@@0@0@0@-1
-Blest are the pure in heart@stf/244_Blest_are_the_pure_in_heart.mid@@STF@244@Franconia@KEYBD@STF@@0@0@0@-1
+A rich young man came seeking@stf/243_A_rich_young_man_came_seeking.mid@@STF@243@Redhills@KEYBD@STF@76.76.D.@0@0@0@-1
+Blest are the pure in heart@stf/244_Blest_are_the_pure_in_heart.mid@@STF@244@Franconia@KEYBD@STF@66.86@0@0@0@-1
 Blest are they, the poor in spirit@stf/245_Blest_are_they_the_poor_in_spirit.mid@@STF@245@@KEYBD@STF@@0@0@0@-1
 He came to earth in poverty@stf/246_He_came_to_earth_in_poverty.mid@@STF@246@East Dulwich@KEYBD@STF@@0@0@0@-1
 I danced in the morning@stf/247_I_danced_in_the_morning.mid@@STF@247@Lord of the dance@KEYBD@STF@@0@0@0@-1
-I heard the voice of Jesus say@stf/248_I_heard_the_voice_of_Jesus_say_Kingsfold.mid@@STF@248@Kingsfold@KEYBD@STF@@0@0@0@-1
-I heard the voice of Jesus say@stf/248_I_heard_the_voice_of_Jesus_say_Vox_Dilecti.mid@@STF@248@Vox Dilecti@KEYBD@STF@@0@0@0@-1
+I heard the voice of Jesus say@stf/248_I_heard_the_voice_of_Jesus_say_Kingsfold.mid@@STF@248@Kingsfold@KEYBD@STF@86.86.D.@0@0@0@-1
+I heard the voice of Jesus say@stf/248_I_heard_the_voice_of_Jesus_say_Vox_Dilecti.mid@@STF@248@Vox Dilecti@KEYBD@STF@86.86.D.@0@0@0@-1
 Jesu, Jesu@stf/249_Jesu_Jesu.mid@@STF@249@Chereponi@KEYBD@STF@@0@0@0@-1
 Jesus calls us! O'er the tumult@stf/250_Jesus_calls_us_Oer_the_tumult.mid@@STF@250@St Catherine (Flood Jones)@KEYBD@STF@@0@0@0@-1
-Jesus Christ is waiting@stf/251_Jesus_Christ_is_waiting.mid@M@STF@251@Noel Nouvelet@KEYBD@STF@@0@0@0@-1
+Jesus Christ is waiting@stf/251_Jesus_Christ_is_waiting.mid@M@STF@251@Noel Nouvelet@KEYBD@STF@65.65.D.@0@0@0@-1
 Jesus the Lord said 'I am the Bread'@stf/252_Jesus_the_Lord_said_I_am_the_Bread.mid@@STF@252@Yisu ne Kaha@KEYBD@STF@@0@0@0@-1
-Love inspired the anger@stf/253_Love_inspired_the_anger.mid@@STF@253@Temple Court@KEYBD@STF@@0@0@0@-1
+Love inspired the anger@stf/253_Love_inspired_the_anger.mid@@STF@253@Temple Court@KEYBD@STF@65.65.@0@0@0@-1
 Seek ye first the kingdom of God@stf/254_Seek_ye_first_the_kingdom_of_God.mid@@STF@254@@KEYBD@STF@@0@0@0@-1
-The kingdom of God@stf/255_The_kingdom_of_God_Tetherdown.mid@@STF@255@Tetherdown@KEYBD@STF@@0@0@0@-1
-The kingdom of God@stf/255_The_kingdom_of_God_Paderborn.mid@@STF@255@Paderborn@KEYBD@STF@@0@0@0@-1
+The kingdom of God@stf/255_The_kingdom_of_God_Tetherdown.mid@@STF@255@Tetherdown@KEYBD@STF@55.55.65.65.@0@0@0@-1
+The kingdom of God@stf/255_The_kingdom_of_God_Paderborn.mid@@STF@255@Paderborn@KEYBD@STF@55.55.65.65.@0@0@0@-1
 When I needed a neighbour@stf/256_When_I_needed_a_neighbour.mid@@STF@256@Neighbour@KEYBD@STF@@0@0@0@-1
 Would you walk by on the other side@stf/257_Would_you_walk_by_on_the_other_side.mid@@STF@257@@KEYBD@STF@@0@0@0@-1
 You are the Vine@stf/258_You_are_the_Vine.mid@@STF@258@@KEYBD@STF@@0@0@0@-1
 Jesus, on the mountain peak@stf/259_Jesus_on_the_mountain_peak.mid@H@STF@259@Tansy@KEYBD@STF@@0@0@0@-1
 Swiftly pass the clouds of glory@stf/260_Swiftly_pass_the_clouds_of_glory.mid@@STF@260@Geneva@KEYBD@STF@@0@0@0@-1
-Transfigured Christ@stf/261_Transfigured_Christ.mid@@STF@261@Brockham@KEYBD@STF@@0@0@0@-1
-All glory, laud, and honour@stf/262_All_glory_laud_and_honour.mid@@STF@262@St Theodulph@KEYBD@STF@@0@0@0@-1
+Transfigured Christ@stf/261_Transfigured_Christ.mid@@STF@261@Brockham@KEYBD@STF@88.88.@0@0@0@-1
+All glory, laud, and honour@stf/262_All_glory_laud_and_honour.mid@@STF@262@St Theodulph@KEYBD@STF@76.76.D.@0@0@0@-1
 Hosanna, hosanna@stf/263_Hosanna_hosanna.mid@@STF@263@@KEYBD@STF@@0@0@0@-1
 Make way, make way@stf/264_Make_way_make_way.mid@M@STF@264@@KEYBD@STF@@0@0@0@-1
-Ride on, ride on in majesty!@stf/265_Ride_on_ride_on_in_majesty.mid@@STF@265@Winchester New@KEYBD@STF@@0@0@0@-1
+Ride on, ride on in majesty!@stf/265_Ride_on_ride_on_in_majesty.mid@@STF@265@Winchester New@KEYBD@STF@88.88.@0@0@0@-1
 All the room was hushed and still@stf/266_All_the_room_was_hushed_and_still.mid@M@STF@266@@KEYBD@STF@@0@0@0@-1
-Jesus in the olive grove@stf/267_Jesus_in_the_olive_grove.mid@H@STF@267@Heiliger Geist@KEYBD@STF@@0@0@0@-1
-Sing, my tongue, the Saviour's glory@stf/268_Sing_my_tongue_the_Saviours_glory.mid@@STF@268@Pange Lingua@KEYBD@STF@@0@0@0@-1
+Jesus in the olive grove@stf/267_Jesus_in_the_olive_grove.mid@H@STF@267@Heiliger Geist@KEYBD@STF@77.7.@0@0@0@-1
+Sing, my tongue, the Saviour's glory@stf/268_Sing_my_tongue_the_Saviours_glory.mid@@STF@268@Pange Lingua@KEYBD@STF@87.87.87.@0@0@0@-1
 To see the King of heaven fall@stf/269_To_see_the_King_of_heaven_fall.mid@M@STF@269@@KEYBD@STF@@0@0@0@-1
 Come and see, come and see@stf/270_Come_and_see_come_and_see.mid@M@STF@270@@KEYBD@STF@@0@0@0@-1
-Come, wounded Healer@stf/271_Come_wounded_Healer_Hollygirt.mid@@STF@271@Hollygirt@KEYBD@STF@@0@0@0@-1
-Come, wounded Healer@stf/271_Come_wounded_Healer_Nuffield.mid@@STF@271@Nuffield@KEYBD@STF@@0@0@0@-1
+Come, wounded Healer@stf/271_Come_wounded_Healer_Hollygirt.mid@@STF@271@Hollygirt@KEYBD@STF@10.11.11.11.@0@0@0@-1
+Come, wounded Healer@stf/271_Come_wounded_Healer_Nuffield.mid@@STF@271@Nuffield@KEYBD@STF@10.11.11.11.@0@0@0@-1
 From heaven you came@stf/272_From_heaven_you_came.mid@M@STF@272@@KEYBD@STF@@0@0@0@-1
-Here hangs a man discarded@stf/273_Here_hangs_a_man_discarded.mid@H@STF@273@Passion Chorale@KEYBD@STF@@0@0@0@-1
+Here hangs a man discarded@stf/273_Here_hangs_a_man_discarded.mid@H@STF@273@Passion Chorale@KEYBD@STF@76.76.D.@0@0@0@-1
 Jesus Christ, I think upon your sacrifice@stf/274_Jesus_Christ_I_think_upon_your_sacrifice.mid@M@STF@274@Once Again@KEYBD@STF@@0@0@0@-1
 Jesus the carpenter@stf/275_Jesus_the_carpenter.mid@@STF@275@King's Cross@KEYBD@STF@@0@0@0@-1
 Lift high the Cross@stf/276_Lift_high_the_Cross.mid@@STF@276@Crucifer@KEYBD@STF@@0@0@0@-1
 My song is love unknown@stf/277_My_song_is_love_unknown.mid@@STF@277@Love Unknown@KEYBD@STF@@0@0@0@-1
-O Love divine, what have you done!@stf/278_O_Love_divine_what_have_you_done.mid@H@STF@278@Leicester (Bedford)@KEYBD@STF@@0@0@0@-1
+O Love divine, what have you done!@stf/278_O_Love_divine_what_have_you_done.mid@H@STF@278@Leicester (Bedford)@KEYBD@STF@88.88.88.@0@0@0@-1
 O precious sight, my Saviour stands@stf/279_O_precious_sight_my_Saviour_stands.mid@@STF@279@@KEYBD@STF@@0@0@0@-1
-O sacred head, sore wounded@stf/280_O_sacred_head_sore_wounded.mid@@STF@280@@KEYBD@STF@@0@0@0@-1
+O sacred head, sore wounded@stf/280_O_sacred_head_sore_wounded.mid@@STF@280@@KEYBD@STF@76.76.D.@0@0@0@-1
 See the Lamb of God@stf/281_See_the_Lamb_of_God.mid@@STF@281@@KEYBD@STF@@0@0@0@-1
-Stay here where nails are driven@stf/282_Stay_here_where_nails_are_driven.mid@@STF@282@Shrub End@KEYBD@STF@@0@0@0@-1
+Stay here where nails are driven@stf/282_Stay_here_where_nails_are_driven.mid@@STF@282@Shrub End@KEYBD@STF@76.76.@0@0@0@-1
 The desolate Messiah dies@stf/283_The_desolate_Messiah_dies.mid@@STF@283@Whinney Hill@KEYBD@STF@@0@0@0@-1
-There is a green hill@stf/284_There_is_a_green_hill.mid@@STF@284@Horsley@KEYBD@STF@@0@0@0@-1
+There is a green hill@stf/284_There_is_a_green_hill.mid@@STF@284@Horsley@KEYBD@STF@86.86.@0@0@0@-1
 Were you there when they crucified my Lord@stf/285_Were_you_there_when_they_crucified_my_Lord.mid@@STF@285@Were You There@KEYBD@STF@@0@0@0@-1
 What kind of love is this@stf/286_What_kind_of_love_is_this.mid@@STF@286@@KEYBD@STF@@0@0@0@-1
-When I survey the wondrous cross@stf/287_When_I_survey_the_wondrous_cross_O_Waly_Waly.mid@@STF@287@O Waly Waly@KEYBD@STF@@0@0@0@-1
-When I survey the wondrous cross@stf/287_When_I_survey_the_wondrous_cross_Rockingham.mid@@STF@287@Rockingham@KEYBD@STF@@0@0@0@-1
+When I survey the wondrous cross@stf/287_When_I_survey_the_wondrous_cross_O_Waly_Waly.mid@@STF@287@O Waly Waly@KEYBD@STF@88.88.@0@0@0@-1
+When I survey the wondrous cross@stf/287_When_I_survey_the_wondrous_cross_Rockingham.mid@@STF@287@Rockingham@KEYBD@STF@88.88.@0@0@0@-1
 When I think about the cross@stf/288_When_I_think_about_the_cross.mid@@STF@288@@KEYBD@STF@@0@0@0@-1
 When my love for Christ@stf/289_When_my_love_for_Christ.mid@@STF@289@Song 13@KEYBD@STF@@0@0@0@-1
 When my love@stf/289_When_my_love_HP_Arr.mid@@STF@289@H&P Arr.@KEYBD@STF@@0@0@0@-1
 Who would ever have believed it@stf/290_Who_would_ever_have_believed_it.mid@M@STF@290@Ae Fond Kiss@KEYBD@STF@@0@0@0@-1
 Why has God forsaken me@stf/291_Why_has_God_forsaken_me.mid@@STF@291@Shimpi@KEYBD@STF@@0@0@0@-1
-After darkness, light@stf/292_After_darkness_light.mid@HE@STF@292@Ridgeway@KEYBD@STF@@0@0@0@-1
+After darkness, light@stf/292_After_darkness_light.mid@HE@STF@292@Ridgeway@KEYBD@STF@55.54.@0@0@0@-1
 All heaven declares@stf/293_All_heaven_declares.mid@E@STF@293@@KEYBD@STF@@0@0@0@-1
-All you that seek the Lord who died@stf/294_All_you_that_seek_the_Lord_who_died.mid@HE@STF@294@Warrington@KEYBD@STF@@0@0@0@-1
+All you that seek the Lord who died@stf/294_All_you_that_seek_the_Lord_who_died.mid@HE@STF@294@Warrington@KEYBD@STF@88.88.@0@0@0@-1
 Alleluia, alleluia@stf/295_Alleluia_alleluia.mid@E@STF@295@Alleluia, Alleluia@KEYBD@STF@@0@0@0@-1
 Christ has risen while eearth slumbers@stf/296_Christ_has_risen_while_eearth_slumbers.mid@ME@STF@296@Transformation@KEYBD@STF@@0@0@0@-1
-Christ is alive! Let Christians sing@stf/297_Christ_is_alive_Let_Christians_sing.mid@HE@STF@297@Truro@KEYBD@STF@@0@0@0@-1
+Christ is alive! Let Christians sing@stf/297_Christ_is_alive_Let_Christians_sing.mid@HE@STF@297@Truro@KEYBD@STF@88.88.@0@0@0@-1
 Christ the Lord is risen today@stf/298_Christ_the_Lord_is_risen_today.mid@HE@STF@298@Easter Hymn@KEYBD@STF@@0@0@0@-1
 Easter jubilation@stf/299_Easter_jubilation.mid@E@STF@299@@KEYBD@STF@@0@0@0@-1
 Hail the day that sees him rise@stf/300_Hail_the_day_that_sees_him_rise.mid@HE@STF@300@Llanfair@KEYBD@STF@@0@0@0@-1
 Hail, thou once despised Jesus@stf/301_Hail_thou_once_despised_Jesus.mid@HE@STF@301@Austria@KEYBD@STF@@0@0@0@-1
 He has risen@stf/302_He_has_risen.mid@E@STF@302@@KEYBD@STF@@0@0@0@-1
-I know that my Redeemer lives@stf/303_I_know_that_my_Redeemer_lives.mid@E@STF@303@Torquay@KEYBD@STF@@0@0@0@-1
+I know that my Redeemer lives@stf/303_I_know_that_my_Redeemer_lives.mid@E@STF@303@Torquay@KEYBD@STF@88.88.@0@0@0@-1
 Jesus is risen, alleluia!@stf/304_Jesus_is_risen_alleluia.mid@E@STF@304@Mfurahini Haleluya@KEYBD@STF@@0@0@0@-1
 Low in the grave he lay@stf/305_Low_in_the_grave_he_lay.mid@E@STF@305@Christ Arose@KEYBD@STF@@0@0@0@-1
-Now the green blade rises@stf/306_Now_the_green_blade_rises.mid@E@STF@306@Noel Nouvelet@KEYBD@STF@@0@0@0@-1
+Now the green blade rises@stf/306_Now_the_green_blade_rises.mid@E@STF@306@Noel Nouvelet@KEYBD@STF@11.11.10.11.@0@0@0@-1
 On the day of resurrection@stf/307_On_the_day_of_resurrection.mid@E@STF@307@Emmaus@KEYBD@STF@@0@0@0@-1
 On the journey to Emmaus@stf/308_On_the_journey_to_Emmaus.mid@E@STF@308@Columcille@KEYBD@STF@@0@0@0@-1
 See, what a morning@stf/309_See_what_a_morning.mid@ME@STF@309@@KEYBD@STF@@0@0@0@-1
 Sing a song, sing a joyful song@stf/310_Sing_a_song_sing_a_joyful_song.mid@E@STF@310@@KEYBD@STF@@0@0@0@-1
-The day of resurrection@stf/311_The_day_of_resurrection.mid@E@STF@311@Ellacombe@KEYBD@STF@@0@0@0@-1
-The head that once was crowned with thorns@stf/312_The_head_that_once_was_crowned_with_thorns.mid@E@STF@312@St Magnus (Nottingham)@KEYBD@STF@@0@0@0@-1
+The day of resurrection@stf/311_The_day_of_resurrection.mid@E@STF@311@Ellacombe@KEYBD@STF@76.76.D.@0@0@0@-1
+The head that once was crowned with thorns@stf/312_The_head_that_once_was_crowned_with_thorns.mid@E@STF@312@St Magnus (Nottingham)@KEYBD@STF@86.86.@0@0@0@-1
 Thine be the glory@stf/313_Thine_be_the_glory.mid@HE@STF@313@Maccabeus@KEYBD@STF@@0@0@0@-1
 This joyful Eastertide@stf/314_This_joyful_Eastertide.mid@HE@STF@314@Vruechten@KEYBD@STF@@0@0@0@-1
-We sing the praise of Jesus@stf/315_We_sing_the_praise_of_Jesus.mid@E@STF@315@Morning Light@KEYBD@STF@@0@0@0@-1
+We sing the praise of Jesus@stf/315_We_sing_the_praise_of_Jesus.mid@E@STF@315@Morning Light@KEYBD@STF@76.76.D.@0@0@0@-1
 When Easter to the dark world came@stf/316_When_Easter_to_the_dark_world_came.mid@E@STF@316@At Eastertide@KEYBD@STF@@0@0@0@-1
-At the name of Jesus@stf/317_At_the_name_of_Jesus_Evelyns.mid@@STF@317@Evelyns@KEYBD@STF@@0@0@0@-1
-At the name of Jesus@stf/317_At_the_name_of_Jesus_Camberwell.mid@@STF@317@Camberwell@KEYBD@STF@@0@0@0@-1
+At the name of Jesus@stf/317_At_the_name_of_Jesus_Evelyns.mid@@STF@317@Evelyns@KEYBD@STF@65.65.D.@0@0@0@-1
+At the name of Jesus@stf/317_At_the_name_of_Jesus_Camberwell.mid@@STF@317@Camberwell@KEYBD@STF@65.65.D.@0@0@0@-1
 Christ, our King before creation@stf/318_Christ_our_King_before_creation.mid@@STF@318@Love Divine (Zundel)@KEYBD@STF@@0@0@0@-1
 Christ triumphant, ever reigning@stf/319_Christ_triumphant_ever_reigning.mid@@STF@319@Guiting Power@KEYBD@STF@@0@0@0@-1
-Father, whose everlasting love@stf/320_Father_whose_everlasting_love.mid@H@STF@320@Melcombe@KEYBD@STF@@0@0@0@-1
+Father, whose everlasting love@stf/320_Father_whose_everlasting_love.mid@H@STF@320@Melcombe@KEYBD@STF@88.88.@0@0@0@-1
 Great is he who's the King of kings@stf/321_Great_is_he_whos_the_King_of_kings.mid@@STF@321@@KEYBD@STF@@0@0@0@-1
-How sweet the name of Jesus sounds@stf/322_How_sweet_the_name_of_Jesus_sounds.mid@H@STF@322@St Peter@KEYBD@STF@@0@0@0@-1
+How sweet the name of Jesus sounds@stf/322_How_sweet_the_name_of_Jesus_sounds.mid@H@STF@322@St Peter@KEYBD@STF@86.86.@0@0@0@-1
 I will sing the wondrous story@stf/323_I_will_sing_the_wondrous_story_Hyfrydol.mid@@STF@323@Hyfrydol@KEYBD@STF@@0@0@0@-1
 I will sing the wondrous story@stf/323_I_will_sing_the_wondrous_story_Calon_Lan.mid@@STF@323@Calon Lan@KEYBD@STF@@0@0@0@-1
 In a byre near Bethlehem@stf/324_In_a_byre_near_Bethlehem.mid@M@STF@324@Wild Mountain Thyme@KEYBD@STF@@0@0@0@-1
 Jesus Christ, Perfect Love@stf/325_Jesus_Christ_Perfect_Love.mid@@STF@325@@KEYBD@STF@@0@0@0@-1
 Jesus comes with all his grace@stf/326_Jesus_comes_with_all_his_grace.mid@H@STF@326@Orientis Partibus@KEYBD@STF@@0@0@0@-1
 Jesus is King@stf/327_Jesus_is_King.mid@@STF@327@@KEYBD@STF@@0@0@0@-1
-Jesus shall reign where'er the sun@stf/328_Jesus_shall_reign_whereer_the_sun_Rimington.mid@@STF@328@Rimington@KEYBD@STF@@0@0@0@-1
-Jesus shall reign where'er the sun@stf/328_Jesus_shall_reign_whereer_the_sun_Truro.mid@@STF@328@Truro@KEYBD@STF@@0@0@0@-1
-Jesus, the first and last@stf/329_Jesus_the_first_and_last.mid@H@STF@329@Hail to the Lord@KEYBD@STF@@0@0@0@-1
+Jesus shall reign where'er the sun@stf/328_Jesus_shall_reign_whereer_the_sun_Rimington.mid@@STF@328@Rimington@KEYBD@STF@88.88.@0@0@0@-1
+Jesus shall reign where'er the sun@stf/328_Jesus_shall_reign_whereer_the_sun_Truro.mid@@STF@328@Truro@KEYBD@STF@88.88.@0@0@0@-1
+Jesus, the first and last@stf/329_Jesus_the_first_and_last.mid@H@STF@329@Hail to the Lord@KEYBD@STF@66.66.66.@0@0@0@-1
 Joy to the world@stf/330_Joy_to_the_world.mid@H@STF@330@Antioch (Comfort (Mason))@KEYBD@STF@@0@0@0@-1
 King of kings, majesty@stf/331_King_of_kings_majesty.mid@@STF@331@@KEYBD@STF@@0@0@0@-1
 Lord, I lift your name on high@stf/332_Lord_I_lift_your_name_on_high.mid@@STF@332@@KEYBD@STF@@0@0@0@-1
 Majesty, worship his majesty@stf/333_Majesty_worship_his_majesty.mid@@STF@333@@KEYBD@STF@@0@0@0@-1
-Praise to the Holiest in the height@stf/334_Praise_to_the_Holiest_in_the_height.mid@@STF@334@Gerontius@KEYBD@STF@@0@0@0@-1
+Praise to the Holiest in the height@stf/334_Praise_to_the_Holiest_in_the_height.mid@@STF@334@Gerontius@KEYBD@STF@86.86.@0@0@0@-1
 Rejoice, the Lord is King@stf/335_Rejoice_the_Lord_is_King.mid@H@STF@335@Gopsal@KEYBD@STF@@0@0@0@-1
-Son of God, if your free grace@stf/336_Son_of_God_if_your_free_grace.mid@H@STF@336@Gersau@KEYBD@STF@@0@0@0@-1
+Son of God, if your free grace@stf/336_Son_of_God_if_your_free_grace.mid@H@STF@336@Gersau@KEYBD@STF@76.76.78.76.@0@0@0@-1
 There is higher throne@stf/337_There_is_higher_throne.mid@@STF@337@@KEYBD@STF@@0@0@0@-1
 There is a Redeemer@stf/338_There_is_a_Redeemer.mid@@STF@338@@KEYBD@STF@@0@0@0@-1
-When you prayed beneath the trees@stf/339_When_you_prayed_beneath_the_trees.mid@@STF@339@Kelvingrove@KEYBD@STF@@0@0@0@-1
+When you prayed beneath the trees@stf/339_When_you_prayed_beneath_the_trees.mid@@STF@339@Kelvingrove@KEYBD@STF@76.76.77.76.@0@0@0@-1
 Ye servants of God@stf/340_Ye_servants_of_God.mid@H@STF@340@Laudate Dominum (Parry)@KEYBD@STF@@0@0@0@-1
 All for Jesus@stf/341_All_for_Jesus.mid@@STF@341@All for Jesus@KEYBD@STF@@0@0@0@-1
-All hail the power of Jesu's name@stf/342_All_hail_the_power_of_Jesus_name_Diadem.mid@@STF@342@Diadem@KEYBD@STF@@0@0@0@-1
-All hail the power of Jesu's name@stf/342_All_hail_the_power_of_Jesus_name_Miles_Lane.mid@@STF@342@Miles Lane@KEYBD@STF@@0@0@0@-1
+All hail the power of Jesu's name@stf/342_All_hail_the_power_of_Jesus_name_Diadem.mid@@STF@342@Diadem@KEYBD@STF@86.86.@0@0@0@-1
+All hail the power of Jesu's name@stf/342_All_hail_the_power_of_Jesus_name_Miles_Lane.mid@@STF@342@Miles Lane@KEYBD@STF@86.86.@0@0@0@-1
 All my days@stf/343_All_my_days.mid@M@STF@343@@KEYBD@STF@@0@0@0@-1
 He became poor@stf/344_He_became_poor.mid@M@STF@344@@KEYBD@STF@@0@0@0@-1
 And can it be@stf/345_And_can_it_be_Sagnia.mid@H@STF@345@Sagnia@KEYBD@STF@@0@0@0@-1
 And can it be@stf/345_And_can_it_be_Abingdon.mid@H@STF@345@Abingdon@KEYBD@STF@@0@0@0@-1
 Christ is the world's light@stf/346_Christ_is_the_worlds_light.mid@H@STF@346@Christe Sanctorum@KEYBD@STF@@0@0@0@-1
-Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@STF@347@Diademata@KEYBD@STF@@0@0@0@-1
-He is Lord, he is Lord@stf/348_He_is_Lord_he_is_Lord.mid@@STF@348@He is Lord@KEYBD@STF@@0@0@0@-1
+Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@STF@347@Diademata@KEYBD@STF@66.86.D.@0@0@0@-1
+He is Lord, he is Lord@stf/348_He_is_Lord_he_is_Lord.mid@@STF@348@He is Lord@KEYBD@STF@6.11.10.6.@0@0@0@-1
 I am not skilled to understand@stf/349_I_am_not_skilled_to_understand.mid@@STF@349@@KEYBD@STF@@0@0@0@-1
 I am not skilled to understand@stf/349_I_am_not_skilled_to_understand_No_refrain.mid@@STF@349@No refrain@KEYBD@STF@@0@0@0@-1
-I cannot tell@stf/350_I_cannot_tell.mid@@STF@350@Londonderry Air@KEYBD@STF@@0@0@0@-1
+I cannot tell@stf/350_I_cannot_tell.mid@@STF@350@Londonderry Air@KEYBD@STF@11.10.11.10.11.10.11.12.@0@0@0@-1
 In Christ alone!@stf/351_In_Christ_alone.mid@M@STF@351@@KEYBD@STF@@0@0@0@-1
 Jesus Christ is the Lord of all@stf/352_Jesus_Christ_is_the_Lord_of_all.mid@@STF@352@@KEYBD@STF@@0@0@0@-1
 Jesus is Lord!@stf/353_Jesus_is_Lord.mid@@STF@353@Jesus is Lord@KEYBD@STF@@0@0@0@-1
 Jesus is the name we honour@stf/354_Jesus_is_the_name_we_honour.mid@@STF@354@@KEYBD@STF@@0@0@0@-1
-Jesus, lover of my soul@stf/355_Jesus_lover_of_my_soul_Hollingside.mid@@STF@355@Hollingside@KEYBD@STF@@0@0@0@-1
-Jesus, lover of my soul@stf/355_Jesus_lover_of_my_soul_Aberystwyth.mid@@STF@355@Aberystwyth@KEYBD@STF@@0@0@0@-1
+Jesus, lover of my soul@stf/355_Jesus_lover_of_my_soul_Hollingside.mid@@STF@355@Hollingside@KEYBD@STF@77.77.D.@0@0@0@-1
+Jesus, lover of my soul@stf/355_Jesus_lover_of_my_soul_Aberystwyth.mid@@STF@355@Aberystwyth@KEYBD@STF@77.77.D.@0@0@0@-1
 Jesus shall take the highest honour@stf/356_Jesus_shall_take_the_highest_honour.mid@@STF@356@@KEYBD@STF@@0@0@0@-1
 Jesus-the name high over all@stf/357_Jesusthe_name_high_over_all.mid@H@STF@357@Lydia@KEYBD@STF@@0@0@0@-1
 Let earth and heaven agree@stf/358_Let_earth_and_heaven_agree.mid@H@STF@358@Millennium@KEYBD@STF@@0@0@0@-1
-Lord Christ, we praise your sacrifice@stf/359_Lord_Christ_we_praise_your_sacrifice.mid@@STF@359@Abingdon@KEYBD@STF@@0@0@0@-1
+Lord Christ, we praise your sacrifice@stf/359_Lord_Christ_we_praise_your_sacrifice.mid@@STF@359@Abingdon@KEYBD@STF@88.88.88.@0@0@0@-1
 Lord Jesus Christ, you light shines within us@stf/360_Lord_Jesus_Christ_you_light_shines_within_us.mid@@STF@360@@KEYBD@STF@@0@0@0@-1
-Man of Sorrows!@stf/361_Man_of_Sorrows.mid@@STF@361@Gethsemane (Bliss) (Man of Sorrows)@KEYBD@STF@@0@0@0@-1
+Man of Sorrows!@stf/361_Man_of_Sorrows.mid@@STF@361@Gethsemane (Bliss) (Man of Sorrows)@KEYBD@STF@77.78.@0@0@0@-1
 Meekness and majesty@stf/362_Meekness_and_majesty.mid@M@STF@362@@KEYBD@STF@@0@0@0@-1
 My Jesus, my Saviour@stf/363_My_Jesus_my_Saviour.mid@@STF@363@@KEYBD@STF@@0@0@0@-1
 O for a thousand tongues@stf/364_O_for_a_thousand_tongues_Lyngham.mid@H@STF@364@Lyngham@KEYBD@STF@@0@0@0@-1
 O for a thousand tongues@stf/364_O_for_a_thousand_tongues_Lydia.mid@H@STF@364@Lydia@KEYBD@STF@@0@0@0@-1
-Jesu, the joy of lovin hearts@stf/365_Jesu_the_joy_of_lovin_hearts.mid@@STF@365@Wareham@KEYBD@STF@@0@0@0@-1
-Thou hidden source of calm repose@stf/366_Thou_hidden_source_of_calm_repose_St_Chrysostom.mid@H@STF@366@St Chrysostom@KEYBD@STF@@0@0@0@-1
-Thou hidden source of calm repose@stf/366_Thou_hidden_source_of_calm_repose_Colchester.mid@H@STF@366@Colchester@KEYBD@STF@@0@0@0@-1
+Jesu, the joy of lovin hearts@stf/365_Jesu_the_joy_of_lovin_hearts.mid@@STF@365@Wareham@KEYBD@STF@88.88.@0@0@0@-1
+Thou hidden source of calm repose@stf/366_Thou_hidden_source_of_calm_repose_St_Chrysostom.mid@H@STF@366@St Chrysostom@KEYBD@STF@88.88.88.@0@0@0@-1
+Thou hidden source of calm repose@stf/366_Thou_hidden_source_of_calm_repose_Colchester.mid@H@STF@366@Colchester@KEYBD@STF@88.88.88.@0@0@0@-1
 When I was lost, you came and rescued me@stf/367_When_I_was_lost_you_came_and_rescued_me.mid@@STF@367@@KEYBD@STF@@0@0@0@-1
-When morning gilds the skies@stf/368_When_morning_gilds_the_skies.mid@@STF@368@Laudes Domini@KEYBD@STF@@0@0@0@-1
-Baptise us with your Spirit@stf/369_Baptise_us_with_your_Spirit.mid@H@STF@369@Merle's tune@KEYBD@STF@@0@0@0@-1
-Breathe on me, Breath of God@stf/370_Breathe_on_me_Breath_of_God_Trentham.mid@@STF@370@Trentham@KEYBD@STF@@0@0@0@-1
-Breathe on me, Breath of God@stf/370_Breathe_on_me_Breath_of_God_Carlisle.mid@@STF@370@Carlisle@KEYBD@STF@@0@0@0@-1
+When morning gilds the skies@stf/368_When_morning_gilds_the_skies.mid@@STF@368@Laudes Domini@KEYBD@STF@666.666.@0@0@0@-1
+Baptise us with your Spirit@stf/369_Baptise_us_with_your_Spirit.mid@H@STF@369@Merle's tune@KEYBD@STF@76.76.D.@0@0@0@-1
+Breathe on me, Breath of God@stf/370_Breathe_on_me_Breath_of_God_Trentham.mid@@STF@370@Trentham@KEYBD@STF@66.86@0@0@0@-1
+Breathe on me, Breath of God@stf/370_Breathe_on_me_Breath_of_God_Carlisle.mid@@STF@370@Carlisle@KEYBD@STF@66.86@0@0@0@-1
 Breathe on me@stf/371_Breathe_on_me.mid@@STF@371@@KEYBD@STF@@0@0@0@-1
-Come down, O Love divine@stf/372_Come_down_O_Love_divine.mid@@STF@372@Down Ampney@KEYBD@STF@@0@0@0@-1
+Come down, O Love divine@stf/372_Come_down_O_Love_divine.mid@@STF@372@Down Ampney@KEYBD@STF@66.11.D.@0@0@0@-1
 Come, Holy Ghost, our souls inspire@stf/373_Come_Holy_Ghost_our_souls_inspire.mid@@STF@373@Veni Creator@KEYBD@STF@@0@0@0@-1
-Come, Holy Spirit@stf/374_Come_Holy_Spirit.mid@M@STF@374@Breath of Heaven@KEYBD@STF@@0@0@0@-1
+Come, Holy Spirit@stf/374_Come_Holy_Spirit.mid@M@STF@374@Breath of Heaven@KEYBD@STF@54.48.@0@0@0@-1
 Come, O everlasting Spirit@stf/375_Come_O_everlasting_Spirit_Cross_of_Jesus.mid@H@STF@375@Cross of Jesus@KEYBD@STF@@0@0@0@-1
 Come, O everlasting Spirit@stf/375_Come_O_everlasting_Spirit_Sicilian_Mariners.mid@H@STF@375@Sicilian Mariners@KEYBD@STF@@0@0@0@-1
 Crashing waters at creation@stf/376_Crashing_waters_at_creation.mid@@STF@376@Crashing Waters@KEYBD@STF@@0@0@0@-1
 Down the mountain@stf/377_Down_the_mountain.mid@M@STF@377@@KEYBD@STF@@0@0@0@-1
-Father of everlasting grace@stf/378_Father_of_everlasting_grace.mid@H@STF@378@Stamford@KEYBD@STF@@0@0@0@-1
-Gracious Spirit, Holy Ghost@stf/379_Gracious_Spirit_Holy_Ghost.mid@@STF@379@Charity@KEYBD@STF@@0@0@0@-1
+Father of everlasting grace@stf/378_Father_of_everlasting_grace.mid@H@STF@378@Stamford@KEYBD@STF@88.8.D.@0@0@0@-1
+Gracious Spirit, Holy Ghost@stf/379_Gracious_Spirit_Holy_Ghost.mid@@STF@379@Charity@KEYBD@STF@77.75.@0@0@0@-1
 Holy breath of God@stf/380_Holy_breath_of_God.mid@@STF@380@@KEYBD@STF@@0@0@0@-1
 Holy Spirit, breath of heaven@stf/381_Holy_Spirit_breath_of_heaven.mid@@STF@381@@KEYBD@STF@@0@0@0@-1
 Holy Spirit, come, confirm us@stf/382_Holy_Spirit_come_confirm_us.mid@@STF@382@All for Jesus@KEYBD@STF@@0@0@0@-1
@@ -482,22 +482,22 @@ Holy Spirit, gift bestower@stf/383_Holy_Spirit_gift_bestower.mid@@STF@383@Yr Hun
 Holy Spirit, rain down@stf/384_Holy_Spirit_rain_down.mid@@STF@384@@KEYBD@STF@@0@0@0@-1
 Holy Spirit, we welcome you@stf/385_Holy_Spirit_we_welcome_you.mid@@STF@385@@KEYBD@STF@@0@0@0@-1
 In the beginning was darkness and nothing@stf/386_In_the_beginning_was_darkness_and_nothing.mid@@STF@386@@KEYBD@STF@@0@0@0@-1
-Into a world of dark@stf/387_Into_a_world_of_dark.mid@@STF@387@Higham Lane@KEYBD@STF@@0@0@0@-1
-Let every Christian pray@stf/388_Let_every_Christian_pray_Cherrywood.mid@H@STF@388@Cherrywood@KEYBD@STF@@0@0@0@-1
-Let every Christian pray@stf/388_Let_every_Christian_pray_Laudes_Domini.mid@H@STF@388@Laudes Domini@KEYBD@STF@@0@0@0@-1
-Like the murmur of a dove's song@stf/389_Like_the_murmur_of_a_doves_song.mid@@STF@389@Bridegroom@KEYBD@STF@@0@0@0@-1
-My God! I know, I feel thee mine@stf/390_My_God_I_know_I_feel_thee_mine.mid@H@STF@390@Warwick@KEYBD@STF@@0@0@0@-1
-O breath of life, come sweeping through us@stf/391_O_breath_of_life_come_sweeping_through_us.mid@@STF@391@Spiritus Vitae@KEYBD@STF@@0@0@0@-1
-O Holy Spirit@stf/392_O_Holy_Spirit.mid@@STF@392@Tallis's Ordinal@KEYBD@STF@@0@0@0@-1
-She sits like a bird@stf/393_She_sits_like_a_bird.mid@M@STF@393@Thainaky@KEYBD@STF@@0@0@0@-1
+Into a world of dark@stf/387_Into_a_world_of_dark.mid@@STF@387@Higham Lane@KEYBD@STF@66.66.@0@0@0@-1
+Let every Christian pray@stf/388_Let_every_Christian_pray_Cherrywood.mid@H@STF@388@Cherrywood@KEYBD@STF@66.66.66.@0@0@0@-1
+Let every Christian pray@stf/388_Let_every_Christian_pray_Laudes_Domini.mid@H@STF@388@Laudes Domini@KEYBD@STF@66.66.66.@0@0@0@-1
+Like the murmur of a dove's song@stf/389_Like_the_murmur_of_a_doves_song.mid@@STF@389@Bridegroom@KEYBD@STF@87.87.6.@0@0@0@-1
+My God! I know, I feel thee mine@stf/390_My_God_I_know_I_feel_thee_mine.mid@H@STF@390@Warwick@KEYBD@STF@86.86.@0@0@0@-1
+O breath of life, come sweeping through us@stf/391_O_breath_of_life_come_sweeping_through_us.mid@@STF@391@Spiritus Vitae@KEYBD@STF@98.98.@0@0@0@-1
+O Holy Spirit@stf/392_O_Holy_Spirit.mid@@STF@392@Tallis's Ordinal@KEYBD@STF@86.86.@0@0@0@-1
+She sits like a bird@stf/393_She_sits_like_a_bird.mid@M@STF@393@Thainaky@KEYBD@STF@11.11.D.@0@0@0@-1
 Spirit of God@stf/394_Spirit_of_God.mid@@STF@394@Skye Boat Song@KEYBD@STF@@0@0@0@-1
 Spirit of the living God@stf/395_Spirit_of_the_living_God.mid@@STF@395@@KEYBD@STF@@0@0@0@-1
 Spirit who broods@stf/396_Spirit_who_broods.mid@@STF@396@Kennick@KEYBD@STF@@0@0@0@-1
-The Spirit lives to set us free@stf/397_The_Spirit_lives_to_set_us_free.mid@@STF@397@Walk in the Light@KEYBD@STF@@0@0@0@-1
-There's a spirit in the air@stf/398_Theres_a_spirit_in_the_air.mid@H@STF@398@Lauds@KEYBD@STF@@0@0@0@-1
-When deep despair casts out all light@stf/399_When_deep_despair_casts_out_all_light.mid@@STF@399@Repton@KEYBD@STF@@0@0@0@-1
+The Spirit lives to set us free@stf/397_The_Spirit_lives_to_set_us_free.mid@@STF@397@Walk in the Light@KEYBD@STF@85.85.@0@0@0@-1
+There's a spirit in the air@stf/398_Theres_a_spirit_in_the_air.mid@H@STF@398@Lauds@KEYBD@STF@77.77.@0@0@0@-1
+When deep despair casts out all light@stf/399_When_deep_despair_casts_out_all_light.mid@@STF@399@Repton@KEYBD@STF@86.886.(6)@0@0@0@-1
 Wind of God, dynamic Spirit@stf/400_Wind_of_God_dynamic_Spirit.mid@@STF@400@Lux Eoi@KEYBD@STF@@0@0@0@-1
-Come, sinners, to the gospel feast@stf/401_Come_sinners_to_the_gospel_feast.mid@H@STF@401@Fulda (Walton)@KEYBD@STF@@0@0@0@-1
+Come, sinners, to the gospel feast@stf/401_Come_sinners_to_the_gospel_feast.mid@H@STF@401@Fulda (Walton)@KEYBD@STF@88.88.@0@0@0@-1
 Go to the world!@stf/402_Go_to_the_world_Engelberg.mid@@STF@402@Engelberg@KEYBD@STF@@0@0@0@-1
 Go to the world!@stf/402_Go_to_the_world_Hurley_Green.mid@@STF@402@Hurley Green@KEYBD@STF@@0@0@0@-1
 God is love@stf/403_God_is_love.mid@@STF@403@Theodoric@KEYBD@STF@@0@0@0@-1
@@ -509,247 +509,247 @@ How small a spark has lit a living fire!@stf/408_How_small_a_spark_has_lit_a_liv
 Let us build a house@stf/409_Let_us_build_a_house.mid@@STF@409@Two Oaks@KEYBD@STF@@0@0@0@-1
 Lord, your Church on earth is seeking@stf/410_Lord_your_Church_on_earth_is_seeking.mid@@STF@410@Abbot's Leigh@KEYBD@STF@@0@0@0@-1
 May the God of hope go with us@stf/411_May_the_God_of_hope_go_with_us.mid@@STF@411@Argentina@KEYBD@STF@@0@0@0@-1
-See how great a flame aspires@stf/412_See_how_great_a_flame_aspires.mid@H@STF@412@St George's, Windsor@KEYBD@STF@@0@0@0@-1
+See how great a flame aspires@stf/412_See_how_great_a_flame_aspires.mid@H@STF@412@St George's, Windsor@KEYBD@STF@77.77.D.@0@0@0@-1
 Send down the fire of your justice@stf/413_Send_down_the_fire_of_your_justice.mid@@STF@413@@KEYBD@STF@@0@0@0@-1
 Shalom chaverim@stf/414_Shalom_chaverim.mid@@STF@414@@KEYBD@STF@@0@0@0@-1
-The Church of Christ@stf/415_The_Church_of_Christ.mid@H@STF@415@Herongate@KEYBD@STF@@0@0@0@-1
+The Church of Christ@stf/415_The_Church_of_Christ.mid@H@STF@415@Herongate@KEYBD@STF@88.88.@0@0@0@-1
 There's a wideness in God's mercy@stf/416_Theres_a_wideness_in_Gods_mercy_Corvedale.mid@@STF@416@Corvedale@KEYBD@STF@@0@0@0@-1
 There's a wideness in God's mercy@stf/416_Theres_a_wideness_in_Gods_mercy_Cross_of_Jesus.mid@@STF@416@Cross of Jesus@KEYBD@STF@@0@0@0@-1
 We come from the mountains@stf/417_We_come_from_the_mountains.mid@@STF@417@@KEYBD@STF@@0@0@0@-1
-We have a gospel to proclaim@stf/418_We_have_a_gospel_to_proclaim.mid@@STF@418@Fulda (Walton)@KEYBD@STF@@0@0@0@-1
+We have a gospel to proclaim@stf/418_We_have_a_gospel_to_proclaim.mid@@STF@418@Fulda (Walton)@KEYBD@STF@88.88.@0@0@0@-1
 Almighty God, we come to make confession@stf/419_Almighty_God_we_come_to_make_confession.mid@@STF@419@Finlandia@KEYBD@STF@@0@0@0@-1
-Because you came and sat beside us@stf/420_Because_you_came_and_sat_beside_us.mid@@STF@420@Maujer Street@KEYBD@STF@@0@0@0@-1
+Because you came and sat beside us@stf/420_Because_you_came_and_sat_beside_us.mid@@STF@420@Maujer Street@KEYBD@STF@9.8.10.9.@0@0@0@-1
 Empty, broken, here I stand@stf/421_Empty_broken_here_I_stand.mid@@STF@421@@KEYBD@STF@@0@0@0@-1
 Father, we have sinned@stf/422_Father_we_have_sinned.mid@M@STF@422@@KEYBD@STF@@0@0@0@-1
-Forgive our sins as we forgive@stf/423_Forgive_our_sins_as_we_forgive.mid@@STF@423@St Bernard@KEYBD@STF@@0@0@0@-1
+Forgive our sins as we forgive@stf/423_Forgive_our_sins_as_we_forgive.mid@@STF@423@St Bernard@KEYBD@STF@86.86.@0@0@0@-1
 God forgave my sin@stf/424_God_forgave_my_sin.mid@@STF@424@@KEYBD@STF@@0@0@0@-1
-God of forgiveness@stf/425_God_of_forgiveness.mid@@STF@425@Blakeney@KEYBD@STF@@0@0@0@-1
-Hark, my soul!@stf/426_Hark_my_soul.mid@@STF@426@St Bees@KEYBD@STF@@0@0@0@-1
+God of forgiveness@stf/425_God_of_forgiveness.mid@@STF@425@Blakeney@KEYBD@STF@10.11.11.12.@0@0@0@-1
+Hark, my soul!@stf/426_Hark_my_soul.mid@@STF@426@St Bees@KEYBD@STF@77.77.@0@0@0@-1
 I'm accepted, I'm forgiven@stf/427_Im_accepted_Im_forgiven.mid@@STF@427@@KEYBD@STF@@0@0@0@-1
 I've come to wash my soul@stf/428_Ive_come_to_wash_my_soul.mid@M@STF@428@@KEYBD@STF@@0@0@0@-1
 Lord, we turn to you for mercy@stf/429_Lord_we_turn_to_you_for_mercy.mid@@STF@429@Gott Will 's Machen@KEYBD@STF@@0@0@0@-1
 My lips shall praise you@stf/430_My_lips_shall_praise_you.mid@@STF@430@@KEYBD@STF@@0@0@0@-1
-O, the love of my Lord is the essence@stf/431_O_the_love_of_my_Lord_is_the_essence.mid@@STF@431@As Gentle as Silence@KEYBD@STF@@0@0@0@-1
-O the bitter shame and sorrow@stf/432_O_the_bitter_shame_and_sorrow.mid@@STF@432@All of Thee@KEYBD@STF@@0@0@0@-1
-Out of the depths I cry to thee@stf/433_Out_of_the_depths_I_cry_to_thee.mid@H@STF@433@St Martin (Sheppard)@KEYBD@STF@@0@0@0@-1
+O, the love of my Lord is the essence@stf/431_O_the_love_of_my_Lord_is_the_essence.mid@@STF@431@As Gentle as Silence@KEYBD@STF@10.9.12.10.@0@0@0@-1
+O the bitter shame and sorrow@stf/432_O_the_bitter_shame_and_sorrow.mid@@STF@432@All of Thee@KEYBD@STF@87.88.7.@0@0@0@-1
+Out of the depths I cry to thee@stf/433_Out_of_the_depths_I_cry_to_thee.mid@H@STF@433@St Martin (Sheppard)@KEYBD@STF@86.86.88.7.@0@0@0@-1
 Rock of Ages@stf/434_Rock_of_Ages.mid@@STF@434@Petra (Redhead 76)@KEYBD@STF@@0@0@0@-1
-We come to you with no pretence@stf/435_We_come_to_you_with_no_pretence.mid@@STF@435@Shanti@KEYBD@STF@@0@0@0@-1
-What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Jerusalem_Grosvenor.mid@@STF@436@Jerusalem Grosvenor@KEYBD@STF@@0@0@0@-1
-What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Abridge_St_Stephen.mid@@STF@436@Abridge St Stephen@KEYBD@STF@@0@0@0@-1
+We come to you with no pretence@stf/435_We_come_to_you_with_no_pretence.mid@@STF@435@Shanti@KEYBD@STF@86.86.@0@0@0@-1
+What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Jerusalem_Grosvenor.mid@@STF@436@Jerusalem Grosvenor@KEYBD@STF@86.86.@0@0@0@-1
+What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Abridge_St_Stephen.mid@@STF@436@Abridge St Stephen@KEYBD@STF@86.86.@0@0@0@-1
 When the music fades@stf/437_When_the_music_fades.mid@M@STF@437@@KEYBD@STF@@0@0@0@-1
-Your ceaseless, unexhausted love@stf/438_Your_ceaseless_unexhausted_love.mid@H@STF@438@University@KEYBD@STF@@0@0@0@-1
+Your ceaseless, unexhausted love@stf/438_Your_ceaseless_unexhausted_love.mid@H@STF@438@University@KEYBD@STF@86.86.@0@0@0@-1
 Abba Father@stf/439_Abba_Father.mid@@STF@439@@KEYBD@STF@@0@0@0@-1
-Amazing grace@stf/440_Amazing_grace.mid@H@STF@440@Amazing Grace (New Britain)@KEYBD@STF@@0@0@0@-1
-As water to the thirsty@stf/441_As_water_to_the_thirsty.mid@@STF@441@Oasis@KEYBD@STF@@0@0@0@-1
+Amazing grace@stf/440_Amazing_grace.mid@H@STF@440@Amazing Grace (New Britain)@KEYBD@STF@86.86.@0@0@0@-1
+As water to the thirsty@stf/441_As_water_to_the_thirsty.mid@@STF@441@Oasis@KEYBD@STF@76.76.66.44.6.@0@0@0@-1
 Beneath the cross of Jesus@stf/442_Beneath_the_cross_of_Jesus.mid@@STF@442@@KEYBD@STF@@0@0@0@-1
-Come, let us sing  of a wonderful love@stf/443_Come_let_us_sing__of_a_wonderful_love.mid@@STF@443@Wonderful Love (Wiseman)@KEYBD@STF@@0@0@0@-1
+Come, let us sing  of a wonderful love@stf/443_Come_let_us_sing__of_a_wonderful_love.mid@@STF@443@Wonderful Love (Wiseman)@KEYBD@STF@10.4.10.7.4.10.@0@0@0@-1
 Day by day@stf/444_Day_by_day.mid@@STF@444@Lindors@KEYBD@STF@@0@0@0@-1
 He came to earth, not to be served@stf/445_He_came_to_earth_not_to_be_served.mid@@STF@445@@KEYBD@STF@@0@0@0@-1
 I will offer up my life@stf/446_I_will_offer_up_my_life.mid@M@STF@446@@KEYBD@STF@@0@0@0@-1
 Jesus, be the centre@stf/447_Jesus_be_the_centre.mid@@STF@447@@KEYBD@STF@@0@0@0@-1
-Lord, in the strength of grace@stf/448_Lord_in_the_strength_of_grace.mid@H@STF@448@St Michael (Old 134th)@KEYBD@STF@@0@0@0@-1
+Lord, in the strength of grace@stf/448_Lord_in_the_strength_of_grace.mid@H@STF@448@St Michael (Old 134th)@KEYBD@STF@66.86@0@0@0@-1
 Lord of creation@stf/449_Lord_of_creation.mid@@STF@449@Slane@KEYBD@STF@@0@0@0@-1
-Open, Lord, my inward ear@stf/450_Open_Lord_my_inward_ear_Leamington.mid@@STF@450@Leamington@KEYBD@STF@@0@0@0@-1
-Open, Lord, my inward ear@stf/450_Open_Lord_my_inward_ear_Effingham.mid@@STF@450@Effingham@KEYBD@STF@@0@0@0@-1
+Open, Lord, my inward ear@stf/450_Open_Lord_my_inward_ear_Leamington.mid@@STF@450@Leamington@KEYBD@STF@76.76.77.76.@0@0@0@-1
+Open, Lord, my inward ear@stf/450_Open_Lord_my_inward_ear_Effingham.mid@@STF@450@Effingham@KEYBD@STF@76.76.77.76.@0@0@0@-1
 Open the eyes of my heart@stf/451_Open_the_eyes_of_my_heart.mid@@STF@451@@KEYBD@STF@@0@0@0@-1
 Show me the way of the cross@stf/452_Show_me_the_way_of_the_cross.mid@M@STF@452@@KEYBD@STF@@0@0@0@-1
 Wash me clean in that cool river@stf/453_Wash_me_clean_in_that_cool_river.mid@@STF@453@@KEYBD@STF@@0@0@0@-1
-Where shall my wondering soul begin@stf/454_Where_shall_my_wondering_soul_begin_Careys_Surrey.mid@@STF@454@Carey's Surrey@KEYBD@STF@@0@0@0@-1
-Where shall my wondering soul begin@stf/454_Where_shall_my_wondering_soul_begin_Crucifixion_Lambeth.mid@@STF@454@Crucifixion Lambeth@KEYBD@STF@@0@0@0@-1
-All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Meine_Hoffnung.mid@@STF@455@Meine Hoffnung@KEYBD@STF@@0@0@0@-1
-All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Michael.mid@@STF@455@Michael@KEYBD@STF@@0@0@0@-1
+Where shall my wondering soul begin@stf/454_Where_shall_my_wondering_soul_begin_Careys_Surrey.mid@@STF@454@Carey's Surrey@KEYBD@STF@88.88.88.@0@0@0@-1
+Where shall my wondering soul begin@stf/454_Where_shall_my_wondering_soul_begin_Crucifixion_Lambeth.mid@@STF@454@Crucifixion Lambeth@KEYBD@STF@88.88.88.@0@0@0@-1
+All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Meine_Hoffnung.mid@@STF@455@Meine Hoffnung@KEYBD@STF@87.87.33.7.@0@0@0@-1
+All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Michael.mid@@STF@455@Michael@KEYBD@STF@87.87.33.7.@0@0@0@-1
 And are we yet alive@stf/456_And_are_we_yet_alive.mid@H@STF@456@Falcon Street@KEYBD@STF@@0@0@0@-1
-Author of faith, eternal Word@stf/457_Author_of_faith_eternal_Word.mid@H@STF@457@Mainzer@KEYBD@STF@@0@0@0@-1
-Away with our fears@stf/458_Away_with_our_fears.mid@H@STF@458@Muff Field@KEYBD@STF@@0@0@0@-1
-Captain of Israel's host@stf/459_Captain_of_Israels_host.mid@H@STF@459@Marienlyst@KEYBD@STF@@0@0@0@-1
-Come, let us anew@stf/460_Come_let_us_anew.mid@H@STF@460@Derby (Derbe)@KEYBD@STF@@0@0@0@-1
-Come, O thou Traveller unknown@stf/461_Come_O_thou_Traveller_unknown_Wrestling_Jacob.mid@H@STF@461@Wrestling Jacob@KEYBD@STF@@0@0@0@-1
-Come O thou Traveller unknown@stf/461_Come_O_thou_Traveller_unknown_Poole.mid@H@STF@461@Poole@KEYBD@STF@@0@0@0@-1
+Author of faith, eternal Word@stf/457_Author_of_faith_eternal_Word.mid@H@STF@457@Mainzer@KEYBD@STF@88.88.@0@0@0@-1
+Away with our fears@stf/458_Away_with_our_fears.mid@H@STF@458@Muff Field@KEYBD@STF@56.9.66.9.@0@0@0@-1
+Captain of Israel's host@stf/459_Captain_of_Israels_host.mid@H@STF@459@Marienlyst@KEYBD@STF@88.88.88.@0@0@0@-1
+Come, let us anew@stf/460_Come_let_us_anew.mid@H@STF@460@Derby (Derbe)@KEYBD@STF@55.5.11.@0@0@0@-1
+Come, O thou Traveller unknown@stf/461_Come_O_thou_Traveller_unknown_Wrestling_Jacob.mid@H@STF@461@Wrestling Jacob@KEYBD@STF@88.88.88.@0@0@0@-1
+Come O thou Traveller unknown@stf/461_Come_O_thou_Traveller_unknown_Poole.mid@H@STF@461@Poole@KEYBD@STF@88.88.88.@0@0@0@-1
 Come with me, come wander@stf/462_Come_with_me_come_wander.mid@M@STF@462@@KEYBD@STF@@0@0@0@-1
-Deep in the shadows@stf/463_Deep_in_the_shadows.mid@H@STF@463@Kingsfold@KEYBD@STF@@0@0@0@-1
+Deep in the shadows@stf/463_Deep_in_the_shadows.mid@H@STF@463@Kingsfold@KEYBD@STF@86.86.D.@0@0@0@-1
 God it was who said to Abraham@stf/464_God_it_was_who_said_to_Abraham.mid@M@STF@464@@KEYBD@STF@@0@0@0@-1
 Guide me, O thou great Jehovah@stf/465_Guide_me_O_thou_great_Jehovah.mid@H@STF@465@Cwm Rhondda@KEYBD@STF@@0@0@0@-1
-Have faith in God, my heart@stf/466_Have_faith_in_God_my_heart_Carlisle.mid@@STF@466@Carlisle@KEYBD@STF@@0@0@0@-1
-Have faith in God, my heart@stf/466_Have_faith_in_God_my_heart_Redemptor.mid@@STF@466@Redemptor@KEYBD@STF@@0@0@0@-1
+Have faith in God, my heart@stf/466_Have_faith_in_God_my_heart_Carlisle.mid@@STF@466@Carlisle@KEYBD@STF@66.86@0@0@0@-1
+Have faith in God, my heart@stf/466_Have_faith_in_God_my_heart_Redemptor.mid@@STF@466@Redemptor@KEYBD@STF@66.86@0@0@0@-1
 I need thee every hour@stf/467_I_need_thee_every_hour.mid@H@STF@467@I Need Thee@KEYBD@STF@@0@0@0@-1
 I was on your mind@stf/468_I_was_on_your_mind.mid@@STF@468@@KEYBD@STF@@0@0@0@-1
 I watch the sunrise@stf/469_I_watch_the_sunrise.mid@@STF@469@@KEYBD@STF@@0@0@0@-1
 Lord for the years@stf/470_Lord_for_the_years.mid@@STF@470@Lord of the Years@KEYBD@STF@@0@0@0@-1
 Lord, I come to you@stf/471_Lord_I_come_to_you.mid@@STF@471@@KEYBD@STF@@0@0@0@-1
-May the Sending One sing in you@stf/472_May_the_Sending_One_sing_in_you_Sending_One.mid@@STF@472@Sending One@KEYBD@STF@@0@0@0@-1
-May the Sending One sing in you@stf/472_May_the_Sending_One_sing_in_you_Warwick_Lane.mid@@STF@472@Warwick Lane@KEYBD@STF@@0@0@0@-1
+May the Sending One sing in you@stf/472_May_the_Sending_One_sing_in_you_Sending_One.mid@@STF@472@Sending One@KEYBD@STF@88.89.@0@0@0@-1
+May the Sending One sing in you@stf/472_May_the_Sending_One_sing_in_you_Warwick_Lane.mid@@STF@472@Warwick Lane@KEYBD@STF@88.89.@0@0@0@-1
 Moses, I know you're the man@stf/473_Moses_I_know_youre_the_man.mid@@STF@473@The People of God@KEYBD@STF@@0@0@0@-1
 Neither death, nor life@stf/474_Neither_death_nor_life.mid@@STF@474@@KEYBD@STF@@0@0@0@-1
-O God of Bethel, by whose hand@stf/475_O_God_of_Bethel_by_whose_hand.mid@@STF@475@Salzburg (Haydn)@KEYBD@STF@@0@0@0@-1
+O God of Bethel, by whose hand@stf/475_O_God_of_Bethel_by_whose_hand.mid@@STF@475@Salzburg (Haydn)@KEYBD@STF@86.86.@0@0@0@-1
 One more step along the world I go@stf/476_One_more_step_along_the_world_I_go.mid@@STF@476@Southcote@KEYBD@STF@@0@0@0@-1
 Teach me to dance@stf/477_Teach_me_to_dance.mid@M@STF@477@@KEYBD@STF@@0@0@0@-1
 Thank you, O God, for the time that is now@stf/478_Thank_you_O_God_for_the_time_that_is_now.mid@@STF@478@Quedlinburg@KEYBD@STF@@0@0@0@-1
 The King of love my shepherd is@stf/479_The_King_of_love_my_shepherd_is.mid@@STF@479@Dominus Regit Me@KEYBD@STF@@0@0@0@-1
-The Lord's my Shepherd@stf/480_The_Lords_my_Shepherd.mid@@STF@480@Crimond@KEYBD@STF@@0@0@0@-1
+The Lord's my Shepherd@stf/480_The_Lords_my_Shepherd.mid@@STF@480@Crimond@KEYBD@STF@86.86.@0@0@0@-1
 The Lord's my shepherd@stf/481_The_Lords_my_shepherd_Townend.mid@M@STF@481@Townend@KEYBD@STF@@0@0@0@-1
-There is no moment of my life@stf/482_There_is_no_moment_of_my_life.mid@@STF@482@Kenwyn (Hopkins)_@KEYBD@STF@@0@0@0@-1
+There is no moment of my life@stf/482_There_is_no_moment_of_my_life.mid@@STF@482@Kenwyn (Hopkins)_@KEYBD@STF@86.86.@0@0@0@-1
 We are marching@stf/483_We_are_marching.mid@@STF@483@Siyahamba@KEYBD@STF@@0@0@0@-1
 We will walk with God@stf/484_We_will_walk_with_God.mid@@STF@484@Sizohamba Naye@KEYBD@STF@@0@0@0@-1
 When we are living@stf/485_When_we_are_living.mid@@STF@485@Somos del Senor@KEYBD@STF@@0@0@0@-1
-Who would true valour see@stf/486_Who_would_true_valour_see.mid@@STF@486@Monks Gate@KEYBD@STF@@0@0@0@-1
+Who would true valour see@stf/486_Who_would_true_valour_see.mid@@STF@486@Monks Gate@KEYBD@STF@65.65.66.65.@0@0@0@-1
 You shall go out with joy@stf/487_You_shall_go_out_with_joy.mid@@STF@487@@KEYBD@STF@@0@0@0@-1
 You showed us mercy@stf/488_You_showed_us_mercy.mid@@STF@488@@KEYBD@STF@@0@0@0@-1
 All I once held dear@stf/489_All_I_once_held_dear.mid@M@STF@489@Knowing You@KEYBD@STF@@0@0@0@-1
-Being of beings@stf/490_Being_of_beings.mid@H@STF@490@Tottenham@KEYBD@STF@@0@0@0@-1
+Being of beings@stf/490_Being_of_beings.mid@H@STF@490@Tottenham@KEYBD@STF@86.86.@0@0@0@-1
 As servants working an estate@stf/491_As_servants_working_an_estate_The_Lords_My_Shepherd.mid@@STF@491@The Lord's My Shepherd@KEYBD@STF@@0@0@0@-1
 As servants working an estate@stf/491_As_servants_working_an_estate_Kingsfold.mid@@STF@491@Kingsfold@KEYBD@STF@@0@0@0@-1
 Christ be my leader@stf/492_Christ_be_my_leader.mid@@STF@492@Trisagion@KEYBD@STF@@0@0@0@-1
-Come, Lord, to our souls come down@stf/493_Come_Lord_to_our_souls_come_down.mid@@STF@493@Melling@KEYBD@STF@@0@0@0@-1
+Come, Lord, to our souls come down@stf/493_Come_Lord_to_our_souls_come_down.mid@@STF@493@Melling@KEYBD@STF@76.76.@0@0@0@-1
 Come, thou fount of every blessing@stf/494_Come_thou_fount_of_every_blessing_Normandy.mid@H@STF@494@Normandy@KEYBD@STF@@0@0@0@-1
 Come, thou fount of every blessing@stf/494_Come_thou_fount_of_every_blessing_Nettleton.mid@H@STF@494@Nettleton@KEYBD@STF@@0@0@0@-1
 Dear Lord and Father of mankind@stf/495_Dear_Lord_and_Father_of_mankind.mid@@STF@495@Repton@KEYBD@STF@@0@0@0@-1
 God, beyond our dreams@stf/496_God_beyond_our_dreams.mid@@STF@496@God Beyond All Names@KEYBD@STF@@0@0@0@-1
 God in my living@stf/497_God_in_my_living.mid@M@STF@497@@KEYBD@STF@@0@0@0@-1
-God of all power, and truth, and grace@stf/498_God_of_all_power_and_truth_and_grace_Ombersley.mid@@STF@498@Ombersley@KEYBD@STF@@0@0@0@-1
-God of all power, and truth, and grace@stf/498_God_of_all_power_and_truth_and_grace_Antwerp.mid@@STF@498@Antwerp@KEYBD@STF@@0@0@0@-1
-Great God, your love has called us here@stf/499_Great_God_your_love_has_called_us_here.mid@H@STF@499@Abingdon@KEYBD@STF@@0@0@0@-1
-Happy are they who find the grace@stf/500_Happy_are_they_who_find_the_grace.mid@H@STF@500@Antwerp@KEYBD@STF@@0@0@0@-1
-Help us, O Lord, to learn@stf/501_Help_us_O_Lord_to_learn.mid@@STF@501@Sandys@KEYBD@STF@@0@0@0@-1
-I know that my Redeemer lives@stf/502_I_know_that_my_Redeemer_lives.mid@H@STF@502@Seddon@KEYBD@STF@@0@0@0@-1
+God of all power, and truth, and grace@stf/498_God_of_all_power_and_truth_and_grace_Ombersley.mid@@STF@498@Ombersley@KEYBD@STF@88.88.@0@0@0@-1
+God of all power, and truth, and grace@stf/498_God_of_all_power_and_truth_and_grace_Antwerp.mid@@STF@498@Antwerp@KEYBD@STF@88.88.@0@0@0@-1
+Great God, your love has called us here@stf/499_Great_God_your_love_has_called_us_here.mid@H@STF@499@Abingdon@KEYBD@STF@88.88.88.@0@0@0@-1
+Happy are they who find the grace@stf/500_Happy_are_they_who_find_the_grace.mid@H@STF@500@Antwerp@KEYBD@STF@88.88.@0@0@0@-1
+Help us, O Lord, to learn@stf/501_Help_us_O_Lord_to_learn.mid@@STF@501@Sandys@KEYBD@STF@66.86@0@0@0@-1
+I know that my Redeemer lives@stf/502_I_know_that_my_Redeemer_lives.mid@H@STF@502@Seddon@KEYBD@STF@86.86.@0@0@0@-1
 Love divine@stf/503_Love_divine.mid@H@STF@503@Blaenwern@KEYBD@STF@@0@0@0@-1
-May the mind of Christ my Saviour@stf/504_May_the_mind_of_Christ_my_Saviour.mid@@STF@504@St Leonards (Barham-Gould)@KEYBD@STF@@0@0@0@-1
+May the mind of Christ my Saviour@stf/504_May_the_mind_of_Christ_my_Saviour.mid@@STF@504@St Leonards (Barham-Gould)@KEYBD@STF@87.85.@0@0@0@-1
 More like you, Jesus@stf/505_More_like_you_Jesus.mid@H@STF@505@@KEYBD@STF@@0@0@0@-1
-My heart is full of Christ, and longs@stf/506_My_heart_is_full_of_Christ_and_longs.mid@H@STF@506@Worsley@KEYBD@STF@@0@0@0@-1
-O for a heart to praise my God@stf/507_O_for_a_heart_to_praise_my_God.mid@H@STF@507@Abridge (St Stephen)@KEYBD@STF@@0@0@0@-1
+My heart is full of Christ, and longs@stf/506_My_heart_is_full_of_Christ_and_longs.mid@H@STF@506@Worsley@KEYBD@STF@88.88.88.@0@0@0@-1
+O for a heart to praise my God@stf/507_O_for_a_heart_to_praise_my_God.mid@H@STF@507@Abridge (St Stephen)@KEYBD@STF@86.86.@0@0@0@-1
 Purify my heart@stf/508_Purify_my_heart.mid@M@STF@508@@KEYBD@STF@@0@0@0@-1
-Safe in the shadow of the Lord@stf/509_Safe_in_the_shadow_of_the_Lord.mid@@STF@509@Creator God@KEYBD@STF@@0@0@0@-1
-Says Jesus, 'Come and gather round'@stf/510_Says_Jesus_Come_and_gather_round.mid@@STF@510@Une Jeune Pucelle@KEYBD@STF@@0@0@0@-1
-Speak in the stillnes@stf/511_Speak_in_the_stillnes_Gonaflon_Royal.mid@@STF@511@Gonaflon Royal@KEYBD@STF@@0@0@0@-1
-Speak in the stillness@stf/511_Speak_in_the_stillness_Vision_Mayor.mid@@STF@511@Vision Mayor@KEYBD@STF@@0@0@0@-1
-Stupendous height of heavenly love@stf/512_Stupendous_height_of_heavenly_love.mid@H@STF@512@Dura@KEYBD@STF@@0@0@0@-1
-Take this moment@stf/513_Take_this_moment.mid@M@STF@513@Take this Moment@KEYBD@STF@@0@0@0@-1
+Safe in the shadow of the Lord@stf/509_Safe_in_the_shadow_of_the_Lord.mid@@STF@509@Creator God@KEYBD@STF@87.44.6.@0@0@0@-1
+Says Jesus, 'Come and gather round'@stf/510_Says_Jesus_Come_and_gather_round.mid@@STF@510@Une Jeune Pucelle@KEYBD@STF@86.86.88.86.@0@0@0@-1
+Speak in the stillnes@stf/511_Speak_in_the_stillnes_Gonaflon_Royal.mid@@STF@511@Gonaflon Royal@KEYBD@STF@88.88.@0@0@0@-1
+Speak in the stillness@stf/511_Speak_in_the_stillness_Vision_Mayor.mid@@STF@511@Vision Mayor@KEYBD@STF@88.88.@0@0@0@-1
+Stupendous height of heavenly love@stf/512_Stupendous_height_of_heavenly_love.mid@H@STF@512@Dura@KEYBD@STF@88.88.88.@0@0@0@-1
+Take this moment@stf/513_Take_this_moment.mid@M@STF@513@Take this Moment@KEYBD@STF@75.75.@0@0@0@-1
 The thirsty deer longs for the streams@stf/514_The_thirsty_deer_longs_for_the_streams.mid@@STF@514@@KEYBD@STF@@0@0@0@-1
 Unless the Lord builds the house@stf/515_Unless_the_Lord_builds_the_house.mid@@STF@515@@KEYBD@STF@@0@0@0@-1
-What shall I do my God to love@stf/516_What_shall_I_do_my_God_to_love.mid@H@STF@516@Stella@KEYBD@STF@@0@0@0@-1
-Eternal Father, strong to save@stf/517_Eternal_Father_strong_to_save.mid@@STF@517@Melita@KEYBD@STF@@0@0@0@-1
+What shall I do my God to love@stf/516_What_shall_I_do_my_God_to_love.mid@H@STF@516@Stella@KEYBD@STF@88.88.88.@0@0@0@-1
+Eternal Father, strong to save@stf/517_Eternal_Father_strong_to_save.mid@@STF@517@Melita@KEYBD@STF@88.88.88.@0@0@0@-1
 Father, hear the prayer we offer@stf/518_Father_hear_the_prayer_we_offer.mid@@STF@518@Sussex@KEYBD@STF@@0@0@0@-1
 Father, I place into your hands@stf/519_Father_I_place_into_your_hands.mid@@STF@519@@KEYBD@STF@@0@0@0@-1
-Give to me, Lord, a thankful heart@stf/520_Give_to_me_Lord_a_thankful_heart.mid@@STF@520@Gatescarth@KEYBD@STF@@0@0@0@-1
+Give to me, Lord, a thankful heart@stf/520_Give_to_me_Lord_a_thankful_heart.mid@@STF@520@Gatescarth@KEYBD@STF@86.88.6.@0@0@0@-1
 Here as we kneel@stf/521_Here_as_we_kneel.mid@@STF@521@@KEYBD@STF@@0@0@0@-1
 I should like to speak to you@stf/522_I_should_like_to_speak_to_you.mid@@STF@522@Hard to Make a Prayer @KEYBD@STF@@0@0@0@-1
 It's me, it's me, O Lord@stf/523_Its_me_its_me_O_Lord.mid@@STF@523@It's Me, O Lord@KEYBD@STF@@0@0@0@-1
-Listening God, you hear us when we cannot speak@stf/524_Listening_God_you_hear_us_when_we_cannot_speak.mid@@STF@524@Noel Nouvelet@KEYBD@STF@@0@0@0@-1
+Listening God, you hear us when we cannot speak@stf/524_Listening_God_you_hear_us_when_we_cannot_speak.mid@@STF@524@Noel Nouvelet@KEYBD@STF@11.11.10.11.@0@0@0@-1
 Look around you, can you see@stf/525_Look_around_you_can_you_see.mid@@STF@525@@KEYBD@STF@@0@0@0@-1
-Lord of all hopefulness@stf/526_Lord_of_all_hopefulness.mid@@STF@526@Slane@KEYBD@STF@@0@0@0@-1
-Pray for a world where every child@stf/527_Pray_for_a_world_where_every_child.mid@@STF@527@Haven @KEYBD@STF@@0@0@0@-1
-Pray, without ceasing, pray@stf/528_Pray_without_ceasing_pray.mid@H@STF@528@From Strength to Strength@KEYBD@STF@@0@0@0@-1
-Prayer is the soul's sincere desire@stf/529_Prayer_is_the_souls_sincere_desire.mid@@STF@529@Nox Praecessit@KEYBD@STF@@0@0@0@-1
+Lord of all hopefulness@stf/526_Lord_of_all_hopefulness.mid@@STF@526@Slane@KEYBD@STF@10.11.11.11.@0@0@0@-1
+Pray for a world where every child@stf/527_Pray_for_a_world_where_every_child.mid@@STF@527@Haven @KEYBD@STF@88.88.@0@0@0@-1
+Pray, without ceasing, pray@stf/528_Pray_without_ceasing_pray.mid@H@STF@528@From Strength to Strength@KEYBD@STF@66.86.D.@0@0@0@-1
+Prayer is the soul's sincere desire@stf/529_Prayer_is_the_souls_sincere_desire.mid@@STF@529@Nox Praecessit@KEYBD@STF@86.86.@0@0@0@-1
 To be in your presence@stf/530_To_be_in_your_presence.mid@@STF@530@@KEYBD@STF@@0@0@0@-1
 What a friend we have in Jesus@stf/531_What_a_friend_we_have_in_Jesus.mid@@STF@531@What a Friend (Converse)@KEYBD@STF@@0@0@0@-1
-Born in a stable@stf/532_Born_in_a_stable.mid@@STF@532@Bunessan@KEYBD@STF@@0@0@0@-1
+Born in a stable@stf/532_Born_in_a_stable.mid@@STF@532@Bunessan@KEYBD@STF@55.54.D.@0@0@0@-1
 Covenant child@stf/533_Covenant_child.mid@@STF@533@@KEYBD@STF@@0@0@0@-1
-Eternal God, we praise your love@stf/534_Eternal_God_we_praise_your_love.mid@@STF@534@Sussex Carol@KEYBD@STF@@0@0@0@-1
-God, when I came into this life@stf/535_God_when_I_came_into_this_life.mid@@STF@535@Billing@KEYBD@STF@@0@0@0@-1
+Eternal God, we praise your love@stf/534_Eternal_God_we_praise_your_love.mid@@STF@534@Sussex Carol@KEYBD@STF@88.88.@0@0@0@-1
+God, when I came into this life@stf/535_God_when_I_came_into_this_life.mid@@STF@535@Billing@KEYBD@STF@86.86.@0@0@0@-1
 He's got the whole world in his hands@stf/536_Hes_got_the_whole_world_in_his_hands.mid@@STF@536@He's Got the Whole World@KEYBD@STF@@0@0@0@-1
-Lord Jesus, once a child@stf/537_Lord_Jesus_once_a_child_New_Birth.mid@H@STF@537@New Birth@KEYBD@STF@@0@0@0@-1
-Lord Jesus once a child@stf/537_Lord_Jesus_once_a_child_Franconia.mid@H@STF@537@Franconia@KEYBD@STF@@0@0@0@-1
-Now through the grace of God@stf/538_Now_through_the_grace_of_God.mid@@STF@538@Tallis's Ordinal@KEYBD@STF@@0@0@0@-1
+Lord Jesus, once a child@stf/537_Lord_Jesus_once_a_child_New_Birth.mid@H@STF@537@New Birth@KEYBD@STF@66.86@0@0@0@-1
+Lord Jesus once a child@stf/537_Lord_Jesus_once_a_child_Franconia.mid@H@STF@537@Franconia@KEYBD@STF@66.86@0@0@0@-1
+Now through the grace of God@stf/538_Now_through_the_grace_of_God.mid@@STF@538@Tallis's Ordinal@KEYBD@STF@86.86.@0@0@0@-1
 On this baptism day@stf/539_On_this_baptism_day.mid@@STF@539@Sing Hosanna@KEYBD@STF@@0@0@0@-1
-The day the universe was started@stf/540_The_day_the_universe_was_started.mid@@STF@540@St Clement@KEYBD@STF@@0@0@0@-1
+The day the universe was started@stf/540_The_day_the_universe_was_started.mid@@STF@540@St Clement@KEYBD@STF@98.98.@0@0@0@-1
 To the river, I am going@stf/541_To_the_river_I_am_going.mid@M@STF@541@@KEYBD@STF@@0@0@0@-1
-We praise you, Lord for Jesus Christ@stf/542_We_praise_you_Lord_for_Jesus_Christ.mid@@STF@542@Kilmarnock@KEYBD@STF@@0@0@0@-1
-Wonder of wonders@stf/543_Wonder_of_wonders_Langley_Grove.mid@@STF@543@Langley Grove@KEYBD@STF@@0@0@0@-1
-Wonder of wonders@stf/543_Wonder_of_wonders_Wonder_of_Wonders.mid@@STF@543@Wonder of Wonders@KEYBD@STF@@0@0@0@-1
+We praise you, Lord for Jesus Christ@stf/542_We_praise_you_Lord_for_Jesus_Christ.mid@@STF@542@Kilmarnock@KEYBD@STF@86.86.@0@0@0@-1
+Wonder of wonders@stf/543_Wonder_of_wonders_Langley_Grove.mid@@STF@543@Langley Grove@KEYBD@STF@55.54.D.@0@0@0@-1
+Wonder of wonders@stf/543_Wonder_of_wonders_Wonder_of_Wonders.mid@@STF@543@Wonder of Wonders@KEYBD@STF@55.54.D.@0@0@0@-1
 As the deer pants for the water@stf/544_As_the_deer_pants_for_the_water.mid@@STF@544@As the Deer@KEYBD@STF@@0@0@0@-1
-Be thou my vision@stf/545_Be_thou_my_vision_in_3.mid@H@STF@545@in 3@KEYBD@STF@@0@0@0@-1
-Be thou my vision@stf/545_Be_thou_my_vision_in_4.mid@H@STF@545@in 4@KEYBD@STF@@0@0@0@-1
-Behold the servant of the Lord!@stf/546_Behold_the_servant_of_the_Lord.mid@H@STF@546@Mozart@KEYBD@STF@@0@0@0@-1
+Be thou my vision@stf/545_Be_thou_my_vision_in_3.mid@H@STF@545@in 3@KEYBD@STF@10.11.11.11.@0@0@0@-1
+Be thou my vision@stf/545_Be_thou_my_vision_in_4.mid@H@STF@545@in 4@KEYBD@STF@10.11.11.11.@0@0@0@-1
+Behold the servant of the Lord!@stf/546_Behold_the_servant_of_the_Lord.mid@H@STF@546@Mozart@KEYBD@STF@88.88.88.@0@0@0@-1
 Beyond these walls of worship@stf/547_Beyond_these_walls_of_worship.mid@@STF@547@@KEYBD@STF@@0@0@0@-1
 Blessed assurance@stf/548_Blessed_assurance.mid@@STF@548@Blessed Assurance@KEYBD@STF@@0@0@0@-1
-Come, let us use the grace divine@stf/549_Come_let_us_use_the_grace_divine_HP_Arr.mid@H@STF@549@H&P Arr.@KEYBD@STF@@0@0@0@-1
-Come let us use the grace divine@stf/549_Come_let_us_use_the_grace_divine.mid@H@STF@549@Dundee (French)@KEYBD@STF@@0@0@0@-1
-Forth in thy name, O Lord, I go@stf/550_Forth_in_thy_name_O_Lord_I_go.mid@H@STF@550@Song 34 (Angels' Song)@KEYBD@STF@@0@0@0@-1
+Come, let us use the grace divine@stf/549_Come_let_us_use_the_grace_divine_HP_Arr.mid@H@STF@549@H&P Arr.@KEYBD@STF@86.86.@0@0@0@-1
+Come let us use the grace divine@stf/549_Come_let_us_use_the_grace_divine.mid@H@STF@549@Dundee (French)@KEYBD@STF@86.86.@0@0@0@-1
+Forth in thy name, O Lord, I go@stf/550_Forth_in_thy_name_O_Lord_I_go.mid@H@STF@550@Song 34 (Angels' Song)@KEYBD@STF@88.88.@0@0@0@-1
 Giving it all to you@stf/551_Giving_it_all_to_you.mid@@STF@551@@KEYBD@STF@@0@0@0@-1
 Here am I, Lord@stf/552_Here_am_I_Lord.mid@@STF@552@@KEYBD@STF@@0@0@0@-1
 I am a new creation@stf/553_I_am_a_new_creation.mid@@STF@553@@KEYBD@STF@@0@0@0@-1
 In this place, with God's word@stf/554_In_this_place_with_Gods_word_Composers_original_Arangement.mid@@STF@554@Composer's original Arangement@KEYBD@STF@@0@0@0@-1
 In this place, with God's word@stf/554_In_this_place_with_Gods_word.mid@@STF@554@Pollitt@KEYBD@STF@@0@0@0@-1
 Jesus, all for Jesus@stf/555_Jesus_all_for_Jesus.mid@@STF@555@@KEYBD@STF@@0@0@0@-1
-Just as I am@stf/556_Just_as_I_am_Woodworth.mid@@STF@556@Woodworth@KEYBD@STF@@0@0@0@-1
-Just as I am@stf/556_Just_as_I_am_Misericordia.mid@@STF@556@Misericordia@KEYBD@STF@@0@0@0@-1
-Just as I am@stf/556_Just_as_I_am_Saffron_Waldon.mid@@STF@556@Saffron Waldon@KEYBD@STF@@0@0@0@-1
-Let him to whom we now belong@stf/557_Let_him_to_whom_we_now_belong.mid@H@STF@557@Byzantium (Jackson)@KEYBD@STF@@0@0@0@-1
+Just as I am@stf/556_Just_as_I_am_Woodworth.mid@@STF@556@Woodworth@KEYBD@STF@888.6.@0@0@0@-1
+Just as I am@stf/556_Just_as_I_am_Misericordia.mid@@STF@556@Misericordia@KEYBD@STF@888.6.@0@0@0@-1
+Just as I am@stf/556_Just_as_I_am_Saffron_Waldon.mid@@STF@556@Saffron Waldon@KEYBD@STF@888.6.@0@0@0@-1
+Let him to whom we now belong@stf/557_Let_him_to_whom_we_now_belong.mid@H@STF@557@Byzantium (Jackson)@KEYBD@STF@86.86.@0@0@0@-1
 Lord, you have come to the seashore@stf/558_Lord_you_have_come_to_the_seashore.mid@@STF@558@Pescador de Hombres@KEYBD@STF@@0@0@0@-1
 Lord, you have my heart@stf/559_Lord_you_have_my_heart.mid@@STF@559@@KEYBD@STF@@0@0@0@-1
 My eyes be open to your presence@stf/560_My_eyes_be_open_to_your_presence.mid@@STF@560@@KEYBD@STF@@0@0@0@-1
-Now I have found the ground wherein@stf/561_Now_I_have_found_the_ground_wherein.mid@H@STF@561@Madrid (Matthews)@KEYBD@STF@@0@0@0@-1
-O God, what offering shall I give@stf/562_O_God_what_offering_shall_I_give.mid@@STF@562@Pater Omnium@KEYBD@STF@@0@0@0@-1
-O Jesus, I have promised@stf/563_O_Jesus_I_have_promised_Wolvercote.mid@@STF@563@Wolvercote@KEYBD@STF@@0@0@0@-1
-O Jesus, I have promised@stf/563_O_Jesus_I_have_promised_Hatherop_Castle.mid@@STF@563@Hatherop Castle@KEYBD@STF@@0@0@0@-1
-O thou who camest from above@stf/564_O_thou_who_camest_from_above_Hereford.mid@H@STF@564@Hereford@KEYBD@STF@@0@0@0@-1
-O thou who camest from above@stf/564_O_thou_who_camest_from_above_Wilton.mid@H@STF@564@Wilton@KEYBD@STF@@0@0@0@-1
+Now I have found the ground wherein@stf/561_Now_I_have_found_the_ground_wherein.mid@H@STF@561@Madrid (Matthews)@KEYBD@STF@88.88.@0@0@0@-1
+O God, what offering shall I give@stf/562_O_God_what_offering_shall_I_give.mid@@STF@562@Pater Omnium@KEYBD@STF@88.88.88.@0@0@0@-1
+O Jesus, I have promised@stf/563_O_Jesus_I_have_promised_Wolvercote.mid@@STF@563@Wolvercote@KEYBD@STF@76.76.D.@0@0@0@-1
+O Jesus, I have promised@stf/563_O_Jesus_I_have_promised_Hatherop_Castle.mid@@STF@563@Hatherop Castle@KEYBD@STF@76.76.D.@0@0@0@-1
+O thou who camest from above@stf/564_O_thou_who_camest_from_above_Hereford.mid@H@STF@564@Hereford@KEYBD@STF@88.88.@0@0@0@-1
+O thou who camest from above@stf/564_O_thou_who_camest_from_above_Wilton.mid@H@STF@564@Wilton@KEYBD@STF@88.88.@0@0@0@-1
 Only by grace can we enter@stf/565_Only_by_grace_can_we_enter.mid@@STF@565@@KEYBD@STF@@0@0@0@-1
-Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Emma.mid@@STF@566@Emma@KEYBD@STF@@0@0@0@-1
-Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Consecration.mid@@STF@566@Consecration@KEYBD@STF@@0@0@0@-1
-Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Nottingham.mid@@STF@566@Nottingham@KEYBD@STF@@0@0@0@-1
+Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Emma.mid@@STF@566@Emma@KEYBD@STF@77.77.@0@0@0@-1
+Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Consecration.mid@@STF@566@Consecration@KEYBD@STF@77.77.@0@0@0@-1
+Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Nottingham.mid@@STF@566@Nottingham@KEYBD@STF@77.77.@0@0@0@-1
 You are the centre@stf/567_You_are_the_centre.mid@@STF@567@@KEYBD@STF@@0@0@0@-1
 Alleluia! Sing to Jesus@stf/568_Alleluia_Sing_to_Jesus.mid@@STF@568@Hyfrydol@KEYBD@STF@@0@0@0@-1
-An Upper Room@stf/569_An_Upper_Room.mid@H@STF@569@O Waly Waly@KEYBD@STF@@0@0@0@-1
+An Upper Room@stf/569_An_Upper_Room.mid@H@STF@569@O Waly Waly@KEYBD@STF@98.98.@0@0@0@-1
 As we gather, Father, seal us@stf/570_As_we_gather_Father_seal_us.mid@M@STF@570@@KEYBD@STF@@0@0@0@-1
-As your family, Lord@stf/571_As_your_family_Lord.mid@@STF@571@Kum ba Hah@KEYBD@STF@@0@0@0@-1
-Author of life divine@stf/572_Author_of_life_divine_Shirland.mid@@STF@572@Shirland@KEYBD@STF@@0@0@0@-1
-Author of life divine@stf/572_Author_of_life_divine_Sacrista.mid@@STF@572@Sacrista@KEYBD@STF@@0@0@0@-1
-Be known to us in breaking bread@stf/573_Be_known_to_us_in_breaking_bread.mid@@STF@573@Belmont@KEYBD@STF@@0@0@0@-1
+As your family, Lord@stf/571_As_your_family_Lord.mid@@STF@571@Kum ba Hah@KEYBD@STF@88.85.@0@0@0@-1
+Author of life divine@stf/572_Author_of_life_divine_Shirland.mid@@STF@572@Shirland@KEYBD@STF@66.66.86.@0@0@0@-1
+Author of life divine@stf/572_Author_of_life_divine_Sacrista.mid@@STF@572@Sacrista@KEYBD@STF@66.66.86.@0@0@0@-1
+Be known to us in breaking bread@stf/573_Be_known_to_us_in_breaking_bread.mid@@STF@573@Belmont@KEYBD@STF@86.86.@0@0@0@-1
 Because you have said@stf/574_Because_you_have_said.mid@H@STF@574@Paderborn@KEYBD@STF@@0@0@0@-1
-Before I take the body of my Lord@stf/575_Before_I_take_the_body_of_my_Lord.mid@M@STF@575@Laying Down@KEYBD@STF@@0@0@0@-1
-Bread is blessed and broken@stf/576_Bread_is_blessed_and_broken.mid@M@STF@576@Grace in Essence@KEYBD@STF@@0@0@0@-1
+Before I take the body of my Lord@stf/575_Before_I_take_the_body_of_my_Lord.mid@M@STF@575@Laying Down@KEYBD@STF@10.10.10.4.@0@0@0@-1
+Bread is blessed and broken@stf/576_Bread_is_blessed_and_broken.mid@M@STF@576@Grace in Essence@KEYBD@STF@65.63.@0@0@0@-1
 Bread of life, hope of the world@stf/577_Bread_of_life_hope_of_the_world.mid@@STF@577@@KEYBD@STF@@0@0@0@-1
 Bread of Life@stf/578_Bread_of_Life.mid@@STF@578@@KEYBD@STF@@0@0@0@-1
-Come, Holy Ghost, your influence shed@stf/579_Come_Holy_Ghost_your_influence_shed.mid@H@STF@579@Billing@KEYBD@STF@@0@0@0@-1
-Come, Lord, be our guest@stf/580_Come_Lord_be_our_guest.mid@M@STF@580@Dietwein@KEYBD@STF@@0@0@0@-1
+Come, Holy Ghost, your influence shed@stf/579_Come_Holy_Ghost_your_influence_shed.mid@H@STF@579@Billing@KEYBD@STF@86.86.@0@0@0@-1
+Come, Lord, be our guest@stf/580_Come_Lord_be_our_guest.mid@M@STF@580@Dietwein@KEYBD@STF@56.56.56.55.@0@0@0@-1
 Come, my table is a meeting place@stf/581_Come_my_table_is_a_meeting_place.mid@@STF@581@@KEYBD@STF@@0@0@0@-1
 Eat this bread and never hunger@stf/582_Eat_this_bread_and_never_hunger.mid@@STF@582@Modesto@KEYBD@STF@@0@0@0@-1
 Eat this bread, drink this cup@stf/583_Eat_this_bread_drink_this_cup.mid@@STF@583@Eat this Bread@KEYBD@STF@@0@0@0@-1
 Eat this bread, drink this cup@stf/583_Eat_this_bread_drink_this_cup_Refrain_only.mid@@STF@583@Refrain only@KEYBD@STF@@0@0@0@-1
-Food to pilgrims given@stf/584_Food_to_pilgrims_given.mid@@STF@584@@KEYBD@STF@@0@0@0@-1
-God, whose love is all around us@stf/585_God_whose_love_is_all_around_us.mid@@STF@585@Quem Pastores Laudavere@KEYBD@STF@@0@0@0@-1
+Food to pilgrims given@stf/584_Food_to_pilgrims_given.mid@@STF@584@@KEYBD@STF@65.65.55.75.75.@0@0@0@-1
+God, whose love is all around us@stf/585_God_whose_love_is_all_around_us.mid@@STF@585@Quem Pastores Laudavere@KEYBD@STF@88.87.@0@0@0@-1
 Here is bread, here is wine@stf/586_Here_is_bread_here_is_wine.mid@M@STF@586@@KEYBD@STF@@0@0@0@-1
 I am the bread@stf/587_I_am_the_bread.mid@@STF@587@Picket Wood@KEYBD@STF@@0@0@0@-1
-I come with joy@stf/588_I_come_with_joy.mid@H@STF@588@St Botolph (Slater)@KEYBD@STF@@0@0@0@-1
+I come with joy@stf/588_I_come_with_joy.mid@H@STF@588@St Botolph (Slater)@KEYBD@STF@86.86.@0@0@0@-1
 In bread we bring you, Lord@stf/589_In_bread_we_bring_you_Lord.mid@@STF@589@@KEYBD@STF@@0@0@0@-1
-Jesus, we thus obey@stf/590_Jesus_we_thus_obey.mid@H@STF@590@Gildas (St Augustine)@KEYBD@STF@@0@0@0@-1
-Let all mortal flesh keep silence@stf/591_Let_all_mortal_flesh_keep_silence.mid@@STF@591@Picardy@KEYBD@STF@@0@0@0@-1
+Jesus, we thus obey@stf/590_Jesus_we_thus_obey.mid@H@STF@590@Gildas (St Augustine)@KEYBD@STF@66.86@0@0@0@-1
+Let all mortal flesh keep silence@stf/591_Let_all_mortal_flesh_keep_silence.mid@@STF@591@Picardy@KEYBD@STF@87.87.87.@0@0@0@-1
 Let us break bread together@stf/592_Let_us_break_bread_together.mid@@STF@592@Let us Break Bread@KEYBD@STF@@0@0@0@-1
-Lord, enthroned in heavenly splendour@stf/593_Lord_enthroned_in_heavenly_splendour.mid@@STF@593@St Helen@KEYBD@STF@@0@0@0@-1
-Lord Jesus Christ@stf/594_Lord_Jesus_Christ.mid@@STF@594@Living Lord@KEYBD@STF@@0@0@0@-1
+Lord, enthroned in heavenly splendour@stf/593_Lord_enthroned_in_heavenly_splendour.mid@@STF@593@St Helen@KEYBD@STF@87.87.87.@0@0@0@-1
+Lord Jesus Christ@stf/594_Lord_Jesus_Christ.mid@@STF@594@Living Lord@KEYBD@STF@98.88.83.@0@0@0@-1
 Lord we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_invitation_Was_Lebet.mid@H@STF@595@Was Lebet@KEYBD@STF@@0@0@0@-1
 Lord, we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_invitation_Epiphany.mid@H@STF@595@Epiphany@KEYBD@STF@@0@0@0@-1
-Now let us from this table rise@stf/596_Now_let_us_from_this_table_rise.mid@@STF@596@Niagara@KEYBD@STF@@0@0@0@-1
-O thou who this mysterious bread@stf/597_O_thou_who_this_mysterious_bread.mid@H@STF@597@Land of Rest@KEYBD@STF@@0@0@0@-1
-Shout for joy! The Lord has let us feast@stf/598_Shout_for_joy_The_Lord_has_let_us_feast.mid@M@STF@598@Lansdowne@KEYBD@STF@@0@0@0@-1
+Now let us from this table rise@stf/596_Now_let_us_from_this_table_rise.mid@@STF@596@Niagara@KEYBD@STF@88.88.@0@0@0@-1
+O thou who this mysterious bread@stf/597_O_thou_who_this_mysterious_bread.mid@H@STF@597@Land of Rest@KEYBD@STF@86.86.@0@0@0@-1
+Shout for joy! The Lord has let us feast@stf/598_Shout_for_joy_The_Lord_has_let_us_feast.mid@M@STF@598@Lansdowne@KEYBD@STF@99.99.@0@0@0@-1
 Up to your table@stf/599_Up_to_your_table.mid@@STF@599@@KEYBD@STF@@0@0@0@-1
-Victim divine@stf/600_Victim_divine.mid@H@STF@600@Credo@KEYBD@STF@@0@0@0@-1
+Victim divine@stf/600_Victim_divine.mid@H@STF@600@Credo@KEYBD@STF@88.88.88.@0@0@0@-1
 We do not presume@stf/601_We_do_not_presume.mid@@STF@601@@KEYBD@STF@@0@0@0@-1
 With all my heart, I thank you, Lord@stf/602_With_all_my_heart_I_thank_you_Lord.mid@@STF@602@@KEYBD@STF@@0@0@0@-1
-Come to a wedding@stf/603_Come_to_a_wedding.mid@@STF@603@Bunessan@KEYBD@STF@@0@0@0@-1
-Let's praise the Creator@stf/604_Lets_praise_the_Creator.mid@@STF@604@The Road and the Miles to Dundee@KEYBD@STF@@0@0@0@-1
+Come to a wedding@stf/603_Come_to_a_wedding.mid@@STF@603@Bunessan@KEYBD@STF@55.54.D.@0@0@0@-1
+Let's praise the Creator@stf/604_Lets_praise_the_Creator.mid@@STF@604@The Road and the Miles to Dundee@KEYBD@STF@12.11.12.11.@0@0@0@-1
 O perfect Love@stf/605_O_perfect_Love_O_Perfect_Love.mid@@STF@605@O Perfect Love@KEYBD@STF@@0@0@0@-1
 O perfect Love@stf/605_O_perfect_Love_Highwood.mid@@STF@605@Highwood@KEYBD@STF@@0@0@0@-1
-We pledge to one another@stf/606_We_pledge_to_one_another.mid@@STF@606@Thaxted@KEYBD@STF@@0@0@0@-1
-When love is found@stf/607_When_love_is_found.mid@H@STF@607@O Waly Waly@KEYBD@STF@@0@0@0@-1
-All praise to our redeeming Lord@stf/608_All_praise_to_our_redeeming_Lord.mid@H@STF@608@Lucius@KEYBD@STF@@0@0@0@-1
+We pledge to one another@stf/606_We_pledge_to_one_another.mid@@STF@606@Thaxted@KEYBD@STF@76.76.@0@0@0@-1
+When love is found@stf/607_When_love_is_found.mid@H@STF@607@O Waly Waly@KEYBD@STF@88.88.@0@0@0@-1
+All praise to our redeeming Lord@stf/608_All_praise_to_our_redeeming_Lord.mid@H@STF@608@Lucius@KEYBD@STF@86.86.@0@0@0@-1
 As we gather in your presence now@stf/609_As_we_gather_in_your_presence_now.mid@@STF@609@@KEYBD@STF@@0@0@0@-1
 Best of all is God is with us@stf/610_Best_of_all_is_God_is_with_us_Chapel_Brae.mid@H@STF@610@Chapel Brae@KEYBD@STF@@0@0@0@-1
 Best of all is God is with us@stf/610_Best_of_all_is_God_is_with_us_All_for_Jesus.mid@H@STF@610@All for Jesus@KEYBD@STF@@0@0@0@-1
 Brother, sister, let me serve you@stf/611_Brother_sister_let_me_serve_you.mid@@STF@611@Servant Song@KEYBD@STF@@0@0@0@-1
-God give us life@stf/612_God_give_us_life.mid@M@STF@612@Campbell@KEYBD@STF@@0@0@0@-1
-God, how can we forgive@stf/613_God_how_can_we_forgive.mid@@STF@613@Leoni@KEYBD@STF@@0@0@0@-1
+God give us life@stf/612_God_give_us_life.mid@M@STF@612@Campbell@KEYBD@STF@44.6.86.@0@0@0@-1
+God, how can we forgive@stf/613_God_how_can_we_forgive.mid@@STF@613@Leoni@KEYBD@STF@66.84.D.@0@0@0@-1
 God loves you, and I love you@stf/614_God_loves_you_and_I_love_you.mid@@STF@614@@KEYBD@STF@@0@0@0@-1
 Let love be real@stf/615_Let_love_be_real.mid@@STF@615@Londonderry Air@KEYBD@STF@@0@0@0@-1
-Lord, in our lonely hours@stf/616_Lord_in_our_lonely_hours.mid@H@STF@616@Allein@KEYBD@STF@@0@0@0@-1
-O blessed spring@stf/617_O_blessed_spring.mid@@STF@617@Come Together@KEYBD@STF@@0@0@0@-1
+Lord, in our lonely hours@stf/616_Lord_in_our_lonely_hours.mid@H@STF@616@Allein@KEYBD@STF@66.84.@0@0@0@-1
+O blessed spring@stf/617_O_blessed_spring.mid@@STF@617@Come Together@KEYBD@STF@88.88.@0@0@0@-1
 Sacred the body God has created@stf/618_Sacred_the_body_God_has_created.mid@@STF@618@Ruddle@KEYBD@STF@@0@0@0@-1
 Thanks for friends@stf/619_Thanks_for_friends_Ode_to_joy.mid@@STF@619@Ode to joy@KEYBD@STF@@0@0@0@-1
 Thanks for friends@stf/619_Thanks_for_friends_Heanish.mid@@STF@619@Heanish@KEYBD@STF@@0@0@0@-1
 Thou God of truth and love@stf/620_Thou_God_of_truth_and_love.mid@H@STF@620@St Godric@KEYBD@STF@@0@0@0@-1
 When memory fades@stf/621_When_memory_fades.mid@@STF@621@Finlandia@KEYBD@STF@@0@0@0@-1
 When our caring love wears thin@stf/622_When_our_caring_love_wears_thin.mid@@STF@622@Charterhouse  (Cooper)@KEYBD@STF@@0@0@0@-1
-A safe stronghold our God is still@stf/623_A_safe_stronghold_our_God_is_still.mid@@STF@623@Ein' Feste Burg@KEYBD@STF@@0@0@0@-1
+A safe stronghold our God is still@stf/623_A_safe_stronghold_our_God_is_still.mid@@STF@623@Ein' Feste Burg@KEYBD@STF@87.87.66.66.7.@0@0@0@-1
 Calm me, Lord, as you calmed the storm@stf/624_Calm_me_Lord_as_you_calmed_the_storm.mid@@STF@624@@KEYBD@STF@@0@0@0@-1
 Deep in the darkness@stf/625_Deep_in_the_darkness_High_Point.mid@@STF@625@High Point@KEYBD@STF@@0@0@0@-1
 Deep in the darkness@stf/625_Deep_in_the_darkness_Stewardship.mid@@STF@625@Stewardship@KEYBD@STF@@0@0@0@-1
@@ -757,134 +757,134 @@ Even though I walk through the valley@stf/626_Even_though_I_walk_through_the_val
 Everyone needs compassion@stf/627_Everyone_needs_compassion.mid@@STF@627@@KEYBD@STF@@0@0@0@-1
 Faithful One@stf/628_Faithful_One.mid@M@STF@628@@KEYBD@STF@@0@0@0@-1
 God of my faith@stf/629_God_of_my_faith.mid@@STF@629@Anima Christi (Maher)@KEYBD@STF@@0@0@0@-1
-How long, O Lord, will you forget@stf/630_How_long_O_Lord_will_you_forget.mid@@STF@630@@KEYBD@STF@@0@0@0@-1
+How long, O Lord, will you forget@stf/630_How_long_O_Lord_will_you_forget.mid@@STF@630@@KEYBD@STF@8.6.8.8.6.@0@0@0@-1
 I lift my eyes up@stf/631_I_lift_my_eyes_up.mid@M@STF@631@@KEYBD@STF@@0@0@0@-1
 I've had questions@stf/632_Ive_had_questions.mid@M@STF@632@@KEYBD@STF@@0@0@0@-1
 My soul finds rest in God alone@stf/633_My_soul_finds_rest_in_God_alone.mid@M@STF@633@@KEYBD@STF@@0@0@0@-1
-Fight the good fight@stf/634_Fight_the_good_fight.mid@@STF@634@Duke Street@KEYBD@STF@@0@0@0@-1
+Fight the good fight@stf/634_Fight_the_good_fight.mid@@STF@634@Duke Street@KEYBD@STF@88.88.@0@0@0@-1
 My troubled soul@stf/635_My_troubled_soul.mid@@STF@635@@KEYBD@STF@@0@0@0@-1
-O love that wilt not let me go@stf/636_O_love_that_wilt_not_let_me_go.mid@@STF@636@St Margaret@KEYBD@STF@@0@0@0@-1
-Soilders of Christ, arise@stf/637_Soilders_of_Christ_arise.mid@H@STF@637@From Strength to Strength@KEYBD@STF@@0@0@0@-1
-Through all the changing scenes of life@stf/638_Through_all_the_changing_scenes_of_life.mid@@STF@638@Wiltshire@KEYBD@STF@@0@0@0@-1
-Through the love of God our Saviour@stf/639_Through_the_love_of_God_our_Saviour.mid@@STF@639@Ar Hyd y Nos@KEYBD@STF@@0@0@0@-1
+O love that wilt not let me go@stf/636_O_love_that_wilt_not_let_me_go.mid@@STF@636@St Margaret@KEYBD@STF@88.88.6.@0@0@0@-1
+Soilders of Christ, arise@stf/637_Soilders_of_Christ_arise.mid@H@STF@637@From Strength to Strength@KEYBD@STF@66.86.D.@0@0@0@-1
+Through all the changing scenes of life@stf/638_Through_all_the_changing_scenes_of_life.mid@@STF@638@Wiltshire@KEYBD@STF@86.86.@0@0@0@-1
+Through the love of God our Saviour@stf/639_Through_the_love_of_God_our_Saviour.mid@@STF@639@Ar Hyd y Nos@KEYBD@STF@84.84.88.84.@0@0@0@-1
 We turn to God@stf/640_We_turn_to_God_Eventide.mid@@STF@640@Eventide@KEYBD@STF@@0@0@0@-1
 We turn to God@stf/640_We_turn_to_God_The_Cost_of_Discipleship.mid@@STF@640@The Cost of Discipleship@KEYBD@STF@@0@0@0@-1
-When circumstances make my life@stf/641_When_circumstances_make_my_life.mid@@STF@641@Martyrdom (Fenwick)@KEYBD@STF@@0@0@0@-1
-When I'm feeling down and sad@stf/642_When_Im_feeling_down_and_sad.mid@@STF@642@When I'm Feeling Down and Sad@KEYBD@STF@@0@0@0@-1
-When, O God, our faith is tested@stf/643_When_O_God_our_faith_is_tested_All_Saints.mid@@STF@643@All Saints@KEYBD@STF@@0@0@0@-1
-When, O God, our faith is tested@stf/643_When_O_God_our_faith_is_tested_Fortunatus_New.mid@@STF@643@Fortunatus New@KEYBD@STF@@0@0@0@-1
-When our confidence is shaken@stf/644_When_our_confidence_is_shaken.mid@H@STF@644@New Malden (McCarthy)@KEYBD@STF@@0@0@0@-1
+When circumstances make my life@stf/641_When_circumstances_make_my_life.mid@@STF@641@Martyrdom (Fenwick)@KEYBD@STF@86.86.@0@0@0@-1
+When I'm feeling down and sad@stf/642_When_Im_feeling_down_and_sad.mid@@STF@642@When I'm Feeling Down and Sad@KEYBD@STF@77.83.@0@0@0@-1
+When, O God, our faith is tested@stf/643_When_O_God_our_faith_is_tested_All_Saints.mid@@STF@643@All Saints@KEYBD@STF@87.87.77.@0@0@0@-1
+When, O God, our faith is tested@stf/643_When_O_God_our_faith_is_tested_Fortunatus_New.mid@@STF@643@Fortunatus New@KEYBD@STF@87.87.77.@0@0@0@-1
+When our confidence is shaken@stf/644_When_our_confidence_is_shaken.mid@H@STF@644@New Malden (McCarthy)@KEYBD@STF@87.87.87.@0@0@0@-1
 Will your anchor hold@stf/645_Will_your_anchor_hold.mid@@STF@645@Will Your Anchor Hold@KEYBD@STF@@0@0@0@-1
-Come, and let us sweetly join@stf/646_Come_and_let_us_sweetly_join.mid@H@STF@646@Leach@KEYBD@STF@@0@0@0@-1
-God grant us words to speak@stf/647_God_grant_us_words_to_speak.mid@@STF@647@Garelochside@KEYBD@STF@@0@0@0@-1
-God to enfold you@stf/648_God_to_enfold_you.mid@M@STF@648@Enfolding@KEYBD@STF@@0@0@0@-1
+Come, and let us sweetly join@stf/646_Come_and_let_us_sweetly_join.mid@H@STF@646@Leach@KEYBD@STF@77.77.D.@0@0@0@-1
+God grant us words to speak@stf/647_God_grant_us_words_to_speak.mid@@STF@647@Garelochside@KEYBD@STF@66.86@0@0@0@-1
+God to enfold you@stf/648_God_to_enfold_you.mid@M@STF@648@Enfolding@KEYBD@STF@55.9.555.4.@0@0@0@-1
 God! When human bonds are broken@stf/649_God_When_human_bonds_are_broken.mid@@STF@649@St Catherine (Flood Jones)@KEYBD@STF@@0@0@0@-1
-Heal us, Immanuel!@stf/650_Heal_us_Immanuel.mid@@STF@650@St Hugh@KEYBD@STF@@0@0@0@-1
-Lord of life, we come to you@stf/651_Lord_of_life_we_come_to_you.mid@@STF@651@Eriskay Love Lilt@KEYBD@STF@@0@0@0@-1
-Lord, we come to ask your healing@stf/652_Lord_we_come_to_ask_your_healing.mid@@STF@652@Ar Hyd y Nos@KEYBD@STF@@0@0@0@-1
-O Christ, the Healer@stf/653_O_Christ_the_Healer.mid@H@STF@653@Angelus@KEYBD@STF@@0@0@0@-1
+Heal us, Immanuel!@stf/650_Heal_us_Immanuel.mid@@STF@650@St Hugh@KEYBD@STF@86.86.@0@0@0@-1
+Lord of life, we come to you@stf/651_Lord_of_life_we_come_to_you.mid@@STF@651@Eriskay Love Lilt@KEYBD@STF@77.66.@0@0@0@-1
+Lord, we come to ask your healing@stf/652_Lord_we_come_to_ask_your_healing.mid@@STF@652@Ar Hyd y Nos@KEYBD@STF@84.84.88.84.@0@0@0@-1
+O Christ, the Healer@stf/653_O_Christ_the_Healer.mid@H@STF@653@Angelus@KEYBD@STF@88.88.@0@0@0@-1
 The love of God comes close@stf/654_The_love_of_God_comes_close.mid@M@STF@654@Melanie@KEYBD@STF@@0@0@0@-1
-We cannot measure how you heal@stf/655_We_cannot_measure_how_you_heal.mid@M@STF@655@Ye Banks and Braes (The Banks of O'Doon) @KEYBD@STF@@0@0@0@-1
-When the bonds of love are breaking@stf/656_When_the_bonds_of_love_are_breaking.mid@@STF@656@God of Healing@KEYBD@STF@@0@0@0@-1
+We cannot measure how you heal@stf/655_We_cannot_measure_how_you_heal.mid@M@STF@655@Ye Banks and Braes (The Banks of O'Doon) @KEYBD@STF@88.88.D.@0@0@0@-1
+When the bonds of love are breaking@stf/656_When_the_bonds_of_love_are_breaking.mid@@STF@656@God of Healing@KEYBD@STF@87.87.7.@0@0@0@-1
 You give rest to the weary@stf/657_You_give_rest_to_the_weary.mid@@STF@657@@KEYBD@STF@@0@0@0@-1
-A charge to keep I have@stf/658_A_charge_to_keep_I_have.mid@H@STF@658@Cambridge (Harrison)@KEYBD@STF@@0@0@0@-1
-As dawn awakes another day@stf/659_As_dawn_awakes_another_day.mid@@STF@659@Herongate@KEYBD@STF@@0@0@0@-1
+A charge to keep I have@stf/658_A_charge_to_keep_I_have.mid@H@STF@658@Cambridge (Harrison)@KEYBD@STF@66.86@0@0@0@-1
+As dawn awakes another day@stf/659_As_dawn_awakes_another_day.mid@@STF@659@Herongate@KEYBD@STF@88.88.@0@0@0@-1
 Called by Christ to be disciples@stf/660_Called_by_Christ_to_be_disciples.mid@@STF@660@Stranmills@KEYBD@STF@@0@0@0@-1
-Give me the faith which can remove@stf/661_Give_me_the_faith_which_can_remove.mid@H@STF@661@Mount Sion (Pleyel)@KEYBD@STF@@0@0@0@-1
+Give me the faith which can remove@stf/661_Give_me_the_faith_which_can_remove.mid@H@STF@661@Mount Sion (Pleyel)@KEYBD@STF@88.88.88.@0@0@0@-1
 Have you heard God's voice@stf/662_Have_you_heard_Gods_voice.mid@@STF@662@@KEYBD@STF@@0@0@0@-1
 I, the Lord of sea and sky@stf/663_I_the_Lord_of_sea_and_sky.mid@@STF@663@Here I Am, Lord@KEYBD@STF@@0@0@0@-1
-Lord, you call us to your service@stf/664_Lord_you_call_us_to_your_service_Magdalene.mid@@STF@664@Magdalene@KEYBD@STF@@0@0@0@-1
-Lord, you call us to your service@stf/664_Lord_you_call_us_to_your_service_Angel_Voices.mid@@STF@664@Angel Voices@KEYBD@STF@@0@0@0@-1
-Make us your prophets, Lord@stf/665_Make_us_your_prophets_Lord.mid@@STF@665@North Petherton@KEYBD@STF@@0@0@0@-1
-Master, speak! Thy servant heareth@stf/666_Master_speak_Thy_servant_heareth.mid@H@STF@666@Ottawa (Magister)@KEYBD@STF@@0@0@0@-1
-O Watcher in the wilderness@stf/667_O_Watcher_in_the_wilderness.mid@@STF@667@Coe Fen@KEYBD@STF@@0@0@0@-1
-Teach me, my God and King@stf/668_Teach_me_my_God_and_King.mid@@STF@668@Sandys@KEYBD@STF@@0@0@0@-1
-The Saviour, when to heaven@stf/669_The_Saviour_when_to_heaven.mid@@STF@669@Gonfalon Royal@KEYBD@STF@@0@0@0@-1
+Lord, you call us to your service@stf/664_Lord_you_call_us_to_your_service_Magdalene.mid@@STF@664@Magdalene@KEYBD@STF@85.85.84.3.@0@0@0@-1
+Lord, you call us to your service@stf/664_Lord_you_call_us_to_your_service_Angel_Voices.mid@@STF@664@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
+Make us your prophets, Lord@stf/665_Make_us_your_prophets_Lord.mid@@STF@665@North Petherton@KEYBD@STF@66.11.D.@0@0@0@-1
+Master, speak! Thy servant heareth@stf/666_Master_speak_Thy_servant_heareth.mid@H@STF@666@Ottawa (Magister)@KEYBD@STF@87.87.77.@0@0@0@-1
+O Watcher in the wilderness@stf/667_O_Watcher_in_the_wilderness.mid@@STF@667@Coe Fen@KEYBD@STF@86.86.D.@0@0@0@-1
+Teach me, my God and King@stf/668_Teach_me_my_God_and_King.mid@@STF@668@Sandys@KEYBD@STF@66.86@0@0@0@-1
+The Saviour, when to heaven@stf/669_The_Saviour_when_to_heaven.mid@@STF@669@Gonfalon Royal@KEYBD@STF@88.88.@0@0@0@-1
 We have nothing to give@stf/670_We_have_nothing_to_give.mid@M@STF@670@@KEYBD@STF@@0@0@0@-1
-What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Offering.mid@@STF@671@Offering@KEYBD@STF@@0@0@0@-1
-What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Warrington.mid@@STF@671@Warrington@KEYBD@STF@@0@0@0@-1
+What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Offering.mid@@STF@671@Offering@KEYBD@STF@88.88.@0@0@0@-1
+What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Warrington.mid@@STF@671@Warrington@KEYBD@STF@88.88.@0@0@0@-1
 Where can we find you@stf/672_Where_can_we_find_you.mid@@STF@672@Epiphany @KEYBD@STF@@0@0@0@-1
-Will you come and follow me@stf/673_Will_you_come_and_follow_me.mid@M@STF@673@Kelvingrove@KEYBD@STF@@0@0@0@-1
-Would I have answered when you called@stf/674_Would_I_have_answered_when_you_called.mid@@STF@674@Watson@KEYBD@STF@@0@0@0@-1
+Will you come and follow me@stf/673_Will_you_come_and_follow_me.mid@M@STF@673@Kelvingrove@KEYBD@STF@76.76.77.76.@0@0@0@-1
+Would I have answered when you called@stf/674_Would_I_have_answered_when_you_called.mid@@STF@674@Watson@KEYBD@STF@86.86.D.@0@0@0@-1
 Because the Saviour prayed@stf/675_Because_the_Saviour_prayed.mid@M@STF@675@Athair Uile-Chumhachdaich@KEYBD@STF@@0@0@0@-1
-Christ, from whom all blessings flow@stf/676_Christ_from_whom_all_blessings_flow.mid@H@STF@676@Vienna (Ravenna)@KEYBD@STF@@0@0@0@-1
-Christ is made the sure foundation@stf/677_Christ_is_made_the_sure_foundation.mid@@STF@677@Westminster Abbey@KEYBD@STF@@0@0@0@-1
-Come, all who look to Christ today@stf/678_Come_all_who_look_to_Christ_today_Talliss_Canon.mid@@STF@678@Tallis's Canon@KEYBD@STF@@0@0@0@-1
-Come, all who look to Christ today@stf/678_Come_all_who_look_to_Christ_today_Solothurn.mid@@STF@678@Solothurn@KEYBD@STF@@0@0@0@-1
-Come build the Church@stf/679_Come_build_the_Church.mid@H@STF@679@Galilee@KEYBD@STF@@0@0@0@-1
-Come, Host of heaven's high dwelling place@stf/680_Come_Host_of_heavens_high_dwelling_place.mid@M@STF@680@St Columba (Erin)@KEYBD@STF@@0@0@0@-1
-Community of Christ@stf/681_Community_of_Christ.mid@@STF@681@Leoni@KEYBD@STF@@0@0@0@-1
-God of grace and God of glory@stf/682_God_of_grace_and_God_of_glory.mid@@STF@682@Rhuddlan@KEYBD@STF@@0@0@0@-1
-Great is our redeeming Lord@stf/683_Great_is_our_redeeming_Lord.mid@H@STF@683@Josiah@KEYBD@STF@@0@0@0@-1
-Here on the threshold@stf/684_Here_on_the_threshold.mid@@STF@684@Advent@KEYBD@STF@@0@0@0@-1
-In Christ there is no east or west@stf/685_In_Christ_there_is_no_east_or_west_McKee.mid@@STF@685@McKee@KEYBD@STF@@0@0@0@-1
-In Christ there is no east or west@stf/685_In_Christ_there_is_no_east_or_west_Kilmarnock.mid@@STF@685@Kilmarnock@KEYBD@STF@@0@0@0@-1
-Jesus, Lord, we look to thee@stf/686_Jesus_Lord_we_look_to_thee.mid@H@STF@686@Theodora (Handel)@KEYBD@STF@@0@0@0@-1
-One human family@stf/687_One_human_family_St_Matthew.mid@@STF@687@St Matthew@KEYBD@STF@@0@0@0@-1
-One human family God has made@stf/687_One_human_family_God_has_made_The_Seven_Joys_of_Mary.mid@@STF@687@The Seven Joys of Mary@KEYBD@STF@@0@0@0@-1
-One human family@stf/687_One_human_family_Solls_Sein.mid@@STF@687@Soll's Sein@KEYBD@STF@@0@0@0@-1
+Christ, from whom all blessings flow@stf/676_Christ_from_whom_all_blessings_flow.mid@H@STF@676@Vienna (Ravenna)@KEYBD@STF@77.77.@0@0@0@-1
+Christ is made the sure foundation@stf/677_Christ_is_made_the_sure_foundation.mid@@STF@677@Westminster Abbey@KEYBD@STF@87.87.87.@0@0@0@-1
+Come, all who look to Christ today@stf/678_Come_all_who_look_to_Christ_today_Talliss_Canon.mid@@STF@678@Tallis's Canon@KEYBD@STF@88.88.@0@0@0@-1
+Come, all who look to Christ today@stf/678_Come_all_who_look_to_Christ_today_Solothurn.mid@@STF@678@Solothurn@KEYBD@STF@88.88.@0@0@0@-1
+Come build the Church@stf/679_Come_build_the_Church.mid@H@STF@679@Galilee@KEYBD@STF@88.88.@0@0@0@-1
+Come, Host of heaven's high dwelling place@stf/680_Come_Host_of_heavens_high_dwelling_place.mid@M@STF@680@St Columba (Erin)@KEYBD@STF@86.86.@0@0@0@-1
+Community of Christ@stf/681_Community_of_Christ.mid@@STF@681@Leoni@KEYBD@STF@66.84.D.@0@0@0@-1
+God of grace and God of glory@stf/682_God_of_grace_and_God_of_glory.mid@@STF@682@Rhuddlan@KEYBD@STF@87.87.87.@0@0@0@-1
+Great is our redeeming Lord@stf/683_Great_is_our_redeeming_Lord.mid@H@STF@683@Josiah@KEYBD@STF@76.76.77.76.@0@0@0@-1
+Here on the threshold@stf/684_Here_on_the_threshold.mid@@STF@684@Advent@KEYBD@STF@11.10.11.10.D.@0@0@0@-1
+In Christ there is no east or west@stf/685_In_Christ_there_is_no_east_or_west_McKee.mid@@STF@685@McKee@KEYBD@STF@86.86.@0@0@0@-1
+In Christ there is no east or west@stf/685_In_Christ_there_is_no_east_or_west_Kilmarnock.mid@@STF@685@Kilmarnock@KEYBD@STF@86.86.@0@0@0@-1
+Jesus, Lord, we look to thee@stf/686_Jesus_Lord_we_look_to_thee.mid@H@STF@686@Theodora (Handel)@KEYBD@STF@77.77.@0@0@0@-1
+One human family@stf/687_One_human_family_St_Matthew.mid@@STF@687@St Matthew@KEYBD@STF@86.86.D.@0@0@0@-1
+One human family God has made@stf/687_One_human_family_God_has_made_The_Seven_Joys_of_Mary.mid@@STF@687@The Seven Joys of Mary@KEYBD@STF@86.86.D.@0@0@0@-1
+One human family@stf/687_One_human_family_Solls_Sein.mid@@STF@687@Soll's Sein@KEYBD@STF@86.86.D.@0@0@0@-1
 One is the body@stf/688_One_is_the_body.mid@M@STF@688@Peacock@KEYBD@STF@@0@0@0@-1
 Summoned by the God who made us@stf/689_Summoned_by_the_God_who_made_us.mid@@STF@689@Nettleton@KEYBD@STF@@0@0@0@-1
-The Church's one foundation@stf/690_The_Churchs_one_foundation.mid@@STF@690@Aurelia@KEYBD@STF@@0@0@0@-1
-What shall our greeting be@stf/691_What_shall_our_greeting_be.mid@H@STF@691@Moscow@KEYBD@STF@@0@0@0@-1
-Your hand, O God, has guided@stf/692_Your_hand_O_God_has_guided.mid@@STF@692@Thornbury@KEYBD@STF@@0@0@0@-1
+The Church's one foundation@stf/690_The_Churchs_one_foundation.mid@@STF@690@Aurelia@KEYBD@STF@76.76.D.@0@0@0@-1
+What shall our greeting be@stf/691_What_shall_our_greeting_be.mid@H@STF@691@Moscow@KEYBD@STF@66.4.666.4.@0@0@0@-1
+Your hand, O God, has guided@stf/692_Your_hand_O_God_has_guided.mid@@STF@692@Thornbury@KEYBD@STF@76.76.D.@0@0@0@-1
 Beauty for brokenness@stf/693_Beauty_for_brokenness.mid@M@STF@693@God of the Poor@KEYBD@STF@@0@0@0@-1
 By the Babylonian rivers@stf/694_By_the_Babylonian_rivers.mid@@STF@694@Kas Dziedaja@KEYBD@STF@@0@0@0@-1
 Come, now, you blessed@stf/695_Come_now_you_blessed.mid@@STF@695@O Quanta Qualia  (Regnator Orbis)@KEYBD@STF@@0@0@0@-1
-For the healing of the nations@stf/696_For_the_healing_of_the_nations_Rhuddlan.mid@@STF@696@Rhuddlan@KEYBD@STF@@0@0@0@-1
-For the healing of the nations@stf/696_For_the_healing_of_the_nations_Grafton.mid@@STF@696@Grafton@KEYBD@STF@@0@0@0@-1
+For the healing of the nations@stf/696_For_the_healing_of_the_nations_Rhuddlan.mid@@STF@696@Rhuddlan@KEYBD@STF@87.87.87.@0@0@0@-1
+For the healing of the nations@stf/696_For_the_healing_of_the_nations_Grafton.mid@@STF@696@Grafton@KEYBD@STF@87.87.87.@0@0@0@-1
 Oh freedom@stf/697_Oh_freedom.mid@@STF@697@Freedom is Coming@KEYBD@STF@@0@0@0@-1
 God! As with silent hearts@stf/698_God_As_with_silent_hearts.mid@@STF@698@Supreme Sacrifice@KEYBD@STF@@0@0@0@-1
 God of justice@stf/699_God_of_justice.mid@M@STF@699@God of Justice @KEYBD@STF@@0@0@0@-1
-God weeps at love withheld@stf/700_God_weeps_at_love_withheld.mid@@STF@700@Empathy @KEYBD@STF@@0@0@0@-1
-Heaven shall not wait@stf/701_Heaven_shall_not_wait.mid@M@STF@701@Heaven Shall Not Wait@KEYBD@STF@@0@0@0@-1
+God weeps at love withheld@stf/700_God_weeps_at_love_withheld.mid@@STF@700@Empathy @KEYBD@STF@2.448.82.@0@0@0@-1
+Heaven shall not wait@stf/701_Heaven_shall_not_wait.mid@M@STF@701@Heaven Shall Not Wait@KEYBD@STF@12.11.12.11.@0@0@0@-1
 I will speak out@stf/702_I_will_speak_out.mid@@STF@702@@KEYBD@STF@@0@0@0@-1
 In an age of twisted values@stf/703_In_an_age_of_twisted_values.mid@@STF@703@Kilve@KEYBD@STF@@0@0@0@-1
-In labour all creation groans@stf/704_In_labour_all_creation_groans.mid@@STF@704@Morning Song@KEYBD@STF@@0@0@0@-1
-It is God who holds the nations@stf/705_It_is_God_who_holds_the_nations.mid@H@STF@705@Vision (Davies)@KEYBD@STF@@0@0@0@-1
+In labour all creation groans@stf/704_In_labour_all_creation_groans.mid@@STF@704@Morning Song@KEYBD@STF@86.86.@0@0@0@-1
+It is God who holds the nations@stf/705_It_is_God_who_holds_the_nations.mid@H@STF@705@Vision (Davies)@KEYBD@STF@15.15.15.6.@0@0@0@-1
 Longing for light@stf/706_Longing_for_light.mid@@STF@706@Christ Be Our Light@KEYBD@STF@@0@0@0@-1
 Make me a channel of your peace@stf/707_Make_me_a_channel_of_your_peace.mid@@STF@707@Prayer of St Francis (Channel of Peace)@KEYBD@STF@@0@0@0@-1
-O God of hope, your prophets spoke@stf/708_O_God_of_hope_your_prophets_spoke.mid@@STF@708@Chalfont Park@KEYBD@STF@@0@0@0@-1
+O God of hope, your prophets spoke@stf/708_O_God_of_hope_your_prophets_spoke.mid@@STF@708@Chalfont Park@KEYBD@STF@86.88.6.@0@0@0@-1
 Of all the Spirit's gifts to me@stf/709_Of_all_the_Spirits_gifts_to_me.mid@H@STF@709@Ripponden@KEYBD@STF@@0@0@0@-1
 Peace, perfect peace@stf/710_Peace_perfect_peace.mid@@STF@710@@KEYBD@STF@@0@0@0@-1
-Pray for the Church@stf/711_Pray_for_the_Church.mid@H@STF@711@Song 1@KEYBD@STF@@0@0@0@-1
+Pray for the Church@stf/711_Pray_for_the_Church.mid@H@STF@711@Song 1@KEYBD@STF@10.10.10.10.10.10.@0@0@0@-1
 Put peace into each other's hands@stf/712_Put_peace_into_each_others_hands.mid@@STF@712@St Columba (Erin)@KEYBD@STF@@0@0@0@-1
 Show me how to stand for justice@stf/713_Show_me_how_to_stand_for_justice.mid@@STF@713@Dim Ond Iesu@KEYBD@STF@@0@0@0@-1
-The God who sings@stf/714_The_God_who_sings.mid@@STF@714@Chanson@KEYBD@STF@@0@0@0@-1
+The God who sings@stf/714_The_God_who_sings.mid@@STF@714@Chanson@KEYBD@STF@4.10.10.4.@0@0@0@-1
 The right hand of God@stf/715_The_right_hand_of_God.mid@@STF@715@The Right Hand of God@KEYBD@STF@@0@0@0@-1
-There are no strangers to God's love@stf/716_There_are_no_strangers_to_Gods_love.mid@@STF@716@Pater Omnium@KEYBD@STF@@0@0@0@-1
+There are no strangers to God's love@stf/716_There_are_no_strangers_to_Gods_love.mid@@STF@716@Pater Omnium@KEYBD@STF@88.88.88.@0@0@0@-1
 We do not hope to ease our minds@stf/717_We_do_not_hope_to_ease_our_minds.mid@@STF@717@Before the Throne of God Above @KEYBD@STF@@0@0@0@-1
-We lay our broken world@stf/718_We_lay_our_broken_world.mid@@STF@718@Sorrow@KEYBD@STF@@0@0@0@-1
-We pray for peace@stf/719_We_pray_for_peace.mid@@STF@719@Hounsfield@KEYBD@STF@@0@0@0@-1
+We lay our broken world@stf/718_We_lay_our_broken_world.mid@@STF@718@Sorrow@KEYBD@STF@66.86@0@0@0@-1
+We pray for peace@stf/719_We_pray_for_peace.mid@@STF@719@Hounsfield@KEYBD@STF@46.66.68.@0@0@0@-1
 We turn to you, O God of every nation@stf/720_We_turn_to_you_O_God_of_every_nation.mid@@STF@720@Highwood@KEYBD@STF@@0@0@0@-1
 What shall we pray for those who died@stf/721_What_shall_we_pray_for_those_who_died.mid@M@STF@721@Kingston@KEYBD@STF@@0@0@0@-1
-When mountains that we thought secure@stf/722_When_mountains_that_we_thought_secure.mid@H@STF@722@Vox Dilecti@KEYBD@STF@@0@0@0@-1
+When mountains that we thought secure@stf/722_When_mountains_that_we_thought_secure.mid@H@STF@722@Vox Dilecti@KEYBD@STF@86.86.D.@0@0@0@-1
 Who can sound the depths of sorrow@stf/723_Who_can_sound_the_depths_of_sorrow.mid@M@STF@723@@KEYBD@STF@@0@0@0@-1
-As if you were not there@stf/724_As_if_you_were_not_there.mid@M@STF@724@Ilich@KEYBD@STF@@0@0@0@-1
-As the glory of creation@stf/725_As_the_glory_of_creation.mid@@STF@725@All Saints@KEYBD@STF@@0@0@0@-1
-Come to us, creative Spirit@stf/726_Come_to_us_creative_Spirit.mid@@STF@726@Angel Voices@KEYBD@STF@@0@0@0@-1
+As if you were not there@stf/724_As_if_you_were_not_there.mid@M@STF@724@Ilich@KEYBD@STF@67.88.9.@0@0@0@-1
+As the glory of creation@stf/725_As_the_glory_of_creation.mid@@STF@725@All Saints@KEYBD@STF@87.87.77.@0@0@0@-1
+Come to us, creative Spirit@stf/726_Come_to_us_creative_Spirit.mid@@STF@726@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
 God in his love for us@stf/727_God_in_his_love_for_us_Stewardship.mid@@STF@727@Stewardship@KEYBD@STF@@0@0@0@-1
 God in his love for us@stf/727_God_in_his_love_for_us_God_In_His_Love.mid@@STF@727@God In His Love@KEYBD@STF@@0@0@0@-1
 O God, you search me and you know me@stf/728_O_God_you_search_me_and_you_know_me.mid@@STF@728@@KEYBD@STF@@0@0@0@-1
 Touch the earth lightly@stf/729_Touch_the_earth_lightly.mid@@STF@729@Tenderness@KEYBD@STF@@0@0@0@-1
 We follow the Lord@stf/730_We_follow_the_Lord.mid@@STF@730@Na Nzela Na Lola@KEYBD@STF@@0@0@0@-1
 When, in our music, God is glorified@stf/731_When_in_our_music_God_is_glorified.mid@H@STF@731@Engelberg@KEYBD@STF@@0@0@0@-1
-Day of judgement!@stf/732_Day_of_judgement.mid@H@STF@732@Rhuddlan@KEYBD@STF@@0@0@0@-1
+Day of judgement!@stf/732_Day_of_judgement.mid@H@STF@732@Rhuddlan@KEYBD@STF@87.87.87.@0@0@0@-1
 God, hold us, enfold us@stf/733_God_hold_us_enfold_us.mid@@STF@733@Normandy (Basque)@KEYBD@STF@@0@0@0@-1
 Going home, moving on@stf/734_Going_home_moving_on.mid@@STF@734@@KEYBD@STF@@0@0@0@-1
-How blest are they who trust in Christ@stf/735_How_blest_are_they_who_trust_in_Christ.mid@H@STF@735@Rivaulx@KEYBD@STF@@0@0@0@-1
-In heavenly love abiding@stf/736_In_heavenly_love_abiding.mid@@STF@736@Penlan@KEYBD@STF@@0@0@0@-1
-Into the hands that blessed the children@stf/737_Into_the_hands_that_blessed_the_children.mid@@STF@737@Adieu@KEYBD@STF@@0@0@0@-1
+How blest are they who trust in Christ@stf/735_How_blest_are_they_who_trust_in_Christ.mid@H@STF@735@Rivaulx@KEYBD@STF@88.88.@0@0@0@-1
+In heavenly love abiding@stf/736_In_heavenly_love_abiding.mid@@STF@736@Penlan@KEYBD@STF@76.76.D.@0@0@0@-1
+Into the hands that blessed the children@stf/737_Into_the_hands_that_blessed_the_children.mid@@STF@737@Adieu@KEYBD@STF@98.98.@0@0@0@-1
 There is a new heaven@stf/738_There_is_a_new_heaven.mid@@STF@738@New Heaven@KEYBD@STF@@0@0@0@-1
 Through the rivers of our tears@stf/739_Through_the_rivers_of_our_tears.mid@@STF@739@Buckland@KEYBD@STF@@0@0@0@-1
-We cannot care for you@stf/740_We_cannot_care_for_you.mid@M@STF@740@Jennifer@KEYBD@STF@@0@0@0@-1
-We pray until the hour@stf/741_We_pray_until_the_hour.mid@H@STF@741@Calabria@KEYBD@STF@@0@0@0@-1
-We trust the mighty love of God@stf/742_We_trust_the_mighty_love_of_God.mid@@STF@742@Wentworth@KEYBD@STF@@0@0@0@-1
-Come, let us join our cheerful songs@stf/743_Come_let_us_join_our_cheerful_songs.mid@H@STF@743@Nativity@KEYBD@STF@@0@0@0@-1
-Come let us join our friends above@stf/744_Come_let_us_join_our_friends_above.mid@H@STF@744@St Matthew@KEYBD@STF@@0@0@0@-1
+We cannot care for you@stf/740_We_cannot_care_for_you.mid@M@STF@740@Jennifer@KEYBD@STF@11.10.11.4.@0@0@0@-1
+We pray until the hour@stf/741_We_pray_until_the_hour.mid@H@STF@741@Calabria@KEYBD@STF@88.88.@0@0@0@-1
+We trust the mighty love of God@stf/742_We_trust_the_mighty_love_of_God.mid@@STF@742@Wentworth@KEYBD@STF@84.84.84.@0@0@0@-1
+Come, let us join our cheerful songs@stf/743_Come_let_us_join_our_cheerful_songs.mid@H@STF@743@Nativity@KEYBD@STF@86.86.@0@0@0@-1
+Come let us join our friends above@stf/744_Come_let_us_join_our_friends_above.mid@H@STF@744@St Matthew@KEYBD@STF@86.86.D.@0@0@0@-1
 For all the saints@stf/745_For_all_the_saints.mid@@STF@745@Sine Nomine@KEYBD@STF@@0@0@0@-1
 For all the saints who showed your love@stf/746_For_all_the_saints_who_showed_your_love.mid@M@STF@746@O Waly Waly@KEYBD@STF@@0@0@0@-1
-Give me the wings of faith to rise@stf/747_Give_me_the_wings_of_faith_to_rise.mid@H@STF@747@Richmond@KEYBD@STF@@0@0@0@-1
+Give me the wings of faith to rise@stf/747_Give_me_the_wings_of_faith_to_rise.mid@H@STF@747@Richmond@KEYBD@STF@86.86.@0@0@0@-1
 Glorious things of thee are spoken@stf/748_Glorious_things_of_thee_are_spoken_Abbotts_Leigh.mid@H@STF@748@Abbotts Leigh@KEYBD@STF@@0@0@0@-1
 Glorious things of thee are spoken@stf/748_Glorious_things_of_thee_are_spoken_Austria.mid@H@STF@748@Austria@KEYBD@STF@@0@0@0@-1
 Almighty God, to whom all hearts are open@stf/749_Almighty_God_to_whom_all_hearts_are_open.mid@@STF@749@@KEYBD@STF@@0@0@0@-1
@@ -908,18 +908,18 @@ Blessing and honour@stf/765_Blessing_and_honour.mid@@STF@765@@KEYBD@STF@@0@0@0@-
 Holy, holy, holy@stf/766_Holy_holy_holy.mid@@STF@766@@KEYBD@STF@@0@0@0@-1
 Lamb of God@stf/767_Lamb_of_God.mid@@STF@767@@KEYBD@STF@@0@0@0@-1
 The Peace of the Lord@stf/768_The_Peace_of_the_Lord.mid@@STF@768@@KEYBD@STF@@0@0@0@-1
-All glory to the Father be@stf/769_All_glory_to_the_Father_be.mid@@STF@769@St Fulbert@KEYBD@STF@@0@0@0@-1
+All glory to the Father be@stf/769_All_glory_to_the_Father_be.mid@@STF@769@St Fulbert@KEYBD@STF@86.86.@0@0@0@-1
 Amen siakudumisa@stf/770_Amen_siakudumisa.mid@@STF@770@@KEYBD@STF@@0@0@0@-1
 May the love of the Lord@stf/771_May_the_love_of_the_Lord.mid@@STF@771@Soon Ti@KEYBD@STF@@0@0@0@-1
 May the road rise up to meet you@stf/772_May_the_road_rise_up_to_meet_you.mid@@STF@772@May the Road Rise up to Meet You@KEYBD@STF@@0@0@0@-1
-Praise the Lover of Creation@stf/773_Praise_the_Lover_of_Creation.mid@H@STF@773@Courthill@KEYBD@STF@@0@0@0@-1
+Praise the Lover of Creation@stf/773_Praise_the_Lover_of_Creation.mid@H@STF@773@Courthill@KEYBD@STF@87.87.87.@0@0@0@-1
 The peace of the earth@stf/774_The_peace_of_the_earth.mid@@STF@774@@KEYBD@STF@@0@0@0@-1
 Ewe, thina@stf/775_Ewe_thina.mid@@STF@775@@KEYBD@STF@@0@0@0@-1
 In the Lord Ill be ever thankful@stf/776_In_the_Lord_Ill_be_ever_thankful.mid@@STF@776@@KEYBD@STF@@0@0@0@-1
 Jesus, remember me@stf/777_Jesus_remember_me.mid@@STF@777@@KEYBD@STF@@0@0@0@-1
 Laudate Dominum@stf/778_Laudate_Dominum_Refrain_only.mid@@STF@778@Refrain only@KEYBD@STF@@0@0@0@-1
 Laudate Dominum@stf/778_Laudate_Dominum.mid@@STF@778@Laudate Dominum (Berthier)@KEYBD@STF@@0@0@0@-1
-Holy, holy, holy@stf/779_Holy_holy_holy.mid@@STF@779@Santo@KEYBD@STF@@0@0@0@-1
+Holy, holy, holy@stf/779_Holy_holy_holy.mid@@STF@779@Santo@KEYBD@STF@67.85.@0@0@0@-1
 Stay with me@stf/780_Stay_with_me.mid@@STF@780@@KEYBD@STF@@0@0@0@-1
 Take, oh take me as I am@stf/781_Take_oh_take_me_as_I_am.mid@M@STF@781@@KEYBD@STF@@0@0@0@-1
 Thuma mina@stf/782_Thuma_mina.mid@@STF@782@@KEYBD@STF@@0@0@0@-1

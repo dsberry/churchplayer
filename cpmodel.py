@@ -72,15 +72,15 @@ instruments = {
 }
 
 def midiInstrument( value ):
-   if ininstance( value, int ):
+   if isinstance( value, int ):
       return value
 
    elif isinstance( value, str ):
       if value.isdigit():
          return int( value )
 
-      elif value in cp_instruments:
-         return cp_instruments[value]
+      elif value in instruments:
+         return instruments[value]
 
       else:
          return DEFAULT_INSTRUMENT
@@ -107,15 +107,15 @@ def waitForProcess( name ):
 #  Test if a path refers to an existing usable midi file. Returns 0 if it
 #  is, 1 if the file exists but is not a usable midi file, and 2 if the file
 #  does not exist.
-   def isMidi(path):
-      if os.path.isfile( path ):
-         text = commands.getstatusoutput( "file '{0}'".format(path) )
-         if "Standard MIDI" in text[1]:
-            return 0
-         else:
-            return 1
+def isMidi(path):
+   if os.path.isfile( path ):
+      text = commands.getstatusoutput( "file '{0}'".format(path) )
+      if "Standard MIDI" in text[1]:
+         return 0
       else:
-         return 2
+         return 1
+   else:
+      return 2
 
 # ----------------------------------------------------------------------
 class ChurchPlayerError(Exception):
@@ -294,6 +294,7 @@ class Catalogue(dict):
          if metre:
             if metre not in self.metres:
                self.metres.append( metre )
+      self.metres.sort()
 
 #  Cannot search on metre if none were found in the catalogue.
       if len(self.metres) == 0:
@@ -602,6 +603,10 @@ class Catalogue(dict):
             val = '"{0}"'.format(val)
             tip = "The title or first line"
 
+         elif col == "METRE":
+            val = '"{0}"'.format(val)
+            tip = "The rhythmic metre of the hymn/song"
+
          elif col == "TUNE":
             val = '({0})'.format(val)
             tip = "The name of the tune"
@@ -686,6 +691,12 @@ class Catalogue(dict):
 
          if len( matchingRows ) == 0:
             break;
+
+      if len( matchingRows ) > 1:
+         matchingRows.sort( key=lambda irow: self['TITLE'][irow] )
+
+
+
 
       return matchingRows
 
@@ -809,6 +820,7 @@ class Player(object):
    def __init__(self):
       self._serverPopen = None
       self._controllerPopen = None
+      self.listener = None
       self._start()
 
    def __del__(self):
