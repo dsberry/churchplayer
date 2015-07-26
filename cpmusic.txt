@@ -2,8 +2,8 @@
 # -------------------------------------
 r:/home/dsb/churchplayer/music
 
-# Column names, "searchable" flag, "user-interest" flag, and titles:
-# ---------------------------------------------
+# Column names, 'searchable' flags, 'user interest' flag, and titles:
+# ------------------------
 c:TITLE 1 3 Title
 c:PATH 0 0 Path to MIDI file relative to root
 c:TAGS 1 6 Classification tags
@@ -39,8 +39,7 @@ o:STF Singing the Faith disks
 
 # Classification tags (all single characters) and descriptions:
 # -------------------------------------------------------------
-t:H Hymn with regular repeated verses
-t:S Song with irregular verse/chorus pattern
+t:H Traditional hymn
 t:J Jolly - suitable for playing at end of service
 t:Q Quiet - suitable for playing at start of service
 t:M Modern (by a typical Methodist idea of modern)
@@ -53,58 +52,59 @@ t:A Advent
 t:L Lent
 
 
+
 # Data:
 # ----
-Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JMH@STF@40@@BAND@DSB@@0@0@0@-1
-All people that on earth@stf/1_All_people_that_on_earth.mid@@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@-1
-Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@@STF@2@@KEYBD@STF@@0@0@0@-1
-Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@@STF@2@Extra refrain@KEYBD@STF@@0@0@0@-1
-Eternal God, your love's tremendous glory@stf/3_Eternal_God_your_loves_tremendous_glory.mid@@STF@3@Highwood@KEYBD@STF@@0@0@0@-1
-Father in heaven@stf/4_Father_in_heaven.mid@@STF@4@Halad@KEYBD@STF@55.55.55.54.@0@0@0@-1
+Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@@0@0@0@-1
+All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@-1
+Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@@0@0@0@-1
+Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@JM@STF@2@Extra refrain@KEYBD@STF@@0@0@0@-1
+Eternal God, your love's tremendous glory@stf/3_Eternal_God_your_loves_tremendous_glory.mid@H@STF@3@Highwood@KEYBD@STF@@0@0@0@-1
+Father in heaven@stf/4_Father_in_heaven.mid@MQ@STF@4@Halad@KEYBD@STF@55.55.55.54.@0@0@0@-1
 Father, in whom we live@stf/5_Father_in_whom_we_live.mid@H@STF@5@St Mary@KEYBD@STF@66.86.D.@0@0@0@-1
-Father, we love you@stf/6_Father_we_love_you.mid@@STF@6@@KEYBD@STF@@0@0@0@-1
+Father, we love you@stf/6_Father_we_love_you.mid@MQ@STF@6@@KEYBD@STF@@0@0@0@-1
 God who made the stars of heaven@stf/7_God_who_made_the_stars_of_heaven.mid@@STF@7@Thian Beng@KEYBD@STF@85.85.85.75.@0@0@0@-1
-God with us@stf/8_God_with_us.mid@@STF@8@Ode to Joy@KEYBD@STF@@0@0@0@-1
+God with us@stf/8_God_with_us.mid@HN@STF@8@Ode to Joy@KEYBD@STF@@0@0@0@-1
 Hail! Holy, holy, holy Lord!@stf/9_Hail_Holy_holy_holy_Lord.mid@H@STF@9@Dunfermline@KEYBD@STF@86.86.@0@0@0@-1
-Holy, holy@stf/10_Holy_holy_Fellingham.mid@@STF@10@Fellingham@KEYBD@STF@@0@0@0@-1
-Holy, holy, holy@stf/11_Holy_holy_holy.mid@@STF@11@Nicaea@KEYBD@STF@11.12.12.10.@0@0@0@-1
-Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
-Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
-Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@0@0@-1
-The splendour of the King@stf/15_The_splendour_of_the_King.mid@M@STF@15@@KEYBD@STF@@0@0@0@-1
-We give immortal praise@stf/16_We_give_immortal_praise.mid@H@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
-With gladness we worship@stf/17_With_gladness_we_worship.mid@@STF@17@Datchet@KEYBD@STF@@0@0@0@-1
-Be still and know@stf/18_Be_still_and_know.mid@@STF@18@@KEYBD@STF@@0@0@0@-1
-Be still and know@stf/19_Be_still_and_know_Bell.mid@@STF@19@Bell@KEYBD@STF@@0@0@0@-1
-Be still@stf/20_Be_still.mid@@STF@20@Be Still@KEYBD@STF@@0@0@0@-1
-Born in song!@stf/21_Born_in_song.mid@@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@0@0@-1
-Come all you people@stf/22_Come_all_you_people.mid@@STF@22@@KEYBD@STF@@0@0@0@-1
-Come, Holy Spirt@stf/23_Come_Holy_Spirt.mid@M@STF@23@@KEYBD@STF@@0@0@0@-1
-Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@M@STF@24@@KEYBD@STF@@0@0@0@-1
-God is here!@stf/25_God_is_here.mid@H@STF@25@Bethany@KEYBD@STF@@0@0@0@-1
-I rejoiced when I heard them say@stf/26_I_rejoiced_when_I_heard_them_say.mid@@STF@26@I Rejoiced@KEYBD@STF@@0@0@0@-1
+Holy, holy@stf/10_Holy_holy_Fellingham.mid@MQ@STF@10@Fellingham@KEYBD@STF@@0@0@0@-1
+Holy, holy, holy@stf/11_Holy_holy_holy.mid@HJ@STF@11@Nicaea@KEYBD@STF@11.12.12.10.@0@0@0@-1
+Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@HJ@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
+Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@HJ@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
+Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@HJ@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@0@0@-1
+The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@0@0@-1
+We give immortal praise@stf/16_We_give_immortal_praise.mid@HQ@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
+With gladness we worship@stf/17_With_gladness_we_worship.mid@HJ@STF@17@Datchet@KEYBD@STF@@0@0@0@-1
+Be still and know@stf/18_Be_still_and_know.mid@MQ@STF@18@@KEYBD@STF@@0@0@0@-1
+Be still and know@stf/19_Be_still_and_know_Bell.mid@H@STF@19@Bell@KEYBD@STF@@0@0@0@-1
+Be still@stf/20_Be_still.mid@MQ@STF@20@Be Still@KEYBD@STF@@0@0@0@-1
+Born in song!@stf/21_Born_in_song.mid@HJ@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@0@0@-1
+Come all you people@stf/22_Come_all_you_people.mid@JM@STF@22@@KEYBD@STF@@0@0@0@-1
+Come, Holy Spirt@stf/23_Come_Holy_Spirt.mid@MQ@STF@23@@KEYBD@STF@@0@0@0@-1
+Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@JM@STF@24@@KEYBD@STF@@0@0@0@-1
+God is here!@stf/25_God_is_here.mid@HJ@STF@25@Bethany@KEYBD@STF@@0@0@0@-1
+I rejoiced when I heard them say@stf/26_I_rejoiced_when_I_heard_them_say.mid@MQ@STF@26@I Rejoiced@KEYBD@STF@@0@0@0@-1
 Jesu, tawa pano@stf/27_Jesu_tawa_pano.mid@@STF@27@Jesu Tawa Pano@KEYBD@STF@66.69.@0@0@0@-1
-Jesus calls us here to meet him@stf/28_Jesus_calls_us_here_to_meet_him.mid@M@STF@28@Jesus Calls Us@KEYBD@STF@@0@0@0@-1
-Jesus lead us to the Father@stf/29_Jesus_lead_us_to_the_Father.mid@@STF@29@@KEYBD@STF@@0@0@0@-1
-Jesus stand among us@stf/30_Jesus_stand_among_us.mid@M@STF@30@@KEYBD@STF@@0@0@0@-1
-May the glory of the Lord@stf/31_May_the_glory_of_the_Lord.mid@@STF@31@@KEYBD@STF@@0@0@0@-1
-Meet and right it is to sing@stf/32_Meet_and_right_it_is_to_sing.mid@H@STF@32@Amsterdam@KEYBD@STF@76.76.77.76.@0@0@0@-1
-O Lord we are always in your presence@stf/33_O_Lord_we_are_always_in_your_presence.mid@@STF@33@@KEYBD@STF@@0@0@0@-1
-O worship the Lord@stf/34_O_worship_the_Lord.mid@@STF@34@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
-The trumpets sound, the angels sing@stf/35_The_trumpets_sound_the_angels_sing.mid@M@STF@35@The Feast is Ready@KEYBD@STF@@0@0@0@-1
-There's a quiet understanding@stf/36_Theres_a_quiet_understanding.mid@@STF@36@@KEYBD@STF@@0@0@0@-1
-You're calling us@stf/37_Youre_calling_us.mid@M@STF@37@@KEYBD@STF@@0@0@0@-1
+Jesus calls us here to meet him@stf/28_Jesus_calls_us_here_to_meet_him.mid@MQ@STF@28@Jesus Calls Us@KEYBD@STF@@0@0@0@-1
+Jesus lead us to the Father@stf/29_Jesus_lead_us_to_the_Father.mid@MQ@STF@29@@KEYBD@STF@@0@0@0@-1
+Jesus stand among us@stf/30_Jesus_stand_among_us.mid@MQ@STF@30@@KEYBD@STF@@0@0@0@-1
+May the glory of the Lord@stf/31_May_the_glory_of_the_Lord.mid@JM@STF@31@@KEYBD@STF@@0@0@0@-1
+Meet and right it is to sing@stf/32_Meet_and_right_it_is_to_sing.mid@HJ@STF@32@Amsterdam@KEYBD@STF@76.76.77.76.@0@0@0@-1
+O Lord we are always in your presence@stf/33_O_Lord_we_are_always_in_your_presence.mid@MQ@STF@33@@KEYBD@STF@@0@0@0@-1
+O worship the Lord@stf/34_O_worship_the_Lord.mid@HQ@STF@34@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
+The trumpets sound, the angels sing@stf/35_The_trumpets_sound_the_angels_sing.mid@JM@STF@35@The Feast is Ready@KEYBD@STF@@0@0@0@-1
+There's a quiet understanding@stf/36_Theres_a_quiet_understanding.mid@MQ@STF@36@@KEYBD@STF@@0@0@0@-1
+You're calling us@stf/37_Youre_calling_us.mid@MQ@STF@37@@KEYBD@STF@@0@0@0@-1
 Wa wa wa Emimimo@stf/38_Wa_wa_wa_Emimimo.mid@@STF@38@@KEYBD@STF@@0@0@0@-1
-Angel voices ever singing@stf/39_Angel_voices_ever_singing.mid@@STF@39@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
-Blessed be the name of the Lord@stf/40_Blessed_be_the_name_of_the_Lord.mid@M@STF@40@@KEYBD@STF@@0@0@0@-1
-Blessed be your name@stf/41_Blessed_be_your_name.mid@M@STF@41@@KEYBD@STF@@0@0@0@-1
+Angel voices ever singing@stf/39_Angel_voices_ever_singing.mid@HJ@STF@39@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
+Blessed be the name of the Lord@stf/40_Blessed_be_the_name_of_the_Lord.mid@JM@STF@40@@KEYBD@STF@@0@0@0@-1
+Blessed be your name@stf/41_Blessed_be_your_name.mid@MQ@STF@41@@KEYBD@STF@@0@0@0@-1
 O sing to the Lord@stf/42_O_sing_to_the_Lord.mid@@STF@42@Cantad Al Senor@KEYBD@STF@11.11.11.10.@0@0@0@-1
 Come, let us praise the Lord@stf/43_Come_let_us_praise_the_Lord.mid@@STF@43@Chilean Venite@KEYBD@STF@@0@0@0@-1
-Come on and celebrate@stf/44_Come_on_and_celebrate.mid@@STF@44@@KEYBD@STF@@0@0@0@-1
-Earth's creator, everyday God@stf/45_Earths_creator_everyday_God.mid@@STF@45@Everyday God@KEYBD@STF@@0@0@0@-1
-Everlasting God@stf/46_Everlasting_God.mid@@STF@46@@KEYBD@STF@@0@0@0@-1
-Faithful God@stf/47_Faithful_God.mid@@STF@47@@KEYBD@STF@@0@0@0@-1
-From the highest of heights@stf/48_From_the_highest_of_heights.mid@@STF@48@@KEYBD@STF@@0@0@0@-1
+Come on and celebrate@stf/44_Come_on_and_celebrate.mid@JM@STF@44@@KEYBD@STF@@0@0@0@-1
+Earth's creator, everyday God@stf/45_Earths_creator_everyday_God.mid@MQ@STF@45@Everyday God@KEYBD@STF@@0@0@0@-1
+Everlasting God@stf/46_Everlasting_God.mid@JM@STF@46@@KEYBD@STF@@0@0@0@-1
+Faithful God@stf/47_Faithful_God.mid@MQ@STF@47@@KEYBD@STF@@0@0@0@-1
+From the highest of heights@stf/48_From_the_highest_of_heights.mid@MQ@STF@48@@KEYBD@STF@@0@0@0@-1
 God beyond all names@stf/49_God_beyond_all_names.mid@M@STF@49@@KEYBD@STF@@0@0@0@-1
 Great is the Lord@stf/50_Great_is_the_Lord.mid@@STF@50@@KEYBD@STF@@0@0@0@-1
 Great is thy faithfulness@stf/51_Great_is_thy_faithfulness.mid@H@STF@51@Faithfulness@KEYBD@STF@@0@0@0@-1

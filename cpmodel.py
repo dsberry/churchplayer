@@ -6,6 +6,7 @@ FADE_CMD = "f"
 STOP_CMD = "s"
 PLAY_CMD = "p"
 EMPTY_CMD = "e"
+PROG0_CMD = "i"
 
 PLAYING_CODE = "p"
 STOPPED_CODE = "s"
@@ -25,7 +26,7 @@ import commands
 import copy
 
 instrumentNames = [
-   'Band',
+   'Original',
    'Piano 1',
    'Piano 2',
    'Electric Piano',
@@ -49,7 +50,7 @@ instrumentNames = [
 
 #  These are most GM numbers, but with some extra organs.
 instruments = {
-   'Band': DEFAULT_INSTRUMENT,
+   'Original': DEFAULT_INSTRUMENT,
    'Piano 1': 0,
    'Piano 2': 1,
    'Electric Piano': 4,
@@ -70,6 +71,10 @@ instruments = {
    'Xylophone': 13,
    'Strings': 48
 }
+
+instrumentByNumber = {}
+for instr in instruments:
+   instrumentByNumber[instruments[instr]] = instr
 
 def midiInstrument( value ):
    if isinstance( value, int ):
@@ -558,8 +563,12 @@ class Catalogue(dict):
       cat = open( self.catname, "w" )
       cat.write("# Path to root directory for MIDI files\n# -------------------------------------\n")
       cat.write("r:{0}\n".format(self.rootdir))
-      cat.write("\n# Column names, 'searchable' flags, and titles:\n# ------------------------\n")
+      cat.write("\n# Column names, 'searchable' flags, 'user interest' flag, and titles:\n# --------------------------------------------------------\n")
       for (name,sea,user,desc) in zip(self.colnames,self.colsearchable,self.coluser,self.coldescs):
+         if sea:
+            sea = 1
+         else:
+            sea = 0
          cat.write("c:{0} {1} {2} {3}\n".format(name,sea,user,desc))
       cat.write("\n# Known books:\n# ------------\n")
       for (name,desc) in zip( self.booknames,self.bookdescs):
@@ -900,5 +909,8 @@ class Player(object):
       self._sendCommand( EMPTY_CMD )
       self._end( end )
 
+#  Send real-time instrument change for channel 0.
+   def setProg0( self, prog0 ):
+      self._sendCommand( "{0} {1}".format( PROG0_CMD, prog0 ) )
 
 

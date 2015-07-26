@@ -76,6 +76,7 @@ struct track {
 #define RT__STOP  's'   /* Let each note finish then stop current song */
 #define RT__TERM  't'   /* Terminate player */
 #define RT__PLAY  'p'   /* Queue song on playlist */
+#define RT__PROG0 'i'   /* Instrument (program change for channel 0) */
 #define RT__NULL  ' '
 
 #define RT__PLAYING 'p' /* A song is being played */
@@ -126,6 +127,7 @@ static int rt_create_fifo_rd( void );
 static int rt_create_fifo_wr( void );
 static int rt_pop_file( void );
 static void rt_change_volume( unsigned int tick, float gain, int used_only );
+static void rt_change_prog0( unsigned int tick, char prog0 );
 static void rt_create_fadeout_profile( int nfade, float *fade_gains );
 static void rt_destroy_fifo_rd( void );
 static void rt_destroy_fifo_wr( void );
@@ -820,9 +822,14 @@ static void play_midi(void)
                    processing a previosu control signal. */
                 if( rt_code == RT__NULL ) rt_code = rt_cmd();
 
+                /* Change instrument for channel 0. */
+                if( rt_code == RT__PROG0 ) {
+                   rt_change_prog0( event->tick, rt_inst );
+                   rt_code = RT__NULL;
+
                 /* Stop after all the currently sounding notes have
                    finished. */
-                if( ( rt_code == RT__STOP || rt_code == RT__FADE )
+                } else if( ( rt_code == RT__STOP || rt_code == RT__FADE )
                      && ifade >= max_fade ) {
                    rt_code = RT__ABORT;
                    delay = 0;
@@ -860,6 +867,7 @@ static void play_midi(void)
                 } else if( rt_code != RT__FADE && rt_code != RT__STOP &&
                            rt_code != RT__ABORT ) {
                    rt_code =RT__NULL;
+
                 }
 
                 /* Ensure full volume to start. */
@@ -1287,6 +1295,28 @@ static void rt_change_volume( unsigned int tick, float gain, int used_only ){
    }
 }
 
+static void rt_change_prog0( unsigned int tick, char prog0 ){
+   int j, i;
+   struct track *track;
+   signed int new_volume;
+   snd_seq_event_t ev;
+
+   snd_seq_ev_clear(&ev);
+   ev.queue = queue;
+   ev.source.port = 0;
+   ev.flags = SND_SEQ_TIME_STAMP_TICK;
+   ev.type = SND_SEQ_EVENT_PGMCHANGE;
+   ev.time.tick = tick;
+   snd_seq_ev_set_fixed(&ev);
+   ev.data.control.channel = 0;
+   ev.data.control.value = prog0;
+   for (i = 0; i < num_tracks; ++i) {
+      track = &tracks[i];
+      ev.dest = ports[track->port];
+      rt_send_event(&ev);
+   }
+}
+
 
 static void rt_create_fadeout_profile( int nfade, float *fade_gains ){
    int i, j;
@@ -1370,6 +1400,10 @@ static char rt_cmd( void ){
 
       if( rt_verbose ) printf("aplaymidi: que '%s' (instrument:%d transpose:%d)\n",
                               ps0+RT__NVAL, ps0[0], ps0[1] );
+
+   } else if( code == RT__PROG0 ) {
+      rt_inst = rt_get_code();
+      if( rt_verbose ) printf("aplaymidi: Changing prog0 to %d\n", rt_inst );
 
    } else if( code == RT__TERM ) {
       if( rt_verbose ) printf("aplaymidi: Terminating player\n");

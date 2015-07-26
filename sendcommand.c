@@ -10,13 +10,14 @@
 
 /* Usage:
 
-% sendcommand code [file] [trans] [intr]
+% sendcommand code [file|instr] [trans] [instr]
 
 where:
    code is a single character code for the command to be executed
    file is the path to a file to be played (only used if code is 'p')
    trans is the number of semit-tones to transpose (only used if code is 'p')
-   instr is the GM index of the instrument to be used (only used if code is 'p')
+   instr is the GM index of the instrument to be used (only used if code
+         is 'p' or 'i')
 */
 
 int main(int argc, char *argv[] ) {
@@ -44,6 +45,10 @@ int main(int argc, char *argv[] ) {
        write( fd, &inst, 1 );
        write( fd, &tran, 1 );
        write( fd, argv[2], strlen( argv[2] ) + 1 );
+
+    } else if( *argv[1] == 'i' ) {
+       char inst = atoi( argv[ 2 ] );
+       write( fd, &inst, 1 );
     }
 
     close(fd);

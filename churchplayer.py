@@ -35,6 +35,91 @@ def add( layout, widget, align=None ):
          layout.addWidget( widget )
 
 
+
+# ----------------------------------------------------------------------
+class KeyboardChooser(QWidget):
+   def __init__( self, parent, player,store=False ):
+      super(KeyboardChooser, self).__init__(parent)
+      self.store = store
+      self.gm = None
+      self.name = None
+      self.ignore = False
+      self.player = player
+      layout = QVBoxLayout()
+      self.setLayout( layout )
+      self.cb = QComboBox(parent)
+      self.cb.setEnabled( False )
+      self.cb.setToolTip("Choose the instrument to use")
+      self.cb.setFixedWidth(230)
+      self.cb.currentIndexChanged.connect( self.kybdChooser )
+      layout.addWidget( self.cb )
+
+   def kybdChooser(self):
+      if not self.ignore:
+         self.name = str(self.cb.currentText())
+         self.gm = cpmodel.instruments[ self.name ]
+         self.player.changeKeyboard( self.gm )
+         if self.store:
+            if self.player.cat['PROG0'][self.irow] != self.gm:
+               self.player.cat['PROG0'][self.irow] = self.gm
+               self.player.modified = True
+
+   def setFromRow( self, irow ):
+      self.ignore = True
+      self.cb.clear()
+      inst = self.player.cat['INSTR'][irow]
+      if inst == "KEYBD":
+         prog0 =  int( self.player.cat['PROG0'][irow] )
+         cbindex = 0
+         for kbd in cpmodel.instrumentNames:
+            self.cb.addItem( kbd )
+            if  cpmodel.instruments[kbd] == prog0:
+               cbindex = self.cb.count()-1
+         self.cb.setCurrentIndex( cbindex )
+         self.cb.setEnabled( True )
+         self.cb.setToolTip("Select the type of keybard to use for playback")
+
+      else:
+         self.cb.addItem( "Ensemble" )
+         self.cb.setCurrentIndex( 0 )
+         self.cb.setEnabled( False )
+         self.cb.setToolTip("This music uses an ensemble of instruments that cannot be changed")
+      self.ignore = False
+
+# ----------------------------------------------------------------------
+class SliderPanel(QWidget):
+   def __init__( self, parent, player ):
+      super(SliderPanel, self).__init__(parent)
+      self.player = player
+
+      sliders =  QHBoxLayout()
+      sliders.addStretch()
+
+      sl1 = QVBoxLayout()
+      self.volumeslider = VolumeSlider( self, self.player )
+      sl1.addWidget( self.volumeslider )
+      sl1.addWidget( QLabel("Volume" ) )
+      sliders.addLayout( sl1 )
+
+      sliders.addStretch()
+
+      sl2 = QVBoxLayout()
+      self.temposlider = TempoSlider( self, self.player )
+      sl2.addWidget( self.temposlider )
+      sl2.addWidget( QLabel("Tempo" ) )
+      sliders.addLayout( sl2 )
+
+      sliders.addStretch()
+
+      sl3 = QVBoxLayout()
+      self.pitchslider = PitchSlider( self, self.player )
+      sl3.addWidget( self.pitchslider )
+      sl3.addWidget( QLabel("Pitch" ) )
+      sliders.addLayout( sl3 )
+
+      sliders.addStretch()
+      self.setLayout( sliders )
+
 # ----------------------------------------------------------------------
 class ClassifyDialog(QDialog):
 
@@ -54,7 +139,7 @@ class ClassifyDialog(QDialog):
       layout = QVBoxLayout()
       layout.setSpacing(16)
 
-      add( layout, QLabel("\nEnter or change the classification tags for "
+      add( layout, QLabel("\nEnter or change the classification tags, etc, for "
            "each item of music in the catalogue.\n") )
 
       bar = QHBoxLayout()
@@ -107,6 +192,14 @@ class ClassifyDialog(QDialog):
          cblayout.addWidget( cb, Qt.AlignLeft )
       mainlayout.addLayout(cblayout)
       mainlayout.addStretch()
+
+      ilayout = QVBoxLayout()
+      self.kbdChooser = KeyboardChooser(self,player)
+      ilayout.addWidget(self.kbdChooser)
+      self.sliders = SliderPanel(self,player)
+      ilayout.addWidget(self.sliders)
+      mainlayout.addLayout( ilayout )
+
       layout.addLayout(mainlayout)
 
       buttonbar = QHBoxLayout()
@@ -231,6 +324,9 @@ class ClassifyDialog(QDialog):
          self.desc.setText( "{0}  {1}  '{2}'  ({3})".format(book,number,title,tune) )
       else:
          self.desc.setText( "{0}  {1}  '{2}'".format(book,number,title) )
+
+      self.kbdChooser.setFromRow(self.irow-1)
+
 
 # ----------------------------------------------------------------------
 class SearchDialog(QDialog):
@@ -462,12 +558,7 @@ class ServiceItem(QWidget):
       self.desc.mouseReleaseEvent = self.musicChooser
       self.desc.setFrameStyle( QFrame.Panel | QFrame.Sunken )
 
-      self.kbdChooser = QComboBox( self )
-      self.kbdChooser.addItems( cpmodel.instrumentNames )
-      self.kbdChooser.setEnabled( False )
-      self.kbdChooser.setToolTip("Choose the instrument to use")
-      self.kbdChooser.setFixedWidth(self.kbdChooser.minimumSizeHint().width())
-      self.kbdChooser.currentIndexChanged.connect( self.kybdChooser )
+      self.kbdChooser = KeyboardChooser( self, player, store=True )
 
    def playit(self, event):
       print( "PLAY clicked!!!")
@@ -475,9 +566,6 @@ class ServiceItem(QWidget):
    def musicChooser(self, event):
       ed = SearchDialog(self,self.player)
       ed.exec_()
-
-   def kybdChooser(self):
-      print( "Keyboard changed!!!")
 
 
 
@@ -556,6 +644,11 @@ class PlayController(QWidget):
       if self.playing:
          self.player.stop( cpmodel.FADE )
 
+   def changeKeyboard(self,prog0):
+      if self.playing:
+         self.player.setProg0( prog0 )
+
+
    @pyqtSlot()
    def ended(self):
       if self.playing:
@@ -604,34 +697,8 @@ class MainWidget(QWidget):
 
       rightpanel = QVBoxLayout()
 
-      sliders =  QHBoxLayout()
-      sliders.addStretch()
-
-      sl1 = QVBoxLayout()
-      self.volumeslider = VolumeSlider( self, self.player )
-      sl1.addWidget( self.volumeslider )
-      sl1.addWidget( QLabel("Volume" ) )
-      sliders.addLayout( sl1 )
-
-      sliders.addStretch()
-
-      sl2 = QVBoxLayout()
-      self.temposlider = TempoSlider( self, self.player )
-      sl2.addWidget( self.temposlider )
-      sl2.addWidget( QLabel("Tempo" ) )
-      sliders.addLayout( sl2 )
-
-      sliders.addStretch()
-
-      sl3 = QVBoxLayout()
-      self.pitchslider = PitchSlider( self, self.player )
-      sl3.addWidget( self.pitchslider )
-      sl3.addWidget( QLabel("Pitch" ) )
-      sliders.addLayout( sl3 )
-
-      sliders.addStretch()
-      rightpanel.addLayout( sliders )
-
+      sliders = SliderPanel( self, player )
+      rightpanel.addWidget( sliders )
       layout.addLayout( rightpanel )
 
       self.setLayout( layout )
@@ -1596,9 +1663,9 @@ class ChurchPlayer(QMainWindow):
 #      openAction.setStatusTip('Open an existing service or playlist')
 #      openAction.triggered.connect(self.open)
 
-#      saveCatAction = QAction(QIcon('icons/SaveCat.png'), '&Save Catalogue', self)
-#      saveCatAction.setStatusTip('Save the music catalogue to disk')
-#      saveCatAction.triggered.connect(self.saveCatalogue)
+      saveCatAction = QAction(QIcon('icons/SaveCat.png'), '&Save Catalogue', self)
+      saveCatAction.setStatusTip('Save the music catalogue to disk')
+      saveCatAction.triggered.connect(self.saveCatalogue)
 
 #      scanAction = QAction( '&Scan', self)
 #      scanAction.setShortcut('Ctrl+I')
@@ -1617,7 +1684,7 @@ class ChurchPlayer(QMainWindow):
       catMenu = menubar.addMenu('&Catalogue')
       catMenu.addAction(classifyAction)
 #      catMenu.addAction(scanAction)
-#      catMenu.addAction(saveCatAction)
+      catMenu.addAction(saveCatAction)
 
 #  Set up the toolbar.
       toolbar = self.addToolBar('tools')
