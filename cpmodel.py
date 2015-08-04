@@ -7,6 +7,7 @@ STOP_CMD = "s"
 PLAY_CMD = "p"
 EMPTY_CMD = "e"
 PROG0_CMD = "i"
+TRANS_CMD = "r"
 
 PLAYING_CODE = "p"
 STOPPED_CODE = "s"
@@ -38,7 +39,7 @@ instrumentNames = [
    'Organ 6',
    'Organ 7',
    'Organ 8',
-   'Organ 7',
+   'Organ 9',
    'Electric Grand Piano',
    'Honky-tonk Piano',
    'Electric Piano 2',
@@ -62,7 +63,7 @@ instruments = {
    'Organ 6': 124,
    'Organ 7': 125,
    'Organ 8': 126,
-   'Organ 7': 126,
+   'Organ 9': 127,
    'Electric Grand Piano': 2,
    'Honky-tonk Piano': 3,
    'Electric Piano 2': 5,
@@ -457,6 +458,7 @@ class Catalogue(dict):
             newcat['TITLE'].append( '' )
             newcat['INSTR'].append( '' )
             newcat['ORIGIN'].append( '' )
+            newcat['PROG0'].append( '' )
 
          return newcat
       else:
@@ -473,15 +475,19 @@ class Catalogue(dict):
       self.modified = True
 
 #  Create a playable Record from a row of the catalogue
-   def getRecord(self,row):
+   def getRecord(self,row,prog0=None,trans=None):
       path = self.midifiles[row]
       if path:
-         trans = self['TRANS'][row]
-         instr = self['INSTR'][row]
-         title = self['TITLE'][row]
+         if not trans:
+            trans = self['TRANS'][row]
          if not trans:
             trans = '0'
-         return Record( path, trans, instr, title )
+         if not trans:
+            trans = '0'
+         if not prog0:
+            prog0 = self['PROG0'][row]
+         title = self['TITLE'][row]
+         return Record( path, trans, prog0, title )
       else:
          return None
 
@@ -819,8 +825,9 @@ class Playlist(object):
       return result
 
 
-
-
+   def setInstrument(self,instr):
+      for record in self.__records:
+         record.setInstrument(instr)
 
 
 # ----------------------------------------------------------------------
@@ -910,7 +917,21 @@ class Player(object):
       self._end( end )
 
 #  Send real-time instrument change for channel 0.
-   def setProg0( self, prog0 ):
+   def sendProg0( self, prog0 ):
       self._sendCommand( "{0} {1}".format( PROG0_CMD, prog0 ) )
 
+#  Send real-time transposition change.
+   def sendTrans( self, trans ):
+      self._sendCommand( "{0} {1}".format( TRANS_CMD, trans ) )
+
+#  Send any real-time change.
+   def sendRT(self,colname,value):
+      if colname == "TRANS":
+         cmd = TRANS_CMD
+      elif colname == "PROG0":
+         cmd = PROG0_CMD
+      else:
+         raise ChurchPlayerError("\n\nPlayer.sendRT does not yet "
+                                 "support column '{0}'.".format(colname) )
+      self._sendCommand( "{0} {1}".format( cmd, value ) )
 

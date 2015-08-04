@@ -49,6 +49,10 @@ int main(int argc, char *argv[] ) {
     } else if( *argv[1] == 'i' ) {
        char inst = atoi( argv[ 2 ] );
        write( fd, &inst, 1 );
+
+    } else if( *argv[1] == 'r' ) {
+       char trans = atoi( argv[ 2 ] );
+       write( fd, &trans, 1 );
     }
 
     close(fd);

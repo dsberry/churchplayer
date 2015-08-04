@@ -3,7 +3,7 @@
 r:/home/dsb/churchplayer/music
 
 # Column names, 'searchable' flags, 'user interest' flag, and titles:
-# ------------------------
+# --------------------------------------------------------
 c:TITLE 1 3 Title
 c:PATH 0 0 Path to MIDI file relative to root
 c:TAGS 1 6 Classification tags
@@ -56,7 +56,7 @@ t:L Lent
 # Data:
 # ----
 Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@@0@0@0@-1
-All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@-1
+All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@125
 Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@@0@0@0@-1
 Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@JM@STF@2@Extra refrain@KEYBD@STF@@0@0@0@-1
 Eternal God, your love's tremendous glory@stf/3_Eternal_God_your_loves_tremendous_glory.mid@H@STF@3@Highwood@KEYBD@STF@@0@0@0@-1

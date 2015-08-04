@@ -38,57 +38,83 @@ def add( layout, widget, align=None ):
 
 # ----------------------------------------------------------------------
 class KeyboardChooser(QWidget):
-   def __init__( self, parent, player,store=False ):
+   def __init__( self, parent, player, playerwidget=None, store=False ):
       super(KeyboardChooser, self).__init__(parent)
       self.store = store
-      self.gm = None
-      self.name = None
       self.ignore = False
       self.player = player
+      self.pw = playerwidget
+
       layout = QVBoxLayout()
       self.setLayout( layout )
       self.cb = QComboBox(parent)
-      self.cb.setEnabled( False )
-      self.cb.setToolTip("Choose the instrument to use")
+      self.gminvmap = {}
+      self.gmfwdmap = {}
+
+      cbindex = 0
+      for kbd in cpmodel.instrumentNames:
+         self.cb.addItem( kbd )
+         gm = cpmodel.instruments[kbd]
+         if gm == cpmodel.DEFAULT_INSTRUMENT:
+            self.defindex = cbindex
+         self.gmfwdmap[gm] = cbindex
+         self.gminvmap[cbindex] = gm
+         cbindex += 1
+
+      self.setEnabled( False )
       self.cb.setFixedWidth(230)
-      self.cb.currentIndexChanged.connect( self.kybdChooser )
+      self.cb.currentIndexChanged.connect( self.kbdChanged )
       layout.addWidget( self.cb )
 
-   def kybdChooser(self):
-      if not self.ignore:
-         self.name = str(self.cb.currentText())
-         self.gm = cpmodel.instruments[ self.name ]
-         self.player.changeKeyboard( self.gm )
-         if self.store:
-            if self.player.cat['PROG0'][self.irow] != self.gm:
-               self.player.cat['PROG0'][self.irow] = self.gm
-               self.player.modified = True
-
-   def setFromRow( self, irow ):
-      self.ignore = True
-      self.cb.clear()
-      inst = self.player.cat['INSTR'][irow]
-      if inst == "KEYBD":
-         prog0 =  int( self.player.cat['PROG0'][irow] )
-         cbindex = 0
-         for kbd in cpmodel.instrumentNames:
-            self.cb.addItem( kbd )
-            if  cpmodel.instruments[kbd] == prog0:
-               cbindex = self.cb.count()-1
-         self.cb.setCurrentIndex( cbindex )
+   def setEnabled(self,enabled):
+      if enabled:
          self.cb.setEnabled( True )
-         self.cb.setToolTip("Select the type of keybard to use for playback")
+         self.cb.setToolTip("Choose the type of keyboard instrument to use")
+         self.cb.setItemText( self.defindex, "Original" )
+      else:
+         self.cb.setItemText( self.defindex, "Band" )
+         self.cb.setCurrentIndex( self.defindex )
+         self.cb.setEnabled( False )
+         self.cb.setToolTip("Band instruments cannot be changed")
+
+   def kbdChanged(self):
+      if not self.ignore:
+         gm = self.gminvmap[ self.cb.currentIndex() ]
+         if self.store:
+            if self.player.cat['PROG0'][self.irow] != gm:
+               self.player.cat['PROG0'][self.irow] = gm
+               self.player.modified = True
+         self.player.player.sendProg0( gm )
+         self.pw.setProg0( gm )
+
+   def setFromRow( self, irow, map ):
+      self.ignore = True
+      self.irow = irow
+
+      if self.player.cat['INSTR'][irow] == "KEYBD":
+         if irow in map:
+            self.oldval = map[ irow ]
+         else:
+            self.oldval =  int( self.player.cat['PROG0'][irow] )
+
+         self.setEnabled( True )
+         self.cb.setCurrentIndex( self.gmfwdmap[ self.oldval ] )
 
       else:
-         self.cb.addItem( "Ensemble" )
-         self.cb.setCurrentIndex( 0 )
-         self.cb.setEnabled( False )
-         self.cb.setToolTip("This music uses an ensemble of instruments that cannot be changed")
+         self.setEnabled( False )
+         self.oldval = cpmodel.DEFAULT_INSTRUMENT
+
       self.ignore = False
+      return self.oldval
+
+   def saveToMap( self, mymap ):
+      newval = self.gminvmap[ self.cb.currentIndex()]
+      if newval != self.oldval:
+         mymap[self.irow] = newval
 
 # ----------------------------------------------------------------------
 class SliderPanel(QWidget):
-   def __init__( self, parent, player ):
+   def __init__( self, parent, player, playerwidget=None, store=False ):
       super(SliderPanel, self).__init__(parent)
       self.player = player
 
@@ -96,7 +122,9 @@ class SliderPanel(QWidget):
       sliders.addStretch()
 
       sl1 = QVBoxLayout()
-      self.volumeslider = VolumeSlider( self, self.player )
+      self.volumeslider = CPSlider( self, self.player, 'VOLUME', -127, 127, 1,
+                                   playerwidget, store )
+      self.volumeslider.setToolTip("Change the playback volume")
       sl1.addWidget( self.volumeslider )
       sl1.addWidget( QLabel("Volume" ) )
       sliders.addLayout( sl1 )
@@ -104,7 +132,9 @@ class SliderPanel(QWidget):
       sliders.addStretch()
 
       sl2 = QVBoxLayout()
-      self.temposlider = TempoSlider( self, self.player )
+      self.temposlider = CPSlider( self, self.player, 'SPEED', -127, 127, 1,
+                                   playerwidget, store )
+      self.temposlider.setToolTip("Change the playback speed")
       sl2.addWidget( self.temposlider )
       sl2.addWidget( QLabel("Tempo" ) )
       sliders.addLayout( sl2 )
@@ -112,7 +142,9 @@ class SliderPanel(QWidget):
       sliders.addStretch()
 
       sl3 = QVBoxLayout()
-      self.pitchslider = PitchSlider( self, self.player )
+      self.pitchslider = CPSlider( self, self.player, 'TRANS', -7, 7, 1,
+                                   playerwidget, store )
+      self.pitchslider.setToolTip("Change the playback pitch")
       sl3.addWidget( self.pitchslider )
       sl3.addWidget( QLabel("Pitch" ) )
       sliders.addLayout( sl3 )
@@ -133,6 +165,8 @@ class ClassifyDialog(QDialog):
       self.irow = 1
       self.checks = {}
       self.changes = {}
+      self.prog0 = {}
+      self.trans = {}
       self.pw = PlayerWidget(self,player,self.irow-1)
       hgt = 40
 
@@ -194,9 +228,9 @@ class ClassifyDialog(QDialog):
       mainlayout.addStretch()
 
       ilayout = QVBoxLayout()
-      self.kbdChooser = KeyboardChooser(self,player)
+      self.kbdChooser = KeyboardChooser( self, player, playerwidget=self.pw )
       ilayout.addWidget(self.kbdChooser)
-      self.sliders = SliderPanel(self,player)
+      self.sliders = SliderPanel(self, player, playerwidget=self.pw )
       ilayout.addWidget(self.sliders)
       mainlayout.addLayout( ilayout )
 
@@ -217,15 +251,17 @@ class ClassifyDialog(QDialog):
 
       layout.addLayout( buttonbar )
       self.setLayout( layout )
-      self.setFocus()
+      self.pw.setFocus()
       self.setDesc()
-
 
    def keyPressEvent(self, e):
       if e.key() == Qt.Key_Space:
          self.nexter()
 
    def changeRow( self, newrow ):
+      self.kbdChooser.saveToMap( self.prog0 )
+      self.sliders.pitchslider.saveToMap( self.trans )
+
       if newrow != self.irow and newrow >= 1 and newrow <= self.cat.nrow:
          self.storeTags()
          self.irow = newrow
@@ -240,7 +276,6 @@ class ClassifyDialog(QDialog):
          else:
             self.prev.setEnabled( True )
             self.next.setEnabled( True )
-
 
    def prever(self):
       self.changeRow( self.irow - 1 )
@@ -264,13 +299,19 @@ class ClassifyDialog(QDialog):
    def saveChanges(self,save):
       doexit = True
       if save:
-         if len(self.changes) > 0:
+         self.kbdChooser.saveToMap( self.prog0 )
+         self.sliders.pitchslider.saveToMap( self.trans )
+         if len(self.changes) > 0 or len(self.prog0) > 0 or len(self.trans) > 0:
             ret = QMessageBox.warning(self, "Warning", '''Save changes?''',
                                       QMessageBox.Save, QMessageBox.Discard,
                                       QMessageBox.Cancel)
             if ret == QMessageBox.Save:
                for irow in self.changes:
                   self.cat['TAGS'][irow] = self.changes[irow]
+               for irow in self.prog0:
+                  self.cat['PROG0'][irow] = str(self.prog0[irow])
+               for irow in self.trans:
+                  self.cat['TRANS'][irow] = str(self.trans[irow])
                self.cat.modified = True
             elif ret == QMessageBox.Cancel:
                doexit = False
@@ -306,7 +347,9 @@ class ClassifyDialog(QDialog):
 
    def setDesc(self):
       self.pw.stop(None)
-      self.pw.setPlayable(self.irow-1)
+      gm = self.kbdChooser.setFromRow( self.irow-1, self.prog0 )
+      trans = self.sliders.pitchslider.setFromRow( self.irow-1, self.trans )
+      self.pw.setPlayable( self.irow-1, prog0=gm, trans=trans )
 
       tags = self.cat['TAGS'][self.irow-1]
       for name in self.cat.tagnames:
@@ -325,7 +368,7 @@ class ClassifyDialog(QDialog):
       else:
          self.desc.setText( "{0}  {1}  '{2}'".format(book,number,title) )
 
-      self.kbdChooser.setFromRow(self.irow-1)
+
 
 
 # ----------------------------------------------------------------------
@@ -509,39 +552,76 @@ class PanicButton(QPushButton):
 
 
 # ----------------------------------------------------------------------
-class VolumeSlider(QSlider):
-   def __init__(self,parent,player):
-      QSlider.__init__(self,Qt.Vertical,parent)
+class CPSlider(QWidget):
+   def __init__(self, parent, player, colname, vmin, vmax, vstep, playerwidget=None, store=False ):
+      QWidget.__init__(self,parent)
 
-      self.setToolTip("Drag and release to change the playback volume")
-      self.sliderReleased.connect( self.changer )
+      self.slider = QSlider(Qt.Vertical,parent)
+      self.slider.setMinimum(vmin)
+      self.slider.setMaximum(vmax)
+      self.slider.setValue(vmin)
+      self.slider.setSingleStep(vstep)
+      self.slider.setPageStep(vstep)
+      self.slider.valueChanged.connect( self.changeSlide )
 
-   def changer(self):
-      print( "Volume changed!!!")
+      self.spin = QSpinBox( self )
+      self.spin.setMinimum( vmin )
+      self.spin.setMaximum( vmax )
+      self.spin.setFixedHeight( 30 )
+      self.spin.setFixedWidth( 70 )
+      self.spin.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+      self.spin.setValue( vmin )
+      self.spin.valueChanged.connect( self.changeSpin )
 
+      layout = QVBoxLayout()
+      layout.addWidget( self.slider )
+      layout.addWidget( self.spin )
+      self.setLayout( layout )
 
-# ----------------------------------------------------------------------
-class PitchSlider(QSlider):
-   def __init__(self,parent,player):
-      QSlider.__init__(self,Qt.Vertical,parent)
+      self.colname = colname
+      self.player = player
+      self.store = store
+      self.pw = playerwidget
+      self.ignore = False
+      self.irow = None
+      self.oldval = None
 
-      self.setToolTip("Drag and release to change the playback pitch")
-      self.sliderReleased.connect( self.changer )
+   def changeSlide(self):
+      if not self.ignore:
+         newval = self.slider.value()
+         self.spin.setValue(newval)
+         self.changer(newval)
 
-   def changer(self):
-      print( "Pitch changed!!!")
+   def changeSpin(self):
+      if not self.ignore:
+         newval = self.spin.value()
+         self.slider.setValue(newval)
+         self.changer(newval)
 
+   def changer(self,newval):
+         if self.store:
+            if self.player.cat[self.colname][self.irow] != newval:
+               self.player.cat[self.colname][self.irow] = newval
+               self.player.modified = True
+         self.player.player.sendRT( self.colname, newval )
+         self.pw.setRT( self.colname, newval )
 
-# ----------------------------------------------------------------------
-class TempoSlider(QSlider):
-   def __init__(self,parent,player):
-      QSlider.__init__(self,Qt.Vertical,parent)
+   def setFromRow( self, irow, map ):
+      self.ignore = True
+      self.irow = irow
+      if irow in map:
+         self.oldval = map[ irow ]
+      else:
+         self.oldval =  int( self.player.cat[self.colname][irow] )
+      self.slider.setValue( self.oldval )
+      self.spin.setValue( self.oldval )
+      self.ignore = False
+      return self.oldval
 
-      self.setToolTip("Drag and release to change the playback tempo")
-      self.sliderReleased.connect( self.changer )
-
-   def changer(self):
-      print( "Tempo changed!!!")
+   def saveToMap( self, mymap ):
+      newval = self.slider.value()
+      if newval != self.oldval:
+         mymap[self.irow] = newval
 
 
 # ----------------------------------------------------------------------
@@ -647,6 +727,10 @@ class PlayController(QWidget):
    def changeKeyboard(self,prog0):
       if self.playing:
          self.player.setProg0( prog0 )
+
+   def changeTrans(self,trans):
+      if self.playing:
+         self.player.setTrans( trans )
 
 
    @pyqtSlot()
@@ -973,12 +1057,28 @@ class PlayerWidget(QWidget):
       self.setPlayable( playable )
       player.addClient( self )
 
+   def setProg0(self,prog0):
+      if self.playable:
+         self.playable.instrument = prog0
 
+   def setTrans(self,trans):
+      if self.playable:
+         self.playable.transpose = trans
 
-   def setPlayable(self,playable):
+   def setRT(self,colname,value):
+      if self.playable:
+         if colname == "TRANS":
+            self.playable.transpose = value
+         elif colname == "PROG0":
+            self.playable.instrument = value
+         else:
+            raise ChurchPlayerError("\n\nPlayerWidget.setRT does not yet "
+                                    "support column '{0}'.".format(colname) )
+
+   def setPlayable(self,playable,prog0=None,trans=None):
       if playable != None:
          if not isinstance(playable,cpmodel.Record) and not isinstance(playable,cpmodel.Playlist):
-            playable = self.player.cat.getRecord(int(playable))
+            playable = self.player.cat.getRecord(int(playable),prog0,trans)
 
       if not self.playable and playable:
          self.playButton.setAlive(True)

@@ -77,6 +77,7 @@ struct track {
 #define RT__TERM  't'   /* Terminate player */
 #define RT__PLAY  'p'   /* Queue song on playlist */
 #define RT__PROG0 'i'   /* Instrument (program change for channel 0) */
+#define RT__TRANS 'r'   /* Change transposition */
 #define RT__NULL  ' '
 
 #define RT__PLAYING 'p' /* A song is being played */
@@ -134,6 +135,7 @@ static void rt_destroy_fifo_wr( void );
 static void rt_error( int error );
 static void rt_send_event( snd_seq_event_t *ev );
 static void rt_send_reply( char code, const char *text );
+static void rt_all_notes_off( snd_seq_event_t *ev );
 
 /* ------------------------------------------------------ */
 
@@ -827,6 +829,13 @@ static void play_midi(void)
                    rt_change_prog0( event->tick, rt_inst );
                    rt_code = RT__NULL;
 
+                /* If the transposition (rt_tran) was changed, send an
+                   all notes off signal so that we do not mix "note on"s
+                   and "note off"s with different transpositions. */
+                } else if( rt_code == RT__TRANS ) {
+                   rt_all_notes_off( &ev );
+                   rt_code = RT__NULL;
+
                 /* Stop after all the currently sounding notes have
                    finished. */
                 } else if( ( rt_code == RT__STOP || rt_code == RT__FADE )
@@ -834,27 +843,11 @@ static void play_midi(void)
                    rt_code = RT__ABORT;
                    delay = 0;
 
-                /* Stop now, by ending "all notes off" to all channels of
+                /* Stop now, by sending "all notes off" to all channels of
                    each track. */
                 } else if( rt_code == RT__ABORT ) {
                    ev.time.tick += 1;
-                   ev.type = SND_SEQ_EVENT_CONTROLLER;
-
-                   for (i = 0; i < num_tracks; ++i){
-                      struct track *track = &tracks[i];
-                      struct event *e2 = track->current_event;
-                      if( e2 ) {
-                         ev.dest = ports[e2->port];
-                         for (j = 0; j < 16; j++ ){
-                            snd_seq_ev_set_fixed(&ev);
-                            ev.data.control.channel = j;
-                            ev.data.control.param = 123;
-                            ev.data.control.value = 0;
-                            rt_send_event(&ev);
-                         }
-                      }
-                   }
-
+                   rt_all_notes_off( &ev );
                    break;
 
                 } else if( (rt_code == RT__STOP || rt_code == RT__FADE)
@@ -862,7 +855,7 @@ static void play_midi(void)
                    rt_create_fadeout_profile( RT__NFADE, fade_gains );
                    next_fade_tick = event->tick - 1;
                    ifade = 0;
-                   max_fade = (rt_code == RT__FADE) ? RT__NFADE : RT__NFADE/5;
+                   max_fade = (rt_code == RT__FADE) ? RT__NFADE : RT__NFADE/7;
 
                 } else if( rt_code != RT__FADE && rt_code != RT__STOP &&
                            rt_code != RT__ABORT ) {
@@ -916,9 +909,6 @@ static void play_midi(void)
                         /* Record any changes to channel volume. */
                         if( event->data.d[1]  == 7 ) {
                            event_track->volume[ event->data.d[0] ] = event->data.d[2];
-
-printf("Setting col of channel %d to %d\n", ev.data.control.channel,ev.data.control.value);
-
                         }
 
 			break;
@@ -1405,6 +1395,10 @@ static char rt_cmd( void ){
       rt_inst = rt_get_code();
       if( rt_verbose ) printf("aplaymidi: Changing prog0 to %d\n", rt_inst );
 
+   } else if( code == RT__TRANS ) {
+      rt_tran = rt_get_code();
+      if( rt_verbose ) printf("aplaymidi: Changing transposition to %d\n", rt_tran );
+
    } else if( code == RT__TERM ) {
       if( rt_verbose ) printf("aplaymidi: Terminating player\n");
       rt_terminate = 1;
@@ -1463,6 +1457,31 @@ static void rt_send_reply( char code, const char *text ) {
          }
       } else {
          printf("aplaymidi: sent reply code %c\n", code );
+      }
+   }
+}
+
+
+/* All notes off and sustain pedal up for all chanels in all tracks. */
+static void rt_all_notes_off( snd_seq_event_t *ev ){
+   int i, j;
+
+   ev->type = SND_SEQ_EVENT_CONTROLLER;
+
+   for (i = 0; i < num_tracks; ++i){
+      struct track *track = &tracks[i];
+      struct event *e2 = track->current_event;
+      if( e2 ) {
+         ev->dest = ports[e2->port];
+         for (j = 0; j < 16; j++ ){
+            snd_seq_ev_set_fixed(ev);
+            ev->data.control.channel = j;
+            ev->data.control.param = 123;
+            ev->data.control.value = 0;
+            rt_send_event(ev);
+            ev->data.control.param = 64;
+            rt_send_event(ev);
+         }
       }
    }
 }
