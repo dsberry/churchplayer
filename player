@@ -1,4 +1,4 @@
 #!/bin/tcsh
 rm /tmp/churchplayerfifo_*
 set a = `aplaymidi -l | grep FLUID`
-aplaymidi -p $a[1] -v -r -y $1
+aplaymidi -p $a[1] -v -r $1

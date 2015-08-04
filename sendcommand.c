@@ -10,7 +10,7 @@
 
 /* Usage:
 
-% sendcommand code [file|instr] [trans] [instr]
+% sendcommand code [file|instr] [trans] [instr] [tempo]
 
 where:
    code is a single character code for the command to be executed
@@ -18,6 +18,8 @@ where:
    trans is the number of semit-tones to transpose (only used if code is 'p')
    instr is the GM index of the instrument to be used (only used if code
          is 'p' or 'i')
+   tempo is the tempo factor (-99=half speed +99=double speed - only used
+         if code is 'p' or 'm')
 */
 
 int main(int argc, char *argv[] ) {
@@ -28,7 +30,7 @@ int main(int argc, char *argv[] ) {
     write( fd, argv[1], 1 );
 
     if( *argv[1] == 'p' ) {
-       char tran, inst;
+       char tran, inst, tempo;
 
        if( argc > 3 ) {
           tran = atoi( argv[ 3 ] );
@@ -42,8 +44,15 @@ int main(int argc, char *argv[] ) {
           inst = -1;
        }
 
+       if( argc > 5 ) {
+          tempo = atoi( argv[ 5 ] );
+       } else {
+          tempo = 0;
+       }
+
        write( fd, &inst, 1 );
        write( fd, &tran, 1 );
+       write( fd, &tempo, 1 );
        write( fd, argv[2], strlen( argv[2] ) + 1 );
 
     } else if( *argv[1] == 'i' ) {
@@ -53,6 +62,11 @@ int main(int argc, char *argv[] ) {
     } else if( *argv[1] == 'r' ) {
        char trans = atoi( argv[ 2 ] );
        write( fd, &trans, 1 );
+
+    } else if( *argv[1] == 'm' ) {
+       char tempo = atoi( argv[ 2 ] );
+       write( fd, &tempo, 1 );
+
     }
 
     close(fd);

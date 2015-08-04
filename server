@@ -4,6 +4,7 @@ set soundfont = "$HOME/churchplayer/churchplayer.sf2"
 #set soundfont = "$HOME/churchplayer/Papelmedia.SF2"
 # set soundfont = "$HOME/churchplayer/FluidR3_GM.sf2"
 
+set PIPE = "/tmp/fluidsynthfifo"
 
 #  Kill any processes that are using the audio device (hw:0)
 killall -r -s KILL fluidsynth
@@ -14,6 +15,13 @@ while( $status == 0 )
    set pid = `fuser -v /dev/snd/pcmC0D0p`
 end
 
+#  Create a named pipe from which the fluidsynth server process can read
+#  commands.
+rm -f $PIPE >& /dev/null
+mkfifo $PIPE
+
 #  Start up the server process that creates the sound from the ALSA sequencer
-#  data.
-/usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa -o audio.alsa.device=hw:0 $soundfont $1
+#  data. Read stdin commands from the above fifo.
+/usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa -o audio.alsa.device=hw:0 $soundfont $1 < $PIPE
+
+echo "Exiting server script..."

@@ -8,12 +8,14 @@ PLAY_CMD = "p"
 EMPTY_CMD = "e"
 PROG0_CMD = "i"
 TRANS_CMD = "r"
+SPEED_CMD = "m"
 
 PLAYING_CODE = "p"
 STOPPED_CODE = "s"
 ENDING_CODE = "e"
 
 WFIFO = "/tmp/churchplayerfifo_wr"
+FSFIFO = "/tmp/fluidsynthfifo"
 
 import signal
 import os.path
@@ -475,7 +477,7 @@ class Catalogue(dict):
       self.modified = True
 
 #  Create a playable Record from a row of the catalogue
-   def getRecord(self,row,prog0=None,trans=None):
+   def getRecord(self,row,prog0=None,trans=None,volume=None,tempo=None):
       path = self.midifiles[row]
       if path:
          if not trans:
@@ -486,8 +488,12 @@ class Catalogue(dict):
             trans = '0'
          if not prog0:
             prog0 = self['PROG0'][row]
+         if not volume:
+            volume = self['VOLUME'][row]
+         if not tempo:
+            tempo = self['SPEED'][row]
          title = self['TITLE'][row]
-         return Record( path, trans, prog0, title )
+         return Record( path, trans, prog0, title, volume, tempo )
       else:
          return None
 
@@ -718,11 +724,13 @@ class Catalogue(dict):
 # ----------------------------------------------------------------------
 class Record(object):
    def __init__(self, path, transpose=0, instrument=DEFAULT_INSTRUMENT,
-                title="" ):
+                title="", volume=0, tempo=0 ):
       self._setPath( path )
       self._setTranspose( transpose )
       self._setInstrument( instrument )
       self._setTitle( title )
+      self._setVolume( volume )
+      self._setTempo( tempo )
 
    def _getPath(self):
          return self._path
@@ -780,10 +788,32 @@ class Record(object):
 
    title = property(_getTitle, None, None, "The music title")
 
+   def _getVolume(self):
+         return self._volume
+   def _setVolume(self,volume):
+         if isinstance(volume,str):
+            self._volume = int( volume )
+         else:
+            self._volume = volume
+   def _delVolume(self):
+         self._volume = 0
+   volume = property( _getVolume, _setVolume, _delVolume,
+                      "The change in volume" )
+
+   def _getTempo(self):
+         return self._tempo
+   def _setTempo(self,tempo):
+         if isinstance(tempo,str):
+            self._tempo = int( tempo )
+         else:
+            self._tempo = tempo
+   def _delTempo(self):
+         self._tempo = 0
+   tempo = property( _getTempo, _setTempo, _delTempo,
+                      "The change in tempo" )
 
    def __str__(self):
       return "Path:{0}  Tran:{1} Instr:{2}  Title:{3}".format(self._getPath(),self._getTranspose(),self._getInstrument(),self._getTitle())
-
 
    def desc(self):
       return self._title
@@ -837,6 +867,7 @@ class Player(object):
       self._serverPopen = None
       self._controllerPopen = None
       self.listener = None
+      self.fspipe = None
       self._start()
 
    def __del__(self):
@@ -846,6 +877,8 @@ class Player(object):
       print( "Killing player processes" )
       self._killServerProcess();
       self._killControllerProcess();
+      if self.fspipe != None:
+         os.close(self.fspipe)
 
    def _start(self):
       self._startServerProcess()
@@ -854,6 +887,7 @@ class Player(object):
    def _startServerProcess(self):
       self._serverPopen = subprocess.Popen(["./server"])
       time.sleep(2)
+      self.fspipe = os.open(FSFIFO,os.O_WRONLY)
 
    def _killProcess(self, name ):
       os.system("killall -9 {0}".format(name));
@@ -874,9 +908,10 @@ class Player(object):
       os.system( "./sendcommand {0}".format(command))
 
    def _playRecord( self, record ):
-      self._sendCommand( "{0} '{1}' {2} {3}".format( PLAY_CMD,
+      self.setFSGain( record.volume )
+      self._sendCommand( "{0} '{1}' {2} {3} {4}".format( PLAY_CMD,
                          record.path, record.transpose,
-                         record.instrument ))
+                         record.instrument, record.tempo))
 
    def _end( self, end ):
       if end == FADE:
@@ -924,14 +959,32 @@ class Player(object):
    def sendTrans( self, trans ):
       self._sendCommand( "{0} {1}".format( TRANS_CMD, trans ) )
 
+#  Send real-time tempo change.
+   def sendTempo( self, tempo ):
+      self._sendCommand( "{0} {1}".format( SPEED_CMD, tempo ) )
+
 #  Send any real-time change.
    def sendRT(self,colname,value):
       if colname == "TRANS":
-         cmd = TRANS_CMD
+         self._sendCommand( "{0} {1}".format( TRANS_CMD, value ) )
       elif colname == "PROG0":
-         cmd = PROG0_CMD
+         self._sendCommand( "{0} {1}".format( PROG0_CMD, value ) )
+      elif colname == "SPEED":
+         self._sendCommand( "{0} {1}".format( SPEED_CMD, value ) )
+      elif colname == "VOLUME":
+         self.setFSGain( value )
       else:
          raise ChurchPlayerError("\n\nPlayer.sendRT does not yet "
                                  "support column '{0}'.".format(colname) )
-      self._sendCommand( "{0} {1}".format( cmd, value ) )
+
+
+#  Send a command to the fluidsynth process.
+   def sendFS( self, cmd ):
+      if self.fspipe == None:
+         self.fspipe = os.open(FSFIFO,os.O_WRONLY)
+      os.write(self.fspipe, cmd )
+
+#  Set the FluidSynth gain.
+   def setFSGain( self, volume ):
+      self.sendFS( "gain {0}\n".format(pow( 10.0, 0.01*volume )) )
 

@@ -78,6 +78,7 @@ struct track {
 #define RT__PLAY  'p'   /* Queue song on playlist */
 #define RT__PROG0 'i'   /* Instrument (program change for channel 0) */
 #define RT__TRANS 'r'   /* Change transposition */
+#define RT__TEMPO 'm'   /* Change tempo */
 #define RT__NULL  ' '
 
 #define RT__PLAYING 'p' /* A song is being played */
@@ -92,7 +93,7 @@ struct track {
 #define RT__PI 3.1415926
 #define RT__MAX_SONG 50
 #define RT__SONG_LEN 150
-#define RT__NVAL 2
+#define RT__NVAL 3
 
 #define RT__BAD_FIFO_RD 0
 #define RT__BAD_FIFO_WR 1
@@ -116,10 +117,12 @@ static int rt_terminate = 0;
 static int rt_fdr = -1;
 static int rt_fdw = -1;
 static int rt_mspqn = 0;
+static int rt_mspqn_req = 0;
 static int rt_ppqn = 0;
 static int rt_verbose = 0;
 static char rt_inst = -1;
 static char rt_tran = 0;
+static float rt_tempofactor = 1.0;
 
 static char rt_cmd( void );
 static char rt_get_code( void );
@@ -136,6 +139,7 @@ static void rt_error( int error );
 static void rt_send_event( snd_seq_event_t *ev );
 static void rt_send_reply( char code, const char *text );
 static void rt_all_notes_off( snd_seq_event_t *ev );
+static void rt_change_tempo( snd_seq_event_t *ev, struct event* event );
 
 /* ------------------------------------------------------ */
 
@@ -457,13 +461,6 @@ static int read_track(struct track *track, int track_end, int itrack )
 			event->data.d[0] = cmd & 0x0f;
 			event->data.d[1] = read_byte() & 0x7f;
 
-
-if( event->type == SND_SEQ_EVENT_PGMCHANGE ) {
-   printf( "aplaymidi: PgmChg: T:%d C:%d D:%d \n", itrack,
-           event->data.d[0], event->data.d[1] );
-}
-
-
                         if( event->type == SND_SEQ_EVENT_PGMCHANGE &&
                             rt_inst > -1 ) {
                            event->data.d[1] = rt_inst & 0x7f;
@@ -603,7 +600,7 @@ invalid_format:
 	smpte_timing = !!(time_division & 0x8000);
 	if (!smpte_timing) {
 		/* time_division is ticks per quarter */
-                rt_mspqn = 500000;
+                rt_mspqn_req = rt_mspqn = 500000;
                 rt_ppqn = time_division;
 		snd_seq_queue_tempo_set_tempo(queue_tempo, 500000); /* default: 120 bpm */
 		snd_seq_queue_tempo_set_ppq(queue_tempo, time_division);
@@ -615,25 +612,25 @@ invalid_format:
 		/* now pretend that we have quarter-note based timing */
 		switch (i) {
 		case 24:
-                        rt_mspqn = 500000;
+                        rt_mspqn_req = rt_mspqn = 500000;
                         rt_ppqn = 12 * time_division;
 			snd_seq_queue_tempo_set_tempo(queue_tempo, 500000);
 			snd_seq_queue_tempo_set_ppq(queue_tempo, rt_ppqn );
 			break;
 		case 25:
-                        rt_mspqn = 400000;
+                        rt_mspqn_req = rt_mspqn = 400000;
                         rt_ppqn = 10 * time_division;
 			snd_seq_queue_tempo_set_tempo(queue_tempo, 400000);
 			snd_seq_queue_tempo_set_ppq(queue_tempo, rt_ppqn );
 			break;
 		case 29: /* 30 drop-frame */
-                        rt_mspqn = 100000000;
+                        rt_mspqn_req = rt_mspqn = 100000000;
                         rt_ppqn = 2997 * time_division;
 			snd_seq_queue_tempo_set_tempo(queue_tempo, 100000000);
 			snd_seq_queue_tempo_set_ppq(queue_tempo, rt_ppqn );
 			break;
 		case 30:
-                        rt_mspqn = 500000;
+                        rt_mspqn_req = rt_mspqn = 500000;
                         rt_ppqn = 15 * time_division;
 			snd_seq_queue_tempo_set_tempo(queue_tempo, 500000);
 			snd_seq_queue_tempo_set_ppq(queue_tempo, rt_ppqn );
@@ -836,10 +833,16 @@ static void play_midi(void)
                    rt_all_notes_off( &ev );
                    rt_code = RT__NULL;
 
+                /* If the tempo factor has been changed, send a tempo
+                   change to the synth. */
+                } else if( rt_code == RT__TEMPO ) {
+                   rt_change_tempo( &ev, event );
+                   rt_code = RT__NULL;
+
                 /* Stop after all the currently sounding notes have
                    finished. */
                 } else if( ( rt_code == RT__STOP || rt_code == RT__FADE )
-                     && ifade >= max_fade ) {
+                           && ifade >= max_fade ) {
                    rt_code = RT__ABORT;
                    delay = 0;
 
@@ -935,8 +938,9 @@ static void play_midi(void)
 			ev.dest.client = SND_SEQ_CLIENT_SYSTEM;
 			ev.dest.port = SND_SEQ_PORT_SYSTEM_TIMER;
 			ev.data.queue.queue = queue;
-			ev.data.queue.param.value = event->data.tempo;
-                        rt_mspqn = event->data.tempo;
+                        rt_mspqn_req = event->data.tempo;
+                        rt_mspqn = (int) (rt_mspqn_req/rt_tempofactor);
+			ev.data.queue.param.value = rt_mspqn;
 			break;
 		default:
 			fatal("Invalid event type %d!", ev.type);
@@ -1308,6 +1312,23 @@ static void rt_change_prog0( unsigned int tick, char prog0 ){
 }
 
 
+static void rt_change_tempo( snd_seq_event_t *ev, struct event* event ){
+   int j, i;
+
+   ev->type = SND_SEQ_EVENT_TEMPO;
+   ev->time.tick = event->tick+1;
+   ev->dest = ports[event->port];
+
+   snd_seq_ev_set_fixed(ev);
+   ev->dest.client = SND_SEQ_CLIENT_SYSTEM;
+   ev->dest.port = SND_SEQ_PORT_SYSTEM_TIMER;
+   ev->data.queue.queue = queue;
+   rt_mspqn = (int) (rt_mspqn_req/rt_tempofactor);
+   ev->data.queue.param.value = rt_mspqn;
+   rt_send_event(ev);
+}
+
+
 static void rt_create_fadeout_profile( int nfade, float *fade_gains ){
    int i, j;
    double heard;
@@ -1388,8 +1409,8 @@ static char rt_cmd( void ){
       if( ++rt_song_w == RT__MAX_SONG ) rt_song_w = 0;
       if( ++rt_nsong > RT__MAX_SONG ) rt_error( RT__SONG_OOB_P );
 
-      if( rt_verbose ) printf("aplaymidi: que '%s' (instrument:%d transpose:%d)\n",
-                              ps0+RT__NVAL, ps0[0], ps0[1] );
+      if( rt_verbose ) printf("aplaymidi: que '%s' (instrument:%d transpose:%d speed:%d)\n",
+                              ps0+RT__NVAL, ps0[0], ps0[1], ps0[2] );
 
    } else if( code == RT__PROG0 ) {
       rt_inst = rt_get_code();
@@ -1398,6 +1419,10 @@ static char rt_cmd( void ){
    } else if( code == RT__TRANS ) {
       rt_tran = rt_get_code();
       if( rt_verbose ) printf("aplaymidi: Changing transposition to %d\n", rt_tran );
+
+   } else if( code == RT__TEMPO ) {
+      rt_tempofactor = pow( 2.0, rt_get_code()/99.0 );
+      if( rt_verbose ) printf("aplaymidi: Changing tempo factor to %g\n", rt_tempofactor );
 
    } else if( code == RT__TERM ) {
       if( rt_verbose ) printf("aplaymidi: Terminating player\n");
@@ -1429,13 +1454,14 @@ static int rt_pop_file( void ){
       char *ps = rt_playlist + rt_song_r*RT__SONG_LEN;
       rt_inst = *(ps++);
       rt_tran = *(ps++);
+      rt_tempofactor = pow( 2.0, *(ps++)/99.0 );
       file_name = ps;
       if( ++rt_song_r == RT__MAX_SONG ) rt_song_r = 0;
       if( --rt_nsong < 0 ) {
          rt_error( RT__SONG_OOB_N );
       } else {
-         if( rt_verbose ) printf("aplaymidi: playing '%s' (instrument:%d transpose:%d)\n",
-                                  file_name, rt_inst, rt_tran );
+         if( rt_verbose ) printf("aplaymidi: playing '%s' (instrument:%d transpose:%d tempo:%g)\n",
+                                  file_name, rt_inst, rt_tran, rt_tempofactor );
          result = 1;
       }
    }

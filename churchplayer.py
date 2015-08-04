@@ -122,8 +122,8 @@ class SliderPanel(QWidget):
       sliders.addStretch()
 
       sl1 = QVBoxLayout()
-      self.volumeslider = CPSlider( self, self.player, 'VOLUME', -127, 127, 1,
-                                   playerwidget, store )
+      self.volumeslider = CPSlider( self, self.player, 'VOLUME', -99, 99, 1,
+                                    playerwidget, store )
       self.volumeslider.setToolTip("Change the playback volume")
       sl1.addWidget( self.volumeslider )
       sl1.addWidget( QLabel("Volume" ) )
@@ -132,7 +132,7 @@ class SliderPanel(QWidget):
       sliders.addStretch()
 
       sl2 = QVBoxLayout()
-      self.temposlider = CPSlider( self, self.player, 'SPEED', -127, 127, 1,
+      self.temposlider = CPSlider( self, self.player, 'SPEED', -99, 99, 1,
                                    playerwidget, store )
       self.temposlider.setToolTip("Change the playback speed")
       sl2.addWidget( self.temposlider )
@@ -167,6 +167,8 @@ class ClassifyDialog(QDialog):
       self.changes = {}
       self.prog0 = {}
       self.trans = {}
+      self.volume = {}
+      self.tempo = {}
       self.pw = PlayerWidget(self,player,self.irow-1)
       hgt = 40
 
@@ -261,6 +263,8 @@ class ClassifyDialog(QDialog):
    def changeRow( self, newrow ):
       self.kbdChooser.saveToMap( self.prog0 )
       self.sliders.pitchslider.saveToMap( self.trans )
+      self.sliders.volumeslider.saveToMap( self.volume )
+      self.sliders.temposlider.saveToMap( self.tempo )
 
       if newrow != self.irow and newrow >= 1 and newrow <= self.cat.nrow:
          self.storeTags()
@@ -301,7 +305,9 @@ class ClassifyDialog(QDialog):
       if save:
          self.kbdChooser.saveToMap( self.prog0 )
          self.sliders.pitchslider.saveToMap( self.trans )
-         if len(self.changes) > 0 or len(self.prog0) > 0 or len(self.trans) > 0:
+         self.sliders.volumeslider.saveToMap( self.volume )
+         self.sliders.temposlider.saveToMap( self.tempo )
+         if len(self.changes) > 0 or len(self.prog0) > 0 or len(self.trans) or len(self.volume)  or len(self.tempo) > 0:
             ret = QMessageBox.warning(self, "Warning", '''Save changes?''',
                                       QMessageBox.Save, QMessageBox.Discard,
                                       QMessageBox.Cancel)
@@ -312,6 +318,10 @@ class ClassifyDialog(QDialog):
                   self.cat['PROG0'][irow] = str(self.prog0[irow])
                for irow in self.trans:
                   self.cat['TRANS'][irow] = str(self.trans[irow])
+               for irow in self.volume:
+                  self.cat['VOLUME'][irow] = str(self.volume[irow])
+               for irow in self.tempo:
+                  self.cat['SPEED'][irow] = str(self.tempo[irow])
                self.cat.modified = True
             elif ret == QMessageBox.Cancel:
                doexit = False
@@ -349,7 +359,10 @@ class ClassifyDialog(QDialog):
       self.pw.stop(None)
       gm = self.kbdChooser.setFromRow( self.irow-1, self.prog0 )
       trans = self.sliders.pitchslider.setFromRow( self.irow-1, self.trans )
-      self.pw.setPlayable( self.irow-1, prog0=gm, trans=trans )
+      volume = self.sliders.volumeslider.setFromRow( self.irow-1, self.volume )
+      tempo = self.sliders.temposlider.setFromRow( self.irow-1, self.tempo )
+      self.pw.setPlayable( self.irow-1, prog0=gm, trans=trans,
+                           volume=volume, tempo=tempo )
 
       tags = self.cat['TAGS'][self.irow-1]
       for name in self.cat.tagnames:
@@ -568,7 +581,7 @@ class CPSlider(QWidget):
       self.spin.setMinimum( vmin )
       self.spin.setMaximum( vmax )
       self.spin.setFixedHeight( 30 )
-      self.spin.setFixedWidth( 70 )
+      self.spin.setFixedWidth( 55 )
       self.spin.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
       self.spin.setValue( vmin )
       self.spin.valueChanged.connect( self.changeSpin )
@@ -723,14 +736,6 @@ class PlayController(QWidget):
    def fadeMusic(self):
       if self.playing:
          self.player.stop( cpmodel.FADE )
-
-   def changeKeyboard(self,prog0):
-      if self.playing:
-         self.player.setProg0( prog0 )
-
-   def changeTrans(self,trans):
-      if self.playing:
-         self.player.setTrans( trans )
 
 
    @pyqtSlot()
@@ -1061,24 +1066,25 @@ class PlayerWidget(QWidget):
       if self.playable:
          self.playable.instrument = prog0
 
-   def setTrans(self,trans):
-      if self.playable:
-         self.playable.transpose = trans
-
    def setRT(self,colname,value):
       if self.playable:
          if colname == "TRANS":
             self.playable.transpose = value
          elif colname == "PROG0":
             self.playable.instrument = value
+         elif colname == "VOLUME":
+            self.playable.volume = value
+         elif colname == "SPEED":
+            self.playable.tempo = value
          else:
             raise ChurchPlayerError("\n\nPlayerWidget.setRT does not yet "
                                     "support column '{0}'.".format(colname) )
 
-   def setPlayable(self,playable,prog0=None,trans=None):
+   def setPlayable(self,playable,prog0=None,trans=None,volume=None,tempo=None):
       if playable != None:
          if not isinstance(playable,cpmodel.Record) and not isinstance(playable,cpmodel.Playlist):
-            playable = self.player.cat.getRecord(int(playable),prog0,trans)
+            playable = self.player.cat.getRecord(int(playable),prog0,trans,
+                                                 volume,tempo)
 
       if not self.playable and playable:
          self.playButton.setAlive(True)

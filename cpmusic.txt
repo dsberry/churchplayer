@@ -70,7 +70,7 @@ Holy, holy@stf/10_Holy_holy_Fellingham.mid@MQ@STF@10@Fellingham@KEYBD@STF@@0@0@0
 Holy, holy, holy@stf/11_Holy_holy_holy.mid@HJ@STF@11@Nicaea@KEYBD@STF@11.12.12.10.@0@0@0@-1
 Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@HJ@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
 Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@HJ@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
-Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@HJ@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@0@0@-1
+Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@HJ@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@-16@15@121
 The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@0@0@-1
 We give immortal praise@stf/16_We_give_immortal_praise.mid@HQ@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
 With gladness we worship@stf/17_With_gladness_we_worship.mid@HJ@STF@17@Datchet@KEYBD@STF@@0@0@0@-1
