@@ -17,6 +17,16 @@ def showMessage( text ):
    mb.setText( text )
    mb.exec_();
 
+#  Show a simple message in a modal dialog box with "Yes" and "No" buttons.
+def showYesNoMessage( text, info=None ):
+   mb = QMessageBox()
+   mb.setText( text )
+   if info:
+      mb.setInformativeText(info)
+   mb.setStandardButtons( QMessageBox.Yes | QMessageBox.No )
+   mb.setDefaultButton(QMessageBox.Yes)
+   return (mb.exec_() == QMessageBox.Yes )
+
 #  Create a horizontal line widget.
 def HLine( ):
     toto = QFrame()
@@ -35,6 +45,59 @@ def add( layout, widget, align=None ):
          layout.addWidget( widget )
 
 
+
+# ----------------------------------------------------------------------
+class MetreChooser(QWidget):
+   def __init__( self, parent, player, store=False ):
+      super(MetreChooser, self).__init__(parent)
+      self.store = store
+      self.ignore = False
+      self.player = player
+
+      layout = QVBoxLayout()
+      self.setLayout( layout )
+      self.cb = QComboBox(parent)
+
+      self.cb.addItem('(unknown)')
+      for metre in self.player.cat.metres:
+         self.cb.addItem(metre)
+      self.cb.setToolTip('Select the metre of the music')
+
+      self.cb.currentIndexChanged.connect( self.metreChanged )
+      layout.addWidget( self.cb )
+
+   def metreChanged(self):
+      if not self.ignore:
+         newval = self.cb.currentText()
+         if newval == "(unknown)":
+            newval = None
+
+         if self.store:
+            if self.player.cat['METRE'][self.irow] != newval:
+               self.player.cat['METRE'][self.irow] = newval
+               self.player.modified = True
+
+   def setFromRow( self, irow, map ):
+      self.ignore = True
+      self.irow = irow
+
+      if irow in map:
+         self.oldval = map[ irow ]
+      else:
+         self.oldval = self.player.cat['METRE'][irow]
+      if not self.oldval:
+         self.oldval = '(unknown)'
+      self.cb.setCurrentIndex( self.cb.findText(self.oldval))
+
+      self.ignore = False
+      return self.oldval
+
+   def saveToMap( self, mymap ):
+      newval = self.cb.currentText()
+      if newval == "(unknown)":
+         newval = None
+      if newval != self.oldval:
+         mymap[self.irow] = newval
 
 # ----------------------------------------------------------------------
 class KeyboardChooser(QWidget):
@@ -83,13 +146,36 @@ class KeyboardChooser(QWidget):
          if self.store:
             if self.player.cat['PROG0'][self.irow] != gm:
                self.player.cat['PROG0'][self.irow] = gm
-               self.player.modified = True
+               self.player.cat.modified = True
          self.player.player.sendProg0( gm )
          self.pw.setProg0( gm )
 
    def setFromRow( self, irow, map ):
       self.ignore = True
       self.irow = irow
+
+      if self.player.cat['INSTR'][irow] == "KEYBD":
+         if map and irow in map:
+            self.oldval = map[ irow ]
+         else:
+            self.oldval =  int( self.player.cat['PROG0'][irow] )
+
+         self.setEnabled( True )
+         self.cb.setCurrentIndex( self.gmfwdmap[ self.oldval ] )
+
+      else:
+         self.setEnabled( False )
+         self.oldval = cpmodel.DEFAULT_INSTRUMENT
+
+      self.ignore = False
+      return self.oldval
+
+   def setFromPlayable( self, playable, map=None ):
+      return self.setFromRow( playable.irow, map )
+
+   def setFromRecord( self, record, map ):
+      self.ignore = True
+      self.irow = None
 
       if self.player.cat['INSTR'][irow] == "KEYBD":
          if irow in map:
@@ -169,7 +255,8 @@ class ClassifyDialog(QDialog):
       self.trans = {}
       self.volume = {}
       self.tempo = {}
-      self.pw = PlayerWidget(self,player,self.irow-1)
+      self.metre = {}
+      self.pw = PlayerWidget( self, player, self.irow-1 )
       hgt = 40
 
       layout = QVBoxLayout()
@@ -232,6 +319,9 @@ class ClassifyDialog(QDialog):
       ilayout = QVBoxLayout()
       self.kbdChooser = KeyboardChooser( self, player, playerwidget=self.pw )
       ilayout.addWidget(self.kbdChooser)
+      self.metreChooser = MetreChooser( self, player )
+      ilayout.addWidget(self.metreChooser)
+
       self.sliders = SliderPanel(self, player, playerwidget=self.pw )
       ilayout.addWidget(self.sliders)
       mainlayout.addLayout( ilayout )
@@ -257,11 +347,14 @@ class ClassifyDialog(QDialog):
       self.setDesc()
 
    def keyPressEvent(self, e):
-      if e.key() == Qt.Key_Space:
+      if e.key() == Qt.Key_Space or e.key() == Qt.Key_Right:
          self.nexter()
+      elif e.key() == Qt.Key_Left:
+         self.prever()
 
    def changeRow( self, newrow ):
       self.kbdChooser.saveToMap( self.prog0 )
+      self.metreChooser.saveToMap( self.metre )
       self.sliders.pitchslider.saveToMap( self.trans )
       self.sliders.volumeslider.saveToMap( self.volume )
       self.sliders.temposlider.saveToMap( self.tempo )
@@ -304,10 +397,11 @@ class ClassifyDialog(QDialog):
       doexit = True
       if save:
          self.kbdChooser.saveToMap( self.prog0 )
+         self.metreChooser.saveToMap( self.metre )
          self.sliders.pitchslider.saveToMap( self.trans )
          self.sliders.volumeslider.saveToMap( self.volume )
          self.sliders.temposlider.saveToMap( self.tempo )
-         if len(self.changes) > 0 or len(self.prog0) > 0 or len(self.trans) or len(self.volume)  or len(self.tempo) > 0:
+         if len(self.changes) > 0 or len(self.prog0) or len(self.metre) > 0 or len(self.trans) or len(self.volume)  or len(self.tempo) > 0:
             ret = QMessageBox.warning(self, "Warning", '''Save changes?''',
                                       QMessageBox.Save, QMessageBox.Discard,
                                       QMessageBox.Cancel)
@@ -316,6 +410,10 @@ class ClassifyDialog(QDialog):
                   self.cat['TAGS'][irow] = self.changes[irow]
                for irow in self.prog0:
                   self.cat['PROG0'][irow] = str(self.prog0[irow])
+               for irow in self.metre:
+                  self.cat['METRE'][irow] = str(self.metre[irow])
+                  if self.cat['METRE'][irow] == '(unknown)':
+                     self.cat['METRE'][irow] = None
                for irow in self.trans:
                   self.cat['TRANS'][irow] = str(self.trans[irow])
                for irow in self.volume:
@@ -358,9 +456,11 @@ class ClassifyDialog(QDialog):
    def setDesc(self):
       self.pw.stop(None)
       gm = self.kbdChooser.setFromRow( self.irow-1, self.prog0 )
+      metre = self.metreChooser.setFromRow( self.irow-1, self.metre )
       trans = self.sliders.pitchslider.setFromRow( self.irow-1, self.trans )
       volume = self.sliders.volumeslider.setFromRow( self.irow-1, self.volume )
       tempo = self.sliders.temposlider.setFromRow( self.irow-1, self.tempo )
+
       self.pw.setPlayable( self.irow-1, prog0=gm, trans=trans,
                            volume=volume, tempo=tempo )
 
@@ -387,13 +487,20 @@ class ClassifyDialog(QDialog):
 # ----------------------------------------------------------------------
 class SearchDialog(QDialog):
 
-   def __init__( self, parent, player ):
+   def __init__( self, parent, player, target ):
       super(SearchDialog, self).__init__(parent)
+      self.pwlist = []
+      self.cblist = {}
+      self.target = target
       self.player = player
       self.setWindowTitle('Search for music')
+      self.matchingRows = []
       layout = QVBoxLayout()
       add( layout, QLabel("\nEnter values into one or more of the following "
-                          "boxes and then press 'Search' to find matching music.\n") )
+                          "boxes and then press 'Search' to find matching "
+                          "music.\nClick on the check box at the left end "
+                          "of the required matching items and press 'OK' "
+                          "to store it as an item in the service.\n") )
       add( layout, self.makeUpper() )
       add( layout, self.makeMiddle() )
       add( layout, self.makeLower() )
@@ -475,6 +582,20 @@ class SearchDialog(QDialog):
       self.close()
 
    def oker(self):
+      nmatch = len(self.matchingRows)
+      if nmatch > 0:
+         rows = []
+         for cb in self.cblist:
+            if cb.isChecked():
+               rows.append( self.cblist[cb] )
+         if len(rows) == 0:
+            if showYesNoMessage( "No music has been selected.", "Select all "
+                                 "display music before closing?" ):
+               for cb in self.cblist:
+                  rows.append( self.cblist[cb] )
+         if len(rows) > 0:
+            self.target.setPlaylist( self.player.cat.makePlaylist( rows ) )
+
       self.closer()
 
    def clearer(self):
@@ -496,17 +617,32 @@ class SearchDialog(QDialog):
          searchVals.append( item.value )
          searchCols.append( item.icol )
 
-      self.matchingRows = self.player.cat.search( searchVals, searchCols )
+      self.matchingRows = []
+      for cb in self.cblist:
+         if cb.isChecked():
+            self.matchingRows.append( self.cblist[cb] )
+      nold = len( self.matchingRows )
 
-      if len( self.matchingRows ) == 0 :
-         lab = QLabel("No matching music found !")
-         results.addWidget(lab, 0, 0, Qt.AlignTop | Qt.AlignLeft )
+      self.clearResults()
+
+      newrows = self.player.cat.search( searchVals, searchCols )
+      if len( newrows ) == 0:
+         showMessage("No matching music found !")
       else:
+         self.matchingRows.extend(newrows)
+
+      if len( self.matchingRows ) > 0:
          self.checkbox = []
          j = 0
+         icheck = 0;
          for irow in self.matchingRows:
             cb = QCheckBox()
             cb.setToolTip("Click to include this row in the service slot")
+            if icheck < nold:
+               cb.setChecked(True)
+            icheck += 1
+
+            self.cblist[cb] = irow
             self.checkbox.append( cb )
             results.addWidget(cb, j, 0 )
             i = 1
@@ -516,12 +652,27 @@ class SearchDialog(QDialog):
                   lab.setToolTip(tip)
                results.addWidget(lab, j, i )
                i += 1
+
+            pw = PlayerWidget( self, self.player, irow, size=28 )
+            results.addWidget( pw, j, i )
+            self.pwlist.append(pw)
+            i += 1
+
+            lab = QLabel('({0})'.format(irow+1))
+            lab.setToolTip("Index within music catalogue" )
+            results.addWidget(lab, j, i )
             j += 1
 
-      self.clearResults()
+
       self.scarea.setWidget( right )
 
    def clearResults(self):
+
+      for pw in self.pwlist:
+         pw.finish()
+      self.pwlist = []
+      self.cblist = {}
+
       oldwidget = self.scarea.takeWidget()
       if oldwidget:
          oldwidget.deleteLater()
@@ -534,6 +685,7 @@ class Service(QFrame):
       QFrame.__init__(self,parent)
       self.setFrameStyle( QFrame.Box )
       self.player = player
+      self.tempfile = "tempService"
 
       grid = QGridLayout()
       grid.setContentsMargins( 5,5,5,5 )
@@ -542,7 +694,7 @@ class Service(QFrame):
       j = 0
       for i in range(NSLOT):
          item = ServiceItem( self, player )
-         grid.addWidget( item.playButton, j, 0, Qt.AlignLeft )
+         grid.addWidget( item.pw, j, 0, Qt.AlignLeft )
          grid.addWidget( item.desc, j, 1, Qt.AlignLeft )
          grid.addWidget( item.kbdChooser, j, 2, Qt.AlignRight | Qt.AlignTop )
          j += 1
@@ -552,16 +704,20 @@ class Service(QFrame):
       self.setLayout( grid )
       self.setStyleSheet("background-color:#eeeeee;")
 
+   def saveTemp(self):
+      print("Service.saveTemp() not yet implemented!!")
+
 # ----------------------------------------------------------------------
 class PanicButton(QPushButton):
-   def __init__(self,parent,player):
+   def __init__(self,parent,player,service):
       QPushButton.__init__( self, "Don't PANIC !!", parent )
-
-      self.setToolTip("Click to kill and restart the music player")
+      self.setToolTip("Click to restart churchplayer if things go wrong")
       self.clicked.connect( self.panic )
+      self.service = service
 
    def panic(self):
-      print( "PANIC !!!")
+      self.service.saveTemp()
+      os.execl( "/bin/sh", "-c", "./run_churchplayer", self.service.tempfile )
 
 
 # ----------------------------------------------------------------------
@@ -642,24 +798,32 @@ class ServiceItem(QWidget):
    def __init__(self,parent,player):
       QWidget.__init__(self,parent)
       self.player = player
+      self.playlist = None
 
-      self.playButton = PlayerWidget(self,player,stop=False)
+      self.pw = PlayerWidget(self,player,stop=False)
 
       self.desc = QLabel("Click here to choose music", self )
       self.desc.setFixedWidth(600)
       self.desc.setToolTip("The music played when the play-button is clicked")
       self.desc.mouseReleaseEvent = self.musicChooser
       self.desc.setFrameStyle( QFrame.Panel | QFrame.Sunken )
-
-      self.kbdChooser = KeyboardChooser( self, player, store=True )
+      self.kbdChooser = KeyboardChooser( self, player, playerwidget=self.pw, store=True  )
 
    def playit(self, event):
       print( "PLAY clicked!!!")
 
    def musicChooser(self, event):
-      ed = SearchDialog(self,self.player)
+      ed = SearchDialog(self,self.player,self)
       ed.exec_()
 
+   def setPlaylist( self, playlist ):
+      self.playlist = playlist
+      self.pw.setPlayable( playlist )
+      if playlist != None:
+         self.desc.setText( self.playlist.desc() )
+         self.kbdChooser.setFromPlayable( playlist )
+      else:
+         self.desc.setText("Click here to choose music", self )
 
 
 # ----------------------------------------------------------------------
@@ -778,7 +942,7 @@ class MainWidget(QWidget):
       stopetc = QHBoxLayout()
       stopetc.addWidget( self.player )
       stopetc.addStretch()
-      stopetc.addWidget( PanicButton( self, self.player ) )
+      stopetc.addWidget( PanicButton( self, self.player, self.service ) )
       leftpanel.addLayout( stopetc )
       leftpanel.addStretch()
 
@@ -834,7 +998,7 @@ class RecordForm(QWidget):
 
    def makeControls(self):
       hbox = QHBoxLayout()
-      self.playWidget = PlayerWidget(self,self.player,self.record,inst=True)
+      self.playWidget = PlayerWidget(self,self.player,self.record)
       add( hbox, self.playWidget, align=Qt.AlignLeft )
       return hbox
 
@@ -863,6 +1027,7 @@ class RecordForm(QWidget):
         icol += 1
         collabel = QLabel( colname[:1].upper() + colname[1:].lower() + ":" )
         collabel.setToolTip( self.cat.coldescs[icol] )
+        print(colname[:1].upper() + colname[1:].lower() + ":")
         colitem = CatItem.create(self, self.cat, self.irow, icol,
                                  editable=self.editable )
         self.form.addRow( collabel, colitem )
@@ -987,13 +1152,12 @@ class PlayerListener(QThread):
 
 # ----------------------------------------------------------------------
 class PlayerButton(QLabel):
-   size = 35
-   def __init__(self,parent,alive,enabled,enabledFile,disabledFile):
+   def __init__(self,parent,alive,enabled,enabledFile,disabledFile,size=35):
       QLabel.__init__(self,parent)
-      self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
-      self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( PlayerButton.size, Qt.SmoothTransformation )
+      self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( size, Qt.SmoothTransformation )
+      self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( size, Qt.SmoothTransformation )
       self.setAlignment(Qt.AlignHCenter)
-      self.setFixedSize( PlayerButton.size*1.1, PlayerButton.size*1.1 )
+      self.setFixedSize( size*1.1, size*1.1 )
       self.alive = alive
       if alive:
          if enabled:
@@ -1027,22 +1191,26 @@ class PlayerButton(QLabel):
 
 # ----------------------------------------------------------------------
 class PlayerWidget(QWidget):
-   def __init__(self,parent,player,playable=None,stop=True,fade=False):
+   def __init__(self,parent,player,playable=None,stop=True,fade=False,size=35,cat=None):
       QWidget.__init__(self,parent)
       self.player = player
+      if cat:
+         self.cat = cat
+      else:
+         self.cat = player.cat
       self.playable = None
       self.layout = QHBoxLayout()
       self.layout.setSpacing(0)
       self.layout.addStretch()
 
       self.playButton = PlayerButton( self, False, False, 'icons/Play.png',
-                                      'icons/Play-disabled.png' )
+                                      'icons/Play-disabled.png', size )
       self.playButton.mouseReleaseEvent = self.play
       self.layout.addWidget(self.playButton)
 
       if stop:
          self.stopButton = PlayerButton( self, False, False, 'icons/Stop.png',
-                                         'icons/Stop-disabled.png' )
+                                         'icons/Stop-disabled.png', size )
          self.stopButton.mouseReleaseEvent = self.stop
          self.layout.addWidget(self.stopButton)
       else:
@@ -1050,7 +1218,7 @@ class PlayerWidget(QWidget):
 
       if fade:
          self.fadeButton = PlayerButton( self, False, False, 'icons/Fade.png',
-                                         'icons/Fade-disabled.png' )
+                                         'icons/Fade-disabled.png', size )
          self.fadeButton.mouseReleaseEvent = self.fade
          self.layout.addWidget(self.fadeButton)
       else:
@@ -1083,8 +1251,8 @@ class PlayerWidget(QWidget):
    def setPlayable(self,playable,prog0=None,trans=None,volume=None,tempo=None):
       if playable != None:
          if not isinstance(playable,cpmodel.Record) and not isinstance(playable,cpmodel.Playlist):
-            playable = self.player.cat.getRecord(int(playable),prog0,trans,
-                                                 volume,tempo)
+            playable = self.cat.getRecord(int(playable),prog0,trans,
+                                          volume,tempo)
 
       if not self.playable and playable:
          self.playButton.setAlive(True)
@@ -1134,6 +1302,8 @@ class PlayerWidget(QWidget):
       self.stop(None)
       self.player.removeClient( self )
 
+   def __del__(self):
+      print("XXXXXXXX")
 
 # ------------------------------------------------------------------------
 # ------------------------------------------------------------------------
@@ -1155,6 +1325,7 @@ class CatItem(object):
    @staticmethod
    def create(parent,cat,irow,icol,editable=False):
       (t,opts,descs) = cat.getOptions(icol)
+
       if not editable:
          return CatLabel(parent,cat,irow,icol,opts,descs,t)
 
@@ -1184,7 +1355,7 @@ class CatItem(object):
       else:
          self.value = None
 
-      if self.irow:
+      if self.irow != None:
          self.col[ self.irow ] = text
 
 class CatSpinBox(QSpinBox,CatItem):
@@ -1195,7 +1366,7 @@ class CatSpinBox(QSpinBox,CatItem):
       self.setSpecialValueText( " " )
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
       self.valueChanged.connect(self.valueHasChanged)
-      if irow:
+      if irow != None:
          text = cat[ cat.colnames[icol] ][irow]
          if text:
             self.setValue( int(text) )
@@ -1217,31 +1388,30 @@ class CatComboBoxS(QComboBox,CatItem):
       QComboBox.__init__(self,parent)
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
 
-      if irow:
+      if irow != None:
          curval = cat[ cat.colnames[icol] ][irow]
       else:
-         curval = "xxx"
+         curval = " "
 
-      self.addItem(" ")
-
-      icurr = -1
+      self.clearTo = -1
       i = 0
       for opt in opts:
          self.addItem(opt)
          if descs and len(descs) > i:
-            self.setItemData( i + 1, descs[i], Qt.ToolTipRole )
+            self.setItemData( i, descs[i], Qt.ToolTipRole )
          if opt == curval:
-            icurr = i + 1
+            self.clearTo = i
          i += 1
 
-      if irow:
-         if icurr == -1:
+      if irow != None:
+         if self.clearTo == -1:
             self.addItem(curval)
-            icurr = i
+            self.clearTo = i
       else:
-         icurr = 0
+         self.addItem(curval)
+         self.clearTo = i
 
-      self.setCurrentIndex( icurr )
+      self.setCurrentIndex( self.clearTo )
       self.setFixedWidth(1.5*self.minimumSizeHint().width())
       self.currentIndexChanged.connect(self.indexHasChanged)
 
@@ -1249,17 +1419,17 @@ class CatComboBoxS(QComboBox,CatItem):
       self.catStore( str(self.itemText(item)) )
 
    def clear(self):
-      self.setCurrentIndex( 0 )
+      self.setCurrentIndex( self.clearTo )
 
 class CatComboBoxM(QComboBox,CatItem):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
       QComboBox.__init__(self,parent)
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
 
-      if irow:
+      if irow != None:
          self.curval = cat[ cat.colnames[icol] ][irow]
       else:
-         self.curval = ""
+         self.curval = " "
 
       self.addItem(" ")
       self.setItemData( 0, "Clear the currrent selection of tags", Qt.ToolTipRole )
@@ -1295,7 +1465,7 @@ class CatLineEdit(QLineEdit,CatItem):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
       QLineEdit.__init__(self,parent)
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
-      if irow:
+      if irow != None:
          text = cat[ cat.colnames[icol] ][irow]
          self.setText( text )
          width = self.fontMetrics().boundingRect(text).width()
@@ -1320,7 +1490,7 @@ class CatLabel(QLabel,CatItem):
    def __init__(self,parent,cat,irow,icol,opts,descs,t):
       QLabel.__init__(self,parent)
       CatItem.__init__(self,parent,cat,irow,icol,opts,descs,t)
-      if irow:
+      if irow != None:
          text = cat[ cat.colnames[icol] ][irow]
          self.setText( text )
          width = self.fontMetrics().boundingRect(text).width()
@@ -1773,10 +1943,10 @@ class ChurchPlayer(QMainWindow):
       saveCatAction.setStatusTip('Save the music catalogue to disk')
       saveCatAction.triggered.connect(self.saveCatalogue)
 
-#      scanAction = QAction( '&Scan', self)
-#      scanAction.setShortcut('Ctrl+I')
-#      scanAction.setStatusTip('Scan the music directory for uncatalogued MIDI files')
-#      scanAction.triggered.connect(self.scan)
+      scanAction = QAction( '&Scan', self)
+      scanAction.setShortcut('Ctrl+I')
+      scanAction.setStatusTip('Scan the music directory for uncatalogued MIDI files')
+      scanAction.triggered.connect(self.scan)
 
 #  Set up status bar
       self.statusBar()
@@ -1789,7 +1959,7 @@ class ChurchPlayer(QMainWindow):
 
       catMenu = menubar.addMenu('&Catalogue')
       catMenu.addAction(classifyAction)
-#      catMenu.addAction(scanAction)
+      catMenu.addAction(scanAction)
       catMenu.addAction(saveCatAction)
 
 #  Set up the toolbar.
@@ -1935,6 +2105,12 @@ def main():
     app.processEvents()
     ex = ChurchPlayer( app, cat, player )
     ex.activateWindow()
+
+    print("TO DO:")
+    print("   PANIC BUTTON NEEDS TO SAVE AND RESTORE THE CURRENT SERVICE")
+    print("   MODIFY SOUNDFONT TO CONTAIN A NICE EPIANO AND MORE NICE ORGANS")
+    print("   CLASSIFY ALL MUSIC" )
+    print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
 
 #  Ready to run...
     splash.finish(ex)

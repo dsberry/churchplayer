@@ -1,3 +1,4 @@
+FIXED_INSTRUMENT = -2
 DEFAULT_INSTRUMENT = -1
 FADE = 0
 STOP = 1
@@ -53,6 +54,7 @@ instrumentNames = [
 
 #  These are most GM numbers, but with some extra organs.
 instruments = {
+   '(ensemble)': FIXED_INSTRUMENT,
    'Original': DEFAULT_INSTRUMENT,
    'Piano 1': 0,
    'Piano 2': 1,
@@ -341,6 +343,8 @@ class Catalogue(dict):
             if instr not in self.instrnames:
                   self.warnings.append("Unknown instrumentation ('{0}') "
                        "associated with '{1}'.".format(instr, self['TITLE'][irow] ) )
+            if instr != "KEYBD":
+               self['PROG0'][irow] = FIXED_INSTRUMENT
 
       for colname in ('NUMBER','TRANS','SPEED','VOLUME','PROG0'):
          irow = -1
@@ -480,20 +484,16 @@ class Catalogue(dict):
    def getRecord(self,row,prog0=None,trans=None,volume=None,tempo=None):
       path = self.midifiles[row]
       if path:
-         if not trans:
+         if None == trans:
             trans = self['TRANS'][row]
-         if not trans:
-            trans = '0'
-         if not trans:
-            trans = '0'
-         if not prog0:
+         if None == prog0:
             prog0 = self['PROG0'][row]
-         if not volume:
+         if None == volume:
             volume = self['VOLUME'][row]
-         if not tempo:
+         if None == tempo:
             tempo = self['SPEED'][row]
          title = self['TITLE'][row]
-         return Record( path, trans, prog0, title, volume, tempo )
+         return Record( path, row, trans, tempo, volume, prog0, title )
       else:
          return None
 
@@ -603,7 +603,7 @@ class Catalogue(dict):
             if icol > 0:
                text += "@"
             if self[col][irow]:
-               text += self[col][irow]
+               text += str(self[col][irow])
             icol += 1
          text += "\n"
          cat.write(text)
@@ -694,7 +694,7 @@ class Catalogue(dict):
                words = val.lower().split()
 
                for irow in matchingRows:
-                  title_words = self[col][irow].lower().split()
+                  title_words = re.compile('\w+').findall(self[col][irow].lower())
                   ok = True
                   for word in words:
                      if not word in title_words:
@@ -716,21 +716,33 @@ class Catalogue(dict):
       if len( matchingRows ) > 1:
          matchingRows.sort( key=lambda irow: self['TITLE'][irow] )
 
-
-
-
       return matchingRows
+
+   def makePlaylist( self, irows ):
+      result = Playlist()
+      for irow in irows:
+         title = "{0} {1}: {2}".format(self['BOOK'][irow],self['NUMBER'][irow],self['TITLE'][irow] )
+
+         result.add( self.rootdir+"/"+self['PATH'][irow], irow,
+                     self['TRANS'][irow],
+                     self['SPEED'][irow],
+                     self['VOLUME'][irow],
+                     self['PROG0'][irow],
+                     title )
+      return result
+
 
 # ----------------------------------------------------------------------
 class Record(object):
-   def __init__(self, path, transpose=0, instrument=DEFAULT_INSTRUMENT,
-                title="", volume=0, tempo=0 ):
+   def __init__(self, path, irow, trans, speed, volume, prog0, title ):
+
       self._setPath( path )
-      self._setTranspose( transpose )
-      self._setInstrument( instrument )
+      self._setIrow( irow )
+      self._setTranspose( trans )
+      self._setInstrument( prog0 )
       self._setTitle( title )
       self._setVolume( volume )
-      self._setTempo( tempo )
+      self._setTempo( speed )
 
    def _getPath(self):
          return self._path
@@ -746,6 +758,18 @@ class Record(object):
             self._path = path
 
    path = property(_getPath, None, None, "The path to the music file")
+
+   def _getIrow(self):
+         return self._irow
+   def _setIrow(self,irow):
+         if isinstance(irow,str):
+            irow = int( irow )
+         if irow < 0:
+            raise  ChurchPlayerError("\n\nBad irow value ({0}) when "
+                                     "creating a Record.".format(irow))
+         else:
+            self._irow = irow
+   irow = property( _getIrow, _setIrow, None, "The row number within the music catalogue" )
 
    def _getTranspose(self):
          return self._transpose
@@ -764,11 +788,16 @@ class Record(object):
                          "The number of semitones to transpose" )
 
    def _getInstrument(self):
-         return self._instrument
+         inst = self._instrument
+         if inst == FIXED_INSTRUMENT:
+            inst = DEFAULT_INSTRUMENT
+         return inst
    def _setInstrument(self,instrument):
          instrument = midiInstrument( instrument )
          if instrument == None or instrument == DEFAULT_INSTRUMENT:
             self._instrument = DEFAULT_INSTRUMENT
+         elif instrument == FIXED_INSTRUMENT:
+            self._instrument = FIXED_INSTRUMENT
          elif instrument < 0 or instrument > 127:
             raise  ChurchPlayerError("\n\nFailed to change instrument for a "
                                      "Record: requested instrument number "
@@ -824,8 +853,8 @@ class Playlist(object):
    def __init__(self):
       self.__records = []
 
-   def add( self, path, transpose=0, instrument=DEFAULT_INSTRUMENT, title="" ):
-      self.__records.append( Record( path, transpose, instrument, title ) )
+   def add( self, path, row, trans, speed, volume, prog0, title ):
+      self.__records.append( Record( path, row, trans, speed, volume, prog0, title ) )
 
    def __len__(self):
       return len(self.__records)
@@ -854,10 +883,69 @@ class Playlist(object):
          result = "{0}{1}\n".format(result,record)
       return result
 
-
-   def setInstrument(self,instr):
+   def desc(self):
+      result = None
       for record in self.__records:
-         record.setInstrument(instr)
+         if result:
+            result = "{0}; {1}\n".format(result,record.desc())
+         else:
+            result = record.desc()
+      return result
+
+   def _getPath(self):
+      return self.__records[0].path
+   def _setPath(self,path):
+      self.__records[0].path = path
+   path = property(_getPath, None, None, "The path to the first music file")
+
+   def _getIrow(self):
+      return self.__records[0].irow
+   def _setIrow(self,path):
+      self.__records[0].path = irow
+   irow = property( _getIrow, _setIrow, None, "The row number within the music catalogue" )
+
+   def _getTranspose(self):
+      return self.__records[0].transpose
+   def _setTranspose(self,transpose):
+      self.__records[0].transpose = transpose
+   def _delTranspose(self):
+      del self.__records[0].transpose
+   transpose = property( _getTranspose, _setTranspose, _delTranspose,
+                         "The number of semitones to transpose" )
+
+   def _getInstrument(self):
+      return self.__records[0].instrument
+   def _setInstrument(self,instrument):
+      self.__records[0].instrument = instrument
+   def _delInstrument(self):
+         del self.__records[0].instrument
+   instrument = property( _getInstrument, _setInstrument, _delInstrument,
+                         "The GM program number for the instrument to use")
+
+   def _getTitle(self):
+         return self.__records[0].title
+   def _setTitle(self,title):
+         self.__records[0].title = title
+
+   title = property(_getTitle, None, None, "The music title")
+
+   def _getVolume(self):
+      return self.__records[0].volume
+   def _setVolume(self,volume):
+      self.__records[0].volume = volume
+   def _delVolume(self):
+      del self.__records[0].volume
+   volume = property( _getVolume, _setVolume, _delVolume,
+                      "The change in volume" )
+
+   def _getTempo(self):
+      return self.__records[0].tempo
+   def _setTempo(self,tempo):
+      self.__records[0].tempo = tempo
+   def _delTempo(self):
+      del self.__records[0].tempo
+   tempo = property( _getTempo, _setTempo, _delTempo,
+                      "The change in tempo" )
 
 
 # ----------------------------------------------------------------------
@@ -953,7 +1041,8 @@ class Player(object):
 
 #  Send real-time instrument change for channel 0.
    def sendProg0( self, prog0 ):
-      self._sendCommand( "{0} {1}".format( PROG0_CMD, prog0 ) )
+      if prog0 != FIXED_INSTRUMENT:
+         self._sendCommand( "{0} {1}".format( PROG0_CMD, prog0 ) )
 
 #  Send real-time transposition change.
    def sendTrans( self, trans ):

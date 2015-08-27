@@ -55,7 +55,7 @@ t:L Lent
 
 # Data:
 # ----
-Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@@0@0@0@-1
+Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@@0@0@0@-2
 All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@125
 Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@@0@0@0@-1
 Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@JM@STF@2@Extra refrain@KEYBD@STF@@0@0@0@-1
@@ -65,7 +65,7 @@ Father, in whom we live@stf/5_Father_in_whom_we_live.mid@H@STF@5@St Mary@KEYBD@S
 Father, we love you@stf/6_Father_we_love_you.mid@MQ@STF@6@@KEYBD@STF@@0@0@0@-1
 God who made the stars of heaven@stf/7_God_who_made_the_stars_of_heaven.mid@@STF@7@Thian Beng@KEYBD@STF@85.85.85.75.@0@0@0@-1
 God with us@stf/8_God_with_us.mid@HN@STF@8@Ode to Joy@KEYBD@STF@@0@0@0@-1
-Hail! Holy, holy, holy Lord!@stf/9_Hail_Holy_holy_holy_Lord.mid@H@STF@9@Dunfermline@KEYBD@STF@86.86.@0@0@0@-1
+Hail! Holy, holy, holy Lord!@stf/9_Hail_Holy_holy_holy_Lord.mid@H@STF@9@Dunfermline@KEYBD@STF@86.86.@0@0@0@121
 Holy, holy@stf/10_Holy_holy_Fellingham.mid@MQ@STF@10@Fellingham@KEYBD@STF@@0@0@0@-1
 Holy, holy, holy@stf/11_Holy_holy_holy.mid@HJ@STF@11@Nicaea@KEYBD@STF@11.12.12.10.@0@0@0@-1
 Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@HJ@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
@@ -1328,3 +1328,6 @@ Thou God of truth and love@stf/620_Thou_God_of_truth_and_love.mid@@HAP@374@St Go
 Jesus, Lord, we look to thee@stf/686_Jesus_Lord_we_look_to_thee.mid@@HAP@759@Theodora (Handel)@KEYBD@STF@@0@0@0@-1
 Lord Jesus once a child@stf/537_Lord_Jesus_once_a_child_Franconia.mid@@HAP@585@Franconia@KEYBD@STF@@0@0@0@-1
 Lord, we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_invitation_Epiphany.mid@@HAP@700@Epiphany@KEYBD@STF@@0@0@0@-1
+All praise to our redeeming lord@dsb/All_praise_to_our_redeeming_lord.mid@HQ@STF@608@Lucius@BAND@DSB@@0@0@0@-2
+Ride on ride on@dsb/Ride_on_ride_on.mid@HJL@STF@265@Winchester New@KEYBD@DSB@@0@0@0@-1
+I know that my redeemer lives@dsb/I_know_that_my_redeemer_lives.mid@HQE@STF@303@Torquay@BAND@DSB@@0@0@0@-2
