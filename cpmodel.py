@@ -1014,21 +1014,16 @@ class Player(object):
       self._stop()
       self._start()
 
-#  Queue a Playlist or a Record, optionally aborting any currently playing
-#  music first so that the new music starts immediately ("end" can be
-#  FADE, STOP or None - in which case the music is just added to the end
-#  of the queue).
-   def play( self, playable, end=FADE ):
-      if isinstance( playable, Record ):
+#  Queue a Record, optionally aborting any currently playing music first
+#  so that the new music starts immediately ("end" can be FADE, STOP or
+#  None - in which case the music is just added to the end of the queue).
+   def play( self, record, end=FADE ):
+      if isinstance( record, Record ):
          self._end( end )
-         self._playRecord( playable )
-      elif isinstance( playable, Playlist ):
-         self._end( end )
-         for record in playable:
-            self._playRecord( record )
+         self._playRecord( record )
       else:
          raise  ChurchPlayerError("\n\nPlayer.play(): Supplied object is "
-                                  "not a Record or Playlist" )
+                                  "not a Record" )
 
 #  Move onto the next queued item.
    def next( self, end=FADE ):

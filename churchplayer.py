@@ -150,7 +150,7 @@ class KeyboardChooser(QWidget):
          self.player.player.sendProg0( gm )
          self.pw.setProg0( gm )
 
-   def setFromRow( self, irow, map ):
+   def setFromRow( self, irow, map=None ):
       self.ignore = True
       self.irow = irow
 
@@ -237,6 +237,20 @@ class SliderPanel(QWidget):
 
       sliders.addStretch()
       self.setLayout( sliders )
+
+   def setFromPlayable( self, playable, map=None ):
+      self.setFromRow( playable.irow, map )
+
+
+   def setFromRow( self, irow, map=None ):
+      self.volumeslider.setFromRow( irow, map )
+      self.temposlider.setFromRow( irow, map )
+      self.pitchslider.setFromRow( irow, map )
+
+   def setPlayerWidget( self, playerWidget ):
+      self.volumeslider.pw = playerWidget
+      self.temposlider.pw = playerWidget
+      self.pitchslider.pw = playerWidget
 
 # ----------------------------------------------------------------------
 class ClassifyDialog(QDialog):
@@ -681,7 +695,7 @@ class SearchDialog(QDialog):
 
 # ----------------------------------------------------------------------
 class Service(QFrame):
-   def __init__(self,parent,player):
+   def __init__(self,parent,player,sliderpanel):
       QFrame.__init__(self,parent)
       self.setFrameStyle( QFrame.Box )
       self.player = player
@@ -693,7 +707,7 @@ class Service(QFrame):
 
       j = 0
       for i in range(NSLOT):
-         item = ServiceItem( self, player )
+         item = ServiceItem( self, player, sliderpanel )
          grid.addWidget( item.pw, j, 0, Qt.AlignLeft )
          grid.addWidget( item.desc, j, 1, Qt.AlignLeft )
          grid.addWidget( item.kbdChooser, j, 2, Qt.AlignRight | Qt.AlignTop )
@@ -775,10 +789,10 @@ class CPSlider(QWidget):
          self.player.player.sendRT( self.colname, newval )
          self.pw.setRT( self.colname, newval )
 
-   def setFromRow( self, irow, map ):
+   def setFromRow( self, irow, map=None ):
       self.ignore = True
       self.irow = irow
-      if irow in map:
+      if map and irow in map:
          self.oldval = map[ irow ]
       else:
          self.oldval =  int( self.player.cat[self.colname][irow] )
@@ -795,12 +809,13 @@ class CPSlider(QWidget):
 
 # ----------------------------------------------------------------------
 class ServiceItem(QWidget):
-   def __init__(self,parent,player):
+   def __init__(self,parent,player,sliderpanel):
       QWidget.__init__(self,parent)
       self.player = player
+      self.sliderpanel = sliderpanel
       self.playlist = None
 
-      self.pw = PlayerWidget(self,player,stop=False)
+      self.pw = PlayerWidget(self,player,stop=False,sliders=sliderpanel)
 
       self.desc = QLabel("Click here to choose music", self )
       self.desc.setFixedWidth(600)
@@ -808,9 +823,7 @@ class ServiceItem(QWidget):
       self.desc.mouseReleaseEvent = self.musicChooser
       self.desc.setFrameStyle( QFrame.Panel | QFrame.Sunken )
       self.kbdChooser = KeyboardChooser( self, player, playerwidget=self.pw, store=True  )
-
-   def playit(self, event):
-      print( "PLAY clicked!!!")
+      player.addClient( self.kbdChooser )
 
    def musicChooser(self, event):
       ed = SearchDialog(self,self.player,self)
@@ -822,6 +835,7 @@ class ServiceItem(QWidget):
       if playlist != None:
          self.desc.setText( self.playlist.desc() )
          self.kbdChooser.setFromPlayable( playlist )
+         self.sliderpanel.setFromPlayable( playlist )
       else:
          self.desc.setText("Click here to choose music", self )
 
@@ -833,10 +847,13 @@ class PlayController(QWidget):
       self.player = player
       self.cat = cat
       self.playing = False
+      self.playQueue = []
       player.listener.stopped.connect(self.ended)
       self.playButtons = []
       self.stopButtons = []
       self.fadeButtons = []
+      self.sliderPanels = []
+      self.kbdChoosers = []
 
       layout = QHBoxLayout()
 
@@ -861,6 +878,10 @@ class PlayController(QWidget):
             self.stopButtons.append( client.stopButton )
          if client.fadeButton:
             self.fadeButtons.append( client.fadeButton )
+      elif isinstance(client,SliderPanel):
+         self.sliderPanels.append( client )
+      elif isinstance(client,KeyboardChooser):
+         self.kbdChoosers.append( client )
 
    def removeClient(self,client):
       if isinstance(client,PlayerWidget):
@@ -869,6 +890,10 @@ class PlayController(QWidget):
             self.stopButtons.remove( client.stopButton )
          if client.fadeButton:
             self.fadeButtons.remove( client.fadeButton )
+      elif isinstance(client,SliderPanel):
+         self.sliderPanels.remove( client )
+      elif isinstance(client,KeyboardChooser):
+         self.kbdChoosers.remove( client )
 
    def playMusic(self, playwid ):
       if not self.playing and playwid.playable:
@@ -890,14 +915,35 @@ class PlayController(QWidget):
          self.stop.enable()
          self.fade.enable()
 
+         if isinstance(playwid.playable,cpmodel.Record):
+            self.playQueue.append( playwid.playable )
+         elif isinstance(playwid.playable,cpmodel.Playlist):
+            for record in playwid.playable:
+               self.playQueue.append( record )
+         else:
+            raise ChurchPlayerError("\n\nPlayController.playMusic: "
+                        "playable is neither a Record nor a PlayList")
+
+         self.playNextRecord()
+
+   def playNextRecord(self ):
+      if self.playQueue:
+         record = self.playQueue.pop(0)
+         for span in self.sliderPanels:
+            span.setFromRow( record.irow )
+         for kch in self.kbdChoosers:
+            kch.setFromRow( record.irow )
+
+         self.player.play( record )
          self.playing = True
-         self.player.play( playwid.playable, cpmodel.STOP )
 
    def stopMusic(self):
+      self.playQueue = []
       if self.playing:
          self.player.stop( cpmodel.STOP )
 
    def fadeMusic(self):
+      self.playQueue = []
       if self.playing:
          self.player.stop( cpmodel.FADE )
 
@@ -905,19 +951,22 @@ class PlayController(QWidget):
    @pyqtSlot()
    def ended(self):
       if self.playing:
-         for playbutton in self.playButtons:
-            playbutton.enable()
+         if self.playQueue:
+            self.playNextRecord()
+         else:
+            for playbutton in self.playButtons:
+               playbutton.enable()
 
-         for stopbutton in self.stopButtons:
-            stopbutton.disable()
+            for stopbutton in self.stopButtons:
+               stopbutton.disable()
 
-         for fadebutton in self.fadeButtons:
-            fadebutton.disable()
+            for fadebutton in self.fadeButtons:
+               fadebutton.disable()
 
-         self.stop.disable()
-         self.fade.disable()
+            self.stop.disable()
+            self.fade.disable()
 
-         self.playing = False
+            self.playing = False
 
    def stopper(self, event ):
       self.stopMusic()
@@ -931,12 +980,13 @@ class MainWidget(QWidget):
    def __init__( self, parent, player, cat ):
       QWidget.__init__( self, parent )
       self.player = player
+      sliders = SliderPanel( self, player, store=True )
 
       layout = QHBoxLayout()
 
       leftpanel = QVBoxLayout()
       leftpanel.setContentsMargins( 30, 10, 30, 10 )
-      self.service = Service( self, self.player )
+      self.service = Service( self, self.player, sliders )
       leftpanel.addWidget( self.service )
 
       stopetc = QHBoxLayout()
@@ -950,7 +1000,7 @@ class MainWidget(QWidget):
 
       rightpanel = QVBoxLayout()
 
-      sliders = SliderPanel( self, player )
+      player.addClient( sliders )
       rightpanel.addWidget( sliders )
       layout.addLayout( rightpanel )
 
@@ -1191,7 +1241,7 @@ class PlayerButton(QLabel):
 
 # ----------------------------------------------------------------------
 class PlayerWidget(QWidget):
-   def __init__(self,parent,player,playable=None,stop=True,fade=False,size=35,cat=None):
+   def __init__(self,parent,player,playable=None,stop=True,fade=False,size=35,cat=None,sliders=None):
       QWidget.__init__(self,parent)
       self.player = player
       if cat:
@@ -1202,6 +1252,7 @@ class PlayerWidget(QWidget):
       self.layout = QHBoxLayout()
       self.layout.setSpacing(0)
       self.layout.addStretch()
+      self.sliderpanel = sliders
 
       self.playButton = PlayerButton( self, False, False, 'icons/Play.png',
                                       'icons/Play-disabled.png', size )
@@ -1288,6 +1339,8 @@ class PlayerWidget(QWidget):
 
    def play(self, event ):
       if self.playButton.enabled:
+         if self.sliderpanel:
+            self.sliderpanel.setPlayerWidget( self )
          self.player.playMusic( self )
 
    def stop(self, event):
@@ -1506,396 +1559,6 @@ class CatLabel(QLabel,CatItem):
 
 
 
-class PlayerControl(QLabel):
-
-   def __init__(self,parent,type,record,player,row):
-      super(PlayerControl, self).__init__(parent)
-      self.record = record;
-      self.player = player;
-      self.parent = parent
-      self.row = row
-      self.type = type
-
-      if type == 'p':
-         handler = self.play
-         tip = "Click to play {0}".format(record.title)
-         self.enable()
-      elif type == 's':
-         handler = self.stop
-         tip = "Click to stop playing {0}".format(record.title)
-         self.disable()
-      elif type == 'c':
-         handler = self.toggleSelect
-         tip = "Click to select or unselect {0}".format(record.title)
-         self.disable()
-
-      self.setAlignment(Qt.AlignHCenter)
-      self.mouseReleaseEvent = handler
-      self.setToolTip(tip)
-
-   def play(self, event ):
-      if self.enabled:
-         self.parent.play( self.row )
-         self.player.play( self.record, cpmodel.STOP )
-
-
-   def stop(self, event):
-      if self.enabled:
-         self.parent.stop( self.row )
-         self.player.stop( cpmodel.STOP )
-
-   def toggleSelect(self, event):
-      if self.enabled:
-         self.parent.rowDeselect( self.row )
-         self.disable()
-      else:
-         self.parent.rowSelect( self.row )
-         self.enable()
-
-   def enable(self):
-      self.enabled = True
-      self._setPixmap()
-
-   def disable(self):
-      self.enabled = False
-      self._setPixmap()
-
-   def _setPixmap(self):
-      if self.type == 'p':
-         if self.enabled:
-            file = 'icons/Play.png'
-         else:
-            file = 'icons/Play-disabled.png'
-
-      elif self.type == 's':
-         if self.enabled:
-            file = 'icons/Stop.png'
-         else:
-            file = 'icons/Stop-disabled.png'
-
-      elif self.type == 'c':
-         if self.enabled:
-            file = 'icons/Select.jpg'
-         else:
-            file = 'icons/Select-disabled.jpg'
-
-      else:
-         file = None
-
-      if file:
-         pixmap = QPixmap(file).scaledToHeight( 20, Qt.SmoothTransformation )
-         self.setPixmap(pixmap)
-
-
-
-
-class CatTable(QTableWidget):
-   def __init__(self, cat, controls="", player=None ):
-
-      if player:
-         ncontrol = len(controls)
-      else:
-         ncontrol = 0
-      self.ncol = ncontrol+cat.ncol
-
-      QTableWidget.__init__(self, cat.nrow, self.ncol )
-      self.cat = cat
-      self.player = player
-      self.verticalHeader().setVisible(False);
-      headers = QStringList()
-      self.widthHints = []
-
-      self.selectCol = -1
-      for i in range(ncontrol):
-         headers.append("")
-         self.widthHints.append(0)
-         if controls[i] == 'c':
-            self.selectCol = i
-
-      n = 0
-      for key in cat.colnames:
-         hitem = QString(key)
-         headers.append(hitem)
-
-         widthHint = 0
-         m = 0
-         for item in cat[key]:
-            if cat.midifiles[ m ]:
-               newitem = CatItem.create(self, cat, m, n )
-               self.setCellWidget( m, n+ncontrol, newitem )
-               w = newitem.widthHint()
-               if w > widthHint:
-                  widthHint = w
-            else:
-               newitem = QTableWidgetItem(item)
-               newitem.setFlags( Qt.NoItemFlags )
-               self.setItem( m, n+ncontrol, newitem )
-
-            m += 1
-
-         self.widthHints.append(widthHint)
-         n += 1
-
-      ipath = cat.colnames.index('PATH')+ncontrol
-      for irow in range(cat.nrow):
-         if not cat.midifiles[ irow ]:
-            if ipath > 1:
-               self.setSpan( irow, 0, 1, ipath )
-            self.setSpan( irow, ipath + 1, 1, self.ncol-ipath-1 )
-            newitem = QTableWidgetItem("<-- This appears not to be a "
-                                       "standard MIDI file!" )
-            self.setItem( irow, ipath+1, newitem )
-            newitem.setFlags( Qt.NoItemFlags )
-
-
-      self.setHorizontalHeaderLabels( headers )
-      self.horizontalHeader().setMinimumSectionSize( 30 )
-      self.setFocusPolicy( Qt.StrongFocus )
-
-      if ncontrol:
-         icol = 0
-         for con in controls:
-            for irow in range(cat.nrow):
-               if cat.midifiles[ irow ]:
-
-                  if con == "p":
-                     control = PlayerWidget(self, self.player, cat.getRecord(irow))
-                  elif con == "c":
-                     control = PlayerControl( self, con, cat.getRecord(irow),
-                                              self.player, irow  )
-
-                  self.setCellWidget( irow, icol, control )
-
-            icol += 1
-
-
-      self.resizeColumnsToContents()
-      self.resizeRowsToContents()
-      self.setSelectionBehavior(QAbstractItemView.SelectRows)
-      self.setSelectionMode(QAbstractItemView.NoSelection)
-
-   def sizeHintForColumn(self,icol):
-      if self.widthHints[icol] > 0:
-         return self.widthHints[icol]
-      else:
-         return super(CatTable,self).sizeHintForColumn(icol)
-
-   def sizeHintForRow(self,irow):
-      if self.cat.midifiles[ irow ]:
-         userow = irow
-      else:
-         userow = 0
-      return super(CatTable,self).sizeHintForRow(userow)
-
-   def selectAll(self):
-      if self.selectCol > -1:
-         for irow in range(self.rowCount()):
-            wdg = self.cellWidget(irow, self.selectCol)
-            if isinstance(wdg, PlayerControl):
-               if not wdg.enabled:
-                  wdg.enable()
-                  self.rowSelect( irow )
-      super(CatTable,self).selectAll()
-
-
-   def deselectRow(self,irow):
-      if self.selectCol > -1:
-         wdg = self.cellWidget(irow, self.selectCol)
-         if isinstance(wdg, PlayerControl):
-            if wdg.enabled:
-               wdg.disable()
-               self.rowDeselect( irow )
-
-   def selectRow(self,irow):
-      if self.selectCol > -1:
-         wdg = self.cellWidget(irow, self.selectCol)
-         if isinstance(wdg, PlayerControl):
-            if not wdg.enabled:
-               wdg.enable()
-               self.rowSelect( irow )
-
-   def clearSelection(self):
-      for irow in range(self.rowCount()):
-         self.deselectRow( irow )
-      super(CatTable,self).clearSelection()
-
-   def rowSelect( self, row ):
-      range = QTableWidgetSelectionRange( row, 0, row, self.ncol - 1 )
-      self.setRangeSelected( range, True )
-
-   def rowDeselect( self, row ):
-      range = QTableWidgetSelectionRange( row, 0, row, self.ncol - 1 )
-      self.setRangeSelected( range, False )
-
-   def stop( self, row ):
-      self.clearSelection()
-      for irow in range(self.cat.nrow):
-         if self.cat.midifiles[ irow ]:
-            for icol in range(self.cat.ncol):
-               item = self.item( irow, icol )
-               if item:
-                  flags = item.flags() | Qt.ItemIsSelectable | Qt.ItemIsEnabled
-                  item.setFlags( flags )
-               else:
-                  wdg = self.cellWidget( irow, icol )
-                  if isinstance( wdg, PlayerControl ):
-                     if wdg.type == 'p':
-                        wdg.enable()
-                     else:
-                        wdg.disable()
-
-   def play( self, row ):
-      self.clearSelection()
-      for irow in range(self.cat.nrow):
-         if self.cat.midifiles[ irow ]:
-            for icol in range(self.cat.ncol):
-               item = self.item( irow, icol )
-               if item:
-                  flags = item.flags() & ~Qt.ItemIsSelectable & ~Qt.ItemIsEnabled
-                  item.setFlags( flags )
-               else:
-                  wdg = self.cellWidget( irow, icol )
-                  if isinstance( wdg, PlayerControl ):
-                     if wdg.type == 'p':
-                        wdg.disable()
-                     elif irow == row:
-                        wdg.enable()
-
-   def catItemChanged(self, catitem ):
-      self.selectRow( catitem.irow )
-
-
-
-class CatWidget(QWidget):
-   def __init__( self, parent, cat, headtext=None, controls=None,
-                 player=None ):
-      super(CatWidget, self).__init__(parent)
-      self.setSizePolicy( QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding )
-
-      self.cat = cat
-      self.headtext = headtext
-      self.controls = controls
-      self.player = player
-
-      self.vbox = QVBoxLayout()
-
-      self.head = self.makeHead()
-      add( self.vbox, self.head )
-
-      self.centre = self.makeCentre()
-      add( self.vbox, self.centre )
-
-      self.foot = self.makeFoot()
-      add( self.vbox, self.foot )
-
-      self.setLayout(self.vbox)
-
-   def makeHead(self):
-      if self.headtext:
-         text = self.headtext
-      else:
-         text = ""
-      return QLabel( text )
-
-   def makeCentre(self):
-      return self.makeTable()
-
-   def makeFoot(self):
-      buttonbox = QHBoxLayout()
-      self.addButtons( buttonbox )
-      return buttonbox
-
-   def makeTable(self):
-      self.table = CatTable( self.cat, self.controls, self.player )
-      return self.table
-
-   def addButtons(self, buttonbox ):
-      buttonbox.addStretch(1)
-      ok = QPushButton('OK', self)
-      ok.setToolTip("Close this dialog without any further action")
-      ok.clicked.connect(self.close)
-      buttonbox.addWidget( ok )
-
-
-
-
-class ImportWidget(CatWidget):
-
-   headtext = "\nEdit the cell contents in the following table to show the required values, and then select the required rows and press 'Import' to add them to the music catalogue.\n"
-   dialog = None
-
-   def __init__( self, parent, dialog, fromcat, tocat ):
-      self.tocat = tocat
-      self.fromcat = fromcat
-      self.dialog = dialog
-      self.player = parent.player
-      heading = "{0} uncatalogued music files found.\n{1}".format(fromcat.nrow,self.headtext)
-      super(ImportWidget, self).__init__(parent, fromcat, heading,
-                                         "cps", self.player )
-
-   def addButtons(self, buttonbox ):
-      selectAll = QPushButton('Select All', self)
-      selectAll.setToolTip("Select all available rows for importing")
-      selectAll.clicked.connect( self.table.selectAll )
-      buttonbox.addWidget( selectAll )
-
-      deselectAll = QPushButton('Deselect All', self)
-      selectAll.setToolTip("Deselect all rows")
-      deselectAll.clicked.connect( self.table.clearSelection)
-      buttonbox.addWidget( deselectAll )
-
-      buttonbox.addStretch(1)
-
-      importSelected = QPushButton('Import Selected', self)
-      importSelected.setToolTip("Import selected rows into the music "
-                                "catalogue, keeping this dialog open.")
-      importSelected.clicked.connect(self.importSelected)
-      buttonbox.addWidget( importSelected )
-
-      importAll = QPushButton('Import All', self)
-      importAll.setToolTip("Import all available rows into the music "
-                           "catalogue and close this dialog")
-      importAll.clicked.connect(self.importAll)
-      buttonbox.addWidget( importAll )
-
-      ok = QPushButton('OK', self)
-      ok.setToolTip("Import any currently selected files into the music "
-                    "catalogue and then close this dialog")
-      ok.clicked.connect(self.oker)
-      buttonbox.addWidget( ok )
-
-      cancel = QPushButton('Cancel', self)
-      cancel.setToolTip("Close this dialog without importing any further "
-                        "files into the music catalogue")
-      cancel.clicked.connect(self.closer)
-      buttonbox.addWidget( cancel )
-
-   def closer(self):
-      self.player.stop( cpmodel.STOP )
-      self.dialog.close()
-
-   def oker(self):
-      self.importSelected()
-      self.dialog.close()
-
-   def importAll(self):
-      self.table.selectAll()
-      self.importSelected()
-      self.dialog.close()
-
-   def importSelected(self):
-      for selectedItem in self.table.selectionModel().selectedRows():
-        irow = selectedItem.row()
-        newrow = []
-        for colname in self.fromcat.colnames:
-           newrow.append( self.fromcat[colname][irow] )
-        self.tocat.addrow( newrow )
-
-        self.table.hideRow(irow)
-
-      self.player.stop( cpmodel.STOP )
-
-
 class ImportDialog(QDialog):
 
    def __init__( self, parent, fromcat, tocat ):
@@ -2107,8 +1770,10 @@ def main():
     ex.activateWindow()
 
     print("TO DO:")
+    print("   BUTTONS FOR PLAYING RANDOM MUSIC")
+    print("   ABILITY TO SAVE AND OPEN SERVICES" )
     print("   PANIC BUTTON NEEDS TO SAVE AND RESTORE THE CURRENT SERVICE")
-    print("   MODIFY SOUNDFONT TO CONTAIN A NICE EPIANO AND MORE NICE ORGANS")
+    print("   MODIFY SOUNDFONT TO CONTAIN MORE NICE EPIANOS AND ORGANS")
     print("   CLASSIFY ALL MUSIC" )
     print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
 
