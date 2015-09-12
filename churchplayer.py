@@ -7,6 +7,8 @@ import stat
 import os
 
 NSLOT = 12
+SLOT_HEIGHT = 40
+SLOT_PADDING = 25
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -109,7 +111,6 @@ class KeyboardChooser(QWidget):
       self.pw = playerwidget
 
       layout = QVBoxLayout()
-      self.setLayout( layout )
       self.cb = QComboBox(parent)
       self.gminvmap = {}
       self.gmfwdmap = {}
@@ -126,8 +127,13 @@ class KeyboardChooser(QWidget):
 
       self.setEnabled( False )
       self.cb.setFixedWidth(230)
+      self.cb.setFixedHeight(SLOT_HEIGHT )
       self.cb.currentIndexChanged.connect( self.kbdChanged )
       layout.addWidget( self.cb )
+      self.setLayout( layout )
+
+   def setpw(self,playerwidget):
+      self.pw = playerwidget
 
    def setEnabled(self,enabled):
       if enabled:
@@ -171,7 +177,11 @@ class KeyboardChooser(QWidget):
       return self.oldval
 
    def setFromPlayable( self, playable, map=None ):
-      return self.setFromRow( playable.irow, map )
+      if playable:
+         return self.setFromRow( playable.irow, map )
+      else:
+         self.setEnabled( False )
+         self.oldval = cpmodel.DEFAULT_INSTRUMENT
 
    def setFromRecord( self, record, map ):
       self.ignore = True
@@ -239,8 +249,10 @@ class SliderPanel(QWidget):
       self.setLayout( sliders )
 
    def setFromPlayable( self, playable, map=None ):
-      self.setFromRow( playable.irow, map )
-
+      if playable:
+         self.setFromRow( playable.irow, map )
+      else:
+         self.setFromRow( -1, map )
 
    def setFromRow( self, irow, map=None ):
       self.volumeslider.setFromRow( irow, map )
@@ -699,27 +711,111 @@ class Service(QFrame):
       QFrame.__init__(self,parent)
       self.setFrameStyle( QFrame.Box )
       self.player = player
+      self.sliderpanel = sliderpanel
       self.tempfile = "tempService"
+      self.items = []
+      self.changed = False
+      self.path = None
 
-      grid = QGridLayout()
-      grid.setContentsMargins( 5,5,5,5 )
-      grid.setSpacing( 1 )
-
-      j = 0
+      self.grid = QVBoxLayout()
       for i in range(NSLOT):
          item = ServiceItem( self, player, sliderpanel )
-         grid.addWidget( item.pw, j, 0, Qt.AlignLeft )
-         grid.addWidget( item.desc, j, 1, Qt.AlignLeft )
-         grid.addWidget( item.kbdChooser, j, 2, Qt.AlignRight | Qt.AlignTop )
-         j += 1
+         self.grid.addWidget( item )
 
-      grid.setColumnMinimumWidth( 0, 0 )
-      grid.setColumnStretch( 1, 10 )
-      self.setLayout( grid )
+      self.grid.addStretch( 10 )
+      self.setLayout( self.grid )
       self.setStyleSheet("background-color:#eeeeee;")
+      self.setFixedHeight( NSLOT*(SLOT_HEIGHT+SLOT_PADDING) )
+
+   def uper(self, item ):
+      self.changed = True
+      print("up ",item)
+
+   def downer(self, item ):
+      self.changed = True
+      print("down ",item)
+
+   def remover(self, item ):
+      if self.grid.count() == 1:
+         showMessage("You are not allowed to remove the last slot")
+      else:
+         sindex = self.grid.indexOf( item )
+         if sindex >= 0:
+            self.changed = True
+            self.grid.takeAt( sindex )
+            self.grid.invalidate()
+            self.grid.repaint()
+            self.grid.update()
+         else:
+            print("!!!!  service.remover: serviceitem not found")
+
+   def adder(self, item ):
+      if self.grid.count() >= NSLOT:
+         showMessage("No room for any more slots")
+      else:
+         sindex = self.grid.indexOf( item )
+         if sindex >= 0:
+            self.addItemAt( sindex )
+         else:
+            print("!!!!  service.adder: serviceitem not found")
+
+   def addItemAt(self, sindex ):
+      if sindex < 0:
+         sindex = self.grid.count()
+      self.changed = True
+      item = ServiceItem( self, self.player, self.sliderpanel )
+      self.grid.insertWidget( sindex, item )
+      self.grid.invalidate()
+      self.grid.repaint()
+      self.grid.update()
+      return item
 
    def saveTemp(self):
       print("Service.saveTemp() not yet implemented!!")
+
+   def save(self):
+      if self.path:
+         defpath = self.path
+      else:
+         defpath = "services/"
+      self.path = QFileDialog.getSaveFileName(self, "Save service",
+                        defpath, "Images (*.srv)");
+
+      if self.path:
+         self.path = str( self. path )
+         if not self.path.endswith(".srv"):
+            self.path += ".srv"
+         self.saveAs(self.path)
+
+   def saveAs( self, path ):
+      fd = open( path, "w" );
+      for sindex in range(self.grid.count()):
+         item = self.grid.itemAt( sindex ).widget()
+         if item and isinstance( item, ServiceItem ):
+            fd.write(str(item)+"\n")
+      fd.close()
+
+   def loadFrom( self, path ):
+      fd = open( path, "r" );
+      sindex = 0
+      for line in fd:
+         line = line.strip()
+
+         item = None
+         while not item or not isinstance( item, ServiceItem ):
+            if sindex < self.grid.count():
+               item = self.grid.itemAt( sindex ).widget()
+            else:
+               item = addItemAt( -1 )
+            sindex += 1
+
+         if line:
+            rows = []
+            for srow in line.split(","):
+               rows.append( int( srow ) )
+            item.setPlaylist( self.player.cat.makePlaylist( rows ) )
+
+      fd.close()
 
 # ----------------------------------------------------------------------
 class PanicButton(QPushButton):
@@ -792,10 +888,13 @@ class CPSlider(QWidget):
    def setFromRow( self, irow, map=None ):
       self.ignore = True
       self.irow = irow
-      if map and irow in map:
+      if irow < 0:
+         self.oldval = 0
+      elif map and irow in map:
          self.oldval = map[ irow ]
       else:
          self.oldval =  int( self.player.cat[self.colname][irow] )
+
       self.slider.setValue( self.oldval )
       self.spin.setValue( self.oldval )
       self.ignore = False
@@ -803,7 +902,7 @@ class CPSlider(QWidget):
 
    def saveToMap( self, mymap ):
       newval = self.slider.value()
-      if newval != self.oldval:
+      if self.irow >= 0 and newval != self.oldval:
          mymap[self.irow] = newval
 
 
@@ -811,23 +910,73 @@ class CPSlider(QWidget):
 class ServiceItem(QWidget):
    def __init__(self,parent,player,sliderpanel):
       QWidget.__init__(self,parent)
+
+      self.service = parent
       self.player = player
       self.sliderpanel = sliderpanel
+      self.kbdChooser = KeyboardChooser( self, player, store=True  )
       self.playlist = None
+      self.clear = PlayerButton( self, True, True, 'icons/empty.png',
+                                 None, self.clearer, 20, "Empty this slot" )
+      self.up = PlayerButton( self, True, True, 'icons/arrow-up.png',
+                              None, self.uper, 20, "Move this slot up"  )
+      self.down = PlayerButton( self, True, True, 'icons/arrow-down.png',
+                                None, self.downer, 20, "Move this slot down"  )
+      self.remove = PlayerButton( self, True, True, 'icons/cross.png',
+                                  None, self.remover, 20, "Delete this slot"  )
+      self.add = PlayerButton( self, True, True, 'icons/Plus.png',
+                               None, self.adder, 20, "Add a new slot before this slot"  )
+      self.pw = PlayerWidget(self,player,stop=False,sliders=sliderpanel,
+                             kbdChooser=self.kbdChooser)
+      self.kbdChooser.setpw( self.pw )
 
-      self.pw = PlayerWidget(self,player,stop=False,sliders=sliderpanel)
 
       self.desc = QLabel("Click here to choose music", self )
       self.desc.setFixedWidth(600)
+      self.desc.setFixedHeight(SLOT_HEIGHT)
       self.desc.setToolTip("The music played when the play-button is clicked")
       self.desc.mouseReleaseEvent = self.musicChooser
       self.desc.setFrameStyle( QFrame.Panel | QFrame.Sunken )
-      self.kbdChooser = KeyboardChooser( self, player, playerwidget=self.pw, store=True  )
-      player.addClient( self.kbdChooser )
+
+      layout = QHBoxLayout()
+      layout.addWidget( self.pw, 1, Qt.AlignLeft )
+      layout.addWidget( self.desc, 10, Qt.AlignLeft )
+      layout.addWidget( self.kbdChooser, 1 )
+      layout.addWidget( self.clear, 1, Qt.AlignRight )
+      layout.addWidget( self.up, 1, Qt.AlignRight )
+      layout.addWidget( self.down, 1, Qt.AlignRight )
+      layout.addWidget( self.remove, 1, Qt.AlignRight )
+      layout.addWidget( self.add, 1, Qt.AlignRight )
+      self.setLayout( layout )
+
+   def clearer(self, event ):
+      self.service.changed = True
+      self.setPlaylist( None )
+
+   def uper(self, event ):
+      self.service.changed = True
+      self.service.uper( self )
+
+   def downer(self, event ):
+      self.service.changed = True
+      self.service.downer( self )
+
+   def remover(self, event ):
+      self.service.changed = True
+      self.pw.finish()
+      self.service.remover( self )
+
+   def adder(self, event ):
+      self.service.changed = True
+      self.service.adder( self )
 
    def musicChooser(self, event):
-      ed = SearchDialog(self,self.player,self)
-      ed.exec_()
+      if not self.playlist:
+         ed = SearchDialog(self,self.player,self)
+         ed.exec_()
+      else:
+         self.kbdChooser.setFromPlayable( self.playlist )
+         self.sliderpanel.setFromPlayable( self.playlist )
 
    def setPlaylist( self, playlist ):
       self.playlist = playlist
@@ -837,8 +986,22 @@ class ServiceItem(QWidget):
          self.kbdChooser.setFromPlayable( playlist )
          self.sliderpanel.setFromPlayable( playlist )
       else:
-         self.desc.setText("Click here to choose music", self )
+         self.desc.setText("Click here to choose music" )
+         self.kbdChooser.setFromPlayable( None )
+         self.sliderpanel.setFromPlayable( None )
+      self.service.changed = True
 
+   def __str__(self):
+      result = None
+      if self.playlist:
+         for record in self.playlist:
+            if result:
+               result = "{0},{1}".format(result,record.irow)
+            else:
+               result = "{0}".format(record.irow)
+      else:
+         result = ""
+      return result
 
 # ----------------------------------------------------------------------
 class PlayController(QWidget):
@@ -853,19 +1016,17 @@ class PlayController(QWidget):
       self.stopButtons = []
       self.fadeButtons = []
       self.sliderPanels = []
-      self.kbdChoosers = []
+      self.kbdChooser = None
 
       layout = QHBoxLayout()
 
       self.stop = PlayerButton( self, True, False, 'icons/Stop.png',
-                                'icons/Stop-disabled.png' )
+                                'icons/Stop-disabled.png', self.stopper )
       self.stop.setToolTip("Stop the currently playing music abruptly")
-      self.stop.mouseReleaseEvent = self.stopper
       layout.addWidget( self.stop )
 
       self.fade = PlayerButton( self, True, False, 'icons/Fade.png',
-                                'icons/Fade-disabled.png' )
-      self.fade.mouseReleaseEvent = self.fader
+                                'icons/Fade-disabled.png', self.fader )
       self.fade.setToolTip("Fade out the currently playing music slowly")
       layout.addWidget( self.fade )
 
@@ -880,8 +1041,9 @@ class PlayController(QWidget):
             self.fadeButtons.append( client.fadeButton )
       elif isinstance(client,SliderPanel):
          self.sliderPanels.append( client )
-      elif isinstance(client,KeyboardChooser):
-         self.kbdChoosers.append( client )
+
+   def setKbdChooser( self, chooser ):
+      self.kbdChooser = chooser
 
    def removeClient(self,client):
       if isinstance(client,PlayerWidget):
@@ -892,8 +1054,6 @@ class PlayController(QWidget):
             self.fadeButtons.remove( client.fadeButton )
       elif isinstance(client,SliderPanel):
          self.sliderPanels.remove( client )
-      elif isinstance(client,KeyboardChooser):
-         self.kbdChoosers.remove( client )
 
    def playMusic(self, playwid ):
       if not self.playing and playwid.playable:
@@ -929,11 +1089,11 @@ class PlayController(QWidget):
    def playNextRecord(self ):
       if self.playQueue:
          record = self.playQueue.pop(0)
-         for span in self.sliderPanels:
-            span.setFromRow( record.irow )
-         for kch in self.kbdChoosers:
-            kch.setFromRow( record.irow )
-
+         if self.sliderPanels:
+            for span in self.sliderPanels:
+               span.setFromRow( record.irow )
+         if  self.kbdChooser:
+            self.kbdChooser.setFromRow( record.irow )
          self.player.play( record )
          self.playing = True
 
@@ -1005,8 +1165,6 @@ class MainWidget(QWidget):
       layout.addLayout( rightpanel )
 
       self.setLayout( layout )
-
-
 
 
 # ----------------------------------------------------------------------
@@ -1202,12 +1360,18 @@ class PlayerListener(QThread):
 
 # ----------------------------------------------------------------------
 class PlayerButton(QLabel):
-   def __init__(self,parent,alive,enabled,enabledFile,disabledFile,size=35):
+   def __init__(self,parent,alive,enabled,enabledFile,disabledFile,onClick,size=35,tip=None):
       QLabel.__init__(self,parent)
       self.enabledPixmap = QPixmap(enabledFile).scaledToHeight( size, Qt.SmoothTransformation )
-      self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( size, Qt.SmoothTransformation )
+      if disabledFile:
+         self.disabledPixmap = QPixmap(disabledFile).scaledToHeight( size, Qt.SmoothTransformation )
+      else:
+         self.disabledPixmap = self.enabledPixmap
+      if tip:
+         self.setToolTip( tip )
       self.setAlignment(Qt.AlignHCenter)
       self.setFixedSize( size*1.1, size*1.1 )
+      self.mouseReleaseEvent = onClick
       self.alive = alive
       if alive:
          if enabled:
@@ -1241,7 +1405,7 @@ class PlayerButton(QLabel):
 
 # ----------------------------------------------------------------------
 class PlayerWidget(QWidget):
-   def __init__(self,parent,player,playable=None,stop=True,fade=False,size=35,cat=None,sliders=None):
+   def __init__(self,parent,player,playable=None,stop=True,fade=False,size=35,cat=None,sliders=None,kbdChooser=None):
       QWidget.__init__(self,parent)
       self.player = player
       if cat:
@@ -1253,24 +1417,25 @@ class PlayerWidget(QWidget):
       self.layout.setSpacing(0)
       self.layout.addStretch()
       self.sliderpanel = sliders
+      self.kbdChooser = kbdChooser
 
       self.playButton = PlayerButton( self, False, False, 'icons/Play.png',
-                                      'icons/Play-disabled.png', size )
-      self.playButton.mouseReleaseEvent = self.play
+                                      'icons/Play-disabled.png', self.play,
+                                      size )
       self.layout.addWidget(self.playButton)
 
       if stop:
          self.stopButton = PlayerButton( self, False, False, 'icons/Stop.png',
-                                         'icons/Stop-disabled.png', size )
-         self.stopButton.mouseReleaseEvent = self.stop
+                                         'icons/Stop-disabled.png',
+                                         self.stop, size )
          self.layout.addWidget(self.stopButton)
       else:
          self.stopButton = None
 
       if fade:
          self.fadeButton = PlayerButton( self, False, False, 'icons/Fade.png',
-                                         'icons/Fade-disabled.png', size )
-         self.fadeButton.mouseReleaseEvent = self.fade
+                                         'icons/Fade-disabled.png',
+                                         self.fade, size )
          self.layout.addWidget(self.fadeButton)
       else:
          self.fadeButton = None
@@ -1338,25 +1503,28 @@ class PlayerWidget(QWidget):
             self.fadeButton.setToolTip("")
 
    def play(self, event ):
-      if self.playButton.enabled:
+      if self.playButton and self.playButton.enabled:
          if self.sliderpanel:
             self.sliderpanel.setPlayerWidget( self )
+         if self.kbdChooser:
+            self.player.setKbdChooser( self.kbdChooser )
          self.player.playMusic( self )
 
    def stop(self, event):
-      if self.stopButton.enabled:
+      if self.stopButton and self.stopButton.enabled:
          self.player.stopMusic()
 
    def fade(self, event):
-      if self.fadeButton.enabled:
+      if self.fadeButton and self.fadeButton.enabled:
          self.player.fadeMusic()
 
    def finish(self):
       self.stop(None)
       self.player.removeClient( self )
+      self.player.setKbdChooser( None )
 
    def __del__(self):
-      print("XXXXXXXX")
+      print("!!!!!!!!  PlayerWidget.__del__ called")
 
 # ------------------------------------------------------------------------
 # ------------------------------------------------------------------------
@@ -1593,23 +1761,27 @@ class ChurchPlayer(QMainWindow):
       exitAction.setStatusTip('Exit application')
       exitAction.triggered.connect(self.exit)
 
-      classifyAction = QAction(QIcon('icons/Tick.png'), '&Classify', self)
-      classifyAction.setStatusTip('Classify music')
-      classifyAction.triggered.connect(self.classify)
-      classifyAction.setShortcut('Ctrl+L')
+      saveAction = QAction(QIcon('icons/Save.png'), '&Save', self)
+      saveAction.setStatusTip('Save the current service')
+      saveAction.triggered.connect(self.save)
 
-#      openAction = QAction(QIcon('icons/Open.png'), '&Open', self)
-#      openAction.setStatusTip('Open an existing service or playlist')
-#      openAction.triggered.connect(self.open)
-
-      saveCatAction = QAction(QIcon('icons/SaveCat.png'), '&Save Catalogue', self)
-      saveCatAction.setStatusTip('Save the music catalogue to disk')
-      saveCatAction.triggered.connect(self.saveCatalogue)
+      openAction = QAction(QIcon('icons/Open.png'), '&Open', self)
+      openAction.setStatusTip('Open an existing service or playlist')
+      openAction.triggered.connect(self.open)
 
       scanAction = QAction( '&Scan', self)
       scanAction.setShortcut('Ctrl+I')
       scanAction.setStatusTip('Scan the music directory for uncatalogued MIDI files')
       scanAction.triggered.connect(self.scan)
+
+      classifyAction = QAction(QIcon('icons/Tick.png'), '&Classify', self)
+      classifyAction.setStatusTip('Classify music')
+      classifyAction.triggered.connect(self.classify)
+      classifyAction.setShortcut('Ctrl+L')
+
+      saveCatAction = QAction(QIcon('icons/SaveCat.png'), '&Save Catalogue', self)
+      saveCatAction.setStatusTip('Save the music catalogue to disk')
+      saveCatAction.triggered.connect(self.saveCatalogue)
 
 #  Set up status bar
       self.statusBar()
@@ -1617,7 +1789,8 @@ class ChurchPlayer(QMainWindow):
 #  Set up menu bar
       menubar = self.menuBar()
       fileMenu = menubar.addMenu('&File')
-#      fileMenu.addAction(openAction)
+      fileMenu.addAction(saveAction)
+      fileMenu.addAction(openAction)
       fileMenu.addAction(exitAction)
 
       catMenu = menubar.addMenu('&Catalogue')
@@ -1629,11 +1802,12 @@ class ChurchPlayer(QMainWindow):
       toolbar = self.addToolBar('tools')
       toolbar.addAction(exitAction)
       toolbar.addAction(classifyAction)
-#      toolbar.addAction(openAction)
+      toolbar.addAction(saveAction)
+      toolbar.addAction(openAction)
 
 #  The central widget
-      pw = MainWidget( self, self.player, cat )
-      self.setCentralWidget( pw )
+      self.mw = MainWidget( self, self.player, cat )
+      self.setCentralWidget( self.mw )
 
 #  Set up the main window.
       self.setWindowTitle('Church Player')
@@ -1663,6 +1837,7 @@ class ChurchPlayer(QMainWindow):
 #  ---------------------------------------------------------------
    def exit(self, e ):
       doexit = True
+
       if self.cat.modified:
          ret = QMessageBox.warning(self, "Warning",
                 '''The music catalogue has been modified.\nDo you want to save your changes?''',
@@ -1671,7 +1846,17 @@ class ChurchPlayer(QMainWindow):
             self.cat.save()
          elif ret == QMessageBox.Cancel:
             doexit = False
-      else:
+
+      if self.mw.service.changed:
+         ret = QMessageBox.warning(self, "Warning",
+                '''The service details have been modified.\nDo you want to save your changes?''',
+                QMessageBox.Save, QMessageBox.Discard, QMessageBox.Cancel)
+         if ret == QMessageBox.Save:
+            self.mw.service.save()
+         elif ret == QMessageBox.Cancel:
+            doexit = False
+
+      if doexit:
          ret = QMessageBox.question(self, "Confirm Exit...",
 				  "Are you sure you want to exit?",
 				  QMessageBox.Yes| QMessageBox.No)
@@ -1688,17 +1873,23 @@ class ChurchPlayer(QMainWindow):
 #  Save the catalogue.
 #  ---------------------------------------------------------------
    def saveCatalogue(self, e ):
-      result = QMessageBox.question(self, "Confirm Save...",
-				  "Are you sure you want to save the catalogue?",
-				  QMessageBox.Yes| QMessageBox.No)
-      if result == QMessageBox.Yes:
-         self.cat.save()
+      self.cat.save()
 
 #  ---------------------------------------------------------------
-#  Open a playlist or service.
+#  Open service.
 #  ---------------------------------------------------------------
    def open(self, e ):
-      print( "Opening...")
+      path = QFileDialog.getOpenFileName( self, "Load existing service",
+                         "services/", "Images (*.srv)")
+      if path:
+         self.mw.service.loadFrom( path )
+
+
+#  ---------------------------------------------------------------
+#  Save a service.
+#  ---------------------------------------------------------------
+   def save(self, e ):
+      self.mw.service.save()
 
 
 #  ---------------------------------------------------------------
@@ -1776,6 +1967,9 @@ def main():
     print("   MODIFY SOUNDFONT TO CONTAIN MORE NICE EPIANOS AND ORGANS")
     print("   CLASSIFY ALL MUSIC" )
     print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
+    print("   IMPLEMENT HANDLERS FOR SERVICEITEM NAVIGATION BUTTONS" )
+    print("   CLICKING ON A USED SERVICE ITEM SHOULD SET THE SLIDERS" )
+    print("   CLOSING WINDOW VIA WINDOW MANAGER CROSS SHOULD SAVE MODS")
 
 #  Ready to run...
     splash.finish(ex)

@@ -55,21 +55,21 @@ t:L Lent
 
 # Data:
 # ----
-Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@@0@0@0@-2
-All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@0@125
-Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@@0@0@0@-1
+Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@None@0@0@-25@-2
+All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@14@125
+Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@None@0@0@0@-1
 Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@JM@STF@2@Extra refrain@KEYBD@STF@@0@0@0@-1
 Eternal God, your love's tremendous glory@stf/3_Eternal_God_your_loves_tremendous_glory.mid@H@STF@3@Highwood@KEYBD@STF@@0@0@0@-1
 Father in heaven@stf/4_Father_in_heaven.mid@MQ@STF@4@Halad@KEYBD@STF@55.55.55.54.@0@0@0@-1
 Father, in whom we live@stf/5_Father_in_whom_we_live.mid@H@STF@5@St Mary@KEYBD@STF@66.86.D.@0@0@0@-1
 Father, we love you@stf/6_Father_we_love_you.mid@MQ@STF@6@@KEYBD@STF@@0@0@0@-1
 God who made the stars of heaven@stf/7_God_who_made_the_stars_of_heaven.mid@@STF@7@Thian Beng@KEYBD@STF@85.85.85.75.@0@0@0@-1
-God with us@stf/8_God_with_us.mid@HN@STF@8@Ode to Joy@KEYBD@STF@@0@0@0@-1
+God with us@stf/8_God_with_us.mid@HN@STF@8@Ode to Joy@KEYBD@STF@None@0@0@0@-1
 Hail! Holy, holy, holy Lord!@stf/9_Hail_Holy_holy_holy_Lord.mid@H@STF@9@Dunfermline@KEYBD@STF@86.86.@0@0@0@121
-Holy, holy@stf/10_Holy_holy_Fellingham.mid@MQ@STF@10@Fellingham@KEYBD@STF@@0@0@0@-1
+Holy, holy@stf/10_Holy_holy_Fellingham.mid@MQ@STF@10@Fellingham@KEYBD@STF@None@0@0@0@-1
 Holy, holy, holy@stf/11_Holy_holy_holy.mid@HJ@STF@11@Nicaea@KEYBD@STF@11.12.12.10.@0@0@0@-1
 Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@HJ@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
-Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@HJ@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
+Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@HJ@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@None@0@0@0@-1
 Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@HJ@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@-16@15@121
 The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@0@0@-1
 We give immortal praise@stf/16_We_give_immortal_praise.mid@HQ@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
@@ -136,7 +136,7 @@ For the music of creation@stf/74_For_the_music_of_creation.mid@@STF@74@Rustingto
 From all that dwell below the skies@stf/75_From_all_that_dwell_below_the_skies.mid@H@STF@75@Lasst Uns Erfreuen@KEYBD@STF@@0@0@0@-1
 Give me joy in my heart@stf/76_Give_me_joy_in_my_heart.mid@@STF@76@Sing Hosanna@KEYBD@STF@@0@0@0@-1
 Give thanks to the Lord@stf/77_Give_thanks_to_the_Lord.mid@M@STF@77@@KEYBD@STF@@0@0@0@-1
-Give thanks with a grateful heart@stf/78_Give_thanks_with_a_grateful_heart.mid@@STF@78@@KEYBD@STF@@0@0@0@-1
+Give thanks with a grateful heart@stf/78_Give_thanks_with_a_grateful_heart.mid@@STF@78@@KEYBD@STF@@0@10@0@4
 I'll praise my maker@stf/79_Ill_praise_my_maker.mid@H@STF@79@Monmouth@KEYBD@STF@88.8.D.@0@0@0@-1
 My God, I am thine@stf/80_My_God_I_am_thine.mid@H@STF@80@Harwich@KEYBD@STF@5.5.11.D.@0@0@0@-1
 Now thank we all our God@stf/81_Now_thank_we_all_our_God_Gracias.mid@@STF@81@Gracias@KEYBD@STF@67.67.66.66.@0@0@0@-1
@@ -154,7 +154,7 @@ The God of Abraham praise@stf/91_The_God_of_Abraham_praise.mid@@STF@91@Leoni@KEY
 Think of a world without any flowers@stf/92_Think_of_a_world_without_any_flowers.mid@H@STF@92@@KEYBD@STF@@0@0@0@-1
 Though the fruit tree doesn't blossom@stf/93_Though_the_fruit_tree_doesnt_blossom.mid@H@STF@93@@KEYBD@STF@@0@0@0@-1
 To God be the glory@stf/94_To_God_be_the_glory.mid@@STF@94@To God Be The Glory@KEYBD@STF@@0@0@0@-1
-We praise you, O God@stf/95_We_praise_you_O_God.mid@@STF@95@@KEYBD@STF@@0@0@0@-1
+We praise you, O God@stf/95_We_praise_you_O_God.mid@@STF@95@@KEYBD@STF@None@0@0@0@-1
 We sing of your glory@stf/96_We_sing_of_your_glory.mid@@STF@96@Rio De La Plata@KEYBD@STF@@0@0@0@-1
 When all your mercies, O my God@stf/97_When_all_your_mercies_O_my_God_Contemplation.mid@@STF@97@Contemplation@KEYBD@STF@86.86.@0@0@0@-1
 When all your mercies, O my God@stf/97_When_all_your_mercies_O_my_God_Harington_Retirement.mid@@STF@97@Harington Retirement@KEYBD@STF@86.86.@0@0@0@-1
@@ -181,12 +181,12 @@ Oh the life of the world@stf/114_Oh_the_life_of_the_world.mid@@STF@114@Life of t
 Praise ye the Lord!@stf/115_Praise_ye_the_Lord.mid@H@STF@115@Justification@KEYBD@STF@@0@0@0@-1
 Sing for God's glory@stf/116_Sing_for_Gods_glory.mid@@STF@116@Lobe den Herren@KEYBD@STF@14.14.4.7.8.@0@0@0@-1
 Sing praise to God who reigns above@stf/117_Sing_praise_to_God_who_reigns_above.mid@@STF@117@Mit Freuden Zart@KEYBD@STF@87.87.88.7.@0@0@0@-1
-Tell me who made all of creation@stf/118_Tell_me_who_made_all_of_creation.mid@@STF@118@@KEYBD@STF@@0@0@0@-1
+Tell me who made all of creation@stf/118_Tell_me_who_made_all_of_creation.mid@@STF@118@@KEYBD@STF@None@0@0@0@-1
 God of Eve and God of Mary@stf/119_God_of_Eve_and_God_of_Mary.mid@@STF@119@Sussex@KEYBD@STF@@0@0@0@-1
 We gladly celebrate and praise@stf/120_We_gladly_celebrate_and_praise.mid@@STF@120@Stracathro@KEYBD@STF@86.86.@0@0@0@-1
-Autumn days when grass is jewelled@stf/121_Autumn_days_when_grass_is_jewelled.mid@@STF@121@I Mustn't Forget@KEYBD@STF@@0@0@0@-1
+Autumn days when grass is jewelled@stf/121_Autumn_days_when_grass_is_jewelled.mid@@STF@121@I Mustn't Forget@KEYBD@STF@None@0@0@0@-1
 God, whose farm is all creation@stf/122_God_whose_farm_is_all_creation.mid@@STF@122@Shipston@KEYBD@STF@@0@0@0@-1
-Come, you thankful people, come@stf/123_Come_you_thankful_people_come.mid@@STF@123@St George's Windsor@KEYBD@STF@77.77.D.@0@0@0@-1
+Come, you thankful people, come@stf/123_Come_you_thankful_people_come.mid@@STF@123@St George's Windsor@KEYBD@STF@77.77.D.@0@-11@0@126
 For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_East_Acklam.mid@@STF@124@East Acklam@KEYBD@STF@84.84.88.84.@0@0@0@-1
 For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_Ar_Hyd_Y_Nos.mid@@STF@124@Ar Hyd Y Nos@KEYBD@STF@84.84.88.84.@0@0@0@-1
 Praise and thanksgiving@stf/125_Praise_and_thanksgiving.mid@@STF@125@Bunessan@KEYBD@STF@55.54.D.@0@0@0@-1
@@ -433,7 +433,7 @@ All hail the power of Jesu's name@stf/342_All_hail_the_power_of_Jesus_name_Diade
 All hail the power of Jesu's name@stf/342_All_hail_the_power_of_Jesus_name_Miles_Lane.mid@@STF@342@Miles Lane@KEYBD@STF@86.86.@0@0@0@-1
 All my days@stf/343_All_my_days.mid@M@STF@343@@KEYBD@STF@@0@0@0@-1
 He became poor@stf/344_He_became_poor.mid@M@STF@344@@KEYBD@STF@@0@0@0@-1
-And can it be@stf/345_And_can_it_be_Sagnia.mid@H@STF@345@Sagnia@KEYBD@STF@@0@0@0@-1
+And can it be@stf/345_And_can_it_be_Sagnia.mid@H@STF@345@Sagnia@KEYBD@STF@@0@-15@0@125
 And can it be@stf/345_And_can_it_be_Abingdon.mid@H@STF@345@Abingdon@KEYBD@STF@@0@0@0@-1
 Christ is the world's light@stf/346_Christ_is_the_worlds_light.mid@H@STF@346@Christe Sanctorum@KEYBD@STF@@0@0@0@-1
 Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@STF@347@Diademata@KEYBD@STF@66.86.D.@0@0@0@-1
@@ -558,7 +558,7 @@ Where shall my wondering soul begin@stf/454_Where_shall_my_wondering_soul_begin_
 Where shall my wondering soul begin@stf/454_Where_shall_my_wondering_soul_begin_Crucifixion_Lambeth.mid@@STF@454@Crucifixion Lambeth@KEYBD@STF@88.88.88.@0@0@0@-1
 All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Meine_Hoffnung.mid@@STF@455@Meine Hoffnung@KEYBD@STF@87.87.33.7.@0@0@0@-1
 All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Michael.mid@@STF@455@Michael@KEYBD@STF@87.87.33.7.@0@0@0@-1
-And are we yet alive@stf/456_And_are_we_yet_alive.mid@H@STF@456@Falcon Street@KEYBD@STF@@0@0@0@-1
+And are we yet alive@stf/456_And_are_we_yet_alive.mid@H@STF@456@Falcon Street@KEYBD@STF@@0@0@0@124
 Author of faith, eternal Word@stf/457_Author_of_faith_eternal_Word.mid@H@STF@457@Mainzer@KEYBD@STF@88.88.@0@0@0@-1
 Away with our fears@stf/458_Away_with_our_fears.mid@H@STF@458@Muff Field@KEYBD@STF@56.9.66.9.@0@0@0@-1
 Captain of Israel's host@stf/459_Captain_of_Israels_host.mid@H@STF@459@Marienlyst@KEYBD@STF@88.88.88.@0@0@0@-1
@@ -1054,12 +1054,12 @@ O Holy Spirit@stf/392_O_Holy_Spirit.mid@@HAP@310@Tallis's Ordinal@KEYBD@STF@@0@0
 All my hope on God is founded@stf/455_All_my_hope_on_God_is_founded_Meine_Hoffnung.mid@@HAP@63@Meine Hoffnung@KEYBD@STF@@0@0@0@-1
 God is Love@stf/103_God_is_Love_Hyfrydol.mid@@HAP@36@Hyfrydol@KEYBD@STF@@0@0@0@-1
 God, whose love is all around us@stf/585_God_whose_love_is_all_around_us.mid@@HAP@607@Quem Pastores Laudavere@KEYBD@STF@@0@0@0@-1
-Come, Holy Ghost@stf/155_Come_Holy_Ghost_Richmond.mid@@HAP@469@Richmond@KEYBD@STF@@0@0@0@-1
-Sing to the great Jehovah's praise@stf/127_Sing_to_the_great_Jehovahs_praise.mid@@HAP@360@Northrop@KEYBD@STF@@0@0@0@-1
-Let us break bread together@stf/592_Let_us_break_bread_together.mid@@HAP@615@Let us Break Bread@KEYBD@STF@@0@0@0@-1
-Your ceaseless, unexhausted love@stf/438_Your_ceaseless_unexhausted_love.mid@@HAP@48@University@KEYBD@STF@@0@0@0@-1
-Hail the day that sees him rise@stf/300_Hail_the_day_that_sees_him_rise.mid@@HAP@197@Llanfair@KEYBD@STF@@0@0@0@-1
-Blessed assurance@stf/548_Blessed_assurance.mid@@HAP@668@Blessed Assurance@KEYBD@STF@@0@0@0@-1
+Come, Holy Ghost@stf/155_Come_Holy_Ghost_Richmond.mid@@HAP@469@Richmond@KEYBD@STF@None@0@0@0@-1
+Sing to the great Jehovah's praise@stf/127_Sing_to_the_great_Jehovahs_praise.mid@@HAP@360@Northrop@KEYBD@STF@None@0@0@0@-1
+Let us break bread together@stf/592_Let_us_break_bread_together.mid@@HAP@615@Let us Break Bread@KEYBD@STF@None@0@0@0@-1
+Your ceaseless, unexhausted love@stf/438_Your_ceaseless_unexhausted_love.mid@@HAP@48@University@KEYBD@STF@None@0@0@0@-1
+Hail the day that sees him rise@stf/300_Hail_the_day_that_sees_him_rise.mid@@HAP@197@Llanfair@KEYBD@STF@None@0@0@0@-1
+Blessed assurance@stf/548_Blessed_assurance.mid@@HAP@668@Blessed Assurance@KEYBD@STF@None@0@0@0@-1
 Come let us use the grace divine@stf/549_Come_let_us_use_the_grace_divine.mid@@HAP@649@Dundee (French)@KEYBD@STF@@0@0@0@-1
 Lord we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_invitation_Was_Lebet.mid@@HAP@700@Was Lebet@KEYBD@STF@@0@0@0@-1
 Day by day@stf/444_Day_by_day.mid@@HAP@671@Lindors@KEYBD@STF@@0@0@0@-1
@@ -1254,80 +1254,89 @@ To thee, O Lord our hearts we raise@stf/129_To_thee_O_Lord_our_hearts_we_raise.m
 What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Abridge_St_Stephen.mid@@HAP@46@Abridge St Stephen@KEYBD@STF@@0@0@0@-1
 Angels, from the realms of glory@stf/190_Angels_from_the_realms_of_glory.mid@@HAP@92@Iris@KEYBD@STF@@0@0@0@-1
 Come, let us with our Lord arise@stf/148_Come_let_us_with_our_Lord_arise_Sussex_Carol.mid@@HAP@575@Sussex Carol@KEYBD@STF@@0@0@0@-1
-God of grace and God of glory@stf/682_God_of_grace_and_God_of_glory.mid@@HAP@712@Rhuddlan@KEYBD@STF@@0@0@0@-1
-What shall our greeting be@stf/691_What_shall_our_greeting_be.mid@@HAP@806@Moscow@KEYBD@STF@@0@0@0@-1
-Open, Lord, my inward ear@stf/450_Open_Lord_my_inward_ear_Effingham.mid@@HAP@540@Effingham@KEYBD@STF@@0@0@0@-1
-The day of resurrection@stf/311_The_day_of_resurrection.mid@@HAP@208@Ellacombe@KEYBD@STF@@0@0@0@-1
-Come down, O Love divine@stf/372_Come_down_O_Love_divine.mid@@HAP@281@Down Ampney@KEYBD@STF@@0@0@0@-1
-Long ago, prophets knew@stf/178_Long_ago_prophets_knew.mid@@HAP@83@Theodoric@KEYBD@STF@@0@0@0@-1
-Father, in whom we live@stf/5_Father_in_whom_we_live.mid@@HAP@4@St Mary@KEYBD@STF@@0@0@0@-1
-Come, thou fount of every blessing@stf/494_Come_thou_fount_of_every_blessing_Normandy.mid@@HAP@517@Normandy@KEYBD@STF@@0@0@0@-1
-In the bleak midwinter@stf/204_In_the_bleak_midwinter.mid@@HAP@107@Cranham@KEYBD@STF@@0@0@0@-1
-God moves in a mysterious way@stf/104_God_moves_in_a_mysterious_way.mid@@HAP@65@Irish@KEYBD@STF@@0@0@0@-1
-O breath of life, come sweeping through us@stf/391_O_breath_of_life_come_sweeping_through_us.mid@@HAP@777@Spiritus Vitae@KEYBD@STF@@0@0@0@-1
-All things bright and beautiful@stf/100_All_things_bright_and_beautiful_All_things_bright_and_beautiful.mid@@HAP@330@All things bright and beautiful@KEYBD@STF@@0@0@0@-1
-Silent night, , holy night@stf/217_Silent_night__holy_night.mid@@HAP@112@Stille Nacht@KEYBD@STF@@0@0@0@-1
-O worship the Lord@stf/34_O_worship_the_Lord.mid@@HAP@505@Was Lebet, Was Schwebet@KEYBD@STF@@0@0@0@-1
-I sing the almighty power of God@stf/107_I_sing_the_almighty_power_of_God.mid@@HAP@334@St Saviour@KEYBD@STF@@0@0@0@-1
-Teach me, my God and King@stf/668_Teach_me_my_God_and_King.mid@@HAP@803@Sandys@KEYBD@STF@@0@0@0@-1
-Of all the Spirit's gifts to me@stf/709_Of_all_the_Spirits_gifts_to_me.mid@@HAP@320@Ripponden@KEYBD@STF@@0@0@0@-1
-Come, thou long-expected Jesus@stf/169_Come_thou_longexpected_Jesus_Cross_of_Jesus.mid@@HAP@81@Cross of Jesus@KEYBD@STF@@0@0@0@-1
-There is no moment of my life@stf/482_There_is_no_moment_of_my_life.mid@@HAP@428@Kenwyn (Hopkins)_@KEYBD@STF@@0@0@0@-1
-Give me joy in my heart@stf/76_Give_me_joy_in_my_heart.mid@@HAP@492@Sing Hosanna@KEYBD@STF@@0@0@0@-1
-Jesus, lover of my soul@stf/355_Jesus_lover_of_my_soul_Aberystwyth.mid@@HAP@528@Aberystwyth@KEYBD@STF@@0@0@0@-1
-Holy, holy, holy@stf/11_Holy_holy_holy.mid@@HAP@7@Nicaea@KEYBD@STF@@0@0@0@-1
-An Upper Room@stf/569_An_Upper_Room.mid@@HAP@594@O Waly Waly@KEYBD@STF@@0@0@0@-1
-Man of Sorrows!@stf/361_Man_of_Sorrows.mid@@HAP@228@Gethsemane (Bliss) (Man of Sorrows)@KEYBD@STF@@0@0@0@-1
-Come, you thankful people, come@stf/123_Come_you_thankful_people_come.mid@@HAP@355@St George's Windsor@KEYBD@STF@@0@0@0@-1
-For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_Ar_Hyd_Y_Nos.mid@@HAP@342@Ar Hyd Y Nos@KEYBD@STF@@0@0@0@-1
-The kingdom of God@stf/255_The_kingdom_of_God_Paderborn.mid@@HAP@139@Paderborn@KEYBD@STF@@0@0@0@-1
-0 come, all ye faithful@stf/212_0_come_all_ye_faithful.mid@@HAP@110@Adeste Fideles@KEYBD@STF@@0@0@0@-1
-Forth in thy name, O Lord, I go@stf/550_Forth_in_thy_name_O_Lord_I_go.mid@@HAP@381@Song 34 (Angels' Song)@KEYBD@STF@@0@0@0@-1
-Lift high the Cross@stf/276_Lift_high_the_Cross.mid@@HAP@170@Crucifer@KEYBD@STF@@0@0@0@-1
-This joyful Eastertide@stf/314_This_joyful_Eastertide.mid@@HAP@213@Vruechten@KEYBD@STF@@0@0@0@-1
-Father of everlasting grace@stf/378_Father_of_everlasting_grace.mid@@HAP@300@Stamford@KEYBD@STF@@0@0@0@-1
-All things bright and beautiful@stf/100_All_things_bright_and_beautiful_Royal_Oak.mid@@HAP@330@Royal Oak@KEYBD@STF@@0@0@0@-1
-O God, what offering shall I give@stf/562_O_God_what_offering_shall_I_give.mid@@HAP@801@Pater Omnium@KEYBD@STF@@0@0@0@-1
-God, whose farm is all creation@stf/122_God_whose_farm_is_all_creation.mid@@HAP@344@Shipston@KEYBD@STF@@0@0@0@-1
-Let him to whom we now belong@stf/557_Let_him_to_whom_we_now_belong.mid@@HAP@698@Byzantium (Jackson)@KEYBD@STF@@0@0@0@-1
-Come, let us anew@stf/460_Come_let_us_anew.mid@@HAP@354@Derby (Derbe)@KEYBD@STF@@0@0@0@-1
-Christ the Lord is risen today@stf/298_Christ_the_Lord_is_risen_today.mid@@HAP@193@Easter Hymn@KEYBD@STF@@0@0@0@-1
-O God of Bethel, by whose hand@stf/475_O_God_of_Bethel_by_whose_hand.mid@@HAP@442@Salzburg (Haydn)@KEYBD@STF@@0@0@0@-1
-Jesu, Jesu@stf/249_Jesu_Jesu.mid@@HAP@145@Chereponi@KEYBD@STF@@0@0@0@-1
-Praise, my soul, the King of heaven@stf/83_Praise_my_soul_the_King_of_heaven.mid@@HAP@13@Praise, My Soul@KEYBD@STF@@0@0@0@-1
-Ye servants of God@stf/340_Ye_servants_of_God.mid@@HAP@278@Laudate Dominum (Parry)@KEYBD@STF@@0@0@0@-1
-My heart is full of Christ, and longs@stf/506_My_heart_is_full_of_Christ_and_longs.mid@@HAP@799@Worsley@KEYBD@STF@@0@0@0@-1
-Come let us join our friends above@stf/744_Come_let_us_join_our_friends_above.mid@@HAP@812@St Matthew@KEYBD@STF@@0@0@0@-1
-I come with joy@stf/588_I_come_with_joy.mid@@HAP@610@St Botolph (Slater)@KEYBD@STF@@0@0@0@-1
-Christ, whose glory fills the skies@stf/134_Christ_whose_glory_fills_the_skies.mid@@HAP@457@Heathlands@KEYBD@STF@@0@0@0@-1
-Come, thou fount of every blessing@stf/494_Come_thou_fount_of_every_blessing_Nettleton.mid@@HAP@517@Nettleton@KEYBD@STF@@0@0@0@-1
-Ride on, ride on in majesty!@stf/265_Ride_on_ride_on_in_majesty.mid@@HAP@159@Winchester New@KEYBD@STF@@0@0@0@-1
-While shepherds watched@stf/221_While_shepherds_watched_Lyngham.mid@@HAP@120@Lyngham@KEYBD@STF@@0@0@0@-1
-O worship the King@stf/113_O_worship_the_King.mid@@HAP@28@Hanover@KEYBD@STF@@0@0@0@-1
-Hills of the north, rejoice@stf/172_Hills_of_the_north_rejoice.mid@@HAP@237@Little Cornard@KEYBD@STF@@0@0@0@-1
-Hail to the Lord's anointed@stf/228_Hail_to_the_Lords_anointed.mid@@HAP@125@Cruger (Herrnhut)@KEYBD@STF@@0@0@0@-1
-Were you there when they crucified my Lord@stf/285_Were_you_there_when_they_crucified_my_Lord.mid@@HAP@181@Were You There@KEYBD@STF@@0@0@0@-1
-Cradled in a manger@stf/197_Cradled_in_a_manger_St_Winifred.mid@@HAP@98@St Winifred@KEYBD@STF@@0@0@0@-1
-Glory be to God on high@stf/199_Glory_be_to_God_on_high.mid@@HAP@101@Amsterdam@KEYBD@STF@@0@0@0@-1
-God is love@stf/403_God_is_love.mid@@HAP@220@Theodoric@KEYBD@STF@@0@0@0@-1
-Through all the changing scenes of life@stf/638_Through_all_the_changing_scenes_of_life.mid@@HAP@73@Wiltshire@KEYBD@STF@@0@0@0@-1
-Not far beyond the sea@stf/159_Not_far_beyond_the_sea.mid@@HAP@477@Manna@KEYBD@STF@@0@0@0@-1
-Praise to the living God!@stf/87_Praise_to_the_living_God.mid@@HAP@56@Leoni@KEYBD@STF@@0@0@0@-1
-Seek ye first the kingdom of God@stf/254_Seek_ye_first_the_kingdom_of_God.mid@@HAP@138@@KEYBD@STF@@0@0@0@-1
-What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Warrington.mid@@HAP@807@Warrington@KEYBD@STF@@0@0@0@-1
-O God, our help in ages past@stf/132_O_God_our_help_in_ages_past.mid@@HAP@358@St Anne@KEYBD@STF@@0@0@0@-1
-All people that on earth@stf/1_All_people_that_on_earth.mid@@HAP@1@Old 100th@KEYBD@STF@@0@0@0@-1
-Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Nottingham.mid@@HAP@705@Nottingham@KEYBD@STF@@0@0@0@-1
-Jesus is Lord!@stf/353_Jesus_is_Lord.mid@@HAP@260@Jesus is Lord@KEYBD@STF@@0@0@0@-1
-The day thou gavest@stf/147_The_day_thou_gavest.mid@@HAP@648@St Clement@KEYBD@STF@@0@0@0@-1
-Dear Lord and Father of mankind@stf/495_Dear_Lord_and_Father_of_mankind.mid@@HAP@673@Repton@KEYBD@STF@@0@0@0@-1
-A safe stronghold our God is still@stf/623_A_safe_stronghold_our_God_is_still.mid@@HAP@661@Ein' Feste Burg@KEYBD@STF@@0@0@0@-1
-Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@HAP@255@Diademata@KEYBD@STF@@0@0@0@-1
-Love came down at Christmas@stf/210_Love_came_down_at_Christmas_St_Hilda_Street.mid@@HAP@105@St Hilda Street@KEYBD@STF@@0@0@0@-1
-Thou God of truth and love@stf/620_Thou_God_of_truth_and_love.mid@@HAP@374@St Godric@KEYBD@STF@@0@0@0@-1
-Jesus, Lord, we look to thee@stf/686_Jesus_Lord_we_look_to_thee.mid@@HAP@759@Theodora (Handel)@KEYBD@STF@@0@0@0@-1
-Lord Jesus once a child@stf/537_Lord_Jesus_once_a_child_Franconia.mid@@HAP@585@Franconia@KEYBD@STF@@0@0@0@-1
-Lord, we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_invitation_Epiphany.mid@@HAP@700@Epiphany@KEYBD@STF@@0@0@0@-1
-All praise to our redeeming lord@dsb/All_praise_to_our_redeeming_lord.mid@HQ@STF@608@Lucius@BAND@DSB@@0@0@0@-2
-Ride on ride on@dsb/Ride_on_ride_on.mid@HJL@STF@265@Winchester New@KEYBD@DSB@@0@0@0@-1
-I know that my redeemer lives@dsb/I_know_that_my_redeemer_lives.mid@HQE@STF@303@Torquay@BAND@DSB@@0@0@0@-2
+God of grace and God of glory@stf/682_God_of_grace_and_God_of_glory.mid@@HAP@712@Rhuddlan@KEYBD@STF@None@0@0@0@-1
+What shall our greeting be@stf/691_What_shall_our_greeting_be.mid@@HAP@806@Moscow@KEYBD@STF@None@0@0@0@-1
+Open, Lord, my inward ear@stf/450_Open_Lord_my_inward_ear_Effingham.mid@@HAP@540@Effingham@KEYBD@STF@None@0@0@0@-1
+The day of resurrection@stf/311_The_day_of_resurrection.mid@@HAP@208@Ellacombe@KEYBD@STF@None@0@0@0@-1
+Come down, O Love divine@stf/372_Come_down_O_Love_divine.mid@@HAP@281@Down Ampney@KEYBD@STF@None@0@0@0@-1
+Long ago, prophets knew@stf/178_Long_ago_prophets_knew.mid@@HAP@83@Theodoric@KEYBD@STF@None@0@0@0@-1
+Father, in whom we live@stf/5_Father_in_whom_we_live.mid@@HAP@4@St Mary@KEYBD@STF@None@0@0@0@-1
+Come, thou fount of every blessing@stf/494_Come_thou_fount_of_every_blessing_Normandy.mid@@HAP@517@Normandy@KEYBD@STF@None@0@0@0@-1
+In the bleak midwinter@stf/204_In_the_bleak_midwinter.mid@@HAP@107@Cranham@KEYBD@STF@None@0@0@0@-1
+God moves in a mysterious way@stf/104_God_moves_in_a_mysterious_way.mid@@HAP@65@Irish@KEYBD@STF@None@0@0@0@-1
+O breath of life, come sweeping through us@stf/391_O_breath_of_life_come_sweeping_through_us.mid@@HAP@777@Spiritus Vitae@KEYBD@STF@None@0@0@0@-1
+All things bright and beautiful@stf/100_All_things_bright_and_beautiful_All_things_bright_and_beautiful.mid@@HAP@330@All things bright and beautiful@KEYBD@STF@None@0@0@0@-1
+Silent night, , holy night@stf/217_Silent_night__holy_night.mid@@HAP@112@Stille Nacht@KEYBD@STF@None@0@0@0@-1
+O worship the Lord@stf/34_O_worship_the_Lord.mid@@HAP@505@Was Lebet, Was Schwebet@KEYBD@STF@None@0@0@0@-1
+I sing the almighty power of God@stf/107_I_sing_the_almighty_power_of_God.mid@@HAP@334@St Saviour@KEYBD@STF@None@0@0@0@-1
+Teach me, my God and King@stf/668_Teach_me_my_God_and_King.mid@@HAP@803@Sandys@KEYBD@STF@None@0@0@0@-1
+Of all the Spirit's gifts to me@stf/709_Of_all_the_Spirits_gifts_to_me.mid@@HAP@320@Ripponden@KEYBD@STF@None@0@0@0@-1
+Come, thou long-expected Jesus@stf/169_Come_thou_longexpected_Jesus_Cross_of_Jesus.mid@@HAP@81@Cross of Jesus@KEYBD@STF@None@0@0@0@-1
+There is no moment of my life@stf/482_There_is_no_moment_of_my_life.mid@@HAP@428@Kenwyn (Hopkins)_@KEYBD@STF@None@0@0@0@-1
+Give me joy in my heart@stf/76_Give_me_joy_in_my_heart.mid@@HAP@492@Sing Hosanna@KEYBD@STF@None@0@0@0@-1
+Jesus, lover of my soul@stf/355_Jesus_lover_of_my_soul_Aberystwyth.mid@@HAP@528@Aberystwyth@KEYBD@STF@None@0@0@0@-1
+Holy, holy, holy@stf/11_Holy_holy_holy.mid@@HAP@7@Nicaea@KEYBD@STF@None@0@0@0@-1
+An Upper Room@stf/569_An_Upper_Room.mid@@HAP@594@O Waly Waly@KEYBD@STF@None@0@0@0@-1
+Man of Sorrows!@stf/361_Man_of_Sorrows.mid@@HAP@228@Gethsemane (Bliss) (Man of Sorrows)@KEYBD@STF@None@0@0@0@-1
+Come, you thankful people, come@stf/123_Come_you_thankful_people_come.mid@@HAP@355@St George's Windsor@KEYBD@STF@None@0@0@0@-1
+For the fruits of all creation@stf/124_For_the_fruits_of_all_creation_Ar_Hyd_Y_Nos.mid@@HAP@342@Ar Hyd Y Nos@KEYBD@STF@None@0@0@0@-1
+The kingdom of God@stf/255_The_kingdom_of_God_Paderborn.mid@@HAP@139@Paderborn@KEYBD@STF@None@0@0@0@-1
+0 come, all ye faithful@stf/212_0_come_all_ye_faithful.mid@@HAP@110@Adeste Fideles@KEYBD@STF@None@0@0@0@-1
+Forth in thy name, O Lord, I go@stf/550_Forth_in_thy_name_O_Lord_I_go.mid@@HAP@381@Song 34 (Angels' Song)@KEYBD@STF@None@0@0@0@-1
+Lift high the Cross@stf/276_Lift_high_the_Cross.mid@@HAP@170@Crucifer@KEYBD@STF@None@0@0@0@-1
+This joyful Eastertide@stf/314_This_joyful_Eastertide.mid@@HAP@213@Vruechten@KEYBD@STF@None@0@0@0@-1
+Father of everlasting grace@stf/378_Father_of_everlasting_grace.mid@@HAP@300@Stamford@KEYBD@STF@None@0@0@0@-1
+All things bright and beautiful@stf/100_All_things_bright_and_beautiful_Royal_Oak.mid@@HAP@330@Royal Oak@KEYBD@STF@None@0@0@0@-1
+O God, what offering shall I give@stf/562_O_God_what_offering_shall_I_give.mid@@HAP@801@Pater Omnium@KEYBD@STF@None@0@0@0@-1
+God, whose farm is all creation@stf/122_God_whose_farm_is_all_creation.mid@@HAP@344@Shipston@KEYBD@STF@None@0@0@0@-1
+Let him to whom we now belong@stf/557_Let_him_to_whom_we_now_belong.mid@@HAP@698@Byzantium (Jackson)@KEYBD@STF@None@0@0@0@-1
+Come, let us anew@stf/460_Come_let_us_anew.mid@@HAP@354@Derby (Derbe)@KEYBD@STF@None@0@0@0@-1
+Christ the Lord is risen today@stf/298_Christ_the_Lord_is_risen_today.mid@@HAP@193@Easter Hymn@KEYBD@STF@None@0@0@0@-1
+O God of Bethel, by whose hand@stf/475_O_God_of_Bethel_by_whose_hand.mid@@HAP@442@Salzburg (Haydn)@KEYBD@STF@None@0@0@0@-1
+Jesu, Jesu@stf/249_Jesu_Jesu.mid@@HAP@145@Chereponi@KEYBD@STF@None@0@0@0@-1
+Praise, my soul, the King of heaven@stf/83_Praise_my_soul_the_King_of_heaven.mid@@HAP@13@Praise, My Soul@KEYBD@STF@None@0@0@0@-1
+Ye servants of God@stf/340_Ye_servants_of_God.mid@@HAP@278@Laudate Dominum (Parry)@KEYBD@STF@None@0@0@0@-1
+My heart is full of Christ, and longs@stf/506_My_heart_is_full_of_Christ_and_longs.mid@@HAP@799@Worsley@KEYBD@STF@None@0@0@0@-1
+Come let us join our friends above@stf/744_Come_let_us_join_our_friends_above.mid@@HAP@812@St Matthew@KEYBD@STF@None@0@0@0@-1
+I come with joy@stf/588_I_come_with_joy.mid@@HAP@610@St Botolph (Slater)@KEYBD@STF@None@0@0@0@-1
+Christ, whose glory fills the skies@stf/134_Christ_whose_glory_fills_the_skies.mid@@HAP@457@Heathlands@KEYBD@STF@None@0@0@0@-1
+Come, thou fount of every blessing@stf/494_Come_thou_fount_of_every_blessing_Nettleton.mid@@HAP@517@Nettleton@KEYBD@STF@None@0@0@0@-1
+Ride on, ride on in majesty!@stf/265_Ride_on_ride_on_in_majesty.mid@@HAP@159@Winchester New@KEYBD@STF@None@0@0@0@-1
+While shepherds watched@stf/221_While_shepherds_watched_Lyngham.mid@@HAP@120@Lyngham@KEYBD@STF@None@0@0@0@-1
+O worship the King@stf/113_O_worship_the_King.mid@@HAP@28@Hanover@KEYBD@STF@None@0@0@0@-1
+Hills of the north, rejoice@stf/172_Hills_of_the_north_rejoice.mid@@HAP@237@Little Cornard@KEYBD@STF@None@0@0@0@-1
+Hail to the Lord's anointed@stf/228_Hail_to_the_Lords_anointed.mid@@HAP@125@Cruger (Herrnhut)@KEYBD@STF@None@0@0@0@-1
+Were you there when they crucified my Lord@stf/285_Were_you_there_when_they_crucified_my_Lord.mid@@HAP@181@Were You There@KEYBD@STF@None@0@0@0@-1
+Cradled in a manger@stf/197_Cradled_in_a_manger_St_Winifred.mid@@HAP@98@St Winifred@KEYBD@STF@None@0@0@0@-1
+Glory be to God on high@stf/199_Glory_be_to_God_on_high.mid@@HAP@101@Amsterdam@KEYBD@STF@None@0@0@0@-1
+God is love@stf/403_God_is_love.mid@@HAP@220@Theodoric@KEYBD@STF@None@0@0@0@-1
+Through all the changing scenes of life@stf/638_Through_all_the_changing_scenes_of_life.mid@@HAP@73@Wiltshire@KEYBD@STF@None@0@0@0@-1
+Not far beyond the sea@stf/159_Not_far_beyond_the_sea.mid@@HAP@477@Manna@KEYBD@STF@None@0@0@0@-1
+Praise to the living God!@stf/87_Praise_to_the_living_God.mid@@HAP@56@Leoni@KEYBD@STF@None@0@0@0@-1
+Seek ye first the kingdom of God@stf/254_Seek_ye_first_the_kingdom_of_God.mid@@HAP@138@@KEYBD@STF@None@0@0@0@-1
+What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Warrington.mid@@HAP@807@Warrington@KEYBD@STF@None@0@0@0@-1
+O God, our help in ages past@stf/132_O_God_our_help_in_ages_past.mid@@HAP@358@St Anne@KEYBD@STF@None@0@0@0@-1
+All people that on earth@stf/1_All_people_that_on_earth.mid@@HAP@1@Old 100th@KEYBD@STF@None@0@0@0@-1
+Take my life, and let it be@stf/566_Take_my_life_and_let_it_be_Nottingham.mid@@HAP@705@Nottingham@KEYBD@STF@None@0@0@0@-1
+Jesus is Lord!@stf/353_Jesus_is_Lord.mid@@HAP@260@Jesus is Lord@KEYBD@STF@None@0@0@0@-1
+The day thou gavest@stf/147_The_day_thou_gavest.mid@@HAP@648@St Clement@KEYBD@STF@None@0@0@0@-1
+Dear Lord and Father of mankind@stf/495_Dear_Lord_and_Father_of_mankind.mid@@HAP@673@Repton@KEYBD@STF@None@0@0@0@-1
+A safe stronghold our God is still@stf/623_A_safe_stronghold_our_God_is_still.mid@@HAP@661@Ein' Feste Burg@KEYBD@STF@None@0@0@0@-1
+Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@HAP@255@Diademata@KEYBD@STF@None@0@0@0@-1
+Love came down at Christmas@stf/210_Love_came_down_at_Christmas_St_Hilda_Street.mid@@HAP@105@St Hilda Street@KEYBD@STF@None@0@0@0@-1
+Thou God of truth and love@stf/620_Thou_God_of_truth_and_love.mid@@HAP@374@St Godric@KEYBD@STF@None@0@0@0@-1
+Jesus, Lord, we look to thee@stf/686_Jesus_Lord_we_look_to_thee.mid@@HAP@759@Theodora (Handel)@KEYBD@STF@None@0@0@0@-1
+Lord Jesus once a child@stf/537_Lord_Jesus_once_a_child_Franconia.mid@@HAP@585@Franconia@KEYBD@STF@None@0@0@0@-1
+Lord, we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_invitation_Epiphany.mid@@HAP@700@Epiphany@KEYBD@STF@None@0@0@0@-1
+All praise to our redeeming lord@dsb/All_praise_to_our_redeeming_lord.mid@HQ@STF@608@Lucius@BAND@DSB@None@0@0@0@-2
+Ride on ride on@dsb/Ride_on_ride_on.mid@HJL@STF@265@Winchester New@KEYBD@DSB@None@0@0@0@-1
+I know that my redeemer lives@dsb/I_know_that_my_redeemer_lives.mid@HQE@STF@303@Torquay@BAND@DSB@None@0@0@0@-2
+jsbach bwv525 mvmt3@jsbach/bwv525-3.mid@N@@0@@KEYBD@@None@0@0@-30@123
+Bach bwv733@jsbach/bwv733.mid@N@@0@@KEYBD@@None@0@0@-36@122
+Bach bwv588@jsbach/bwv588.mid@N@@0@@KEYBD@@None@0@0@-55@-1
+Bach bwv645 Wachet Auf@jsbach/bwv645.mid@N@@0@@KEYBD@@None@0@22@-50@126
+Bach bwv525 mvmt2@jsbach/bwv525-2.mid@N@@0@@KEYBD@@None@0@14@-14@124
+Bach bwv653@jsbach/bwv653.mid@N@@0@@KEYBD@@None@0@0@-50@121
+Bach bwv525 mvmt1@jsbach/bwv525-1.mid@N@@0@@KEYBD@@None@0@-25@-63@121
+Bach bwv539@jsbach/bwv539.mid@N@@0@@KEYBD@@None@0@16@-72@127
+Bach bwv686@jsbach/bwv686.mid@N@@0@@KEYBD@@None@0@8@-69@121
