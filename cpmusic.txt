@@ -71,13 +71,13 @@ Holy, holy, holy@stf/11_Holy_holy_holy.mid@HJ@STF@11@Nicaea@KEYBD@STF@11.12.12.1
 Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@HJ@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
 Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@HJ@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@None@0@0@0@-1
 Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@HJ@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@-16@15@121
-The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@0@0@-1
+The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@13@0@0
 We give immortal praise@stf/16_We_give_immortal_praise.mid@HQ@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
 With gladness we worship@stf/17_With_gladness_we_worship.mid@HJ@STF@17@Datchet@KEYBD@STF@@0@0@0@-1
 Be still and know@stf/18_Be_still_and_know.mid@MQ@STF@18@@KEYBD@STF@@0@0@0@-1
 Be still and know@stf/19_Be_still_and_know_Bell.mid@H@STF@19@Bell@KEYBD@STF@@0@0@0@-1
 Be still@stf/20_Be_still.mid@MQ@STF@20@Be Still@KEYBD@STF@@0@0@0@-1
-Born in song!@stf/21_Born_in_song.mid@HJ@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@0@0@-1
+Born in song!@stf/21_Born_in_song.mid@HJ@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@-20@-18@126
 Come all you people@stf/22_Come_all_you_people.mid@JM@STF@22@@KEYBD@STF@@0@0@0@-1
 Come, Holy Spirt@stf/23_Come_Holy_Spirt.mid@MQ@STF@23@@KEYBD@STF@@0@0@0@-1
 Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@JM@STF@24@@KEYBD@STF@@0@0@0@-1
@@ -1102,7 +1102,7 @@ Come, divine Interpretor@stf/154_Come_divine_Interpretor.mid@@HAP@468@Madrid (Sp
 Hail gladdening Light@stf/143_Hail_gladdening_Light.mid@@HAP@644@Sebaste@KEYBD@STF@@0@0@0@-1
 What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Jerusalem_Grosvenor.mid@@HAP@46@Jerusalem Grosvenor@KEYBD@STF@@0@0@0@-1
 Your hand, O God, has guided@stf/692_Your_hand_O_God_has_guided.mid@@HAP@784@Thornbury@KEYBD@STF@@0@0@0@-1
-As your family, Lord@stf/571_As_your_family_Lord.mid@@HAP@595@Kum ba Hah@KEYBD@STF@@0@0@0@-1
+As your family, Lord@stf/571_As_your_family_Lord.mid@@HAP@595@Kum ba Hah@KEYBD@STF@@0@13@0@-1
 I heard the voice of Jesus say@stf/248_I_heard_the_voice_of_Jesus_say_Kingsfold.mid@@HAP@136@Kingsfold@KEYBD@STF@@0@0@0@-1
 O for a thousand tongues@stf/364_O_for_a_thousand_tongues_Lyngham.mid@@HAP@744@Lyngham@KEYBD@STF@@0@0@0@-1
 Powerful in making us wise to salvation@stf/160_Powerful_in_making_us_wise_to_salvation_Stewardship.mid@@HAP@479@Stewardship@KEYBD@STF@@0@0@0@-1
@@ -1322,7 +1322,7 @@ Jesus is Lord!@stf/353_Jesus_is_Lord.mid@@HAP@260@Jesus is Lord@KEYBD@STF@None@0
 The day thou gavest@stf/147_The_day_thou_gavest.mid@@HAP@648@St Clement@KEYBD@STF@None@0@0@0@-1
 Dear Lord and Father of mankind@stf/495_Dear_Lord_and_Father_of_mankind.mid@@HAP@673@Repton@KEYBD@STF@None@0@0@0@-1
 A safe stronghold our God is still@stf/623_A_safe_stronghold_our_God_is_still.mid@@HAP@661@Ein' Feste Burg@KEYBD@STF@None@0@0@0@-1
-Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@HAP@255@Diademata@KEYBD@STF@None@0@0@0@-1
+Crown him with many crowns@stf/347_Crown_him_with_many_crowns.mid@@HAP@255@Diademata@KEYBD@STF@None@0@-13@-32@-1
 Love came down at Christmas@stf/210_Love_came_down_at_Christmas_St_Hilda_Street.mid@@HAP@105@St Hilda Street@KEYBD@STF@None@0@0@0@-1
 Thou God of truth and love@stf/620_Thou_God_of_truth_and_love.mid@@HAP@374@St Godric@KEYBD@STF@None@0@0@0@-1
 Jesus, Lord, we look to thee@stf/686_Jesus_Lord_we_look_to_thee.mid@@HAP@759@Theodora (Handel)@KEYBD@STF@None@0@0@0@-1
@@ -1331,12 +1331,24 @@ Lord, we have come at your own invitation@stf/595_Lord_we_have_come_at_your_own_
 All praise to our redeeming lord@dsb/All_praise_to_our_redeeming_lord.mid@HQ@STF@608@Lucius@BAND@DSB@None@0@0@0@-2
 Ride on ride on@dsb/Ride_on_ride_on.mid@HJL@STF@265@Winchester New@KEYBD@DSB@None@0@0@0@-1
 I know that my redeemer lives@dsb/I_know_that_my_redeemer_lives.mid@HQE@STF@303@Torquay@BAND@DSB@None@0@0@0@-2
-jsbach bwv525 mvmt3@jsbach/bwv525-3.mid@N@@0@@KEYBD@@None@0@0@-30@123
+jsbach bwv525 mvmt3@jsbach/bwv525-3.mid@N@@0@@KEYBD@@None@0@0@-30@124
 Bach bwv733@jsbach/bwv733.mid@N@@0@@KEYBD@@None@0@0@-36@122
-Bach bwv588@jsbach/bwv588.mid@N@@0@@KEYBD@@None@0@0@-55@-1
+Bach bwv588@jsbach/bwv588.mid@N@@0@@KEYBD@@None@0@0@-55@122
 Bach bwv645 Wachet Auf@jsbach/bwv645.mid@N@@0@@KEYBD@@None@0@22@-50@126
 Bach bwv525 mvmt2@jsbach/bwv525-2.mid@N@@0@@KEYBD@@None@0@14@-14@124
 Bach bwv653@jsbach/bwv653.mid@N@@0@@KEYBD@@None@0@0@-50@121
 Bach bwv525 mvmt1@jsbach/bwv525-1.mid@N@@0@@KEYBD@@None@0@-25@-63@121
 Bach bwv539@jsbach/bwv539.mid@N@@0@@KEYBD@@None@0@16@-72@127
 Bach bwv686@jsbach/bwv686.mid@N@@0@@KEYBD@@None@0@8@-69@121
+When we walk with the Lord@dsb/TrustAndObey.mid@JH@HAP@687@Trust and obey@KEYBD@DSB@None@0@-9@0@-1
+Holy Holy Holy Lord God almighty@dsb/HolyHolyHolyNicaea.mid@HJ@STF@11@Nicaea@KEYBD@DSB@11.12.12.10.@0@4@0@125
+Crown him with many crowns@dsb/CrownHimWithManyCrowns.mid@HJ@STF@347@DIademata@KEYBD@DSB@@0@0@-13@126
+Great is thy faithfullness@dsb/GreatIsThyFaithfullness.mid@HQ@STF@512@Faithfullness@KEYBD@DSB@@0@0@-7@-1
+All heaven declares@dsb/AllHeavenDeclares.mid@JM@MP@14@@BAND@DSB@None@0@3@0@-2
+Fantasia and fugue in G minor BWV 542@jsbach/bwv542.mid@N@@0@@KEYBD@@None@0@0@0@-1
+Sheep may safely graze BWV 208@jsbach/bwv208.mid@NQ@@0@@KEYBD@@None@0@0@0@-1
+Have you heard the raindrops@dsb/HaveYouHeardTheRaindrops.mid@@@0@@BAND@DSB@None@0@2@52@-2
+Father hear the prayer we offer@dsb/FatherHearThePrayerWeOffer.mid@HQ@MP@132@Sussex@KEYBD@DSB@@0@0@0@125
+I heard the voice of Jesus say@dsb/IHeardTheVoiceOfJesusSay.mid@HQ@MP@275@Kingsfold@KEYBD@DSB@@0@-6@-23@-1
+Fill thou my life@dsb/FillThouMyLife.mid@HJ@STF@73@Beatitudo@KEYBD@DSB@@0@-7@-15@123
+O thou who camest from above@dsb/OThouWhoCamest.mid@HQ@STF@564@Hereford@BAND@DSB@@0@0@0@-2

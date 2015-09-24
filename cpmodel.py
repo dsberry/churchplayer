@@ -2,6 +2,7 @@ FIXED_INSTRUMENT = -2
 DEFAULT_INSTRUMENT = -1
 FADE = 0
 STOP = 1
+NRAND = 20
 
 FADE_CMD = "f"
 STOP_CMD = "s"
@@ -28,6 +29,7 @@ import os
 import re
 import commands
 import copy
+import random
 
 instrumentNames = [
    'Original',
@@ -472,11 +474,12 @@ class Catalogue(dict):
 
 
 #  Add a new row to the end of the catalogue
-   def addrow(self,row):
+   def addrow(self,row,midifile):
       icol = 0
       for colname in self.colnames:
          self[ colname ].append( row[icol] )
          icol += 1
+      self.midifiles.append(midifile)
       self.nrow += 1
       self.modified = True
 
@@ -851,15 +854,15 @@ class Record(object):
 # ----------------------------------------------------------------------
 class Playlist(object):
    def __init__(self):
-      self.__records = []
+      self._records = []
 
    def add( self, path, row, trans, speed, volume, prog0, title ):
-      self.__records.append( Record( path, row, trans, speed, volume, prog0, title ) )
+      self._records.append( Record( path, row, trans, speed, volume, prog0, title ) )
 
    def __len__(self):
-      return len(self.__records)
+      return len(self._records)
    def __getitem__(self, key):
-      return self.__records[key]
+      return self._records[key]
    def __setitem__(self, key, value):
       raise ChurchPlayerError("\n\nAttempt to change the contents of a Playlist")
    def __delitem__(self, key):
@@ -871,21 +874,21 @@ class Playlist(object):
       return self.next()
    def next(self):
       self.__inext += 1
-      if self.__inext < len( self.__records ):
-         return self.__records[ self.__inext ]
+      if self.__inext < len( self._records ):
+         return self._records[ self.__inext ]
       else:
          raise StopIteration
 
 
    def __str__(self):
       result = ""
-      for record in self.__records:
+      for record in self._records:
          result = "{0}{1}\n".format(result,record)
       return result
 
    def desc(self):
       result = None
-      for record in self.__records:
+      for record in self._records:
          if result:
             result = "{0}; {1}\n".format(result,record.desc())
          else:
@@ -893,59 +896,143 @@ class Playlist(object):
       return result
 
    def _getPath(self):
-      return self.__records[0].path
+      return self._records[0].path
    def _setPath(self,path):
-      self.__records[0].path = path
+      self._records[0].path = path
    path = property(_getPath, None, None, "The path to the first music file")
 
    def _getIrow(self):
-      return self.__records[0].irow
+      return self._records[0].irow
    def _setIrow(self,path):
-      self.__records[0].path = irow
+      self._records[0].path = irow
    irow = property( _getIrow, _setIrow, None, "The row number within the music catalogue" )
 
    def _getTranspose(self):
-      return self.__records[0].transpose
+      return self._records[0].transpose
    def _setTranspose(self,transpose):
-      self.__records[0].transpose = transpose
+      self._records[0].transpose = transpose
    def _delTranspose(self):
-      del self.__records[0].transpose
+      del self._records[0].transpose
    transpose = property( _getTranspose, _setTranspose, _delTranspose,
                          "The number of semitones to transpose" )
 
    def _getInstrument(self):
-      return self.__records[0].instrument
+      return self._records[0].instrument
    def _setInstrument(self,instrument):
-      self.__records[0].instrument = instrument
+      self._records[0].instrument = instrument
    def _delInstrument(self):
-         del self.__records[0].instrument
+         del self._records[0].instrument
    instrument = property( _getInstrument, _setInstrument, _delInstrument,
                          "The GM program number for the instrument to use")
 
    def _getTitle(self):
-         return self.__records[0].title
+         return self._records[0].title
    def _setTitle(self,title):
-         self.__records[0].title = title
+         self._records[0].title = title
 
    title = property(_getTitle, None, None, "The music title")
 
    def _getVolume(self):
-      return self.__records[0].volume
+      return self._records[0].volume
    def _setVolume(self,volume):
-      self.__records[0].volume = volume
+      self._records[0].volume = volume
    def _delVolume(self):
-      del self.__records[0].volume
+      del self._records[0].volume
    volume = property( _getVolume, _setVolume, _delVolume,
                       "The change in volume" )
 
    def _getTempo(self):
-      return self.__records[0].tempo
+      return self._records[0].tempo
    def _setTempo(self,tempo):
-      self.__records[0].tempo = tempo
+      self._records[0].tempo = tempo
    def _delTempo(self):
-      del self.__records[0].tempo
+      del self._records[0].tempo
    tempo = property( _getTempo, _setTempo, _delTempo,
                       "The change in tempo" )
+
+
+
+# ----------------------------------------------------------------------
+class RandomPlaylist(Playlist):
+   def __init__(self, tags, cat ):
+      Playlist.__init__(self)
+      if not tags:
+         tags = "any"
+      self.__tags = tags
+      self.__cat = cat
+      self.played = []
+      self.all = []
+      random.seed( None )
+      self.findAll()
+      self._records.append( self.choose() )
+
+   def desc(self):
+      return self._getTitle()
+   def _getTitle(self):
+      if self.__tags == "any":
+         return "Random music"
+      else:
+         return "Random music with tags '{0}'".format(self.__tags)
+
+   def _setTitle(self,title):
+      pass
+
+   def __len__(self):
+      return NRAND;
+   def __getitem__(self, key):
+      return self.choose()
+   def __setitem__(self, key, value):
+      raise ChurchPlayerError("\n\nAttempt to change the contents of a Playlist")
+   def __delitem__(self, key):
+      raise ChurchPlayerError("\n\nAttempt to delete a record from a PlayList" )
+   def __iter__(self):
+      self.__inext = -1
+      return self
+   def __next__(self):
+      return self.next()
+   def next(self):
+      self.__inext += 1
+      if self.__inext < NRAND:
+         return self.choose()
+      else:
+         raise StopIteration
+
+   def choose( self ):
+      found = False
+      while not found:
+         mylen = len( self.all )
+         if mylen > 0:
+            irow = self.all[ random.randint( 0, mylen-1 ) ]
+         else:
+            mylen = len( self.__cat['PATH'] )
+            irow = random.randint( 0, mylen-1 )
+
+         if irow not in self.played or mylen <= len( self.played ):
+            found = True
+      if len( self.played ) == 5:
+         self.played.pop(0)
+      self.played.append( irow )
+
+      return self.__cat.getRecord(irow)
+
+   def findAll( self ):
+      self.all = []
+      catlen = len( self.__cat['PATH'] )
+      if self.__tags != "any":
+         for irow in range( catlen ):
+            add = True
+            if self.__cat['TAGS'][irow]:
+               for tr in self.__tags:
+                  if tr not in self.__cat['TAGS'][irow]:
+                     add = False
+            else:
+               add = False
+            if add:
+               self.all.append(irow)
+
+      if len( self.all ) == 0:
+         for irow in range( catlen ):
+            self.all.append(irow)
 
 
 # ----------------------------------------------------------------------
