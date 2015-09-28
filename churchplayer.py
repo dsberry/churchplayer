@@ -5,10 +5,12 @@ import sys
 import time
 import stat
 import os
+import re
 
 NSLOT = 10
 SLOT_HEIGHT = 40
 SLOT_PADDING = 25
+PANIC_SERVICE = "services/panic.srv"
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -774,9 +776,7 @@ class Service(QFrame):
       self.setFrameStyle( QFrame.Box )
       self.player = player
       self.sliderpanel = sliderpanel
-      self.tempfile = "tempService"
       self.items = []
-      self.changed = False
       self.path = None
 
       self.grid = QVBoxLayout()
@@ -794,6 +794,7 @@ class Service(QFrame):
       self.setLayout( self.grid )
       self.setStyleSheet("background-color:#eeeeee;")
       self.setFixedHeight( (NSLOT+1)*(SLOT_HEIGHT+SLOT_PADDING) )
+      self.changed = False
 
    def uper(self, item ):
       self.changed = True
@@ -838,16 +839,14 @@ class Service(QFrame):
       self.grid.update()
       return item
 
-   def saveTemp(self):
-      print("Service.saveTemp() not yet implemented!!")
+   def savePanic(self):
+      self.saveAs( PANIC_SERVICE, True )
 
    def save(self):
-      if self.path:
-         defpath = self.path
-      else:
+      if self.path == None:
          defpath = "services/"
-      self.path = QFileDialog.getSaveFileName(self, "Save service",
-                        defpath, "Images (*.srv)");
+         self.path = QFileDialog.getSaveFileName(self, "Save service",
+                           defpath, "Images (*.srv)");
 
       if self.path:
          self.path = str( self. path )
@@ -855,35 +854,52 @@ class Service(QFrame):
             self.path += ".srv"
          self.saveAs(self.path)
 
-   def saveAs( self, path ):
+   def saveAs( self, path, incPath=False ):
       fd = open( path, "w" );
+      if incPath and self.path:
+         fd.write( "path={0}".format(self.path) )
       for sindex in range(self.grid.count()):
          item = self.grid.itemAt( sindex ).widget()
          if item and isinstance( item, ServiceItem ) and not isinstance( item, RandomItem ):
             fd.write(str(item)+"\n")
       fd.close()
+      self.changed = False
+
+   def loadPanic(self):
+      if os.path.isfile( PANIC_SERVICE ):
+         self.loadFrom( PANIC_SERVICE )
+         os.remove( PANIC_SERVICE )
 
    def loadFrom( self, path ):
       fd = open( path, "r" );
+      first = True
       sindex = 0
       for line in fd:
          line = line.strip()
+         if first:
+            match = re.compile("path=(.*)").search(line)
+            if match:
+               self.path = match.group(1)
+         else:
+            match = None
 
-         item = None
-         while not item or not isinstance( item, ServiceItem ) or isinstance( item, RandomItem ):
-            if sindex < self.grid.count():
-               item = self.grid.itemAt( sindex ).widget()
-            else:
-               item = addItemAt( -1 )
-            sindex += 1
+         if not match:
+            item = None
+            while not item or not isinstance( item, ServiceItem ) or isinstance( item, RandomItem ):
+               if sindex < self.grid.count():
+                  item = self.grid.itemAt( sindex ).widget()
+               else:
+                  item = addItemAt( -1 )
+               sindex += 1
 
-         if line:
-            rows = []
-            for srow in line.split(","):
-               rows.append( int( srow ) )
-            item.setPlaylist( self.player.cat.makePlaylist( rows ) )
+            if line:
+               rows = []
+               for srow in line.split(","):
+                  rows.append( int( srow ) )
+               item.setPlaylist( self.player.cat.makePlaylist( rows ) )
 
       fd.close()
+      self.changed = False
 
 # ----------------------------------------------------------------------
 class PanicButton(QPushButton):
@@ -894,8 +910,8 @@ class PanicButton(QPushButton):
       self.service = service
 
    def panic(self):
-      self.service.saveTemp()
-      os.execl( "/bin/sh", "-c", "./run_churchplayer", self.service.tempfile )
+      self.service.savePanic()
+      os.execl( "/bin/sh", "-c", "./run_churchplayer" )
 
 
 # ----------------------------------------------------------------------
@@ -1050,17 +1066,20 @@ class ServiceItem(QWidget):
          self.sliderpanel.setFromPlayable( self.playlist )
 
    def setPlaylist( self, playlist ):
+      oldpl = self.playlist
       self.playlist = playlist
       self.pw.setPlayable( playlist )
       if playlist != None:
          self.desc.setText( self.playlist.desc() )
          self.kbdChooser.setFromPlayable( playlist )
          self.sliderpanel.setFromPlayable( playlist )
+         self.service.changed = True
       else:
          self.desc.setText("Click here to choose music" )
          self.kbdChooser.setFromPlayable( None )
          self.sliderpanel.setFromPlayable( None )
-      self.service.changed = True
+         if oldpl:
+            self.service.changed = True
 
    def __str__(self):
       result = None
@@ -1285,7 +1304,7 @@ class MainWidget(QWidget):
       layout.addLayout( rightpanel )
 
       self.setLayout( layout )
-
+      self.service.loadPanic()
 
 # ----------------------------------------------------------------------
 class RecordForm(QWidget):
@@ -1895,6 +1914,7 @@ class ChurchPlayer(QMainWindow):
    def initUI(self, app, cat, player ):
       self.cat = cat
       self.app = app
+      self.closed = False
       self.player = PlayController( self, player, cat )
 
 #  Set up tool tips
@@ -1979,36 +1999,35 @@ class ChurchPlayer(QMainWindow):
 #  ---------------------------------------------------------------
 #  Exit the application.
 #  ---------------------------------------------------------------
+   def closeEvent(self,event):
+      if not self.closed:
+         self.exit( event )
+
    def exit(self, e ):
       doexit = True
 
       if self.cat.modified:
-         ret = QMessageBox.warning(self, "Warning",
-                '''The music catalogue has been modified.\nDo you want to save your changes?''',
-                QMessageBox.Save, QMessageBox.Discard, QMessageBox.Cancel)
-         if ret == QMessageBox.Save:
-            self.cat.save()
-         elif ret == QMessageBox.Cancel:
-            doexit = False
+         self.cat.save()
 
       if self.mw.service.changed:
-         ret = QMessageBox.warning(self, "Warning",
-                '''The service details have been modified.\nDo you want to save your changes?''',
+         if self.mw.service.path == None:
+            ret = QMessageBox.warning(self, "Warning",
+                '''Do you want to save the service details?''',
                 QMessageBox.Save, QMessageBox.Discard, QMessageBox.Cancel)
-         if ret == QMessageBox.Save:
+            if ret == QMessageBox.Save:
+               self.mw.service.save()
+            elif ret == QMessageBox.Cancel:
+               doexit = False
+         else:
             self.mw.service.save()
-         elif ret == QMessageBox.Cancel:
-            doexit = False
 
       if doexit:
-         ret = QMessageBox.question(self, "Confirm Exit...",
-				  "Are you sure you want to exit?",
-				  QMessageBox.Yes| QMessageBox.No)
-         if ret == QMessageBox.No:
-            doexit = False
-
-      if doexit:
-         del self.player.player
+         if self.player:
+            try:
+               del self.player.player
+            except:
+               pass
+         self.closed = True
          self.close()
 
 

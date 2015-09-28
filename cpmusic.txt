@@ -1350,5 +1350,5 @@ Sheep may safely graze BWV 208@jsbach/bwv208.mid@NQ@@0@@KEYBD@@None@0@0@0@-1
 Have you heard the raindrops@dsb/HaveYouHeardTheRaindrops.mid@@@0@@BAND@DSB@None@0@2@52@-2
 Father hear the prayer we offer@dsb/FatherHearThePrayerWeOffer.mid@HQ@MP@132@Sussex@KEYBD@DSB@@0@0@0@125
 I heard the voice of Jesus say@dsb/IHeardTheVoiceOfJesusSay.mid@HQ@MP@275@Kingsfold@KEYBD@DSB@@0@-6@-23@-1
-Fill thou my life@dsb/FillThouMyLife.mid@HJ@STF@73@Beatitudo@KEYBD@DSB@@0@-7@-15@123
+Fill thou my life@dsb/FillThouMyLife.mid@HJ@STF@73@Beatitudo@KEYBD@DSB@@0@-7@-15@-1
 O thou who camest from above@dsb/OThouWhoCamest.mid@HQ@STF@564@Hereford@BAND@DSB@@0@0@0@-2
