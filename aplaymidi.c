@@ -842,7 +842,7 @@ static void play_midi(void)
                 /* Stop after all the currently sounding notes have
                    finished. */
                 } else if( ( rt_code == RT__STOP || rt_code == RT__FADE )
-                           && ifade >= max_fade ) {
+                           && ifade >= 0 && ifade >= max_fade ) {
                    rt_code = RT__ABORT;
                    delay = 0;
 

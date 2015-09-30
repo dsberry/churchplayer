@@ -8,8 +8,8 @@ import os
 import re
 
 NSLOT = 10
-SLOT_HEIGHT = 40
-SLOT_PADDING = 25
+SLOT_HEIGHT = 30
+SLOT_PADDING = 45
 PANIC_SERVICE = "services/panic.srv"
 
 from PyQt4.QtCore import *
@@ -600,7 +600,6 @@ class SearchDialog(QDialog):
       layout = QHBoxLayout()
       self.searchItems = []
       icol = -1
-      self.istf = -1
       self.bookitem = None
 
       for colname in self.player.cat.colnames:
@@ -612,9 +611,6 @@ class SearchDialog(QDialog):
                                      editable=True )
             if colname.lower() == "book":
                self.bookitem = colitem
-               self.istf = colitem.findText("STF")
-               if self.istf >= 0:
-                  colitem.setCurrentIndex( self.istf )
 
             self.searchItems.append( colitem )
             add( layout, collabel )
@@ -692,8 +688,6 @@ class SearchDialog(QDialog):
       self.clearResults()
       for item in self.searchItems:
          item.clear()
-      if self.istf >= 0:
-         self.bookitem.setCurrentIndex( self.istf )
 
    def searcher(self):
       right = QWidget()
@@ -770,73 +764,61 @@ class SearchDialog(QDialog):
 
 
 # ----------------------------------------------------------------------
-class Service(QFrame):
+class MyListWidget(QListWidget):
+   def __init__(self,service):
+      super(MyListWidget, self).__init__()
+      self.service = service
+
+   def dropEvent(self, e):
+      super(MyListWidget,self).dropEvent( e )
+      self.clearSelection()
+      self.service.changed = True
+
+# ----------------------------------------------------------------------
+class Service(QWidget):
    def __init__(self,parent,player,sliderpanel):
       super(Service, self).__init__(parent)
-      self.setFrameStyle( QFrame.Box )
       self.player = player
       self.sliderpanel = sliderpanel
       self.items = []
       self.path = None
 
-      self.grid = QVBoxLayout()
+      layout = QVBoxLayout()
+      self.setLayout( layout )
+
+      self.list = MyListWidget(self)
+      self.list.setDragDropMode( QAbstractItemView.InternalMove )
+      self.list.setSelectionMode( QAbstractItemView.SingleSelection )
+
       for i in range(NSLOT):
-         item = ServiceItem( self, player, sliderpanel )
-         self.grid.addWidget( item )
+         sitem = ServiceItem( self, player, sliderpanel )
+         litem = QListWidgetItem()
+         litem.setSizeHint(sitem.sizeHint())
+         self.list.addItem( litem )
+         self.list.setItemWidget( litem, sitem )
 
-      self.grid.addStretch( 10 )
+      layout.addWidget( self.list )
 
-      self.random = RandomItem( self, player, sliderpanel )
-      self.grid.addWidget( self.random )
-
-      self.grid.addStretch( 10 )
-
-      self.setLayout( self.grid )
       self.setStyleSheet("background-color:#eeeeee;")
       self.setFixedHeight( (NSLOT+1)*(SLOT_HEIGHT+SLOT_PADDING) )
+      self.setFixedWidth(1000)
       self.changed = False
 
-   def uper(self, item ):
-      self.changed = True
-      print("up ",item)
-
-   def downer(self, item ):
-      self.changed = True
-      print("down ",item)
-
-   def remover(self, item ):
-      if self.grid.count() == 1:
-         showMessage("You are not allowed to remove the last slot")
-      else:
-         sindex = self.grid.indexOf( item )
-         if sindex >= 0:
-            self.changed = True
-            self.grid.takeAt( sindex )
-            self.grid.invalidate()
-            self.grid.repaint()
-            self.grid.update()
-         else:
-            print("!!!!  service.remover: serviceitem not found")
-
-   def adder(self, item ):
-      if self.grid.count() >= NSLOT:
-         showMessage("No room for any more slots")
-      else:
-         sindex = self.grid.indexOf( item )
-         if sindex >= 0:
-            self.addItemAt( sindex )
-         else:
-            print("!!!!  service.adder: serviceitem not found")
+   def clearSelection(self):
+      self.list.clearSelection()
 
    def addItemAt(self, sindex ):
       if sindex < 0:
-         sindex = self.grid.count()
+         sindex = self.list.count()
       self.changed = True
-      item = ServiceItem( self, self.player, self.sliderpanel )
-      self.grid.insertWidget( sindex, item )
-      self.grid.invalidate()
-      self.grid.repaint()
-      self.grid.update()
+      sitem = ServiceItem( self, self.player, self.sliderpanel )
+      litem = QListWidgetItem()
+      litem.setSizeHint(sitem.sizeHint())
+      self.list.insertItem( sindex, litem )
+      self.list.setItemWidget( litem, sitem )
+      self.list.invalidate()
+      self.list.repaint()
+      self.list.update()
       return item
 
    def savePanic(self):
@@ -858,8 +840,8 @@ class Service(QFrame):
       fd = open( path, "w" );
       if incPath and self.path:
          fd.write( "path={0}".format(self.path) )
-      for sindex in range(self.grid.count()):
-         item = self.grid.itemAt( sindex ).widget()
+      for sindex in range(self.list.count()):
+         item = self.list.itemWidget( self.list.item( sindex ) )
          if item and isinstance( item, ServiceItem ) and not isinstance( item, RandomItem ):
             fd.write(str(item)+"\n")
       fd.close()
@@ -869,6 +851,15 @@ class Service(QFrame):
       if os.path.isfile( PANIC_SERVICE ):
          self.loadFrom( PANIC_SERVICE )
          os.remove( PANIC_SERVICE )
+
+   def clear(self):
+      if not self.saveif(QMessageBox.Close):
+         for sindex in range(self.list.count()):
+            item = self.list.itemWidget( self.list.item( sindex ) )
+            if item and isinstance( item, ServiceItem ) and not isinstance( item, RandomItem ):
+               item.clearer(None)
+         self.changed = False
+         self.path = None
 
    def loadFrom( self, path ):
       fd = open( path, "r" );
@@ -886,8 +877,8 @@ class Service(QFrame):
          if not match:
             item = None
             while not item or not isinstance( item, ServiceItem ) or isinstance( item, RandomItem ):
-               if sindex < self.grid.count():
-                  item = self.grid.itemAt( sindex ).widget()
+               if sindex < self.list.count():
+                  item = self.list.itemWidget( self.list.item( sindex ) )
                else:
                   item = addItemAt( -1 )
                sindex += 1
@@ -901,6 +892,21 @@ class Service(QFrame):
       fd.close()
       self.changed = False
 
+   def saveif( self, noSaveButton=QMessageBox.Discard ):
+      cancelled = False
+      if self.changed:
+         if self.path == None:
+            ret = QMessageBox.warning(self, "Warning",
+                '''Do you want to save the service details?''',
+                QMessageBox.Save, noSaveButton, QMessageBox.Cancel)
+            if ret == QMessageBox.Save:
+               self.save()
+            elif ret == QMessageBox.Cancel:
+               cancelled = True
+         else:
+            self.save()
+      return cancelled
+
 # ----------------------------------------------------------------------
 class PanicButton(QPushButton):
    def __init__(self,parent,player,service):
@@ -908,8 +914,10 @@ class PanicButton(QPushButton):
       self.setToolTip("Click to restart churchplayer if things go wrong")
       self.clicked.connect( self.panic )
       self.service = service
+      self.player = player
 
    def panic(self):
+      self.player.cat.save()
       self.service.savePanic()
       os.execl( "/bin/sh", "-c", "./run_churchplayer" )
 
@@ -1002,14 +1010,6 @@ class ServiceItem(QWidget):
       self.playlist = None
       self.clear = PlayerButton( self, True, True, 'icons/empty.png',
                                  'icons/null.png', self.clearer, 20, "Empty this slot" )
-      self.up = PlayerButton( self, True, True, 'icons/arrow-up.png',
-                              'icons/null.png', self.uper, 20, "Move this slot up"  )
-      self.down = PlayerButton( self, True, True, 'icons/arrow-down.png',
-                                'icons/null.png', self.downer, 20, "Move this slot down"  )
-      self.remove = PlayerButton( self, True, True, 'icons/cross.png',
-                                  'icons/null.png', self.remover, 20, "Delete this slot"  )
-      self.add = PlayerButton( self, True, True, 'icons/Plus.png',
-                               'icons/null.png', self.adder, 20, "Add a new slot before this slot"  )
       self.pw = PlayerWidget(self,player,stop=False,sliders=sliderpanel,
                              kbdChooser=self.kbdChooser)
       self.kbdChooser.setpw( self.pw )
@@ -1017,45 +1017,24 @@ class ServiceItem(QWidget):
 
       if not label:
          label = "Click here to choose music"
-      self.desc = QLabel(label)
+      self.desc = QLineEdit(label,self)
+      self.desc.setReadOnly(True)
       self.desc.setFixedWidth(600)
       self.desc.setFixedHeight(SLOT_HEIGHT)
-      self.desc.setToolTip("The music played when the play-button is clicked")
+      self.desc.setToolTip(label)
       self.desc.mouseReleaseEvent = self.musicChooser
-      self.desc.setFrameStyle( QFrame.Panel | QFrame.Sunken )
 
       layout = QHBoxLayout()
       layout.addWidget( self.pw, 1, Qt.AlignLeft )
       layout.addWidget( self.desc, 10, Qt.AlignLeft )
       layout.addWidget( self.kbdChooser, 1 )
       layout.addWidget( self.clear, 1, Qt.AlignRight )
-      layout.addWidget( self.up, 1, Qt.AlignRight )
-      layout.addWidget( self.down, 1, Qt.AlignRight )
-      layout.addWidget( self.remove, 1, Qt.AlignRight )
-      layout.addWidget( self.add, 1, Qt.AlignRight )
+      layout.setSizeConstraint( QLayout.SetFixedSize )
       self.setLayout( layout )
-
 
    def clearer(self, event ):
       self.service.changed = True
       self.setPlaylist( None )
-
-   def uper(self, event ):
-      self.service.changed = True
-      self.service.uper( self )
-
-   def downer(self, event ):
-      self.service.changed = True
-      self.service.downer( self )
-
-   def remover(self, event ):
-      self.service.changed = True
-      self.pw.finish()
-      self.service.remover( self )
-
-   def adder(self, event ):
-      self.service.changed = True
-      self.service.adder( self )
 
    def musicChooser(self, event):
       if not self.playlist:
@@ -1071,11 +1050,13 @@ class ServiceItem(QWidget):
       self.pw.setPlayable( playlist )
       if playlist != None:
          self.desc.setText( self.playlist.desc() )
+         self.desc.setToolTip( self.playlist.desc() )
          self.kbdChooser.setFromPlayable( playlist )
          self.sliderpanel.setFromPlayable( playlist )
          self.service.changed = True
       else:
          self.desc.setText("Click here to choose music" )
+         self.desc.setToolTip("Click here to choose music" )
          self.kbdChooser.setFromPlayable( None )
          self.sliderpanel.setFromPlayable( None )
          if oldpl:
@@ -1129,6 +1110,7 @@ class PlayController(QWidget):
       self.fadeButtons = []
       self.nextButtons = []
       self.sliderPanels = []
+      self.service = None
       self.kbdChooser = None
 
       layout = QHBoxLayout()
@@ -1161,6 +1143,8 @@ class PlayController(QWidget):
             self.nextButtons.append( client.nextButton )
       elif isinstance(client,SliderPanel):
          self.sliderPanels.append( client )
+      elif isinstance(client,Service):
+         self.service = client
 
    def setKbdChooser( self, chooser ):
       self.kbdChooser = chooser
@@ -1176,6 +1160,8 @@ class PlayController(QWidget):
             self.nextButtons.remove( client.nextButton )
       elif isinstance(client,SliderPanel):
          self.sliderPanels.remove( client )
+      elif isinstance(client,Service):
+         self.service = None
 
    def playMusic(self, playwid ):
       if not self.playing and playwid.playable:
@@ -1263,6 +1249,8 @@ class PlayController(QWidget):
             self.next.disable()
 
             self.playing = False
+            if self.service:
+               self.service.clearSelection()
 
    def stopper(self, event ):
       self.stopMusic()
@@ -1300,6 +1288,7 @@ class MainWidget(QWidget):
       rightpanel = QVBoxLayout()
 
       player.addClient( sliders )
+      player.addClient( self.service )
       rightpanel.addWidget( sliders )
       layout.addLayout( rightpanel )
 
@@ -1933,6 +1922,10 @@ class ChurchPlayer(QMainWindow):
       openAction.setStatusTip('Open an existing service or playlist')
       openAction.triggered.connect(self.open)
 
+      newAction = QAction( '&New', self)
+      newAction.setStatusTip('Clear the existing service details')
+      newAction.triggered.connect(self.new)
+
       scanAction = QAction( '&Scan', self)
       scanAction.setShortcut('Ctrl+I')
       scanAction.setStatusTip('Scan the music directory for uncatalogued MIDI files')
@@ -1952,9 +1945,11 @@ class ChurchPlayer(QMainWindow):
 
 #  Set up menu bar
       menubar = self.menuBar()
+
       fileMenu = menubar.addMenu('&File')
-      fileMenu.addAction(saveAction)
+      fileMenu.addAction(newAction)
       fileMenu.addAction(openAction)
+      fileMenu.addAction(saveAction)
       fileMenu.addAction(exitAction)
 
       catMenu = menubar.addMenu('&Catalogue')
@@ -2009,17 +2004,8 @@ class ChurchPlayer(QMainWindow):
       if self.cat.modified:
          self.cat.save()
 
-      if self.mw.service.changed:
-         if self.mw.service.path == None:
-            ret = QMessageBox.warning(self, "Warning",
-                '''Do you want to save the service details?''',
-                QMessageBox.Save, QMessageBox.Discard, QMessageBox.Cancel)
-            if ret == QMessageBox.Save:
-               self.mw.service.save()
-            elif ret == QMessageBox.Cancel:
-               doexit = False
-         else:
-            self.mw.service.save()
+      if self.mw.service.saveif():
+         doexit = False
 
       if doexit:
          if self.player:
@@ -2046,6 +2032,13 @@ class ChurchPlayer(QMainWindow):
                          "services/", "Images (*.srv)")
       if path:
          self.mw.service.loadFrom( path )
+
+
+#  ---------------------------------------------------------------
+#  Clear service.
+#  ---------------------------------------------------------------
+   def new(self, e ):
+      self.mw.service.clear()
 
 
 #  ---------------------------------------------------------------
@@ -2125,21 +2118,15 @@ def main():
 
     print("TO DO:")
     print("   BUTTONS FOR PLAYING RANDOM MUSIC")
-    print("   ABILITY TO SAVE AND OPEN SERVICES" )
-    print("   PANIC BUTTON NEEDS TO SAVE AND RESTORE THE CURRENT SERVICE")
     print("   MODIFY SOUNDFONT TO CONTAIN MORE NICE EPIANOS AND ORGANS")
     print("   CLASSIFY ALL MUSIC" )
     print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
-    print("   IMPLEMENT HANDLERS FOR SERVICEITEM NAVIGATION BUTTONS" )
-    print("   CLICKING ON A USED SERVICE ITEM SHOULD SET THE SLIDERS" )
-    print("   CLOSING WINDOW VIA WINDOW MANAGER CROSS SHOULD SAVE MODS")
     print("   NEED SOME WAY TO REORDER ITEMS IN A PLAYLIST" )
     print("   Young Childrens tag (e.g. raindrops)" )
     print("   Allow substring search when searching for music")
     print("   Allow existing cat entries to be duplicated with different book/no")
-    print("   Wants to save service changes when no changes have been made")
-    print("   Save music and service changes without prompting")
     print("   Have some way of indicating how many verses are included")
+    print("   Display currently playing music title")
 
 #  Ready to run...
     splash.finish(ex)
