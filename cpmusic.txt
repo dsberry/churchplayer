@@ -71,13 +71,13 @@ Holy, holy, holy@stf/11_Holy_holy_holy.mid@HJ@STF@11@Nicaea@KEYBD@STF@11.12.12.1
 Morning glory, starlit sky@stf/12_Morning_glory_starlit_sky.mid@HJ@STF@12@Emma@KEYBD@STF@77.77.@0@0@0@-1
 Sing of a God in majestic divinity@stf/13_Sing_of_a_God_in_majestic_divinity.mid@HJ@STF@13@Was Lebet, Was Schwebet@KEYBD@STF@None@0@0@0@-1
 Sing to him in whom creation@stf/14_Sing_to_him_in_whom_creation.mid@HJ@STF@14@Regent Square@KEYBD@STF@87.87.87.@0@-16@15@121
-The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@13@0@-1
+The splendour of the King@stf/15_The_splendour_of_the_King.mid@MQ@STF@15@@KEYBD@STF@@0@13@0@1
 We give immortal praise@stf/16_We_give_immortal_praise.mid@HQ@STF@16@Croft's 136th@KEYBD@STF@@0@0@0@-1
 With gladness we worship@stf/17_With_gladness_we_worship.mid@HJ@STF@17@Datchet@KEYBD@STF@@0@0@0@-1
 Be still and know@stf/18_Be_still_and_know.mid@MQ@STF@18@@KEYBD@STF@@0@0@0@-1
 Be still and know@stf/19_Be_still_and_know_Bell.mid@H@STF@19@Bell@KEYBD@STF@@0@0@0@-1
 Be still@stf/20_Be_still.mid@MQ@STF@20@Be Still@KEYBD@STF@@0@0@0@-1
-Born in song!@stf/21_Born_in_song.mid@HJ@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@-20@-18@-1
+Born in song!@stf/21_Born_in_song.mid@HJ@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@-20@-18@125
 Come all you people@stf/22_Come_all_you_people.mid@JM@STF@22@@KEYBD@STF@@0@0@0@-1
 Come, Holy Spirt@stf/23_Come_Holy_Spirt.mid@MQ@STF@23@@KEYBD@STF@@0@0@0@-1
 Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@JM@STF@24@@KEYBD@STF@@0@0@0@-1
@@ -97,7 +97,7 @@ You're calling us@stf/37_Youre_calling_us.mid@MQ@STF@37@@KEYBD@STF@@0@0@0@-1
 Wa wa wa Emimimo@stf/38_Wa_wa_wa_Emimimo.mid@@STF@38@@KEYBD@STF@@0@0@0@-1
 Angel voices ever singing@stf/39_Angel_voices_ever_singing.mid@HJ@STF@39@Angel Voices@KEYBD@STF@85.85.84.3.@0@0@0@-1
 Blessed be the name of the Lord@stf/40_Blessed_be_the_name_of_the_Lord.mid@JM@STF@40@@KEYBD@STF@@0@0@0@-1
-Blessed be your name@stf/41_Blessed_be_your_name.mid@MQ@STF@41@@KEYBD@STF@@0@0@0@-1
+Blessed be your name@stf/41_Blessed_be_your_name.mid@MQ@STF@41@@KEYBD@STF@@0@0@-32@1
 O sing to the Lord@stf/42_O_sing_to_the_Lord.mid@@STF@42@Cantad Al Senor@KEYBD@STF@11.11.11.10.@0@0@0@-1
 Come, let us praise the Lord@stf/43_Come_let_us_praise_the_Lord.mid@@STF@43@Chilean Venite@KEYBD@STF@@0@0@0@-1
 Come on and celebrate@stf/44_Come_on_and_celebrate.mid@JM@STF@44@@KEYBD@STF@@0@0@0@-1
@@ -136,7 +136,7 @@ For the music of creation@stf/74_For_the_music_of_creation.mid@@STF@74@Rustingto
 From all that dwell below the skies@stf/75_From_all_that_dwell_below_the_skies.mid@H@STF@75@Lasst Uns Erfreuen@KEYBD@STF@@0@0@0@-1
 Give me joy in my heart@stf/76_Give_me_joy_in_my_heart.mid@@STF@76@Sing Hosanna@KEYBD@STF@@0@0@0@-1
 Give thanks to the Lord@stf/77_Give_thanks_to_the_Lord.mid@M@STF@77@@KEYBD@STF@@0@0@0@-1
-Give thanks with a grateful heart@stf/78_Give_thanks_with_a_grateful_heart.mid@@STF@78@@KEYBD@STF@@0@10@0@4
+Give thanks with a grateful heart@stf/78_Give_thanks_with_a_grateful_heart.mid@@STF@78@@KEYBD@STF@@0@10@-24@8
 I'll praise my maker@stf/79_Ill_praise_my_maker.mid@H@STF@79@Monmouth@KEYBD@STF@88.8.D.@0@0@0@-1
 My God, I am thine@stf/80_My_God_I_am_thine.mid@H@STF@80@Harwich@KEYBD@STF@5.5.11.D.@0@0@0@-1
 Now thank we all our God@stf/81_Now_thank_we_all_our_God_Gracias.mid@@STF@81@Gracias@KEYBD@STF@67.67.66.66.@0@0@0@-1
@@ -1332,7 +1332,7 @@ All praise to our redeeming lord@dsb/All_praise_to_our_redeeming_lord.mid@HQ@STF
 Ride on ride on@dsb/Ride_on_ride_on.mid@HJL@STF@265@Winchester New@KEYBD@DSB@None@0@0@0@-1
 I know that my redeemer lives@dsb/I_know_that_my_redeemer_lives.mid@HQE@STF@303@Torquay@BAND@DSB@None@0@0@0@-2
 jsbach bwv525 mvmt3@jsbach/bwv525-3.mid@N@@0@@KEYBD@@None@0@0@-30@124
-Bach bwv733@jsbach/bwv733.mid@N@@0@@KEYBD@@None@0@0@-21@-1
+Bach bwv733@jsbach/bwv733.mid@N@@0@@KEYBD@@None@0@0@-40@121
 Bach bwv588@jsbach/bwv588.mid@N@@0@@KEYBD@@None@0@0@-55@122
 Bach bwv645 Wachet Auf@jsbach/bwv645.mid@N@@0@@KEYBD@@None@0@22@-50@126
 Bach bwv525 mvmt2@jsbach/bwv525-2.mid@N@@0@@KEYBD@@None@0@14@-14@124
@@ -1348,7 +1348,7 @@ All heaven declares@dsb/AllHeavenDeclares.mid@JM@MP@14@@BAND@DSB@None@0@3@0@-2
 Fantasia and fugue in G minor BWV 542@jsbach/bwv542.mid@N@@0@@KEYBD@@None@0@0@0@-1
 Sheep may safely graze BWV 208@jsbach/bwv208.mid@NQ@@0@@KEYBD@@None@0@0@0@-1
 Have you heard the raindrops@dsb/HaveYouHeardTheRaindrops.mid@@@0@@BAND@DSB@None@0@2@52@-2
-Father hear the prayer we offer@dsb/FatherHearThePrayerWeOffer.mid@HQ@MP@132@Sussex@KEYBD@DSB@@0@0@0@-1
+Father hear the prayer we offer@dsb/FatherHearThePrayerWeOffer.mid@HQ@MP@132@Sussex@KEYBD@DSB@@0@0@0@123
 I heard the voice of Jesus say@dsb/IHeardTheVoiceOfJesusSay.mid@HQ@MP@275@Kingsfold@KEYBD@DSB@@0@-6@-23@-1
-Fill thou my life@dsb/FillThouMyLife.mid@HJ@STF@73@Beatitudo@KEYBD@DSB@@0@-7@-15@-1
+Fill thou my life@dsb/FillThouMyLife.mid@HJ@STF@73@Beatitudo@KEYBD@DSB@@0@-7@-15@121
 O thou who camest from above@dsb/OThouWhoCamest.mid@HQ@STF@564@Hereford@BAND@DSB@@0@0@0@-2
