@@ -19,6 +19,9 @@ ENDING_CODE = "e"
 WFIFO = "/tmp/churchplayerfifo_wr"
 FSFIFO = "/tmp/fluidsynthfifo"
 
+JOLLY_ORGAN = 'Organ 5'
+QUIET_ORGAN = 'Organ 3'
+
 import signal
 import os.path
 import subprocess
@@ -294,6 +297,16 @@ class Catalogue(dict):
                for i in range(nv,self.ncol):
                   self[ self.colnames[i] ].append( None )
 
+#  Traditional hymns should use an organ by default, not a piano.
+            if self[ 'TAGS' ][ -1 ]:
+               if "H" in self[ 'TAGS' ][ -1 ]:
+                  if int(self[ 'PROG0' ][ -1 ]) == DEFAULT_INSTRUMENT:
+                     if "Q" in self[ 'TAGS' ][ -1 ]:
+                        prog0 = instruments[ QUIET_ORGAN ]
+                     else:
+                        prog0 = instruments[ JOLLY_ORGAN ]
+                     self[ 'PROG0' ][ -1 ] = prog0
+
             self.nrow += 1
             continue
 
@@ -303,6 +316,11 @@ class Catalogue(dict):
 
 #  Close the catalogue file.
       cat.close()
+
+#  Get a map giving the column index for each column name.
+      self.colindices = {}
+      for i in range( len(self.colnames) ):
+         self.colindices[ self.colnames[i] ] = i
 
 #  Remove unused elements from the usercols list.
       self.usercols = [x for x in self.usercols if x]
@@ -675,7 +693,11 @@ class Catalogue(dict):
 
       return zip(vals,tips)
 
-   def search( self, searchVals, searchCols ):
+   def countTagMatches( self, tags ):
+      icol = self.colindices["TAGS"]
+      return len( self.search( [tags], [icol], sort=False ) )
+
+   def search( self, searchVals, searchCols, sort=True ):
       matchingRows = range( self.nrow )
       nmatch = self.nrow
 
@@ -683,7 +705,6 @@ class Catalogue(dict):
          if val:
             newmatches = []
             col = self.colnames[icol]
-
             if col == "TAGS":
                tags = list( val.lower() )
 
@@ -722,7 +743,7 @@ class Catalogue(dict):
          if len( matchingRows ) == 0:
             break;
 
-      if len( matchingRows ) > 1:
+      if sort and len( matchingRows ) > 1:
          matchingRows.sort( key=lambda irow: self['TITLE'][irow] )
 
       return matchingRows

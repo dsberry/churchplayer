@@ -11,6 +11,7 @@ NSLOT = 10
 SLOT_HEIGHT = 30
 SLOT_PADDING = 45
 PANIC_SERVICE = "services/panic.srv"
+BGCOLOUR = "#eeeeee"
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -111,6 +112,34 @@ class ChooseTagsDialog(QDialog):
       self.close()
 
 
+# ----------------------------------------------------------------------
+class MyFrame(QFrame):
+   def __init__( self, parent ):
+      super(MyFrame, self).__init__(parent)
+      self.setFrameShape( QFrame.Box )
+      self.setLineWidth( 1 )
+      self.setMidLineWidth( 1 )
+      self.setObjectName("myFrame");
+      self.setStyleSheet("#myFrame { background-color:"+BGCOLOUR+"; border: 1px solid #cccccc; }");
+
+# ----------------------------------------------------------------------
+class RandomPlayer(MyFrame):
+   def __init__( self, parent, player, sliderpanel  ):
+      super(RandomPlayer, self).__init__(parent)
+      self.player = player
+      self.count = QLabel( " " )
+      self.pw = PlayerWidget(self,player,stop=False,sliders=sliderpanel)
+      self.tagSelector = TagSelector( self, player.cat, True, self.count,
+                                      self.pw, sliderpanel )
+      layout = QVBoxLayout()
+      topLayout = QHBoxLayout()
+      topLayout.addWidget( QLabel( "<b>Play random music: </b>" ) )
+      topLayout.addWidget( self.pw, Qt.AlignLeft )
+      topLayout.addStretch(10)
+      topLayout.addWidget( self.count )
+      layout.addLayout( topLayout )
+      layout.addWidget( self.tagSelector )
+      self.setLayout( layout )
 
 # ----------------------------------------------------------------------
 class MetreChooser(QWidget):
@@ -273,10 +302,13 @@ class KeyboardChooser(QWidget):
          mymap[self.irow] = newval
 
 # ----------------------------------------------------------------------
-class SliderPanel(QWidget):
+class SliderPanel(MyFrame):
    def __init__( self, parent, player, playerwidget=None, store=False ):
       super(SliderPanel, self).__init__(parent)
       self.player = player
+
+      vlay = QVBoxLayout()
+      vlay.addWidget( QLabel( "<b>Control the currently playing music: </b>" ) )
 
       sliders =  QHBoxLayout()
       sliders.addStretch()
@@ -310,7 +342,9 @@ class SliderPanel(QWidget):
       sliders.addLayout( sl3 )
 
       sliders.addStretch()
-      self.setLayout( sliders )
+
+      vlay.addLayout( sliders )
+      self.setLayout( vlay )
 
    def setFromPlayable( self, playable, map=None ):
       if playable:
@@ -328,6 +362,85 @@ class SliderPanel(QWidget):
       self.temposlider.pw = playerWidget
       self.pitchslider.pw = playerWidget
 
+
+
+
+
+# ----------------------------------------------------------------------
+class TagSelector(QWidget):
+
+   def __init__( self, parent, cat, clear=False, label=None, pw=None,
+                 sliders=None ):
+      super(TagSelector, self).__init__(parent)
+      self.checks = {}
+      self.cat = cat
+      self.label = label
+      self.pw = pw
+      self.sliders=sliders
+
+      layout = QVBoxLayout()
+      layout.setSpacing(0)
+      for (name,desc) in zip(cat.tagnames,cat.tagdescs):
+         cb = QCheckBox( desc, self )
+         cb.setTristate( False )
+         cb.stateChanged.connect(self.stateHasChanged)
+         self.checks[name] = cb
+         layout.addWidget( cb, Qt.AlignLeft )
+
+      if clear:
+         clearButton = QPushButton('Clear All', self)
+         clearButton.setToolTip("Clear all the above check boxes")
+         clearButton.clicked.connect(self.clearer)
+         clearButton.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+         hlay  = QHBoxLayout()
+         hlay.addStretch(1)
+         hlay.addWidget(  clearButton, Qt.AlignRight )
+         layout.addLayout( hlay )
+
+      self.setLayout( layout )
+
+      self.stateHasChanged(0)
+
+   def clearer( self ):
+      for name in self.checks:
+         self.checks[name].setChecked( False )
+
+   def setFromRow( self, irow ):
+      tags = self.cat['TAGS'][ irow ]
+      for name in self.cat.tagnames:
+         cb =  self.checks[name]
+         if tags and name in tags:
+            cb.setChecked( True )
+         else:
+            cb.setChecked( False )
+
+   def getTags(self):
+      newtags = ""
+      for name in self.cat.tagnames:
+         cb =  self.checks[name]
+         if cb.isChecked():
+            newtags += name
+
+      return ''.join(sorted(newtags))
+
+   def stateHasChanged(self, item ):
+      if self.label or self.pw:
+         tags = self.getTags()
+         count = self.cat.countTagMatches( tags )
+         if self.label:
+            self.label.setText( "({0} matching items)".format( count ) )
+         if count == 0:
+            showMessage( "There are no hymns/songs that match your selected tags")
+         if self.pw:
+            if count > 0:
+               playlist = cpmodel.RandomPlaylist( tags, self.cat )
+            else:
+               playlist = None
+            self.pw.setPlayable( playlist )
+            if self.sliders:
+               self.sliders.setFromPlayable( playlist )
+
+
 # ----------------------------------------------------------------------
 class ClassifyDialog(QDialog):
 
@@ -339,7 +452,6 @@ class ClassifyDialog(QDialog):
       self.cat = player.cat
       self.player = player
       self.irow = 1
-      self.checks = {}
       self.changes = {}
       self.prog0 = {}
       self.trans = {}
@@ -396,14 +508,8 @@ class ClassifyDialog(QDialog):
 
       mainlayout = QHBoxLayout()
       mainlayout.addWidget(QLabel("  "))
-      cblayout = QVBoxLayout()
-      cblayout.setSpacing(0)
-      for (name,desc) in zip(self.cat.tagnames,self.cat.tagdescs):
-         cb = QCheckBox( desc, self )
-         cb.setTristate( False )
-         self.checks[name] = cb
-         cblayout.addWidget( cb, Qt.AlignLeft )
-      mainlayout.addLayout(cblayout)
+      self.tagSelector = TagSelector( self, self.cat )
+      mainlayout.addWidget(self.tagSelector)
       mainlayout.addStretch()
 
       ilayout = QVBoxLayout()
@@ -523,15 +629,7 @@ class ClassifyDialog(QDialog):
 
    def storeTags(self):
       store = False
-
-      newtags = ""
-      for name in self.cat.tagnames:
-         cb =  self.checks[name]
-         if cb.isChecked():
-            newtags += name
-
-      newtags = ''.join(sorted(newtags))
-
+      newtags = self.tagSelector.getTags()
       oldtags = self.cat['TAGS'][self.irow-1]
       if oldtags:
          oldtags = ''.join(sorted(oldtags))
@@ -554,14 +652,7 @@ class ClassifyDialog(QDialog):
       self.pw.setPlayable( self.irow-1, prog0=gm, trans=trans,
                            volume=volume, tempo=tempo )
 
-      tags = self.cat['TAGS'][self.irow-1]
-      for name in self.cat.tagnames:
-         cb =  self.checks[name]
-         if tags and name in tags:
-            cb.setChecked( True )
-         else:
-            cb.setChecked( False )
-
+      self.tagSelector.setFromRow( self.irow-1 )
       book = self.cat['BOOK'][self.irow-1]
       number = self.cat['NUMBER'][self.irow-1]
       title = self.cat['TITLE'][self.irow-1]
@@ -768,6 +859,8 @@ class MyListWidget(QListWidget):
    def __init__(self,service):
       super(MyListWidget, self).__init__()
       self.service = service
+      self.setObjectName("mylistwidget");
+      self.setStyleSheet("#mylistwidget { background-color:"+BGCOLOUR+"; border-style: none; }");
 
    def dropEvent(self, e):
       super(MyListWidget,self).dropEvent( e )
@@ -775,7 +868,7 @@ class MyListWidget(QListWidget):
       self.service.changed = True
 
 # ----------------------------------------------------------------------
-class Service(QWidget):
+class Service(MyFrame):
    def __init__(self,parent,player,sliderpanel):
       super(Service, self).__init__(parent)
       self.player = player
@@ -786,6 +879,7 @@ class Service(QWidget):
       layout = QVBoxLayout()
       self.setLayout( layout )
 
+      layout.addWidget( QLabel( "<b>Choose the hymns.songs to play during the service: </b>" ))
       self.list = MyListWidget(self)
       self.list.setDragDropMode( QAbstractItemView.InternalMove )
       self.list.setSelectionMode( QAbstractItemView.SingleSelection )
@@ -799,7 +893,7 @@ class Service(QWidget):
 
       layout.addWidget( self.list )
 
-      self.setStyleSheet("background-color:#eeeeee;")
+#      self.setStyleSheet("background-color:#eeeeee;")
       self.setFixedHeight( (NSLOT+1)*(SLOT_HEIGHT+SLOT_PADDING) )
       self.setFixedWidth(1000)
       self.changed = False
@@ -1286,7 +1380,8 @@ class MainWidget(QWidget):
       layout.addLayout( leftpanel )
 
       rightpanel = QVBoxLayout()
-
+      rightpanel.addWidget( RandomPlayer( self, player, sliders ) )
+      rightpanel.addSpacing( 40 )
       player.addClient( sliders )
       player.addClient( self.service )
       rightpanel.addWidget( sliders )
@@ -2117,16 +2212,13 @@ def main():
     ex.activateWindow()
 
     print("TO DO:")
-    print("   BUTTONS FOR PLAYING RANDOM MUSIC")
-    print("   MODIFY SOUNDFONT TO CONTAIN MORE NICE EPIANOS AND ORGANS")
+    print("   Display currently playing music title")
+    print("   Allow existing cat entries to be duplicated with different book/no")
+    print("   NEED SOME WAY TO REORDER ITEMS IN A PLAYLIST" )
+    print("   Have some way of indicating how many verses are included")
+    print("   Young Childrens tag (e.g. raindrops)" )
     print("   CLASSIFY ALL MUSIC" )
     print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
-    print("   NEED SOME WAY TO REORDER ITEMS IN A PLAYLIST" )
-    print("   Young Childrens tag (e.g. raindrops)" )
-    print("   Allow substring search when searching for music")
-    print("   Allow existing cat entries to be duplicated with different book/no")
-    print("   Have some way of indicating how many verses are included")
-    print("   Display currently playing music title")
 
 #  Ready to run...
     splash.finish(ex)
