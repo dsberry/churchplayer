@@ -84,6 +84,7 @@ struct track {
 #define RT__PLAYING 'p' /* A song is being played */
 #define RT__STOPPED 's' /* No song is being played */
 #define RT__ENDING  'e' /* Player is about to terminate */
+#define RT__REMAINING 'r' /* Time remaining, in seconds */
 
 #define RT__FIFO_RD "/tmp/churchplayerfifo_rd"
 #define RT__FIFO_WR "/tmp/churchplayerfifo_wr"
@@ -762,6 +763,7 @@ static void play_midi(void)
 {
 	snd_seq_event_t ev;
 	int ignore, i, j, max_tick, err;
+        char buf[20];
         char rt_code = RT__NULL;
         float fade_gains[ RT__NFADE ];
         int next_fade_tick = -1;
@@ -769,6 +771,7 @@ static void play_midi(void)
         int first_event = 1;
         int max_fade;
         int delay = 1;
+        int tickgap, tick_at;
 
 	/* calculate length of the entire file, and reset track info */
 	max_tick = -1;
@@ -782,6 +785,10 @@ static void play_midi(void)
 	   tracks[i].current_event = tracks[i].first_event;
            tracks[i].port = 0;
         }
+
+        /* No of ticks between sending the time remaining... */
+        tickgap = (2.0E6*rt_ppqn)/(double)rt_mspqn;
+        tick_at = -1;
 
 	/* common settings for all our events */
 	snd_seq_ev_clear(&ev);
@@ -870,6 +877,17 @@ static void play_midi(void)
                 if( first_event ) {
                    rt_change_volume( event->tick, 1.0, 0 );
                    first_event = 0;
+                }
+
+                /* If required, send a reply saying how many seconds are
+                   left to play. */
+                if( tick_at == -1 ) {
+                   tick_at = event->tick + tickgap;
+                } else if( event->tick > tick_at ) {
+                   sprintf( buf, "%d",
+                           (int) (1.0E-6*( max_tick - (int)event->tick )*rt_mspqn/(double)rt_ppqn) );
+                   rt_send_reply( RT__REMAINING, buf );
+                   tick_at = event->tick + tickgap;
                 }
 
 		/* output the event */

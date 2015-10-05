@@ -15,6 +15,7 @@ SPEED_CMD = "m"
 PLAYING_CODE = "p"
 STOPPED_CODE = "s"
 ENDING_CODE = "e"
+REMAINING_CODE = "r"
 
 WFIFO = "/tmp/churchplayerfifo_wr"
 FSFIFO = "/tmp/fluidsynthfifo"
@@ -640,58 +641,78 @@ class Catalogue(dict):
    def getUserValues(self,irow):
       vals = []
       tips = []
+      widths = []
 
       for col in self.usercols:
          val = self[col][irow]
          if not val:
             val = ""
             tip = None
+            ok = False
+         else:
+            ok = True
 
-         elif col == "TITLE":
-            val = '"{0}"'.format(val)
-            tip = "The title or first line"
+         if col == "TITLE":
+            width = 500;
+            if ok:
+               val = '"{0}"'.format(val)
+               tip = "The title or first line"
 
          elif col == "METRE":
-            val = '"{0}"'.format(val)
-            tip = "The rhythmic metre of the hymn/song"
+            width = 150;
+            if ok:
+               val = '"{0}"'.format(val)
+               tip = "The rhythmic metre of the hymn/song"
 
          elif col == "TUNE":
-            val = '({0})'.format(val)
-            tip = "The name of the tune"
+            width = 250;
+            if ok:
+               val = '({0})'.format(val)
+               tip = "The name of the tune"
 
          elif col == "BOOK":
-            tip = self.bookdescs[self.booknames.index(val)]
+            width = 50;
+            if ok:
+               tip = self.bookdescs[self.booknames.index(val)]
 
          elif col == "TAGS":
-            tip = None
-            if val != "":
-               for i in range(len(self.tagnames)):
-                  if self.tagnames[i] in val:
-                     if tip == None:
-                        tip = "Tags: {0}".format(self.tagdescs[i])
-                     else:
-                        tip = "{0}, {1}".format(tip,self.tagdescs[i])
+            width = 60;
+            if ok:
+               tip = None
+               if val != "":
+                  for i in range(len(self.tagnames)):
+                     if self.tagnames[i] in val:
+                        if tip == None:
+                           tip = "Tags: {0}".format(self.tagdescs[i])
+                        else:
+                           tip = "{0}, {1}".format(tip,self.tagdescs[i])
 
          elif col == "INSTR":
-            for i in range(len(self.instrnames)):
-               if self.instrnames[i] == val:
-                  tip = "Instrumentation: {0}".format(self.instrdescs[i])
+            width = 100;
+            if ok:
+               for i in range(len(self.instrnames)):
+                  if self.instrnames[i] == val:
+                     tip = "Instrumentation: {0}".format(self.instrdescs[i])
 
          elif col == "ORIGIN":
-            if val == "STF":
-               tip = "The midi file was made by Methodist Publishing House"
-            elif val == "DSB":
-               tip = "The midi file was made by David Berry"
-            else:
-               tip = "The origin of the midi file..."
+            width = 50;
+            if ok:
+               if val == "STF":
+                  tip = "The midi file was made by Methodist Publishing House"
+               elif val == "DSB":
+                  tip = "The midi file was made by David Berry"
+               else:
+                  tip = "The origin of the midi file..."
 
          else:
+            width = 50;
             tip = None
 
          vals.append( val )
          tips.append( tip )
+         widths.append( width )
 
-      return zip(vals,tips)
+      return zip(vals,tips,widths)
 
    def countTagMatches( self, tags ):
       icol = self.colindices["TAGS"]
@@ -761,6 +782,18 @@ class Catalogue(dict):
                      title )
       return result
 
+#  Find the row index of an entry with a given path.
+   def findPath(self,path):
+      tpath = str(path)
+      if tpath.startswith( self.rootdir+"/" ):
+         npath = tpath[ len(self.rootdir+"/"): ]
+      else:
+         npath = tpath
+      try:
+         result = self['PATH'].index( npath )
+      except ValueError:
+         result = -1
+      return result
 
 # ----------------------------------------------------------------------
 class Record(object):
@@ -920,6 +953,12 @@ class Playlist(object):
             result = "{0}; {1}\n".format(result,record.desc())
          else:
             result = record.desc()
+      return result
+
+   def getIrows(self):
+      result = []
+      for record in self._records:
+         result.append( record.irow )
       return result
 
    def _getPath(self):

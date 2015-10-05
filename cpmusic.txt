@@ -418,7 +418,7 @@ Jesus shall reign where'er the sun@stf/328_Jesus_shall_reign_whereer_the_sun_Rim
 Jesus shall reign where'er the sun@stf/328_Jesus_shall_reign_whereer_the_sun_Truro.mid@@STF@328@Truro@KEYBD@STF@88.88.@0@0@0@-1
 Jesus, the first and last@stf/329_Jesus_the_first_and_last.mid@H@STF@329@Hail to the Lord@KEYBD@STF@66.66.66.@0@0@0@123
 Joy to the world@stf/330_Joy_to_the_world.mid@H@STF@330@Antioch (Comfort (Mason))@KEYBD@STF@@0@0@0@123
-King of kings, majesty@stf/331_King_of_kings_majesty.mid@MQ@STF@331@@KEYBD@STF@None@@@0@4
+King of kings, majesty@stf/331_King_of_kings_majesty.mid@MQ@STF@331@@KEYBD@STF@None@0@0@0@4
 Lord, I lift your name on high@stf/332_Lord_I_lift_your_name_on_high.mid@@STF@332@@KEYBD@STF@@0@0@0@-1
 Majesty, worship his majesty@stf/333_Majesty_worship_his_majesty.mid@@STF@333@@KEYBD@STF@@0@0@0@-1
 Praise to the Holiest in the height@stf/334_Praise_to_the_Holiest_in_the_height.mid@@STF@334@Gerontius@KEYBD@STF@86.86.@0@0@0@-1
@@ -441,7 +441,7 @@ He is Lord, he is Lord@stf/348_He_is_Lord_he_is_Lord.mid@@STF@348@He is Lord@KEY
 I am not skilled to understand@stf/349_I_am_not_skilled_to_understand.mid@@STF@349@@KEYBD@STF@@0@0@0@-1
 I am not skilled to understand@stf/349_I_am_not_skilled_to_understand_No_refrain.mid@@STF@349@No refrain@KEYBD@STF@@0@0@0@-1
 I cannot tell@stf/350_I_cannot_tell.mid@@STF@350@Londonderry Air@KEYBD@STF@11.10.11.10.11.10.11.12.@0@0@0@-1
-In Christ alone!@stf/351_In_Christ_alone.mid@M@STF@351@@KEYBD@STF@@0@0@0@-1
+In Christ alone!@stf/351_In_Christ_alone.mid@M@STF@351@@KEYBD@STF@@0@-14@0@1
 Jesus Christ is the Lord of all@stf/352_Jesus_Christ_is_the_Lord_of_all.mid@@STF@352@@KEYBD@STF@@0@0@0@-1
 Jesus is Lord!@stf/353_Jesus_is_Lord.mid@@STF@353@Jesus is Lord@KEYBD@STF@@0@0@0@-1
 Jesus is the name we honour@stf/354_Jesus_is_the_name_we_honour.mid@@STF@354@@KEYBD@STF@@0@0@0@-1
@@ -655,7 +655,7 @@ To the river, I am going@stf/541_To_the_river_I_am_going.mid@M@STF@541@@KEYBD@ST
 We praise you, Lord for Jesus Christ@stf/542_We_praise_you_Lord_for_Jesus_Christ.mid@@STF@542@Kilmarnock@KEYBD@STF@86.86.@0@0@0@-1
 Wonder of wonders@stf/543_Wonder_of_wonders_Langley_Grove.mid@@STF@543@Langley Grove@KEYBD@STF@55.54.D.@0@0@0@-1
 Wonder of wonders@stf/543_Wonder_of_wonders_Wonder_of_Wonders.mid@@STF@543@Wonder of Wonders@KEYBD@STF@55.54.D.@0@0@0@-1
-As the deer pants for the water@stf/544_As_the_deer_pants_for_the_water.mid@@STF@544@As the Deer@KEYBD@STF@@0@0@0@-1
+As the deer pants for the water@stf/544_As_the_deer_pants_for_the_water.mid@@STF@544@As the Deer@KEYBD@STF@@0@0@0@5
 Be thou my vision@stf/545_Be_thou_my_vision_in_3.mid@H@STF@545@in 3@KEYBD@STF@10.11.11.11.@0@0@0@123
 Be thou my vision@stf/545_Be_thou_my_vision_in_4.mid@H@STF@545@in 4@KEYBD@STF@10.11.11.11.@0@0@0@123
 Behold the servant of the Lord!@stf/546_Behold_the_servant_of_the_Lord.mid@H@STF@546@Mozart@KEYBD@STF@88.88.88.@0@0@0@123
@@ -691,7 +691,7 @@ You are the centre@stf/567_You_are_the_centre.mid@@STF@567@@KEYBD@STF@@0@0@0@-1
 Alleluia! Sing to Jesus@stf/568_Alleluia_Sing_to_Jesus.mid@@STF@568@Hyfrydol@KEYBD@STF@@0@0@0@-1
 An Upper Room@stf/569_An_Upper_Room.mid@H@STF@569@O Waly Waly@KEYBD@STF@98.98.@0@0@0@123
 As we gather, Father, seal us@stf/570_As_we_gather_Father_seal_us.mid@M@STF@570@@KEYBD@STF@@0@0@0@-1
-As your family, Lord@stf/571_As_your_family_Lord.mid@@STF@571@Kum ba Hah@KEYBD@STF@88.85.@0@0@0@-1
+As your family, Lord@stf/571_As_your_family_Lord.mid@@STF@571@Kum ba Hah@KEYBD@STF@88.85.@0@4@0@1
 Author of life divine@stf/572_Author_of_life_divine_Shirland.mid@@STF@572@Shirland@KEYBD@STF@66.66.86.@0@0@0@-1
 Author of life divine@stf/572_Author_of_life_divine_Sacrista.mid@@STF@572@Sacrista@KEYBD@STF@66.66.86.@0@0@0@-1
 Be known to us in breaking bread@stf/573_Be_known_to_us_in_breaking_bread.mid@@STF@573@Belmont@KEYBD@STF@86.86.@0@0@0@-1
@@ -1125,7 +1125,7 @@ There's a wideness in God's mercy@stf/416_Theres_a_wideness_in_Gods_mercy_Cross_
 What shall we offer our good Lord@stf/671_What_shall_we_offer_our_good_Lord_Offering.mid@@HAP@807@Offering@KEYBD@STF@@0@0@0@-1
 Thou hidden source of calm repose@stf/366_Thou_hidden_source_of_calm_repose_St_Chrysostom.mid@@HAP@275@St Chrysostom@KEYBD@STF@@0@0@0@-1
 O thou who camest from above@stf/564_O_thou_who_camest_from_above_Hereford.mid@@HAP@745@Hereford@KEYBD@STF@@0@0@0@-1
-Praise and thanksgiving@stf/125_Praise_and_thanksgiving.mid@@HAP@350@Bunessan@KEYBD@STF@@0@0@0@-1
+Praise and thanksgiving@stf/125_Praise_and_thanksgiving.mid@@HAP@350@Bunessan@KEYBD@STF@@0@93@0@-1
 See, amid the winter's snow@stf/215_See_amid_the_winters_snow.mid@@HAP@117@Humility (Oxford)@KEYBD@STF@@0@0@0@-1
 Ye holy angels bright@stf/69_Ye_holy_angels_bright.mid@@HAP@20@Darwall's 148th@KEYBD@STF@@0@0@0@-1
 Deep in the shadows@stf/463_Deep_in_the_shadows.mid@@HAP@447@Kingsfold@KEYBD@STF@@0@0@0@-1
