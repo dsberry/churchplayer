@@ -1314,7 +1314,13 @@ class PlayController(QWidget):
    def playingNew(self,path):
       irow = self.cat.findPath(path)
       if irow >= 0:
-         self.title = self.cat['TITLE'][ irow ]
+         title = self.cat['TITLE'][ irow ]
+         book = self.cat['BOOK'][ irow ]
+         if book:
+            number = self.cat['NUMBER'][ irow ]
+            self.title = "{0} {1}: {2}".format(book, number, title )
+         else:
+            self.title = title
       else:
          self.title = "(unknown)"
       self.setLabel(None)
@@ -2204,7 +2210,6 @@ def main():
 
     print("TO DO:")
     print("   Allow existing cat entries to be duplicated with different book/no")
-    print("   Have some way of indicating how many verses are included")
     print("   Young Childrens tag (e.g. raindrops)" )
     print("   Switch off all debugging printf statements" )
     print("   CLASSIFY ALL MUSIC" )

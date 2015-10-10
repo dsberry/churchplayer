@@ -57,7 +57,7 @@ t:L Lent
 # ----
 Blessed be the name of the lord@dsb/Blessed_be_the_name_of_the_lord.mid@JM@STF@40@@BAND@DSB@None@0@0@-25@-2
 All people that on earth@stf/1_All_people_that_on_earth.mid@H@STF@1@Old 100th@KEYBD@STF@88.88.@0@0@14@125
-Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@None@0@0@0@-1
+Come let us sing to the one@stf/2_Come_let_us_sing_to_the_one.mid@JM@STF@2@@KEYBD@STF@None@0@0@0@2
 Come let us sing@stf/2_Come_let_us_sing_Extra_refrain.mid@JM@STF@2@Extra refrain@KEYBD@STF@None@0@0@0@-1
 Eternal God, your love's tremendous glory@stf/3_Eternal_God_your_loves_tremendous_glory.mid@H@STF@3@Highwood@KEYBD@STF@@0@0@0@123
 Father in heaven@stf/4_Father_in_heaven.mid@MQ@STF@4@Halad@KEYBD@STF@55.55.55.54.@0@0@0@-1
@@ -80,7 +80,7 @@ Be still@stf/20_Be_still.mid@MQ@STF@20@Be Still@KEYBD@STF@@0@0@0@-1
 Born in song!@stf/21_Born_in_song.mid@HJ@STF@21@Chatsworth@KEYBD@STF@39.35.89.@0@-20@-18@125
 Come all you people@stf/22_Come_all_you_people.mid@JM@STF@22@@KEYBD@STF@@0@0@0@-1
 Come, Holy Spirt@stf/23_Come_Holy_Spirt.mid@MQ@STF@23@@KEYBD@STF@@0@0@0@-1
-Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@JM@STF@24@@KEYBD@STF@@0@0@0@-1
+Come, now is the time to worship@stf/24_Come_now_is_the_time_to_worship.mid@JM@STF@24@@KEYBD@STF@@0@1@0@2
 God is here!@stf/25_God_is_here.mid@HJ@STF@25@Bethany@KEYBD@STF@@0@0@0@123
 I rejoiced when I heard them say@stf/26_I_rejoiced_when_I_heard_them_say.mid@MQ@STF@26@I Rejoiced@KEYBD@STF@@0@0@0@-1
 Jesu, tawa pano@stf/27_Jesu_tawa_pano.mid@@STF@27@Jesu Tawa Pano@KEYBD@STF@66.69.@0@0@0@-1
@@ -91,7 +91,7 @@ May the glory of the Lord@stf/31_May_the_glory_of_the_Lord.mid@JM@STF@31@@KEYBD@
 Meet and right it is to sing@stf/32_Meet_and_right_it_is_to_sing.mid@HJ@STF@32@Amsterdam@KEYBD@STF@76.76.77.76.@0@0@0@123
 O Lord we are always in your presence@stf/33_O_Lord_we_are_always_in_your_presence.mid@MQ@STF@33@@KEYBD@STF@@0@0@0@-1
 O worship the Lord@stf/34_O_worship_the_Lord.mid@HQ@STF@34@Was Lebet, Was Schwebet@KEYBD@STF@None@0@0@0@121
-The trumpets sound, the angels sing@stf/35_The_trumpets_sound_the_angels_sing.mid@JM@STF@35@The Feast is Ready@KEYBD@STF@@0@0@0@-1
+The trumpets sound, the angels sing@stf/35_The_trumpets_sound_the_angels_sing.mid@JM@STF@35@The Feast is Ready@KEYBD@STF@@0@0@0@2
 There's a quiet understanding@stf/36_Theres_a_quiet_understanding.mid@MQ@STF@36@@KEYBD@STF@@0@0@0@-1
 You're calling us@stf/37_Youre_calling_us.mid@MQ@STF@37@@KEYBD@STF@@0@0@0@-1
 Wa wa wa Emimimo@stf/38_Wa_wa_wa_Emimimo.mid@@STF@38@@KEYBD@STF@@0@0@0@-1
@@ -383,7 +383,7 @@ Alleluia, alleluia@stf/295_Alleluia_alleluia.mid@E@STF@295@Alleluia, Alleluia@KE
 Christ has risen while eearth slumbers@stf/296_Christ_has_risen_while_eearth_slumbers.mid@ME@STF@296@Transformation@KEYBD@STF@@0@0@0@-1
 Christ is alive! Let Christians sing@stf/297_Christ_is_alive_Let_Christians_sing.mid@HE@STF@297@Truro@KEYBD@STF@88.88.@0@0@0@123
 Christ the Lord is risen today@stf/298_Christ_the_Lord_is_risen_today.mid@HE@STF@298@Easter Hymn@KEYBD@STF@@0@0@0@123
-Easter jubilation@stf/299_Easter_jubilation.mid@E@STF@299@@KEYBD@STF@@0@0@0@-1
+Easter jubilation@stf/299_Easter_jubilation.mid@E@STF@299@@KEYBD@STF@@0@0@0@8
 Hail the day that sees him rise@stf/300_Hail_the_day_that_sees_him_rise.mid@HE@STF@300@Llanfair@KEYBD@STF@@0@0@0@123
 Hail, thou once despised Jesus@stf/301_Hail_thou_once_despised_Jesus.mid@HE@STF@301@Austria@KEYBD@STF@@0@0@0@123
 He has risen@stf/302_He_has_risen.mid@E@STF@302@@KEYBD@STF@@0@0@0@-1
@@ -504,7 +504,7 @@ God is love@stf/403_God_is_love.mid@@STF@403@Theodoric@KEYBD@STF@@0@0@0@-1
 God's spirit is my heart@stf/404_Gods_spirit_is_my_heart.mid@@STF@404@Go Tell Everyone@KEYBD@STF@@0@0@0@-1
 Great is the darkness@stf/405_Great_is_the_darkness.mid@@STF@405@@KEYBD@STF@@0@0@0@-1
 Have you heard the good news@stf/406_Have_you_heard_the_good_news.mid@@STF@406@@KEYBD@STF@@0@0@0@-1
-Hear the call of the kingdom@stf/407_Hear_the_call_of_the_kingdom.mid@M@STF@407@@KEYBD@STF@@0@0@0@-1
+Hear the call of the kingdom@stf/407_Hear_the_call_of_the_kingdom.mid@M@STF@407@@KEYBD@STF@@0@0@0@2
 How small a spark has lit a living fire!@stf/408_How_small_a_spark_has_lit_a_living_fire.mid@@STF@408@Strawberry Hill@KEYBD@STF@@0@0@0@-1
 Let us build a house@stf/409_Let_us_build_a_house.mid@@STF@409@Two Oaks@KEYBD@STF@@0@0@0@-1
 Lord, your Church on earth is seeking@stf/410_Lord_your_Church_on_earth_is_seeking.mid@@STF@410@Abbot's Leigh@KEYBD@STF@@0@0@0@-1
