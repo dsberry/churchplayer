@@ -22,6 +22,10 @@ FSFIFO = "/tmp/fluidsynthfifo"
 
 JOLLY_ORGAN = 'Organ 5'
 QUIET_ORGAN = 'Organ 3'
+JOLLY_PIANO = 'Piano 2'
+QUIET_PIANO = 'Warm Piano 1'
+
+EXCLUDE_FROM_GENERAL = 'cavel'
 
 import signal
 import os.path
@@ -299,13 +303,22 @@ class Catalogue(dict):
                   self[ self.colnames[i] ].append( None )
 
 #  Traditional hymns should use an organ by default, not a piano.
-            if self[ 'TAGS' ][ -1 ]:
+            if self[ 'TAGS' ][ -1 ] and self[ 'INSTR' ][ -1 ] == "KEYBD":
                if "H" in self[ 'TAGS' ][ -1 ]:
                   if int(self[ 'PROG0' ][ -1 ]) == DEFAULT_INSTRUMENT:
                      if "Q" in self[ 'TAGS' ][ -1 ]:
                         prog0 = instruments[ QUIET_ORGAN ]
                      else:
                         prog0 = instruments[ JOLLY_ORGAN ]
+                     self[ 'PROG0' ][ -1 ] = prog0
+
+#  Quiet modern should default to warm piano
+               elif "M" in self[ 'TAGS' ][ -1 ]:
+                  if int(self[ 'PROG0' ][ -1 ]) == DEFAULT_INSTRUMENT:
+                     if "Q" in self[ 'TAGS' ][ -1 ]:
+                        prog0 = instruments[ QUIET_PIANO ]
+                     elif  "J" in self[ 'TAGS' ][ -1 ]:
+                        prog0 = instruments[ JOLLY_PIANO ]
                      self[ 'PROG0' ][ -1 ] = prog0
 
             self.nrow += 1
@@ -508,6 +521,14 @@ class Catalogue(dict):
       self.nrow += 1
       self.modified = True
 
+#  Remove a row from the catalogue, specified by index.
+   def delrow(self,irow):
+      for colname in self.colnames:
+         del self[ colname ][ irow ]
+      del self.midifiles[ irow ]
+      self.nrow -= 1
+      self.modified = True
+
 #  Create a playable Record from a row of the catalogue
    def getRecord(self,row,prog0=None,trans=None,volume=None,tempo=None):
       path = self.midifiles[row]
@@ -600,6 +621,7 @@ class Catalogue(dict):
             break
       os.rename( self.catname, backup )
 
+      print("Saving changes to music catalogue" )
       cat = open( self.catname, "w" )
       cat.write("# Path to root directory for MIDI files\n# -------------------------------------\n")
       cat.write("r:{0}\n".format(self.rootdir))
@@ -722,6 +744,20 @@ class Catalogue(dict):
       matchingRows = range( self.nrow )
       nmatch = self.nrow
 
+      book = None
+      number = None
+      for (icol,val) in zip(searchCols,searchVals):
+         if val:
+            if self.colnames[icol] == 'BOOK':
+               book = val.upper()
+            elif self.colnames[icol] == 'NUMBER':
+               number = int(val)
+
+      if book and number:
+         isalso = "{0}:{1}".format(book,number)
+      else:
+         isalso = None
+
       for (icol,val) in zip(searchCols,searchVals):
          if val:
             newmatches = []
@@ -735,7 +771,16 @@ class Catalogue(dict):
                      lctext = lctext.lower()
                      ok = True
                      for tag in tags:
-                        if not tag in lctext:
+                        if tag == "g":
+                           general = True
+                           for xtag in EXCLUDE_FROM_GENERAL:
+                              if xtag in lctext:
+                                 general = False
+                                 break;
+                           if not general:
+                              ok = False
+                              break
+                        elif not tag in lctext:
                            ok = False
                            break
                      if ok:
@@ -754,6 +799,16 @@ class Catalogue(dict):
                   if ok:
                      newmatches.append( irow )
 
+            elif ( col == "BOOK" or col == "NUMBER" ) and isalso:
+               for irow in matchingRows:
+                  if self[col][irow] == val:
+                     newmatches.append( irow )
+                  elif self['ISALSO'][irow]:
+                     if isalso+" " in self['ISALSO'][irow]:
+                        newmatches.append( irow )
+                     elif self['ISALSO'][irow].endswith(isalso):
+                        newmatches.append( irow )
+
             else:
                for irow in matchingRows:
                   if self[col][irow] == val:
@@ -765,7 +820,15 @@ class Catalogue(dict):
             break;
 
       if sort and len( matchingRows ) > 1:
-         matchingRows.sort( key=lambda irow: self['TITLE'][irow] )
+         keys = {}
+         for irow in matchingRows:
+            thisbook = self['BOOK'][irow]
+            if  book and thisbook == book:
+               thisbook = "AAAA"+thisbook
+            thisorigin = self['ORIGIN'][irow]
+            thistitle = self['TITLE'][irow]
+            keys[irow] = "{0}_{1}_{2}".format(thisorigin,thisbook,thistitle)
+         matchingRows.sort( key=lambda irow: keys[irow] )
 
       return matchingRows
 
@@ -1023,7 +1086,7 @@ class RandomPlaylist(Playlist):
    def __init__(self, tags, cat ):
       Playlist.__init__(self)
       if not tags:
-         tags = "any"
+         tags = "g"
       self.__tags = tags
       self.__cat = cat
       self.played = []
@@ -1083,19 +1146,8 @@ class RandomPlaylist(Playlist):
 
    def findAll( self ):
       self.all = []
-      catlen = len( self.__cat['PATH'] )
-      if self.__tags != "any":
-         for irow in range( catlen ):
-            add = True
-            if self.__cat['TAGS'][irow]:
-               for tr in self.__tags:
-                  if tr not in self.__cat['TAGS'][irow]:
-                     add = False
-            else:
-               add = False
-            if add:
-               self.all.append(irow)
-
+      icol = self.__cat.colindices["TAGS"]
+      self.all = self.__cat.search( [self.__tags], [icol], sort=False )
       if len( self.all ) == 0:
          for irow in range( catlen ):
             self.all.append(irow)

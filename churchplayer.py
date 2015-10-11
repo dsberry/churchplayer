@@ -68,7 +68,7 @@ class RandomPlayer(MyFrame):
       self.count = QLabel( " " )
       self.pw = PlayerWidget(self,player,stop=False,sliders=sliderpanel)
       self.tagSelector = TagSelector( self, player.cat, True, self.count,
-                                      self.pw, sliderpanel )
+                                      self.pw, sliderpanel, True )
       layout = QVBoxLayout()
       topLayout = QHBoxLayout()
       topLayout.addWidget( QLabel( "<b>Play random music: </b>" ) )
@@ -242,7 +242,7 @@ class KeyboardChooser(QWidget):
 # ----------------------------------------------------------------------
 class SliderPanel(MyFrame):
    def __init__( self, parent, player, playerwidget=None, store=False,
-                 playButtons=False ):
+                 playButtons=False, reset=False ):
       super(SliderPanel, self).__init__(parent)
       self.player = player
 
@@ -252,6 +252,17 @@ class SliderPanel(MyFrame):
          vlay.addWidget( player )
          vlay.addWidget( HLine() )
       sliders =  QHBoxLayout()
+
+      if reset:
+         ulay = QVBoxLayout()
+         ulay.addStretch()
+         resetButton = QPushButton('Reset', self)
+         resetButton.setToolTip("Reset sliders to original positions")
+         resetButton.clicked.connect(self.reseter)
+         resetButton.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+         ulay.addWidget( resetButton )
+         sliders.addLayout( ulay )
+
       sliders.addStretch()
 
       sl1 = QVBoxLayout()
@@ -303,15 +314,16 @@ class SliderPanel(MyFrame):
       self.temposlider.pw = playerWidget
       self.pitchslider.pw = playerWidget
 
-
-
-
+   def reseter( self ):
+      self.volumeslider.reset()
+      self.temposlider.reset()
+      self.pitchslider.reset()
 
 # ----------------------------------------------------------------------
 class TagSelector(QWidget):
 
    def __init__( self, parent, cat, clear=False, label=None, pw=None,
-                 sliders=None ):
+                 sliders=None, addGeneralTag=False ):
       super(TagSelector, self).__init__(parent)
       self.checks = {}
       self.cat = cat
@@ -321,6 +333,18 @@ class TagSelector(QWidget):
 
       layout = QVBoxLayout()
       layout.setSpacing(0)
+
+      if addGeneralTag:
+         cb = QCheckBox( "General", self )
+         cb.setToolTip("Anything that is not specific to a single season (Easter,Advent,etc)" )
+         cb.setTristate( False )
+         cb.stateChanged.connect(self.stateHasChanged)
+         self.checks["G"] = cb
+         layout.addWidget( cb, Qt.AlignLeft )
+         self.gcheck = cb
+      else:
+         self.gcheck = None
+
       for (name,desc) in zip(cat.tagnames,cat.tagdescs):
          cb = QCheckBox( desc, self )
          cb.setTristate( False )
@@ -338,15 +362,20 @@ class TagSelector(QWidget):
          hlay.addWidget(  clearButton, Qt.AlignRight )
          layout.addLayout( hlay )
 
+      self.clearer()
       self.setLayout( layout )
-
       self.stateHasChanged(0)
 
    def clearer( self ):
       for name in self.checks:
          self.checks[name].setChecked( False )
+      if self.gcheck:
+         self.gcheck.setChecked( True )
 
    def setFromRow( self, irow ):
+      if self.gcheck:
+         self.gcheck.setChecked( False )
+
       tags = self.cat['TAGS'][ irow ]
       for name in self.cat.tagnames:
          cb =  self.checks[name]
@@ -357,7 +386,7 @@ class TagSelector(QWidget):
 
    def getTags(self):
       newtags = ""
-      for name in self.cat.tagnames:
+      for name in self.checks:
          cb =  self.checks[name]
          if cb.isChecked():
             newtags += name
@@ -980,7 +1009,8 @@ class PanicButton(QPushButton):
 
 # ----------------------------------------------------------------------
 class CPSlider(QWidget):
-   def __init__(self, parent, player, colname, vmin, vmax, vstep, playerwidget=None, store=False ):
+   def __init__(self, parent, player, colname, vmin, vmax, vstep,
+                playerwidget=None, store=False ):
       super(CPSlider, self).__init__(parent)
 
       self.slider = QSlider(Qt.Vertical,parent)
@@ -1011,7 +1041,7 @@ class CPSlider(QWidget):
       self.pw = playerwidget
       self.ignore = False
       self.irow = None
-      self.oldval = None
+      self.oldval = 0
 
    def changeSlide(self):
       if not self.ignore:
@@ -1026,12 +1056,19 @@ class CPSlider(QWidget):
          self.changer(newval)
 
    def changer(self,newval):
-         if self.store:
-            if self.player.cat[self.colname][self.irow] != newval:
-               self.player.cat[self.colname][self.irow] = newval
-               self.player.cat.modified = True
-         self.player.player.sendRT( self.colname, newval )
+      if self.store:
+         if self.player.cat[self.colname][self.irow] != newval:
+            self.player.cat[self.colname][self.irow] = newval
+            self.player.cat.modified = True
+
+      self.player.player.sendRT( self.colname, newval )
+      if self.pw:
          self.pw.setRT( self.colname, newval )
+
+   def reset( self ):
+      self.spin.setValue(self.oldval)
+      self.slider.setValue(self.oldval)
+      self.changer(self.oldval)
 
    def setFromRow( self, irow, map=None ):
       self.ignore = True
@@ -1344,7 +1381,8 @@ class MainWidget(QWidget):
    def __init__( self, parent, player, cat ):
       super(MainWidget, self).__init__(parent)
       self.player = player
-      sliders = SliderPanel( self, player, store=True, playButtons=True )
+      sliders = SliderPanel( self, player, store=True, playButtons=True,
+                             reset=True )
 
       layout = QHBoxLayout()
 
@@ -2209,9 +2247,8 @@ def main():
     ex.activateWindow()
 
     print("TO DO:")
-    print("   Allow existing cat entries to be duplicated with different book/no")
-    print("   Young Childrens tag (e.g. raindrops)" )
     print("   Switch off all debugging printf statements" )
+    print("   Transfer to red laptop. STart on boot. Shutdown on close")
     print("   CLASSIFY ALL MUSIC" )
     print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
 
