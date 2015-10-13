@@ -2115,7 +2115,7 @@ class ChurchPlayer(QMainWindow):
       ax = qr.center().x() - wid/2
       ay = qr.center().y() - hgt/2
       self.setGeometry( ax, ay, wid, hgt )
-      self.show()
+      self.showMaximized()
 
 
 #  ---------------------------------------------------------------
