@@ -2015,6 +2015,20 @@ class ChurchPlayer(QMainWindow):
 #  Create the GUI.
 #  ---------------------------------------------------------------
    def initUI(self, app, cat, player ):
+
+#  Display any warnings about the catalogue.
+      if len( cat.warnings ) > 0:
+         mb = QMessageBox()
+         mb.setText("Warnings were issued whilst reading the music "
+                        "catalogue file '{0}'.".format( cat.catname ) )
+         details = "\n"
+         for warning in cat.warnings:
+            details += "- {0}\n\n".format(warning)
+         details += "\n"
+         mb.setDetailedText( details )
+         mb.exec_();
+
+#  Continue...
       self.cat = cat
       self.app = app
       self.closed = False
@@ -2103,18 +2117,6 @@ class ChurchPlayer(QMainWindow):
       self.setGeometry( ax, ay, wid, hgt )
       self.show()
 
-#  Display any warnings about the catalogue.
-      if len( cat.warnings ) > 0:
-         mb = QMessageBox()
-         mb.setText("Warnings were issued whilst reading the music "
-                        "catalogue file '{0}'.".format( cat.catname ) )
-         details = "\n"
-         for warning in cat.warnings:
-            details += "- {0}\n\n".format(warning)
-         details += "\n"
-         mb.setDetailedText( details )
-         mb.exec_();
-
 
 #  ---------------------------------------------------------------
 #  Exit the application.
@@ -2125,6 +2127,14 @@ class ChurchPlayer(QMainWindow):
 
    def exit(self, e ):
       doexit = True
+      shutit = False
+      ret = QMessageBox.warning(self, "Warning", '''Shut down the computer after closing ChurchPlayer?''',
+                                      QMessageBox.Yes, QMessageBox.No,
+                                      QMessageBox.Cancel)
+      if ret == QMessageBox.Yes:
+         shutit = True
+      elif ret == QMessageBox.Cancel:
+         doexit = False
 
       if self.cat.modified:
          self.cat.save()
@@ -2138,6 +2148,8 @@ class ChurchPlayer(QMainWindow):
                del self.player.player
             except:
                pass
+         if shutit:
+            print( "SHUTDOWN" )
          self.closed = True
          self.close()
 
@@ -2247,8 +2259,6 @@ def main():
     ex.activateWindow()
 
     print("TO DO:")
-    print("   Switch off all debugging printf statements" )
-    print("   Transfer to red laptop. STart on boot. Shutdown on close")
     print("   CLASSIFY ALL MUSIC" )
     print("   WRITE BETTER MIDIS TO REPLACE STF MIDIS" )
 

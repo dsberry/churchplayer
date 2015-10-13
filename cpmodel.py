@@ -1093,7 +1093,10 @@ class RandomPlaylist(Playlist):
       self.all = []
       random.seed( None )
       self.findAll()
-      self._records.append( self.choose() )
+
+      record = self.choose()
+      if self.choose:
+         self._records.append( self.choose() )
 
    def desc(self):
       return self._getTitle()

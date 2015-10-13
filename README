@@ -1,12 +1,81 @@
-to install pip for python 2.7
+alsa utils:
+   ./configure --with-curses=ncurses
+
+
+
+
+On Lurga:
+- insert USB memory stick.
+
+% cd /data2/backup/churchplayer
+% cd <most recent directory>
+% tar -cvf /run/media/dsb/LIVE/cp.tar churchplayer
+% umount /run/media/dsb/LIVE
+
+(change  "LIVE" to name of USB memory pen)
+
+Setting up churchplayer on Dell XPS:
+
+
+- Insert Ubuntu CD (64 bit) and reboot. Select "Install Ubuntu" and proceed
+  (select "Erase disk and install Ubuntu" for "Installation type")
+  (select Username "euxton" password "Euxton" and "log in automatically")
+- Reboot
+- Install ubuntu updates (software updater should appear automatically
+  after first boot).
+
+- Click top left button, search for "Terminal" and start a gnome-terminal
+- sudo apt-get install --no-install-recommends gnome-panel
+- gnome-desktop-item-edit Desktop --create-new
+     - enter "Command" as "gnome-terminal" and "name" as "terminal"
+- gnome-desktop-item-edit Desktop --create-new
+     - enter "Command" as "gnome-desktop-item-edit Desktop --crwate-new" and "name" as "NewIcon"
+- sudo visudo -f /etc/sudoers.d/myOverrides
+  Add line: "euxton ALL=(ALL:ALL) NOPASSWD: /sbin/poweroff"
+- sudo gedit /etc/default/grub
+  Remove "quiet" from line: GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+- sudo update-grub
+- Edit /boot/grub/grub.cfg and remove all references to $vt_handoff
+- restart
+- Click on "system settings" icon (a gear wheel), then "personal" then
+  "Security & privacy", uncheck "Waking from suspend" and "Returning
+  from blank screen"
+- Click on "system settings" icon (a gear wheel), then "personal" then
+  "Brightness & lock", uncheck "Dim screen to save power" and set
+  "Turn screen off..." to "never".
+- Insert USB memory pen
+- tar -xvf /media/euxton/LIVE/cp.tar
+- Click top left icon, and search for "startup", active "startup applications":
+  "Add",   name="ChurchPlayer", command="/home/exuton/churchplayer/runCP", "Close"
+- chmod a+x churchplayer/runCP
+- cd churchplayer
+- sudo apt-get install tcsh
+- sudo apt-get install libasound2-dev
+- sudo apt-get install ncurses-dev
+- sudo apt-get install gawk
+- ./build
+
+- sudo apt-get install fluidsynth
+- sudo apt-get install python-dev
+
+- install pip for python 2.7:
    wget --no-check-certificate http://pypi.python.org/packages/source/d/distribute/distribute-0.6.35.tar.gz
    tar xf distribute-0.6.35.tar.gz
    cd distribute-0.6.35
    sudo python2.7 setup.py install
    sudo easy_install-2.7 pip
+   cd ..
+   sudo rm -rf distribute-0.6.35
 
-to install psutils package:
+- install psutils package:
    sudo /usr/local/bin/pip install psutil
 
-alsa utils:
-   ./configure --with-curses=ncurses
+- Edit cpmusic.txt to refer to /home/euxton instead of /home/dsb
+
+
+
+
+
+
+
+
