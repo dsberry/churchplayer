@@ -1,0 +1,12 @@
+#!/bin/tcsh
+
+rm mp_index >& /dev/null
+
+set i = 41
+while( $i <= 41 )
+   echo "MP $i"
+   wget --no-check-certificate -O fred "https://www.missionpraise.com/search_results?Title=&Composer=&Content=&Collection=8&Themes=0&SongId=${i}&x=22&y=9&SearchType=Advanced"
+   set title = `grep "<br><br>" fred | sed -e 's/<br><br>//'`
+   echo "$i@$title" >> mp_index
+   @ i = $i + 1
+end

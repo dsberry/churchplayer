@@ -1,0 +1,21 @@
+#!/bin/tcsh
+
+#  Kill any processes that are using the audio device (hw:0)
+killall -r -s KILL fluidsynth
+
+set pid = `fuser -v /dev/snd/pcmC0D0p`
+while( $status == 0 )
+   kill $pid
+   set pid = `fuser -v /dev/snd/pcmC0D0p`
+end
+
+#set sf = /home/dsb/soundfonts/english\ organ_102.sf2
+#set sf = /home/dsb/soundfonts/churchplayer.sf2
+#set sf = /home/dsb/churchplayer/churchplayer.sf2
+set sf = /home/dsb/soundfonts/JJs_Eng_Chamber_Organ1.1.SF2
+#set sf = /home/dsb/soundfonts/Orgue.sf2
+
+#  Start up the server process that creates the sound from the ALSA sequencer
+#  data. Read stdin commands from the above fifo.
+/usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa \
+-o audio.alsa.device=hw:0 "$sf" /home/dsb/churchplayer/music/stf/204_In_the_bleak_midwinter.mid

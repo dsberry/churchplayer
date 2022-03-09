@@ -1,0 +1,42 @@
+1) In a new terminal, do:
+
+% cd churchplayer
+% source midieditor_server
+
+2) In the original terminal, do:
+
+% midieditor
+
+3) In the "Midi/Settings" menu item, select the fluidsynth midi
+   output device, and "close" the dialog.
+4) Use the "Open" icon to open the required midi file
+
+5) To change the global volume of a channel:
+
+- Click on the "Channels" tab to thr right of the main event window, and
+find the channel number for the required instrument.
+
+- Scroll the main event window down to see the "Control change" line at
+the bottom
+
+- At the bottom right, select "Control change" from the top button,
+"Channel volume (MSB)" from the middle button, and the appropriate
+channel from the bottom button.
+
+- Left click somewhere in the panel to the right of these three buttons,
+at a point corresponding to the time where you want the volume change to
+occur (usually near the start).
+
+- Click on the marker that appeared in the "Control change" line above.
+This populates the event property panel at the right end of the line.
+Click on the "value" box and enter a new value in range 0-127, then press
+enter.
+
+- Use the playback controls above the main event window to test the change.
+
+
+- Click "save" icon
+
+
+
+

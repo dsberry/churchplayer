@@ -1,0 +1,16 @@
+% cd ~/churchplayer
+% source rosegarden_server
+
+Then in another xterm....
+
+% rosegarden
+
+Then open a MIDI file (file/import Midi)
+Then select midi device (studio/manage midi devices click
+            on fluidsynth device (128:0 ?))
+Then play .......
+
+To change stuff, right click on the displayed timeline area and select
+"Open in Matrix Editor", then click "View/Rules/ShowVelocityRuler"
+
+See http://rosegarden.sourceforge.net/tutorial/en/chapter-7.html for details...
