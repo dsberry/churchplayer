@@ -1,0 +1,9 @@
+
+cd $HOME/churchplayer
+killall -r -s KILL fluidsynth
+killall -r -s KILL churchplayer.py
+killall -s KILL aplaymidi
+killall -s KILL listen
+killall -s KILL controller
+./churchplayer.py
+

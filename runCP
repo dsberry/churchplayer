@@ -1,0 +1,9 @@
+#!/bin/tcsh
+cd $HOME/churchplayer
+./churchplayer.py > $HOME/churchplayer.log
+grep SHUTDOWN $HOME/churchplayer.log
+if( $status == 0 ) then
+   sudo /sbin/poweroff
+endif
+
+
