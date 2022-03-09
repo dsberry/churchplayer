@@ -35,7 +35,6 @@ import time
 import psutil
 import os
 import re
-import commands
 import copy
 import random
 
@@ -139,7 +138,7 @@ def waitForProcess( name ):
 #  does not exist.
 def isMidi(path):
    if os.path.isfile( path ):
-      text = commands.getstatusoutput( "file '{0}'".format(path) )
+      text = subprocess.getstatusoutput( "file '{0}'".format(path) )
       if "Standard MIDI" in text[1]:
          return 0
       else:
@@ -1280,7 +1279,7 @@ class Player(object):
    def sendFS( self, cmd ):
       if self.fspipe == None:
          self.fspipe = os.open(FSFIFO,os.O_WRONLY)
-      os.write(self.fspipe, cmd )
+      os.write(self.fspipe, cmd.encode(encoding='UTF-8') )
 
 #  Modify the FluidSynth gain using a relative "volume" in the range -10
 #  to +10. This relative volume is relative to the current master volume.

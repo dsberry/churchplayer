@@ -1121,8 +1121,8 @@ class CPSlider(QWidget):
          mymap[self.irow] = newval
 
    def setValue( self, value ):
-      self.slider.setValue( value )
-      self.spin.setValue( value )
+      self.slider.setValue( int(value) )
+      self.spin.setValue( int(value) )
 
 
 # ----------------------------------------------------------------------
@@ -1656,7 +1656,7 @@ class PlayerButton(QLabel):
       if tip:
          self.setToolTip( tip )
       self.setAlignment(Qt.AlignHCenter)
-      self.setFixedSize( size*1.1, size*1.1 )
+      self.setFixedSize( int(size*1.1), int(size*1.1) )
       self.mouseReleaseEvent = onClick
       self.alive = alive
       if alive:
@@ -1830,7 +1830,7 @@ class PlayerWidget(QWidget):
       self.player.setKbdChooser( None )
 
    def __del__(self):
-      print("!!!!!!!!  PlayerWidget.__del__ called")
+      pass
 
 # ------------------------------------------------------------------------
 # ------------------------------------------------------------------------
@@ -2154,7 +2154,7 @@ class ChurchPlayer(QMainWindow):
       hgt =  0.95*qr.height()
       ax = qr.center().x() - wid/2
       ay = qr.center().y() - hgt/2
-      self.setGeometry( ax, ay, wid, hgt )
+      self.setGeometry( int(ax), int(ay), int(wid), int(hgt) )
       self.showMaximized()
 
 
@@ -2275,6 +2275,10 @@ def main():
 
     splash.show()
     app.processEvents()
+
+#  Ensure the services directory exists.
+    if not os.path.isdir("services"):
+       os.mkdir( "services")
 
 #  Set up the catalogue etc
     splash.showMessage( " Reading music catalogue...", Qt.AlignBottom, Qt.white )
