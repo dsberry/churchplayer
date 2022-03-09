@@ -1,5 +1,7 @@
 #!/bin/tcsh
 
+set PIPE = "/tmp/fluidsynthfifo"
+
 #  kill any existing aplaymidi processes
 killall -s KILL aplaymidi >& /dev/null
 
@@ -23,9 +25,14 @@ while( $found == 0 )
       set found = 1
       /usr/bin/aplaymidi -p $a[1] -r -v -y $1
 
-#  If no server was found, echo a message to standard error and then sleep
-#  for one second before trying again.
+#  If no server was found, send a harmless command to fluidsynth (if the pipe 
+#  exists) to kick it into life.
    else
+      if( -e $PIPE ) then
+         echo "fonts" > $PIPE
+      endif
+   
+   #  Echo a message to standard error and then sleep for one second before trying again.
       echo "controller is waiting for the server process to start..." > /dev/stderr
       sleep 1
    endif

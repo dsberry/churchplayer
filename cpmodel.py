@@ -20,8 +20,8 @@ REMAINING_CODE = "r"
 WFIFO = "/tmp/churchplayerfifo_wr"
 FSFIFO = "/tmp/fluidsynthfifo"
 
-JOLLY_ORGAN = 'Organ 5'
-QUIET_ORGAN = 'Organ 3'
+JOLLY_ORGAN = 'Organ 7'
+QUIET_ORGAN = 'Organ 9'
 JOLLY_PIANO = 'Piano 2'
 QUIET_PIANO = 'Warm Piano 1'
 
@@ -59,6 +59,8 @@ instrumentNames = [
    'Organ 7',
    'Organ 8',
    'Organ 9',
+   'Organ 10',
+   'Organ 11',
    'Harpsichord',
    'Vibraphone',
    'Xylophone',
@@ -78,15 +80,17 @@ instruments = {
    'E-Piano 2': 7,
    'E-Piano 3': 8,
    'E-Piano 4': 9,
-   'Organ 1': 19,
+   'Organ 1': 127,
    'Organ 2': 120,
-   'Organ 3': 121,
-   'Organ 4': 122,
-   'Organ 5': 123,
-   'Organ 6': 124,
-   'Organ 7': 125,
-   'Organ 8': 126,
-   'Organ 9': 127,
+   'Organ 3': 118,
+   'Organ 4': 119,
+   'Organ 5': 121,
+   'Organ 6': 123,
+   'Organ 7': 122,
+   'Organ 8': 124,
+   'Organ 9': 125,
+   'Organ 10': 126,
+   'Organ 11': 19,
    'Harpsichord': 6,
    'Vibraphone': 11,
    'Xylophone': 13,
@@ -317,7 +321,7 @@ class Catalogue(dict):
                   if int(self[ 'PROG0' ][ -1 ]) == DEFAULT_INSTRUMENT:
                      if "Q" in self[ 'TAGS' ][ -1 ]:
                         prog0 = instruments[ QUIET_PIANO ]
-                     elif  "J" in self[ 'TAGS' ][ -1 ]:
+                     else:
                         prog0 = instruments[ JOLLY_PIANO ]
                      self[ 'PROG0' ][ -1 ] = prog0
 
@@ -1164,6 +1168,8 @@ class Player(object):
       self._controllerPopen = None
       self.listener = None
       self.fspipe = None
+      self.mastervol = 0.5
+      self.relvol = None
       self._start()
 
    def __del__(self):
@@ -1276,7 +1282,20 @@ class Player(object):
          self.fspipe = os.open(FSFIFO,os.O_WRONLY)
       os.write(self.fspipe, cmd )
 
-#  Set the FluidSynth gain.
+#  Modify the FluidSynth gain using a relative "volume" in the range -10
+#  to +10. This relative volume is relative to the current master volume.
    def setFSGain( self, volume ):
-      self.sendFS( "gain {0}\n".format(pow( 10.0, 0.01*volume )) )
+      self.relvol = volume
+      self.sendFS( "gain {0}\n".format(self.mastervol*pow( 10.0, 0.01*volume )) )
+
+#  Get/Set the master volume (in range 0 -> 1.0).
+   def setMasterVolume( self, mastervolume ):
+      if self.mastervol != mastervolume:
+         self.mastervol = mastervolume
+         print( "Setting master vol to {0}".format(mastervolume ) )
+         if self.relvol != None:
+            self.setFSGain( self.relvol )
+
+   def getMasterVolume( self ):
+      return self.mastervol
 

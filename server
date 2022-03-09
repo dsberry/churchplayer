@@ -8,7 +8,7 @@ set PIPE = "/tmp/fluidsynthfifo"
 killall -r -s KILL fluidsynth
 
 set pid = `fuser -v /dev/snd/pcmC0D0p`
-while( $status == 0 )
+while( $status == 0 && "$pid" != "" )
    kill $pid
    set pid = `fuser -v /dev/snd/pcmC0D0p`
 end

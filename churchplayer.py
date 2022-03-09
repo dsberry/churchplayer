@@ -247,7 +247,9 @@ class SliderPanel(MyFrame):
       self.player = player
 
       vlay = QVBoxLayout()
-      vlay.addWidget( QLabel( "<b>Control the currently playing music: </b>" ) )
+      vlay.addWidget( QLabel( "<b>Control the currently playing musical item: </b>"
+               "&nbsp; &nbsp; &nbsp;These sliders reset after each item<br>finishes. Use the "
+               "<i>Master Volume</i> slider above to make a permanent volume change." ) )
       if playButtons:
          vlay.addWidget( player )
          vlay.addWidget( HLine() )
@@ -268,7 +270,7 @@ class SliderPanel(MyFrame):
       sl1 = QVBoxLayout()
       self.volumeslider = CPSlider( self, self.player, 'VOLUME', -99, 99, 1,
                                     playerwidget, store )
-      self.volumeslider.setToolTip("Change the playback volume")
+      self.volumeslider.setToolTip("Change the playback volume relative to the current master volume")
       sl1.addWidget( self.volumeslider )
       sl1.addWidget( QLabel("Volume" ) )
       sliders.addLayout( sl1 )
@@ -318,6 +320,21 @@ class SliderPanel(MyFrame):
       self.volumeslider.reset()
       self.temposlider.reset()
       self.pitchslider.reset()
+
+# ----------------------------------------------------------------------
+class MasterVolume(MyFrame):
+   def __init__( self, parent, player ):
+      super(MasterVolume, self).__init__(parent)
+      self.player = player
+
+      vlay = QVBoxLayout()
+      vlay.addWidget( QLabel( "<b>Master<br>Volume: </b>" ) )
+
+      self.slider = CPSlider( self, self.player, "MASTER", 0, 100, 1 )
+      self.slider.setToolTip("Change the master volume")
+      vlay.addWidget( self.slider )
+
+      self.setLayout( vlay )
 
 # ----------------------------------------------------------------------
 class TagSelector(QWidget):
@@ -779,7 +796,7 @@ class SearchDialog(QDialog):
 
          if len(rows) == 0:
             if showYesNoMessage( "No music has been selected.", "Select all "
-                                 "display music before closing?" ):
+                                 "displayed music before closing this window?" ):
                for sindex in range(self.scarea.count()):
                   item = self.scarea.itemWidget( self.scarea.item( sindex ) )
                   rows.append( item.irow )
@@ -794,38 +811,45 @@ class SearchDialog(QDialog):
       self.closer()
 
    def clearer(self):
-      self.clearResults()
       for item in self.searchItems:
          item.clear()
 
    def searcher(self):
       searchVals = []
       searchCols = []
+      ok = False
       for item in self.searchItems:
+         if item.value:
+            ok = True
          searchVals.append( item.value )
          searchCols.append( item.icol )
 
-      self.matchingRows = []
-      for sindex in range(self.scarea.count()):
-         item = self.scarea.itemWidget( self.scarea.item( sindex ) )
-         if item.cb.isChecked():
-            self.matchingRows.append( item.irow )
-      nold = len( self.matchingRows )
-
-      newrows = self.player.cat.search( searchVals, searchCols )
-      if len( newrows ) == 0:
-         showMessage("No matching music found !")
+      if not ok:
+         showMessage( "No selection criteria specified. Please give some indication of the music you are looking for. " )
       else:
-         self.matchingRows.extend(newrows)
 
-      self.clearResults()
+         self.matchingRows = []
+         for sindex in range(self.scarea.count()):
+            item = self.scarea.itemWidget( self.scarea.item( sindex ) )
+            if item.cb.isChecked():
+               self.matchingRows.append( item.irow )
+         nold = len( self.matchingRows )
 
-      if len( self.matchingRows ) > 0:
-         icheck = 0;
-         for irow in self.matchingRows:
-            matchWidget = SearchMatch(self,irow,(icheck < nold), self.player )
-            self.scarea.addWidget( matchWidget )
-            icheck += 1
+         newrows = self.player.cat.search( searchVals, searchCols )
+         if len( newrows ) == 0:
+            showMessage("No matching music found !")
+         else:
+            self.matchingRows.extend(newrows)
+
+         self.clearResults()
+
+         if len( self.matchingRows ) > 0:
+            icheck = 0;
+            for irow in self.matchingRows:
+               matchWidget = SearchMatch(self,irow,(icheck < nold), self.player )
+               self.scarea.addWidget( matchWidget )
+               icheck += 1
+            self.clearer()
 
    def clearResults(self):
       for sindex in range(self.scarea.count()):
@@ -1042,6 +1066,10 @@ class CPSlider(QWidget):
       self.ignore = False
       self.irow = None
       self.oldval = 0
+      self.maxv = float(vmax)
+
+      if colname == "MASTER":
+         self.setValue( self.player.player.getMasterVolume()*self.maxv )
 
    def changeSlide(self):
       if not self.ignore:
@@ -1056,14 +1084,17 @@ class CPSlider(QWidget):
          self.changer(newval)
 
    def changer(self,newval):
-      if self.store:
-         if self.player.cat[self.colname][self.irow] != newval:
-            self.player.cat[self.colname][self.irow] = newval
-            self.player.cat.modified = True
+      if self.colname == "MASTER":
+         self.player.player.setMasterVolume( newval/self.maxv )
+      else:
+         if self.store:
+            if self.player.cat[self.colname][self.irow] != newval:
+               self.player.cat[self.colname][self.irow] = newval
+               self.player.cat.modified = True
 
-      self.player.player.sendRT( self.colname, newval )
-      if self.pw:
-         self.pw.setRT( self.colname, newval )
+         self.player.player.sendRT( self.colname, newval )
+         if self.pw:
+            self.pw.setRT( self.colname, newval )
 
    def reset( self ):
       self.spin.setValue(self.oldval)
@@ -1080,8 +1111,7 @@ class CPSlider(QWidget):
       else:
          self.oldval =  int( self.player.cat[self.colname][irow] )
 
-      self.slider.setValue( self.oldval )
-      self.spin.setValue( self.oldval )
+      self.setValue( self.oldval )
       self.ignore = False
       return self.oldval
 
@@ -1089,6 +1119,10 @@ class CPSlider(QWidget):
       newval = self.slider.value()
       if self.irow >= 0 and newval != self.oldval:
          mymap[self.irow] = newval
+
+   def setValue( self, value ):
+      self.slider.setValue( value )
+      self.spin.setValue( value )
 
 
 # ----------------------------------------------------------------------
@@ -1394,7 +1428,13 @@ class MainWidget(QWidget):
       layout.addLayout( leftpanel )
 
       rightpanel = QVBoxLayout()
-      rightpanel.addWidget( RandomPlayer( self, self.player, sliders ) )
+
+      rightsubpanel = QHBoxLayout()
+      rightsubpanel.addWidget( MasterVolume( self, self.player ) )
+      rightsubpanel.addSpacing( 30 )
+      rightsubpanel.addWidget( RandomPlayer( self, self.player, sliders ) )
+      rightpanel.addLayout( rightsubpanel )
+
       rightpanel.addSpacing( 30 )
       player.addClient( sliders )
       player.addClient( self.service )

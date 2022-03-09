@@ -131,7 +131,7 @@ Ye holy angels bright@stf/69_Ye_holy_angels_bright.mid@@STF@69@Darwall's 148th@K
 Always remember, never forget@stf/70_Always_remember_never_forget.mid@@STF@70@Always Remember, Never Forget @KEYBD@STF@@0@0@0@-1@
 Even as the world began@stf/71_Even_as_the_world_began.mid@M@STF@71@@KEYBD@STF@@0@0@0@1@
 Father God, I wonder@stf/72_Father_God_I_wonder.mid@@STF@72@@KEYBD@STF@@0@0@0@-1@MP:128
-Fill thou my life@stf/73_Fill_thou_my_life_Beatitudo.mid@H@STF@73@Beatitudo@KEYBD@STF@86.86.@0@0@0@123@HAP:792
+Fill thou my life@stf/73_Fill_thou_my_life_Beatitudo.mid@H@STF@73@Beatitudo@KEYBD@STF@86.86.@-2@-42@0@123@HAP:792
 Fill thou my life@stf/73_Fill_thou_my_life_St_Fulbert.mid@H@STF@73@St Fulbert@KEYBD@STF@86.86.@0@0@0@123@HAP:792
 For the music of creation@stf/74_For_the_music_of_creation.mid@@STF@74@Rustington@KEYBD@STF@@0@0@0@-1@
 From all that dwell below the skies@stf/75_From_all_that_dwell_below_the_skies.mid@H@STF@75@Lasst Uns Erfreuen@KEYBD@STF@@0@0@0@123@HAP:489
@@ -480,7 +480,7 @@ Holy breath of God@stf/380_Holy_breath_of_God.mid@@STF@380@@KEYBD@STF@@0@0@0@-1@
 Holy Spirit, breath of heaven@stf/381_Holy_Spirit_breath_of_heaven.mid@@STF@381@@KEYBD@STF@@0@0@0@-1@
 Holy Spirit, come, confirm us@stf/382_Holy_Spirit_come_confirm_us.mid@@STF@382@All for Jesus@KEYBD@STF@@0@0@0@-1@HAP:288
 Holy Spirit, gift bestower@stf/383_Holy_Spirit_gift_bestower.mid@@STF@383@Yr Hun Gan@KEYBD@STF@@0@0@0@-1@
-Holy Spirit, rain down@stf/384_Holy_Spirit_rain_down.mid@MZ@STF@384@@KEYBD@STF@None@0@8@0@3@
+Holy Spirit, rain down@stf/384_Holy_Spirit_rain_down.mid@MZ@STF@384@@KEYBD@STF@None@0@10@0@3@
 Holy Spirit, we welcome you@stf/385_Holy_Spirit_we_welcome_you.mid@@STF@385@@KEYBD@STF@@0@0@0@-1@MP:241
 In the beginning was darkness and nothing@stf/386_In_the_beginning_was_darkness_and_nothing.mid@@STF@386@@KEYBD@STF@@0@0@0@-1@
 Into a world of dark@stf/387_Into_a_world_of_dark.mid@@STF@387@Higham Lane@KEYBD@STF@66.66.@0@0@0@-1@HAP:290
@@ -537,7 +537,7 @@ Rock of Ages@stf/434_Rock_of_Ages.mid@@STF@434@Petra (Redhead 76)@KEYBD@STF@@0@0
 We come to you with no pretence@stf/435_We_come_to_you_with_no_pretence.mid@@STF@435@Shanti@KEYBD@STF@86.86.@0@0@0@-1@
 What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Jerusalem_Grosvenor.mid@@STF@436@Jerusalem Grosvenor@KEYBD@STF@86.86.@0@0@0@-1@HAP:46
 What shall I do my God to love@stf/436_What_shall_I_do_my_God_to_love_Abridge_St_Stephen.mid@@STF@436@Abridge St Stephen@KEYBD@STF@86.86.@0@0@0@-1@HAP:46
-When the music fades@stf/437_When_the_music_fades.mid@M@STF@437@@KEYBD@STF@@0@0@0@1@MP:1016
+When the music fades@stf/437_When_the_music_fades.mid@M@STF@437@@KEYBD@STF@@0@-4@0@1@MP:1016
 Your ceaseless, unexhausted love@stf/438_Your_ceaseless_unexhausted_love.mid@H@STF@438@University@KEYBD@STF@86.86.@0@0@0@123@HAP:48
 Abba Father@stf/439_Abba_Father.mid@@STF@439@@KEYBD@STF@@0@0@0@-1@MP:3
 Amazing grace@stf/440_Amazing_grace.mid@H@STF@440@Amazing Grace (New Britain)@KEYBD@STF@86.86.@0@0@0@123@HAP:215 MP:31
@@ -593,9 +593,9 @@ We are marching@stf/483_We_are_marching.mid@@STF@483@Siyahamba@KEYBD@STF@@0@0@0@
 We will walk with God@stf/484_We_will_walk_with_God.mid@@STF@484@Sizohamba Naye@KEYBD@STF@@0@0@0@-1@
 When we are living@stf/485_When_we_are_living.mid@@STF@485@Somos del Senor@KEYBD@STF@@0@0@0@-1@
 Who would true valour see@stf/486_Who_would_true_valour_see.mid@@STF@486@Monks Gate@KEYBD@STF@65.65.66.65.@0@0@0@-1@HAP:688
-You shall go out with joy@stf/487_You_shall_go_out_with_joy.mid@@STF@487@@KEYBD@STF@@0@0@0@-1@MP:796
+You shall go out with joy@stf/487_You_shall_go_out_with_joy.mid@@STF@487@@KEYBD@STF@@0@17@0@1@MP:796
 You showed us mercy@stf/488_You_showed_us_mercy.mid@@STF@488@@KEYBD@STF@@0@0@0@-1@
-All I once held dear@stf/489_All_I_once_held_dear.mid@M@STF@489@Knowing You@KEYBD@STF@@0@0@0@1@MP:799
+All I once held dear@stf/489_All_I_once_held_dear.mid@M@STF@489@Knowing You@KEYBD@STF@@0@15@0@7@MP:799
 Being of beings@stf/490_Being_of_beings.mid@H@STF@490@Tottenham@KEYBD@STF@86.86.@0@0@0@123@HAP:690
 As servants working an estate@stf/491_As_servants_working_an_estate_The_Lords_My_Shepherd.mid@@STF@491@The Lord's My Shepherd@KEYBD@STF@@0@0@0@-1@
 As servants working an estate@stf/491_As_servants_working_an_estate_Kingsfold.mid@@STF@491@Kingsfold@KEYBD@STF@@0@0@0@-1@
@@ -617,7 +617,7 @@ May the mind of Christ my Saviour@stf/504_May_the_mind_of_Christ_my_Saviour.mid@
 More like you, Jesus@stf/505_More_like_you_Jesus.mid@H@STF@505@@KEYBD@STF@@0@0@0@123@
 My heart is full of Christ, and longs@stf/506_My_heart_is_full_of_Christ_and_longs.mid@H@STF@506@Worsley@KEYBD@STF@88.88.88.@0@0@0@123@HAP:799
 O for a heart to praise my God@stf/507_O_for_a_heart_to_praise_my_God.mid@H@STF@507@Abridge (St Stephen)@KEYBD@STF@86.86.@0@0@0@123@HAP:536 MP:495
-Purify my heart@stf/508_Purify_my_heart.mid@M@STF@508@@KEYBD@STF@@0@0@0@1@MP:921
+Purify my heart@stf/508_Purify_my_heart.mid@M@STF@508@@KEYBD@STF@@0@-10@-14@1@MP:921
 Safe in the shadow of the Lord@stf/509_Safe_in_the_shadow_of_the_Lord.mid@@STF@509@Creator God@KEYBD@STF@87.44.6.@0@0@0@-1@MP:583
 Says Jesus, 'Come and gather round'@stf/510_Says_Jesus_Come_and_gather_round.mid@@STF@510@Une Jeune Pucelle@KEYBD@STF@86.86.88.86.@0@0@0@-1@
 Speak in the stillnes@stf/511_Speak_in_the_stillnes_Gonaflon_Royal.mid@@STF@511@Gonaflon Royal@KEYBD@STF@88.88.@0@0@0@-1@
@@ -844,7 +844,7 @@ In an age of twisted values@stf/703_In_an_age_of_twisted_values.mid@@STF@703@Kil
 In labour all creation groans@stf/704_In_labour_all_creation_groans.mid@@STF@704@Morning Song@KEYBD@STF@86.86.@0@0@0@-1@
 It is God who holds the nations@stf/705_It_is_God_who_holds_the_nations.mid@H@STF@705@Vision (Davies)@KEYBD@STF@15.15.15.6.@0@0@0@123@HAP:404
 Longing for light@stf/706_Longing_for_light.mid@@STF@706@Christ Be Our Light@KEYBD@STF@@0@0@0@-1@MP:1201
-Make me a channel of your peace@stf/707_Make_me_a_channel_of_your_peace.mid@@STF@707@Prayer of St Francis (Channel of Peace)@KEYBD@STF@@0@0@0@-1@HAP:776 MP:456
+Make me a channel of your peace@stf/707_Make_me_a_channel_of_your_peace.mid@@STF@707@Prayer of St Francis (Channel of Peace)@KEYBD@STF@@0@0@0@1@HAP:776 MP:456
 O God of hope, your prophets spoke@stf/708_O_God_of_hope_your_prophets_spoke.mid@@STF@708@Chalfont Park@KEYBD@STF@86.88.6.@0@0@0@-1@
 Of all the Spirit's gifts to me@stf/709_Of_all_the_Spirits_gifts_to_me.mid@H@STF@709@Ripponden@KEYBD@STF@@0@0@0@123@HAP:320
 Peace, perfect peace@stf/710_Peace_perfect_peace.mid@@STF@710@@KEYBD@STF@@0@0@0@-1@
@@ -956,3 +956,15 @@ Father hear the prayer we offer@dsb/FatherHearThePrayerWeOffer.mid@HQ@MP@132@Sus
 I heard the voice of Jesus say@dsb/IHeardTheVoiceOfJesusSay.mid@HQ@MP@275@Kingsfold@KEYBD@DSB@@0@-6@-23@121@HAP:136 STF:248
 Fill thou my life@dsb/FillThouMyLife.mid@HJ@STF@73@Beatitudo@KEYBD@DSB@@0@-7@-15@120@HAP:792
 O thou who camest from above@dsb/OThouWhoCamest.mid@HQ@STF@564@Hereford@BAND@DSB@@0@0@0@-2@HAP:745 MP:525
+Guide me o thou great Jehovah@dsb/GuideMeOThouGreatJehovah.mid@HJ@STF@465@Cwm Rhonda@KEYBD@DSB@@0@-1@-29@125@HAP/437
+Teach me to dance@dsb/TeachMeToDance.mid@MJ@STF@477@@BAND@DSB@@0@4@-49@-2@
+Behold the servant of the Lord@dsb/BeholdTheServantOfTheLord.mid@HJ@STF@546@Mozart@KEYBD@DSB@@-2@-6@0@125@HAP/788
+Rejoice the Lord is King@dsb/RejoiceTheLordIsKing.mid@HJ@STF@335@gopsal@KEYBD@DSB@@0@0@0@124@
+Make me a channel of your peace@dsb/MakeMeAChannelOfYourPeace.mid@QM@STF@707@@BAND@DSB@@0@5@0@-2@
+O breath of life@dsb/O_breath_of_life.mid@HJ@STF@391@Spiritus vitae@KEYBD@DSB@@0@0@0@127@
+Soldiers of Christ@dsb/Soldiers_of_Christ.mid@HJ@STF@637@@KEYBD@DSB@@0@0@0@124@
+this little light of mine@dsb/this_little_light_of_mine.mid@JMZ@@0@@BAND@DSB@@0@0@0@-2@
+For all the saints@dsb/ForAllTheSaints.mid@HJ@STF@745@Sine Nomine@KEYBD@DSB@@0@0@0@122@
+A safe stronghold our God is still@dsb/ASafeStronghold.mid@H@STF@623@@KEYBD@DSB@@0@0@0@122@
+Chist is made the sure foundation@dsb/ChistIsMade.mid@HJ@STF@677@@KEYBD@DSB@@0@0@0@122@
+Now thank we all our God@dsb/NowThankWeAllOurGod.mid@H@STF@81@Nun danket@KEYBD@DSB@@0@0@0@122@
