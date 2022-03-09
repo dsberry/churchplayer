@@ -7,6 +7,19 @@ set PIPE = "/tmp/fluidsynthfifo"
 #  Kill any processes that are using the audio device (hw:0)
 killall -r -s KILL fluidsynth
 
+if( -e /usr/bin/fuser ) then
+   alias fuser /usr/bin/fuser
+else if( -e /bin/fuser ) then
+   alias fuser /bin/fuser
+else if( -e /sbin/fuser ) then
+   alias fuser /sbin/fuser
+else if( -e /usr/sbin/fuser ) then
+   alias fuser /usr/sbin/fuser
+else
+   echo "Cannot find fuser command"
+   exit
+endif
+
 set pid = `fuser -v /dev/snd/pcmC0D0p`
 while( $status == 0 && "$pid" != "" )
    kill $pid
@@ -20,6 +33,7 @@ mkfifo $PIPE
 
 #  Start up the server process that creates the sound from the ALSA sequencer
 #  data. Read stdin commands from the above fifo.
+echo "Starting fluidsynth"
 /usr/bin/fluidsynth -f fluid.conf --server --audio-driver=alsa -o audio.alsa.device=hw:0 $soundfont $1 < $PIPE
 
 echo "Exiting server script..."

@@ -685,6 +685,10 @@ class SearchMatch(QWidget):
       lab.setToolTip("Index within music catalogue" )
       layout.addWidget(lab, Qt.AlignRight )
 
+   def sizeHint( self ):
+      hint = QWidget.sizeHint(self)
+      hint.setHeight( int(1.5*SLOT_HEIGHT) )
+      return hint
 
 # ----------------------------------------------------------------------
 class SearchDialog(QDialog):
@@ -1159,6 +1163,11 @@ class ServiceItem(QWidget):
       layout.setSizeConstraint( QLayout.SetFixedSize )
       self.setLayout( layout )
 
+   def sizeHint( self ):
+      hint = QWidget.sizeHint(self)
+      hint.setHeight( int(1.4*SLOT_HEIGHT) )
+      return hint
+
    def clearer(self, event ):
       self.service.changed = True
       self.setPlaylist( None )
@@ -1625,13 +1634,17 @@ class PlayerListener(QThread):
          code = ' '
          while code != cpmodel.ENDING_CODE:
             try:
-               code = os.read(fd,1)
+               code = os.read(fd,1).decode("UTF-8")
+
                if code == cpmodel.PLAYING_CODE:
-                  path = os.read(fd,1000)
+                  path = os.read(fd,1000).decode("UTF-8")
+
+                  parts = path.split(".mid",1)
+                  path = parts[0]+".mid"
                   self.started.emit( path )
 
                elif code == cpmodel.REMAINING_CODE:
-                  time_left = int( os.read(fd,1000).strip('\0') )
+                  time_left = int( os.read(fd,1000).decode("UTF-8").strip('\0') )
                   self.remaining.emit( time_left )
 
                elif code == cpmodel.STOPPED_CODE:
@@ -1708,13 +1721,13 @@ class PlayerWidget(QWidget):
       self.playButton = PlayerButton( self, False, False, 'icons/Play.png',
                                       'icons/Play-disabled.png', self.play,
                                       size )
-      self.layout.addWidget(self.playButton)
+      self.layout.addWidget(self.playButton, Qt.AlignTop )
 
       if stop:
          self.stopButton = PlayerButton( self, False, False, 'icons/Stop.png',
                                          'icons/Stop-disabled.png',
                                          self.stop, size )
-         self.layout.addWidget(self.stopButton)
+         self.layout.addWidget(self.stopButton, Qt.AlignTop )
       else:
          self.stopButton = None
 
@@ -1722,7 +1735,7 @@ class PlayerWidget(QWidget):
          self.fadeButton = PlayerButton( self, False, False, 'icons/Fade.png',
                                          'icons/Fade-disabled.png',
                                          self.fade, size )
-         self.layout.addWidget(self.fadeButton)
+         self.layout.addWidget(self.fadeButton, Qt.AlignTop )
       else:
          self.fadeButton = None
 
@@ -1730,7 +1743,7 @@ class PlayerWidget(QWidget):
          self.nextButton = PlayerButton( self, False, False, 'icons/Next.png',
                                          'icons/Next-disabled.png',
                                          self.next, size )
-         self.layout.addWidget(self.nextButton)
+         self.layout.addWidget(self.nextButton, Qt.AlignTop )
       else:
          self.nextButton = None
 
@@ -1899,7 +1912,7 @@ class CatSpinBox(QSpinBox,CatItem):
             self.setValue( int(text) )
       else:
          self.setValue( 0 )
-      self.setFixedWidth(1.5*self.minimumSizeHint().width())
+      self.setFixedWidth(int(1.5*self.minimumSizeHint().width()))
 
    def valueHasChanged(self, value ):
       if value == 0:
@@ -1939,7 +1952,7 @@ class CatComboBoxS(QComboBox,CatItem):
          self.clearTo = i
 
       self.setCurrentIndex( self.clearTo )
-      self.setFixedWidth(1.5*self.minimumSizeHint().width())
+      self.setFixedWidth(int(1.5*self.minimumSizeHint().width()))
       self.currentIndexChanged.connect(self.indexHasChanged)
 
    def indexHasChanged(self, item ):
@@ -1970,7 +1983,7 @@ class CatComboBoxM(QComboBox,CatItem):
       self.setCurrentIndex( 0 )
       self.setEditable( True )
       self.lineEdit().setReadOnly(True)
-      self.setFixedWidth(1.5*self.minimumSizeHint().width())
+      self.setFixedWidth(int(1.5*self.minimumSizeHint().width()))
       self.currentIndexChanged.connect(self.indexHasChanged)
 
    def indexHasChanged(self, item ):
