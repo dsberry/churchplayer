@@ -1,7 +1,7 @@
 #!/bin/tcsh
-cd $HOME/churchplayer
-./churchplayer.py > $HOME/churchplayer.log
-grep SHUTDOWN $HOME/churchplayer.log
+cd $HOME/git/churchplayer
+./churchplayer.py > $HOME/git/churchplayer.log
+grep SHUTDOWN $HOME/git/churchplayer.log
 if( $status == 0 ) then
    sudo /sbin/poweroff
 endif
