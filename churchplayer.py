@@ -677,7 +677,7 @@ class SearchMatch(QWidget):
          layout.addWidget(lab )
          i += 1
 
-      self.pw = PlayerWidget( self, self.player, irow, size=28 )
+      self.pw = PlayerWidget( self, self.player, irow, size=20 )
       layout.addWidget( self.pw, Qt.AlignRight )
       i += 1
 
@@ -2170,7 +2170,7 @@ class ChurchPlayer(QMainWindow):
       self.setGeometry( 0, 0, wid, hgt )
       self.showFullScreen()
 
-      
+
 #  ---------------------------------------------------------------
 #  Exit the application.
 #  ---------------------------------------------------------------
