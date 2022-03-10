@@ -7,9 +7,9 @@ import stat
 import os
 import re
 
-NSLOT = 10
+NSLOT = 13
 SLOT_HEIGHT = 30
-SLOT_PADDING = 45
+SLOT_PADDING = 10
 PANIC_SERVICE = "services/panic.srv"
 BGCOLOUR = "#eeeeee"
 
@@ -157,7 +157,7 @@ class KeyboardChooser(QWidget):
          cbindex += 1
 
       self.setEnabled( False )
-      self.cb.setFixedWidth(230)
+      self.cb.setFixedWidth(150)
       self.cb.setFixedHeight(SLOT_HEIGHT )
       self.cb.currentIndexChanged.connect( self.kbdChanged )
       layout.addWidget( self.cb )
@@ -916,7 +916,7 @@ class Service(MyFrame):
       layout.addWidget( self.list )
 
 #      self.setFixedHeight( (NSLOT+1)*(SLOT_HEIGHT+SLOT_PADDING) )
-      self.setFixedWidth(1000)
+      self.setFixedWidth(800)
       self.changed = False
 
    def clearSelection(self):
@@ -1150,14 +1150,14 @@ class ServiceItem(QWidget):
          label = "Click here to choose music"
       self.desc = QLineEdit(label,self)
       self.desc.setReadOnly(True)
-      self.desc.setFixedWidth(600)
+      self.desc.setFixedWidth(450)
       self.desc.setFixedHeight(SLOT_HEIGHT)
       self.desc.setToolTip(label)
       self.desc.mouseReleaseEvent = self.musicChooser
 
       layout = QHBoxLayout()
       layout.addWidget( self.pw, 1, Qt.AlignLeft )
-      layout.addWidget( self.desc, 10, Qt.AlignLeft )
+      layout.addWidget( self.desc, 5, Qt.AlignLeft )
       layout.addWidget( self.kbdChooser, 1 )
       layout.addWidget( self.clear, 1, Qt.AlignRight )
       layout.setSizeConstraint( QLayout.SetFixedSize )
@@ -1430,7 +1430,7 @@ class MainWidget(QWidget):
       layout = QHBoxLayout()
 
       leftpanel = QVBoxLayout()
-      leftpanel.setContentsMargins( 30, 0, 30, 0 )
+      leftpanel.setContentsMargins( 20, 0, 20, 0 )
       self.service = Service( self, self.player, sliders )
       leftpanel.addWidget( self.service )
       leftpanel.addWidget( player.label )
@@ -2275,7 +2275,7 @@ def main():
 
     app = QApplication(sys.argv)
     font = app.font()
-    font.setPointSize(15)
+    font.setPointSize(10)
     app.setFont( font )
 
 # Create and display the splash screen

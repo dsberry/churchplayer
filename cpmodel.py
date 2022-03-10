@@ -98,8 +98,8 @@ instruments = {
 
 #  Instrument substitutions
 instrument_subs = {
-   '118': 16,
-   '119': 20
+   '118': instruments['Organ 3'],
+   '119': instruments['Organ 4']
 }
 
 instrumentByNumber = {}
@@ -695,24 +695,24 @@ class Catalogue(dict):
                tip = "The title or first line"
 
          elif col == "METRE":
-            width = 150;
+            width = 100;
             if ok:
                val = '"{0}"'.format(val)
                tip = "The rhythmic metre of the hymn/song"
 
          elif col == "TUNE":
-            width = 250;
+            width = 200;
             if ok:
                val = '({0})'.format(val)
                tip = "The name of the tune"
 
          elif col == "BOOK":
-            width = 50;
+            width = 40;
             if ok:
                tip = self.bookdescs[self.booknames.index(val)]
 
          elif col == "TAGS":
-            width = 60;
+            width = 40;
             if ok:
                tip = None
                if val != "":
@@ -724,14 +724,14 @@ class Catalogue(dict):
                            tip = "{0}, {1}".format(tip,self.tagdescs[i])
 
          elif col == "INSTR":
-            width = 100;
+            width = 80;
             if ok:
                for i in range(len(self.instrnames)):
                   if self.instrnames[i] == val:
                      tip = "Instrumentation: {0}".format(self.instrdescs[i])
 
          elif col == "ORIGIN":
-            width = 50;
+            width = 40;
             if ok:
                if val == "STF":
                   tip = "The midi file was made by Methodist Publishing House"
