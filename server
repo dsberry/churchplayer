@@ -1,6 +1,6 @@
 #!/bin/tcsh
 
-set soundfont = "$HOME/churchplayer/churchplayer.sf2"
+set soundfont = "$HOME/git/churchplayer/churchplayer.sf2"
 
 set PIPE = "/tmp/fluidsynthfifo"
 

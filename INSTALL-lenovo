@@ -4,7 +4,7 @@ On Lurga:
 - download ubuntu-20.04.4-desktop-amd64.iso from ubuntu.com/download/desktop
 - download balenaEtcher from balena.io/etcher, unzip and move AppImage to ~/bin
 - use balenaEtcher to burn ISO to USB stick, then remove USB stick
-
+- copy /mnt/viritrilbia/Church/churchplayer.sf2.gz to a second USB stick
 
 
 on Laptop:
@@ -36,21 +36,32 @@ on Laptop:
       - Select "Log in automatically"
   - Reboot when complete (remove media when asked to)
      - "Continue boot" when blue "MOK management" screen appears
+  - Update ubuntu when asked
 
 - Click app grid at bottom left, right-click "Terminal" select
   "Add to favourites"
+- open terminal
 - sudo visudo -f /etc/sudoers.d/myOverrides
-  Add line: "euxton ALL=(ALL:ALL) NOPASSWD: /sbin/poweroff"
+  Add line: "emc ALL=(ALL:ALL) NOPASSWD: /sbin/poweroff"
 - sudo gedit /etc/default/grub
   Remove "quiet" from line: GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 - sudo update-grub
-- Edit /boot/grub/grub.cfg and remove all references to $vt_handoff
+- sudo gedit /boot/grub/grub.cfg and remove all references to $vt_handoff
 - restart
 - Click app grid at bottom left, click on "Settings" then "Power"
     - Unselect "dim screen when inactive"
     - Set "Blank screen " to "Never"
     - Click on "Automatic suspend" value deselect "on battery power" and
       deselect "on battery power"
+
+- open terminal
+- sudo apt-get install git
+- mkdir git
+- cd git
+- git clone https://github.com/dsberry/churchplayer.git
+- cd churchplayer
+- git checkout Lenovo
+[Then you can copy and paste following commands from INSTALL-lenovo]
 
 - sudo apt-get install tcsh
 - sudo apt-get install libasound2-dev
@@ -60,20 +71,17 @@ on Laptop:
 - sudo apt-get install make
 - sudo apt-get install xmlto
 - sudo apt-get install gettext
-- sudo apt-get install git
-
-- see https://docs.huihoo.com/pyqt/PyQt4/installation.html for info on building pyqt4
-- sudo add-apt-repository ppa:rock-core/qt4
-- sudo apt-get update
-
-- sudo apt-get install qt4-qmake
-[If /usr/bin/qmake does not then exist, do "ln -s /usr/bin/qmake-qt4 /usr/bin/qmake"]
-#- sudo apt-get install libqt4-dev
-#- sudo apt-get install libqt4-declarative
 - sudo apt-get install fluidsynth
 - sudo apt-get install python3-dev
 - sudo apt-get install python3-pip
 - sudo pip3 install psutil
+
+- see https://docs.huihoo.com/pyqt/PyQt4/installation.html for info on building pyqt4
+- sudo add-apt-repository ppa:rock-core/qt4
+- sudo apt-get update
+- sudo apt-get install qt4-qmake
+- sudo apt-get install libqt4-dev
+#- sudo apt-get install libqt4-declarative
 
 - wget "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz"
 - tar -xzf sip-4.19.25.tar.gz
@@ -88,24 +96,18 @@ on Laptop:
 - rm *.tar.gz
 - cd PyQt4_gpl_x11-4.12.3
 - edit configure-ng.py - search for '-B' and comment out the two argv.append calls
-- python3 configure-ng.py
+- python3 configure-ng.py --qmake /usr/bin/qmake-qt4
 - make -j 4
 - sudo make install
+- cd ..
 
-# Get ChurchPlayer and build
-- mkdir git
-- cd git
-- git clone https://github.com/dsberry/churchplayer.git
-- cd churchplayer
-- git checkout Lenovo
 - ./build
 - Edit cpmusic.txt to refer to /home/emc/git instead of /home/dsb
-
 - Click "Activities" in top left corner, and search for "startup",
   active "startup applications":
   "Add",   name="ChurchPlayer", command="gnome-terminal -e /home/emc/git/churchplayer/runCP", "Add", "Close"
 - chmod a+x churchplayer/runCP
-
+- copy churchplayer.sf2.gz from second USB stick to $HOME/git/churchplayer/ and unzip
 
 
 

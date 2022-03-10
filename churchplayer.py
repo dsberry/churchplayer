@@ -2162,15 +2162,15 @@ class ChurchPlayer(QMainWindow):
 
 #  Set up the main window.
       self.setWindowTitle('Church Player')
-      qr = app.desktop().availableGeometry()
-      wid =  0.95*qr.width()
-      hgt =  0.95*qr.height()
-      ax = qr.center().x() - wid/2
-      ay = qr.center().y() - hgt/2
-      self.setGeometry( int(ax), int(ay), int(wid), int(hgt) )
-      self.showMaximized()
+      qr = app.desktop().screenGeometry()
+      wid =  qr.width()
+      hgt =  qr.height()
+      self.setMinimumSize( wid, hgt )
+      self.setMaximumSize( wid, hgt )
+      self.setGeometry( 0, 0, wid, hgt )
+      self.showFullScreen()
 
-
+      
 #  ---------------------------------------------------------------
 #  Exit the application.
 #  ---------------------------------------------------------------
