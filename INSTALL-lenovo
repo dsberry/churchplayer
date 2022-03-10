@@ -52,16 +52,6 @@ on Laptop:
     - Click on "Automatic suspend" value deselect "on battery power" and
       deselect "on battery power"
 
-- sudo apt-get install git
-- mkdir git
-- cd git
-- git clone https://github.com/dsberry/churchplayer.git
-
-- Click "Activities" in top left corner, and search for "startup",
-  active "startup applications":
-  "Add",   name="ChurchPlayer", command="gnome-terminal -e /home/emc/git/churchplayer/runCP", "Add", "Close"
-- chmod a+x churchplayer/runCP
-- cd churchplayer
 - sudo apt-get install tcsh
 - sudo apt-get install libasound2-dev
 - sudo apt-get install ncurses-dev
@@ -70,8 +60,7 @@ on Laptop:
 - sudo apt-get install make
 - sudo apt-get install xmlto
 - sudo apt-get install gettext
-
-- ./build
+- sudo apt-get install git
 
 - see https://docs.huihoo.com/pyqt/PyQt4/installation.html for info on building pyqt4
 - sudo add-apt-repository ppa:rock-core/qt4
@@ -79,14 +68,12 @@ on Laptop:
 
 - sudo apt-get install qt4-qmake
 [If /usr/bin/qmake does not then exist, do "ln -s /usr/bin/qmake-qt4 /usr/bin/qmake"]
-- sudo apt-get install libqt4-dev
-- sudo apt-get install libqt4-declarative
+#- sudo apt-get install libqt4-dev
+#- sudo apt-get install libqt4-declarative
 - sudo apt-get install fluidsynth
 - sudo apt-get install python3-dev
 - sudo apt-get install python3-pip
 - sudo pip3 install psutil
-
-- Edit cpmusic.txt to refer to /home/emc/git instead of /home/dsb
 
 - wget "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz"
 - tar -xzf sip-4.19.25.tar.gz
@@ -105,8 +92,19 @@ on Laptop:
 - make -j 4
 - sudo make install
 
+# Get ChurchPlayer and build
+- mkdir git
+- cd git
+- git clone https://github.com/dsberry/churchplayer.git
+- cd churchplayer
+- git checkout Lenovo
+- ./build
+- Edit cpmusic.txt to refer to /home/emc/git instead of /home/dsb
 
-
+- Click "Activities" in top left corner, and search for "startup",
+  active "startup applications":
+  "Add",   name="ChurchPlayer", command="gnome-terminal -e /home/emc/git/churchplayer/runCP", "Add", "Close"
+- chmod a+x churchplayer/runCP
 
 
 
