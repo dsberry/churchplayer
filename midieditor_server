@@ -6,8 +6,21 @@ killall -r -s KILL midieditor
 killall -r -s KILL rosegarden
 killall -r -s KILL jackd
 
+if( -e /usr/bin/fuser ) then
+   alias fuser /usr/bin/fuser
+else if( -e /bin/fuser ) then
+   alias fuser /bin/fuser
+else if( -e /sbin/fuser ) then
+   alias fuser /sbin/fuser
+else if( -e /usr/sbin/fuser ) then
+   alias fuser /usr/sbin/fuser
+else
+   echo "Cannot find fuser command"
+   exit
+endif
+
 set pid = `fuser -v /dev/snd/pcmC0D0p`
-while( $status == 0 )
+while( $status == 0 && "$pid" != "" )
    kill $pid
    set pid = `fuser -v /dev/snd/pcmC0D0p`
 end
