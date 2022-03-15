@@ -1,0 +1,130 @@
+patch   churchplayer.sf2       GM1
+----------------------------------------------------
+000-000 Steinway D             Acoustic Grand Piano
+000-001 Warm Steinway	       Bright Acoustic Piano
+000-002 Dream Piano...	       Electric Grand Piano
+000-003 Grand Piano	       Honky-tonk Piano
+000-004 Rhodes EP	       Electric Piano 1
+000-005 Warm Rhodes	       Electric Piano 2
+000-006 Harpsichord	       Harpsichord
+000-007 Rhodes+Steinway	       Clavi
+000-008 EP+Steinway	       Celesta
+000-009 EPiano+Flute	       Glockenspiel
+000-010			       Music Box
+000-011 Vibraphone	       Vibraphone
+000-012 Marimba		       Marimba
+000-013 Xylophone	       Xylophone
+000-014 Tubular Bells	       Tubular Bells
+000-015 Dulcimer	       Dulcimer
+000-016 Drawbar Organ	       Drawbar Organ
+000-017 Percussive Organ       Percussive Organ
+000-018 Rock Organ	       Rock Organ
+000-019 Church Organ	       Church Organ
+000-020 Reed Organ	       Reed Organ
+000-021 Accordion	       Accordion
+000-022 Harmonica	       Harmonica
+000-023 Bandoneon	       Tango Accordion
+000-024 Nylon Guitar	       Acoustic Guitar (nylon)
+000-025 Steel Guitar	       Acoustic Guitar (steel)
+000-026 Jazz Guitar	       Electric Guitar (jazz)
+000-027 Clean Guitar	       Electric Guitar (clean)
+000-028 Muted Guitar	       Electric Guitar (muted)
+000-029 Overdriven Guitar      Overdriven Guitar
+000-030 Distortion Guitar      Distortion Guitar
+000-031 Gt. Harmonics	       Guitar harmonics
+000-032 Acoustic Bass	       Acoustic Bass
+000-033 Finger Bass	       Electric Bass (finger)
+000-034 Pick Bass	       Electric Bass (pick)
+000-035 Fretless Bs.	       Fretless Bass
+000-036 Slap Bass	       Slap Bass 1
+000-037 Slap Bass 2	       Slap Bass 2
+000-038 Synth Bass 1	       Synth Bass 1
+000-039 Synth Bass 2	       Synth Bass 2
+000-040 Violin		       Violin
+000-041 Viola		       Viola
+000-042 Cello		       Cello
+000-043 Contrabass	       Contrabass
+000-044 Tremolo Strings	       Tremolo Strings
+000-045 Pizzicato Strings      Pizzicato Strings
+000-046 Celtic Harp	       Orchestral Harp
+000-047 Timpani		       Timpani
+000-048 Strings Ensemble       String Ensemble 1
+000-049 Slow Strings	       String Ensemble 2
+000-050 Synth Strings1	       SynthStrings 1
+000-051 Synth Strings2	       SynthStrings 2
+000-052 Choral Aahs	       Choir Aahs
+000-053 Doo Vox		       Voice Oohs
+000-054 Synth Vox	       Synth Voice
+000-055 Orchestra Hit	       Orchestra Hit
+000-056 Trumpet		       Trumpet
+000-057 Trombones	       Trombone
+000-058 Tubas		       Tuba
+000-059 Mute Trumpet	       Muted Trumpet
+000-060 French Horns	       French Horn
+000-061 Brass Section	       Brass Section
+000-062 Synth Brass 1	       SynthBrass 1
+000-063 Synth Brass 2	       SynthBrass 2
+000-064 Soprano Sax	       Soprano Sax
+000-065 Alto Sax	       Alto Sax
+000-066 Tenor Sax	       Tenor Sax
+000-067 Baritone Sax	       Baritone Sax
+000-068 Oboe		       Oboe
+000-069 English Horn	       English Horn
+000-070 Bassoon		       Bassoon
+000-071 Clarinet	       Clarinet
+000-072 Piccolo		       Piccolo
+000-073 Flute		       Flute
+000-074 Recorder	       Recorder
+000-075 Pan Flute	       Pan Flute
+000-076 Bottle Blow	       Blown Bottle
+000-077 Shakuhachi	       Shakuhachi
+000-078 Whistle		       Whistle
+000-079 Ocarina		       Ocarina
+000-080 Square Lead	       Lead 1 (square)
+000-081 Saw  Wave	       Lead 2 (sawtooth)
+000-082 Calliope Lead	       Lead 3 (calliope)
+000-083 Chiffer Lead	       Lead 4 (chiff)
+000-084 Charang		       Lead 5 (charang)
+000-085 Solo Vox	       Lead 6 (voice)
+000-086 5th Saw Wave	       Lead 7 (fifths)
+000-087 Bass & Lead	       Lead 8 (bass + lead)
+000-088 Fantasia	       Pad 1 (new age)
+000-089 Warm Strings	       Pad 2 (warm)
+000-090 Polysynth	       Pad 3 (polysynth)
+000-091 Voice Pad	       Pad 4 (choir)
+000-092 Bowed Pad	       Pad 5 (bowed)
+000-093 Metal Pad	       Pad 6 (metallic)
+000-094 Halo Pad	       Pad 7 (halo)
+000-095 Sweep Pad	       Pad 8 (sweep)
+000-096 Ice Rain	       FX 1 (rain)
+000-097 SoundTrack	       FX 2 (soundtrack)
+000-098 Crystal		       FX 3 (crystal)
+000-099 Atmosphere	       FX 4 (atmosphere)
+000-100 Brightness	       FX 5 (brightness)
+000-101 Goblin		       FX 6 (goblins)
+000-102 Echo Drops	       FX 7 (echoes)
+000-103 Star Theme	       FX 8 (sci-fi)
+000-104 Sitar		       Sitar
+000-105 Banjo		       Banjo
+000-106 Shamisen	       Shamisen
+000-107 Koto		       Koto
+000-108 Kalimba		       Kalimba
+000-109 Bagpipe		       Bag pipe
+000-110 Fiddle		       Fiddle
+000-111 Shenai		       Shanai
+000-112 Tinker Bell	       Tinkle Bell
+000-113 Agogo		       Agogo
+000-114 Steel Pan	       Steel Drums
+000-115 Woodblock	       Woodblock
+000-116 Taiko Drum	       Taiko Drum
+000-117 Melodic Tom	       Melodic Tom
+000-118 Synth Drum	       Synth Drum
+000-119 Reverse Cymbal	       Reverse Cymbal
+000-120 Op Flute 8	       Guitar Fret Noise
+000-121 Fl 8+4		       Breath Noise
+000-122 St Fl 8+4+2	       Seashore
+000-123 Flute4+Oboe8	       Bird Tweet
+000-124 Diap 8+4+2	       Telephone Ring
+000-125 Diapn16+8+4+2	       Helicopter
+000-126 P Plein jeu	       Applause
+000-127 Flute 8 & St.Flute 4   Gunshot

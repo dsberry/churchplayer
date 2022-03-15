@@ -81,8 +81,8 @@ instruments = {
    'E-Piano 4': 9,
    'Organ 1': 127,
    'Organ 2': 120,
-   'Organ 3':  16,
-   'Organ 4':  20,
+   'Organ 3': 118,
+   'Organ 4': 119,
    'Organ 5': 121,
    'Organ 6': 123,
    'Organ 7': 122,
@@ -94,12 +94,6 @@ instruments = {
    'Vibraphone': 11,
    'Xylophone': 13,
    'Strings': 48
-}
-
-#  Instrument substitutions
-instrument_subs = {
-   '118': instruments['Organ 3'],
-   '119': instruments['Organ 4']
 }
 
 instrumentByNumber = {}
@@ -310,11 +304,6 @@ class Catalogue(dict):
             if nv < self.ncol:
                for i in range(nv,self.ncol):
                   self[ self.colnames[i] ].append( None )
-
-#  Substitute new instruments
-            for key, value in instrument_subs.items():
-               if self[ 'PROG0' ][ -1 ] == key:
-                  self[ 'PROG0' ][ -1 ] = value
 
 #  Traditional hymns should use an organ by default, not a piano.
             if self[ 'TAGS' ][ -1 ] and self[ 'INSTR' ][ -1 ] == "KEYBD":
